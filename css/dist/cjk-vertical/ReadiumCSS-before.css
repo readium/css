@@ -1,5 +1,5 @@
 /*
- * Readium CSS (v. 2.0.0-beta.5)
+ * Readium CSS (v. 2.0.0-beta.6)
  * Developers: Jiminy Panoz 
  * Copyright (c) 2017. Readium Foundation. All rights reserved.
  * Use of this source code is governed by a BSD-style license which is detailed in the
@@ -36,7 +36,8 @@
   --RS__oldStyleTf:'Iowan Old Style', Sitka, 'Sitka Text', Palatino, 'Book Antiqua', 'URW Palladio L', P052, serif;
   --RS__baseFontFamily:var(--RS__oldStyleTf);
   --RS__lineHeightCompensation:1;
-  --RS__baseLineHeight:calc((1em + (2ex - 1ch) - ((1rem - 16px) * 0.1667)) * var(--RS__lineHeightCompensation));
+
+  --RS__baseLineHeight:calc(1.5 * var(--RS__lineHeightCompensation));
 }
 
 html{
