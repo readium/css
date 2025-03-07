@@ -130,32 +130,6 @@ An optional primary accentuation `color` you could use for headings or any other
 
 An optional secondary accentuation `color` you could use for any element of your choice.
 
-## Dynamic leading
-
-Readium CSS automagically finds the ideal `line-height` of the current font and `font-size` in use if the author hasn’t set an explicit value.
-
-We’re using the current algorithm in the `calc()` function:
-
-```
-(1em + (2ex - 1ch) - ((1rem - 16px) * 0.1667)) * var(--RS__lineHeightCompensation))
-```
-
-Therefore, the `line-height` is:
-
-1. `1em` = the size of the `font-size`;
-2. `2ex - 1ch` = 2 x-height - 1 character width (`0`), in order to take the typeface’s proportions into account e.g. if the font has a small x-height, leading will be more solid, and vice versa;
-3. `1rem - 16px` = the current user’s `font-size` minus the one at `100%` (base `font-size`);
-4. `0.1667` = a scale which has been defined from an optimal range ([it is a magic number](https://css-tricks.com/magic-numbers-in-css/) which has been retro-engineered from a set containing hundreds of samples);
-5. `var(--RS__lineHeightCompensation)` is a factor (integer) to compensate a less than ideal `line-height`, especially in non-Latin scripts, where fonts tend to be square-ish.
-
-This isn’t a perfect solution though, and this algorithm may be revisited in the future. Indeed, caveats are:
-
-- leading also depends on line-length, which is not addressed in the algorithm itself, line-length must therefore be constrained by other means – we couldn’t rely on the viewport `width` anyway;
-- sometimes, the User Agent default `font-size` is not `16px` (e.g. Kindle experimental browser, user setting a larger `font-size`, etc.);
-- `0.1667` feels like a magic number, or at least a weird number as it was retrofitted after testing hundreds of typefaces;
-- it’s clearly a natural logarithmic function i.e. it increases rapidly and then slows towards a zero rate of change, which will give mediocre results for very large font sizes (e.g. `400%`);
-- it doesn’t work ideally for slab serif fonts with a large x-height, thick stroke and medium character width i.e. square-ish metrics – we don’t have any in the default font-stacks so we had to introduce a compensation factor to address this particular issue.
-
 ## Conditional Selectors for user settings
 
 User settings are appended on load and won’t have any effect until a user-setting variable is set.

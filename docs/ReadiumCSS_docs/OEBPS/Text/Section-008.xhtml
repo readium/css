@@ -156,8 +156,6 @@
 
           <p>The default line-height for body copy in case the ebook doesn’t have one declared.</p>
 
-          <p>We’re using an algorithm to find the ideal <code>line-height</code> for the current font based on its metrics (see details in the next subsection below).</p>
-
 		  <hr/>
 
 		  <pre><code>--RS__lineHeightCompensation</code></pre>
@@ -166,37 +164,6 @@
 
 		  <p>This variable is redefined by default, in languages and scripts which need compensation due to the characteristics of their average fonts’ metrics.</p>
         </section>
-      </section>
-
-      <section id="dynamic-leading-line-height" class="level3">
-        <h3 class="sigil_not_in_toc">Dynamic leading (line-height)</h3>
-
-        <p>If we don’t provide a base <code>line-height</code> and the author hasn’t explicitely set one, then the <code>normal</code> value will be applied. On average, it is less than <code>1.2</code>, which makes leading quite solid and can quickly become a readability issue with some fonts, especially the ones with a large x-height.</p>
-
-        <p>Readium CSS consequently uses an algorithm to find the ideal leading for each font by default (with a fallback value accomodating every script/language it supports).</p>
-
-        <p>This algorithm tries to:</p>
-
-        <ol>
-          <li>automagically adjust the <code>line-height</code> to the current typeface;</li>
-
-          <li>adjust this ideal <code>line-height</code> it has just computed to the current <code>font-size</code> the user has set.</li>
-        </ol>
-
-        <pre><code>calc((1em + (2ex - 1ch) - ((1rem - 16px) * 0.1667)) * var(--RS__lineHeightCompensation))</code></pre>
-
-        <p>In which, <code>--RS__lineHeightCompensation</code> is a factor whose default is <code>1</code>. Indeed, the <code>line-height</code> is usually 15–20% larger in CJK than in other scripts/languages (factor of <code>1.167</code>), but it can also used for square-ish fonts, especially in Indic.</p>
-
-        <p>The results we could get for the vast majority of fonts can be described as good in terms of typographic color. Here is Iowan Old Style for instance.</p>
-
-        <figure>
-          <img src="../Images/dynamic-leading.jpg" alt="Comparison of the algorithm using four different font-sizes with the Iowan Old Style typeface. We can notice that the leading applied is solider as font-size increases, which results in a relatively even distribution of typographic color. This is confirmed by the computed values retrieved in the tool ReadiumCSS provides for testing."/>
-
-        </figure>
-
-        <p>This isn’t a perfect solution though, and this algorithm may be revisited in the future.</p>
-
-        <p>See <a href="../Text/Section-018.xhtml">Further Details</a> for an extensive explanation.</p>
       </section>
     </section>
 

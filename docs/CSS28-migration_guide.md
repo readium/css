@@ -173,3 +173,9 @@ Previously, you had to rely on day, sepia, and night mode to enforce the color o
 These decisions are now made to consumers’ discretion, which means they can invert images in their darkest custom themes without having to override ReadiumCSS’ night mode colors for instance, or offer these features to users as they see fit – globally or scoped to a subset of themes – in their app. 
 
 **Note you’ll have to take gaiji into account in dark custom themes as inverting them so that they match the color of text can only be done automatically in readiumCSS’ own night mode.**
+
+## Removal of Dynamic Leading
+
+Since version `2.0.0-beta.6`, ReadiumCSS is no longer using an algorithm to guess the ideal line-height for each font, and recompute it on font-size change, as it created issues with the new font-size setting implementation. 
+
+It simply uses value `1.5` for [accessibility purposes](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height#accessibility), and compensates this value for various languages (e.g. CJK).

@@ -150,8 +150,6 @@ Please note some languages have a specific font-stack (japanese, chinese, hindi,
 
 The default line-height for body copy in case the ebook doesn’t have one declared.
 
-We’re using an algorithm to find the ideal `line-height` for the current font based on its metrics (see details in the next subsection below).
-
 * * *
 
 ```
@@ -161,31 +159,6 @@ We’re using an algorithm to find the ideal `line-height` for the current font 
 The compensation factor (integer) the dynamic leading pseudo-algorithm must apply, if used. Default is `1` i.e. no compensation.
 
 This variable is redefined by default, in languages and scripts which need compensation due to the characteristics of their average fonts’ metrics.
-
-### Dynamic leading (line-height)
-
-If we don’t provide a base `line-height` and the author hasn’t explicitely set one, then the `normal` value will be applied. On average, it is less than `1.2`, which makes leading quite solid and can quickly become a readability issue with some fonts, especially the ones with a large x-height.
-
-Readium CSS consequently uses an algorithm to find the ideal leading for each font by default (with a fallback value accomodating every script/language it supports).
-
-This algorithm tries to:
-
-1. automagically adjust the `line-height` to the current typeface;
-2. adjust this ideal `line-height` it has just computed to the current `font-size` the user has set.
-
-```
-calc((1em + (2ex - 1ch) - ((1rem - 16px) * 0.1667)) * var(--RS__lineHeightCompensation))
-```
-
-In which, `--RS__lineHeightCompensation` is a factor whose default is `1`. Indeed, the `line-height` is usually 15–20% larger in CJK than in other scripts/languages (factor of `1.167`), but it can also used for square-ish fonts, especially in Indic.
-
-The results we could get for the vast majority of fonts can be described as good in terms of typographic color. Here is Iowan Old Style for instance.
-
-![Comparison of the algorithm using four different font-sizes with the Iowan Old Style typeface. We can notice that the leading applied is solider as font-size increases, which results in a relatively even distribution of typographic color. This is confirmed by the computed values retrieved in the tool ReadiumCSS provides for testing.](assets/dynamic-leading.jpg)
-
-This isn’t a perfect solution though, and this algorithm may be revisited in the future.
-
-See [Further Details](../docs/CSS18-further_details.md) for an extensive explanation.
 
 ## Day Mode
 

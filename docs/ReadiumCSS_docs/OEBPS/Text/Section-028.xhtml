@@ -208,6 +208,14 @@ const sepiaBackground = sepiaMode.sepiaMode.RS__backgroundColor;</code></pre>
 
       <p><strong>Note you’ll have to take gaiji into account in dark custom themes as inverting them so that they match the color of text can only be done automatically in readiumCSS’ own night mode.</strong></p>
     </section>
+
+    <section id="theming-improvements" class="level2">
+      <h2 id="sigil_toc_id_211">Removal of Dynamic Leading</h2>
+
+      <p>Since version <code>2.0.0-beta.6</code>, ReadiumCSS is no longer using an algorithm to guess the ideal line-height for each font, and recompute it on font-size change, as it created issues with the new font-size setting implementation.</p> 
+
+      <p>It simply uses value <code>1.5</code> for <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/line-height#accessibility">accessibility purposes</a>, and compensates this value for various languages (e.g. CJK).</p>
+    </section>
   </section>
 </body>
 </html>
