@@ -861,7 +861,7 @@ Increasing and decreasing the root `font-size`. It will serve as a reference for
 
 Scope: `html`
 
-Possible values: unitless `number` or percentage.
+Possible values: percentage.
 
 Override class: User settings (should be applied by any means necessary)
 
