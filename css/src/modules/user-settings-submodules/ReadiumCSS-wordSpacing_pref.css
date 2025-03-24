@@ -6,14 +6,14 @@
 
    Repo: https://github.com/readium/readium-css */
 
-:root:--advanced-settings[style*="--USER__wordSpacing"] h1,
-:root:--advanced-settings[style*="--USER__wordSpacing"] h2,
-:root:--advanced-settings[style*="--USER__wordSpacing"] h3,
-:root:--advanced-settings[style*="--USER__wordSpacing"] h4,
-:root:--advanced-settings[style*="--USER__wordSpacing"] h5,
-:root:--advanced-settings[style*="--USER__wordSpacing"] h6,
-:root:--advanced-settings[style*="--USER__wordSpacing"] p,
-:root:--advanced-settings[style*="--USER__wordSpacing"] li,
-:root:--advanced-settings[style*="--USER__wordSpacing"] div {
+:root[style*="--USER__wordSpacing"] h1,
+:root[style*="--USER__wordSpacing"] h2,
+:root[style*="--USER__wordSpacing"] h3,
+:root[style*="--USER__wordSpacing"] h4,
+:root[style*="--USER__wordSpacing"] h5,
+:root[style*="--USER__wordSpacing"] h6,
+:root[style*="--USER__wordSpacing"] p,
+:root[style*="--USER__wordSpacing"] li,
+:root[style*="--USER__wordSpacing"] div {
   word-spacing: var(--USER__wordSpacing);
 }

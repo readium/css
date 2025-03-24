@@ -6,7 +6,7 @@
 
    Repo: https://github.com/readium/readium-css */
 
-:root:--advanced-settings[style*="--USER__paraSpacing"] p {
+:root[style*="--USER__paraSpacing"] p {
   margin-top: var(--USER__paraSpacing) !important;
   margin-bottom: var(--USER__paraSpacing) !important;
 }
