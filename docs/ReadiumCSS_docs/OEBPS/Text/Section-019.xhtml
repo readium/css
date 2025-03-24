@@ -80,13 +80,13 @@
 
       <hr/>
 
-      <pre><code>:--advanced-settings</code></pre>
+      <pre><code>:--fs-normalize</code></pre>
 
-      <p>Preset: <code>--USER__advancedSettings: readium-advanced-on</code></p>
+      <p>Preset: <code>--USER__fontSizeNormalize: readium-normalize-on</code></p>
 
       <p>Scope: <code>html</code></p>
 
-      <p>Override class: None. This flag is required to apply the <code>font-family</code> and advanced user settings.</p>
+      <p>Override class: None. This flag can be used to force font-size normalization if the browser/rendering engine does not support CSS property <code>zoom</code> and the book’s styles are using absolute units, breaking the font-size user submodule.</p>
 
       <hr/>
 
@@ -197,8 +197,6 @@
 	    <p>Preset: <code>--USER__noRuby: readium-noRuby-on</code></p>
 
 	    <p>Scope: <code>html</code></p>
-
-	    <p>Required flag: <code>:--advancedSettings</code></p>
 
 	    <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
 
@@ -714,8 +712,6 @@
 
       <p>Possible values: <code>left</code> (LTR) or <code>right</code> (RTL) | <code>start</code> (logical property resolving to <code>left</code> in LTR, <code>right</code> in RTL) | <code>justify</code></p>
 
-      <p>Required flag: <code>:--advancedSettings</code></p>
-
       <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
 
       <p>Note: the value <code>start</code> can be used to let all rendering engines, excepted Trident (IE11) and EdgeHTML (Edge), automatically deal with <code>left</code> and <code>right</code> based on the direction (<code>dir</code> attribute) set for the document and its nested elements.</p>
@@ -731,8 +727,6 @@
       <p>It impacts <code>body</code>, <code>p</code>, <code>li</code>, <code>div</code> and <code>dd</code>.</p>
 
       <p>Possible Values: <code>auto</code> | <code>none</code></p>
-
-      <p>Required flag: <code>:--advancedSettings</code></p>
 
       <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
 
@@ -784,8 +778,6 @@
 
       <p>Recommended values: a range from <code>1</code> to <code>2</code>. Increments are left to implementers’ judgment.</p>
 
-      <p>Required flag: <code>:--advancedSettings</code></p>
-
       <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
 
       <hr/>
@@ -797,8 +789,6 @@
       <p>Scope: <code>p</code></p>
 
       <p>Recommended values: a range from <code>0</code> to <code>2rem</code>. Increments are left to implementers’ judgment.</p>
-
-      <p>Required flag: <code>:--advancedSettings</code></p>
 
       <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
 
@@ -812,8 +802,6 @@
 
       <p>Recommended values: a range from <code>0</code> to <code>3rem</code>. Increments are left to implementers’ judgment.</p>
 
-      <p>Required flag: <code>:--advancedSettings</code></p>
-
       <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
 
       <hr/>
@@ -826,8 +814,6 @@
 
       <p>Recommended values: a range from <code>0</code> to <code>1rem</code>. Increments are left to implementers’ judgment.</p>
 
-      <p>Required flag: <code>:--advancedSettings</code></p>
-
       <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
 
       <hr/>
@@ -839,8 +825,6 @@
       <p>Scope: <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>, <code>h6</code>, <code>p</code>, <code>li</code>, <code>div</code></p>
 
       <p>Recommended values: a range from <code>0</code> to <code>0.5rem</code>. Increments are left to implementers’ judgment.</p>
-
-      <p>Required flag: <code>:--advancedSettings</code></p>
 
       <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
 
@@ -855,8 +839,6 @@
       <p>It impacts all text.</p>
 
       <p>Possible values: <code>none</code> | <code>common-ligatures</code></p>
-
-      <p>Required flag: <code>:--advancedSettings</code></p>
 
       <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
 

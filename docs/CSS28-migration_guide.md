@@ -179,3 +179,13 @@ These decisions are now made to consumers’ discretion, which means they can in
 Since version `2.0.0-beta.6`, ReadiumCSS is no longer using an algorithm to guess the ideal line-height for each font, and recompute it on font-size change, as it created issues with the new font-size setting implementation. 
 
 It simply uses value `1.5` for [accessibility purposes](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height#accessibility), and compensates this value for various languages (e.g. CJK).
+
+## Removal of advanced settings flag
+
+Since version `2.0.0-beta.7`, ReadiumCSS is no longer requiring the advanced flag `--USER__advancedSettings: readium-advanced-on` to be appended for advanced user settings (e.g. line-height, text-align, letter-spacing, etc.).
+
+These settings now work without the flag. This provides with more flexibility since implementers can now pick what they want to put under publisher’s styles, should they have such a toggle.
+
+It’s been replaced with the flag `--USER__fontSizeNormalize: readium-normalize-on`, whose purpose is to simply force ReadiumCSS 1’s normalization so that the font-size user setting can be guaranteed to work on all publications, even if the book’s font-sizing is styled using absolute units. 
+
+This repurposed flag can be appended as you see fit, when CSS property `zoom` is not supported: you can present it as a toggle to users, or append it programmatically, or append it automatically, etc.

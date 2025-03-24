@@ -77,14 +77,14 @@ Override class: None. This flag is required to change the `font-family` user set
 * * * 
 
 ```
-:--advanced-settings
+:--fs-normalize
 ```
 
-Preset: `--USER__advancedSettings: readium-advanced-on`
+Preset: `--USER__fontSizeNormalize: readium-normalize-on`
 
 Scope: `html`
 
-Override class: None. This flag is required to apply the `font-family` and advanced user settings.
+Override class: None. This flag can be used to force font-size normalization if the browser/rendering engine does not support CSS property `zoom` and the book’s styles are using absolute units, breaking the font-size user submodule.
 
 * * * 
 
@@ -214,8 +214,6 @@ It impacts font style, weight and variant, text decoration, super and subscripts
 Preset: `--USER__noRuby: readium-noRuby-on`
 
 Scope: `html`
-
-Required flag: `:--advancedSettings`
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
@@ -803,8 +801,6 @@ It impacts `body`, `li`, and `p` which are not children of `blockquote` and `fig
 
 Possible values: `left` (LTR) or `right` (RTL) | `start` (logical property resolving to `left` in LTR, `right` in RTL) | `justify`
 
-Required flag: `:--advancedSettings`
-
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
 Note: the value `start` can be used to let all rendering engines, excepted Trident (IE11) and EdgeHTML (Edge), automatically deal with `left` and `right` based on the direction (`dir` attribute) set for the document and its nested elements.
@@ -822,8 +818,6 @@ Scope: `html`
 It impacts `body`, `p`, `li`, `div` and `dd`.
 
 Possible Values: `auto` | `none`
-
-Required flag: `:--advancedSettings`
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
@@ -881,8 +875,6 @@ It impacts `body`, `p`, `li` and `div`
 
 Recommended values: a range from `1` to `2`. Increments are left to implementers’ judgment.
 
-Required flag: `:--advancedSettings`
-
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
 * * *
@@ -896,8 +888,6 @@ The vertical margins (`margin-top` and `margin-bottom`) for paragraphs.
 Scope: `p`
 
 Recommended values: a range from `0` to `2rem`. Increments are left to implementers’ judgment.
-
-Required flag: `:--advancedSettings`
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
@@ -913,8 +903,6 @@ Scope: `p`
 
 Recommended values: a range from `0` to `3rem`. Increments are left to implementers’ judgment.
 
-Required flag: `:--advancedSettings`
-
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
 * * *
@@ -929,8 +917,6 @@ Scope: `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `p`, `li`, `div`
 
 Recommended values: a range from `0` to `1rem`. Increments are left to implementers’ judgment.
 
-Required flag: `:--advancedSettings`
-
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
 * * *
@@ -944,8 +930,6 @@ Increasing space between letters (`letter-spacing`, related to a11y).
 Scope: `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `p`, `li`, `div`
 
 Recommended values: a range from `0` to `0.5rem`. Increments are left to implementers’ judgment.
-
-Required flag: `:--advancedSettings`
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
@@ -962,8 +946,6 @@ Scope: `html`
 It impacts all text.
 
 Possible values: `none` | `common-ligatures`
-
-Required flag: `:--advancedSettings`
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 

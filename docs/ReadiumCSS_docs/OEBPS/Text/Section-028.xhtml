@@ -209,12 +209,24 @@ const sepiaBackground = sepiaMode.sepiaMode.RS__backgroundColor;</code></pre>
       <p><strong>Note you’ll have to take gaiji into account in dark custom themes as inverting them so that they match the color of text can only be done automatically in readiumCSS’ own night mode.</strong></p>
     </section>
 
-    <section id="theming-improvements" class="level2">
+    <section id="dynamic-leading" class="level2">
       <h2 id="sigil_toc_id_211">Removal of Dynamic Leading</h2>
 
       <p>Since version <code>2.0.0-beta.6</code>, ReadiumCSS is no longer using an algorithm to guess the ideal line-height for each font, and recompute it on font-size change, as it created issues with the new font-size setting implementation.</p> 
 
       <p>It simply uses value <code>1.5</code> for <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/line-height#accessibility">accessibility purposes</a>, and compensates this value for various languages (e.g. CJK).</p>
+    </section>
+
+    <section id="advanced-flag" class="level2">
+      <h2 id="sigil_toc_id_212">Removal of advanced settings flag</h2>
+
+      <p>Since version <code>2.0.0-beta.7</code>, ReadiumCSS is no longer requiring the advanced flag <code>--USER__advancedSettings: readium-advanced-on</code> to be appended for advanced user settings (e.g. line-height, text-align, letter-spacing, etc.).</p>
+
+      <p>These settings now work without the flag. This provides with more flexibility since implementers can now pick what they want to put under publisher’s styles, should they have such a toggle.</p>
+
+      <p>It’s been replaced with the flag <code>--USER__fontSizeNormalize: readium-normalize-on</code>, whose purpose is to simply force ReadiumCSS 1’s normalization so that the font-size user setting can be guaranteed to work on all publications, even if the book’s font-sizing is styled using absolute units.</p>
+
+      <p>This repurposed flag can be appended as you see fit, when CSS property <code>zoom</code> is not supported: you can present it as a toggle to users, or append it programmatically, or append it automatically, etc.</p>
     </section>
   </section>
 </body>
