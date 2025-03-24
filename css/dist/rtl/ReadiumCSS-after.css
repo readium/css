@@ -1,5 +1,5 @@
 /*
- * Readium CSS (v. 2.0.0-beta.6)
+ * Readium CSS (v. 2.0.0-beta.7)
  * Developers: Jiminy Panoz 
  * Copyright (c) 2017. Readium Foundation. All rights reserved.
  * Use of this source code is governed by a BSD-style license which is detailed in the
@@ -320,13 +320,13 @@ body{
     max-width:var(--USER__lineLength) !important;
   }
 
-:root[style*="readium-advanced-on"][style*="--USER__textAlign"]{
+:root[style*="--USER__textAlign"]{
   text-align:var(--USER__textAlign);
 }
 
-:root[style*="readium-advanced-on"][style*="--USER__textAlign"] body,
-:root[style*="readium-advanced-on"][style*="--USER__textAlign"] *:not(blockquote):not(figcaption) p,
-:root[style*="readium-advanced-on"][style*="--USER__textAlign"] li{
+:root[style*="--USER__textAlign"] body,
+:root[style*="--USER__textAlign"] *:not(blockquote):not(figcaption) p,
+:root[style*="--USER__textAlign"] li{
   text-align:var(--USER__textAlign) !important;
   -moz-text-align-last:auto !important;
   -epub-text-align-last:auto !important;
@@ -352,48 +352,48 @@ body{
   }
 }
 
-:root[style*="readium-advanced-on"][style*="--USER__lineHeight"]{
+:root[style*="--USER__lineHeight"]{
   line-height:var(--USER__lineHeight) !important;
 }
 
-:root[style*="readium-advanced-on"][style*="--USER__lineHeight"] body,
-:root[style*="readium-advanced-on"][style*="--USER__lineHeight"] p,
-:root[style*="readium-advanced-on"][style*="--USER__lineHeight"] li,
-:root[style*="readium-advanced-on"][style*="--USER__lineHeight"] div{
+:root[style*="--USER__lineHeight"] body,
+:root[style*="--USER__lineHeight"] p,
+:root[style*="--USER__lineHeight"] li,
+:root[style*="--USER__lineHeight"] div{
   line-height:inherit;
 }
 
-:root[style*="readium-advanced-on"][style*="--USER__paraSpacing"] p{
+:root[style*="--USER__paraSpacing"] p{
   margin-top:var(--USER__paraSpacing) !important;
   margin-bottom:var(--USER__paraSpacing) !important;
 }
 
-:root[style*="readium-advanced-on"][style*="--USER__paraIndent"] p{
+:root[style*="--USER__paraIndent"] p{
   text-indent:var(--USER__paraIndent) !important;
 }
 
-:root[style*="readium-advanced-on"][style*="--USER__paraIndent"] p *,
-:root[style*="readium-advanced-on"][style*="--USER__paraIndent"] p:first-letter{
+:root[style*="--USER__paraIndent"] p *,
+:root[style*="--USER__paraIndent"] p:first-letter{
   text-indent:0 !important;
 }
 
-:root[style*="readium-advanced-on"][style*="--USER__wordSpacing"] h1,
-:root[style*="readium-advanced-on"][style*="--USER__wordSpacing"] h2,
-:root[style*="readium-advanced-on"][style*="--USER__wordSpacing"] h3,
-:root[style*="readium-advanced-on"][style*="--USER__wordSpacing"] h4,
-:root[style*="readium-advanced-on"][style*="--USER__wordSpacing"] h5,
-:root[style*="readium-advanced-on"][style*="--USER__wordSpacing"] h6,
-:root[style*="readium-advanced-on"][style*="--USER__wordSpacing"] p,
-:root[style*="readium-advanced-on"][style*="--USER__wordSpacing"] li,
-:root[style*="readium-advanced-on"][style*="--USER__wordSpacing"] div{
+:root[style*="--USER__wordSpacing"] h1,
+:root[style*="--USER__wordSpacing"] h2,
+:root[style*="--USER__wordSpacing"] h3,
+:root[style*="--USER__wordSpacing"] h4,
+:root[style*="--USER__wordSpacing"] h5,
+:root[style*="--USER__wordSpacing"] h6,
+:root[style*="--USER__wordSpacing"] p,
+:root[style*="--USER__wordSpacing"] li,
+:root[style*="--USER__wordSpacing"] div{
   word-spacing:var(--USER__wordSpacing);
 }
 
-:root[style*="readium-advanced-on"][style*="--USER__ligatures"]{
+:root[style*="--USER__ligatures"]{
   font-variant-ligatures:var(--USER__ligatures) !important;
 }
 
-:root[style*="readium-advanced-on"][style*="--USER__ligatures"] *{
+:root[style*="--USER__ligatures"] *{
   font-variant-ligatures:inherit !important;
 }
 
@@ -472,57 +472,57 @@ body{
 
 @supports not (zoom: 1){
 
-  :root[style*="readium-advanced-on"]{
+  :root[style*="readium-normalize-on"]{
     --USER__typeScale:1.2;
   }
 
-  :root[style*="readium-advanced-on"] p,
-  :root[style*="readium-advanced-on"] li,
-  :root[style*="readium-advanced-on"] div,
-  :root[style*="readium-advanced-on"] pre,
-  :root[style*="readium-advanced-on"] dd{
+  :root[style*="readium-normalize-on"] p,
+  :root[style*="readium-normalize-on"] li,
+  :root[style*="readium-normalize-on"] div,
+  :root[style*="readium-normalize-on"] pre,
+  :root[style*="readium-normalize-on"] dd{
     font-size:1rem !important;
   }
 
-  :root[style*="readium-advanced-on"] h1{
+  :root[style*="readium-normalize-on"] h1{
     font-size:1.75rem !important;
     font-size:calc(((1rem * var(--USER__typeScale)) * var(--USER__typeScale)) * var(--USER__typeScale)) !important;
   }
 
-  :root[style*="readium-advanced-on"] h2{
+  :root[style*="readium-normalize-on"] h2{
     font-size:1.5rem !important;
     font-size:calc((1rem * var(--USER__typeScale)) * var(--USER__typeScale)) !important;
   }
 
-  :root[style*="readium-advanced-on"] h3{
+  :root[style*="readium-normalize-on"] h3{
     font-size:1.25rem !important;
     font-size:calc(1rem * var(--USER__typeScale)) !important;
   }
 
-  :root[style*="readium-advanced-on"] h4,
-  :root[style*="readium-advanced-on"] h5,
-  :root[style*="readium-advanced-on"] h6{
+  :root[style*="readium-normalize-on"] h4,
+  :root[style*="readium-normalize-on"] h5,
+  :root[style*="readium-normalize-on"] h6{
     font-size:1rem !important;
   }
 
-  :root[style*="readium-advanced-on"] small{
+  :root[style*="readium-normalize-on"] small{
     font-size:smaller !important;
   }
 
-  :root[style*="readium-advanced-on"] sub,
-  :root[style*="readium-advanced-on"] sup{
+  :root[style*="readium-normalize-on"] sub,
+  :root[style*="readium-normalize-on"] sup{
     font-size:67.5% !important;
   }
 
-  :root[style*="readium-advanced-on"][style*="--USER__typeScale"] h1{
+  :root[style*="readium-normalize-on"][style*="--USER__typeScale"] h1{
     font-size:calc(((1rem * var(--USER__typeScale)) * var(--USER__typeScale)) * var(--USER__typeScale)) !important;
   }
 
-  :root[style*="readium-advanced-on"][style*="--USER__typeScale"] h2{
+  :root[style*="readium-normalize-on"][style*="--USER__typeScale"] h2{
     font-size:calc((1rem * var(--USER__typeScale)) * var(--USER__typeScale)) !important;
   }
 
-  :root[style*="readium-advanced-on"][style*="--USER__typeScale"] h3{
+  :root[style*="readium-normalize-on"][style*="--USER__typeScale"] h3{
     font-size:calc(1rem * var(--USER__typeScale)) !important;
   }
 }
