@@ -18,8 +18,8 @@
 /* Font-family override */
 @custom-selector :--font-override [style*="readium-font-on"];
 
-/* Advanced settings */
-@custom-selector :--advanced-settings [style*="readium-advanced-on"];
+/* Font-size normalization for engines that don’t support zoom */
+@custom-selector :--fs-normalize [style*="readium-normalize-on"];
 
 /* Reading Modes */
 @custom-selector :--sepia-mode [style*="readium-sepia-on"];
