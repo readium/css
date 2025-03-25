@@ -6,28 +6,6 @@
 
    Repo: https://github.com/readium/readium-css */
 
-/* Managing hyphenation automatically for text-align values */
-
-:root[style*="--USER__textAlign: justify"] body,
-:root[style*="--USER__textAlign:justify"] body {
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  -epub-hyphens: auto;
-  hyphens: auto;
-}
-
-:root[style*="--USER__textAlign: left"] body,
-:root[style*="--USER__textAlign:left"] body,
-:root[style*="--USER__textAlign: right"] body,
-:root[style*="--USER__textAlign:right"] body {
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  -epub-hyphens: none;
-  hyphens: none;
-}
-
 /* Managing the user override */
 
 :root[style*="--USER__bodyHyphens"] {
