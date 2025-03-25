@@ -325,8 +325,9 @@ body{
 }
 
 :root[style*="--USER__textAlign"] body,
-:root[style*="--USER__textAlign"] *:not(blockquote):not(figcaption) p,
-:root[style*="--USER__textAlign"] li{
+:root[style*="--USER__textAlign"] p:not(blockquote p):not(figcaption p):not(hgroup p),
+:root[style*="--USER__textAlign"] li,
+:root[style*="--USER__textAlign"] dd{
   text-align:var(--USER__textAlign) !important;
   -moz-text-align-last:auto !important;
   -epub-text-align-last:auto !important;
@@ -385,7 +386,9 @@ body{
 :root[style*="--USER__wordSpacing"] h6,
 :root[style*="--USER__wordSpacing"] p,
 :root[style*="--USER__wordSpacing"] li,
-:root[style*="--USER__wordSpacing"] div{
+:root[style*="--USER__wordSpacing"] div,
+:root[style*="--USER__wordSpacing"] dt,
+:root[style*="--USER__wordSpacing"] dd{
   word-spacing:var(--USER__wordSpacing);
 }
 

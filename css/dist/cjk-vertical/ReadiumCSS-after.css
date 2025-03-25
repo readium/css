@@ -360,15 +360,17 @@ body{
   font-optical-sizing:var(--USER__fontOpticalSizing) !important;
 }
 
-:root[style*="--USER__letterSpacing"] h1,
-:root[style*="--USER__letterSpacing"] h2,
-:root[style*="--USER__letterSpacing"] h3,
-:root[style*="--USER__letterSpacing"] h4,
-:root[style*="--USER__letterSpacing"] h5,
-:root[style*="--USER__letterSpacing"] h6,
-:root[style*="--USER__letterSpacing"] p,
-:root[style*="--USER__letterSpacing"] li,
-:root[style*="--USER__letterSpacing"] div{
+:root[style*="--USER__wordSpacing"] h1,
+:root[style*="--USER__wordSpacing"] h2,
+:root[style*="--USER__wordSpacing"] h3,
+:root[style*="--USER__wordSpacing"] h4,
+:root[style*="--USER__wordSpacing"] h5,
+:root[style*="--USER__wordSpacing"] h6,
+:root[style*="--USER__wordSpacing"] p,
+:root[style*="--USER__wordSpacing"] li,
+:root[style*="--USER__wordSpacing"] div,
+:root[style*="--USER__wordSpacing"] dt,
+:root[style*="--USER__wordSpacing"] dd{
   letter-spacing:var(--USER__letterSpacing);
   font-variant:none;
 }
