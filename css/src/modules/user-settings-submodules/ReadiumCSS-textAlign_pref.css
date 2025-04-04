@@ -6,13 +6,14 @@
 
    Repo: https://github.com/readium/readium-css */
 
-:root:--advanced-settings[style*="--USER__textAlign"] {
+:root[style*="--USER__textAlign"] {
   text-align: var(--USER__textAlign);
 }
 
-:root:--advanced-settings[style*="--USER__textAlign"] body,
-:root:--advanced-settings[style*="--USER__textAlign"] *:not(blockquote):not(figcaption) p,
-:root:--advanced-settings[style*="--USER__textAlign"] li {
+:root[style*="--USER__textAlign"] body,
+:root[style*="--USER__textAlign"] p:not(blockquote p):not(figcaption p):not(hgroup p),
+:root[style*="--USER__textAlign"] li,
+:root[style*="--USER__textAlign"] dd {
   text-align: var(--USER__textAlign) !important;
   -moz-text-align-last: auto !important;
   -epub-text-align-last: auto !important;

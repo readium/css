@@ -60,13 +60,7 @@ As an example, if you want to use a CSS class for night mode, it could look like
 @custom-selector :--night-mode .night-mode;
 ```
 
-And if you want to use custom attributes for advanced settings, it could look like:
-
-```
-@custom-selector :--advanced-settings [data-settings="advanced"];
-```
-
-Both would then have to be appended to `html` at runtime.
+It would then have to be appended to `html` at runtime.
 
 Once again, you must rebuild `dist` stylesheets.
 
@@ -171,7 +165,6 @@ Please note you must implement a fallback strategy if you want to support Intern
 To change hyphenation and justification you would do the following:
 
 ```
-root.style.setProperty("--USER__advancedSettings", "readium-advanced-on");
 root.style.setProperty("--USER__textAlign", "justify");
 root.style.setProperty("--USER__bodyHyphens", "auto");
 ```

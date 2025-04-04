@@ -35,7 +35,7 @@
       <p>User settings require the following process:</p>
 
       <ol>
-        <li>add the flag and its value to <code>html</code> when applicable (font override, font size and/or advanced setting);</li>
+        <li>add the flag and its value to <code>html</code> when applicable (font override, a11y normalization);</li>
 
         <li>add the setting-specific variable and its value to <code>html</code>;</li>
 
@@ -109,18 +109,16 @@ root.style.setProperty("name of var", "");</code></pre>
         <p>To switch back to the publisher’s font, you can either set an empty string as a value or remove the property.</p>
       </section>
 
-      <section id="advanced-settings" class="level3">
-        <h3 class="sigil_not_in_toc">Advanced Settings</h3>
+      <section id="font-size-normalization" class="level3">
+        <h3 class="sigil_not_in_toc">Font Size Normalization</h3>
 
-        <p>Acts as an explicit switch to override the publisher’s styles.</p>
+        <p>Acts as an explicit switch to orce font-normalization in publications whose font-sizing is declared using CSS absolute units, breaking the font-size user setting in engines that don’t support CSS property <code>zoom</code>.</p>
 
-        <p>If you provide users with a “Publisher’s styles” toggle, it must be enabled and disabled accordingly.</p>
+        <pre><code>--USER__fontSizeNormalize</code></pre>
 
-        <pre><code>--USER__advancedSettings</code></pre>
+        <p>Supported value: <code>readium-normalize-on</code></p>
 
-        <p>Supported value: <code>readium-advanced-on</code></p>
-
-        <p>Override class: None. This flag is required to apply the <code>font-family</code> and advanced user settings.</p>
+        <p>Override class: None.</p>
 
         <p>To switch back to the publisher’s styles, you can either set an empty string as a value or remove the property. This will disable all advanced settings requiring the flag.</p>
       </section>
@@ -185,9 +183,7 @@ root.style.setProperty("name of var", "");</code></pre>
         <pre><code>--USER__no-ruby</code></pre>
     
         <p>Supported value: <code>readium-noRuby-on</code></p>
-    
-        <p>Required flag: <code>--USER__advancedSettings: readium-advanced-on</code></p>
-    
+        
         <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
     
         <p>To disable the hiding and show ruby annotations, you can either set an empty string as a value of remove the property.</p>
@@ -275,8 +271,6 @@ root.style.setProperty("name of var", "");</code></pre>
 
           <p>Possible values: <code>left</code> (LTR) or <code>right</code> (RTL) | <code>start</code> (logical property resolving to <code>left</code> in LTR, <code>right</code> in RTL) | <code>justify</code></p>
 
-          <p>Required flag: <code>--USER__advancedSettings: readium-advanced-on</code></p>
-
           <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
 
           <p>Note: the value <code>start</code> can be used to let all rendering engines, excepted Trident (IE11) and EdgeHTML (Edge), automatically deal with <code>left</code> and <code>right</code> based on the direction (<code>dir</code> attribute) set for the document and its nested elements.</p>
@@ -288,8 +282,6 @@ root.style.setProperty("name of var", "");</code></pre>
           <pre><code>--USER__bodyHyphens</code></pre>
 
           <p>Possible Values: <code>auto</code> | <code>none</code></p>
-
-          <p>Required flag: <code>--USER__advancedSettings: readium-advanced-on</code></p>
 
           <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
 
@@ -327,13 +319,11 @@ root.style.setProperty("name of var", "");</code></pre>
 
           <p>Although this approach was backed by actual data (published books), it was an issue to authors and, occasionally, readers too.</p>
 
-          <p>In version 2, this normalization is deprecated, and will only be used behind the scenes when there is no other way to make the font-size setting work reliably.</p>
+          <p>In version 2, this normalization is deprecated, and will only be used behind the scenes when there is no other way to make the font-size setting work reliably, using the new flag <code>--USER__fontSizeNormalize: readium-normalize-on</code>.</p>
 
           <pre><code>--USER__fontSize</code></pre>
 
           <p>Recommended values: a range from <code>75%</code> to <code>250%</code>. Increments are left to implementers’ judgment.</p>
-
-          <p>Required flag: <code>--USER__advancedSettings: readium-advanced-on</code></p>
 
           <p>Override class: User settings (should be applied by any means necessary)</p>
         </section>
@@ -344,8 +334,6 @@ root.style.setProperty("name of var", "");</code></pre>
           <pre><code>--USER__lineHeight</code></pre>
 
           <p>Recommended values: a range from <code>1</code> to <code>2</code>. Increments are left to implementers’ judgment.</p>
-
-          <p>Required flag: <code>--USER__advancedSettings: readium-advanced-on</code></p>
 
           <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
         </section>
@@ -363,8 +351,6 @@ root.style.setProperty("name of var", "");</code></pre>
 
           <p>Recommended values: a range from <code>0</code> to <code>2rem</code>. Increments are left to implementers’ judgment.</p>
 
-          <p>Required flag: <code>--USER__advancedSettings: readium-advanced-on</code></p>
-
           <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
         </section>
 
@@ -374,8 +360,6 @@ root.style.setProperty("name of var", "");</code></pre>
           <pre><code>--USER__paraIndent</code></pre>
 
           <p>Recommended values: a range from <code>0</code> to <code>3rem</code>. Increments are left to implementers’ judgment.</p>
-
-          <p>Required flag: <code>--USER__advancedSettings: readium-advanced-on</code></p>
 
           <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
         </section>
@@ -393,8 +377,6 @@ root.style.setProperty("name of var", "");</code></pre>
 
           <p>Recommended values: a range from <code>0</code> to <code>1rem</code>. Increments are left to implementers’ judgment.</p>
 
-          <p>Required flag: <code>--USER__advancedSettings: readium-advanced-on</code></p>
-
           <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
         </section>
 
@@ -405,8 +387,6 @@ root.style.setProperty("name of var", "");</code></pre>
 
           <p>Recommended values: a range from <code>0</code> to <code>0.5rem</code>. Increments are left to implementers’ judgment.</p>
 
-          <p>Required flag: <code>--USER__advancedSettings: readium-advanced-on</code></p>
-
           <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
         </section>
 
@@ -416,8 +396,6 @@ root.style.setProperty("name of var", "");</code></pre>
           <pre><code>--USER__ligatures</code></pre>
 
           <p>Possible values: <code>none</code> | <code>common-ligatures</code></p>
-
-          <p>Required flag: <code>--USER__advancedSettings: readium-advanced-on</code></p>
 
           <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
         </section>

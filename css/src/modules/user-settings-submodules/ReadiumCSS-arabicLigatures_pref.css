@@ -6,10 +6,10 @@
 
    Repo: https://github.com/readium/readium-css */
 
-:root:--advanced-settings[style*="--USER__ligatures"] {
+:root[style*="--USER__ligatures"] {
   font-variant-ligatures: var(--USER__ligatures) !important;
 }
 
-:root:--advanced-settings[style*="--USER__ligatures"] * {
+:root[style*="--USER__ligatures"] * {
   font-variant-ligatures: inherit !important;
 }

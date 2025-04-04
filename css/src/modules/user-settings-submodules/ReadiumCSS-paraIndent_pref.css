@@ -6,13 +6,13 @@
 
    Repo: https://github.com/readium/readium-css */
 
-:root:--advanced-settings[style*="--USER__paraIndent"] p {
+:root[style*="--USER__paraIndent"] p {
   text-indent: var(--USER__paraIndent) !important;
 }
 
 /* If there are inline-block elements in paragraphs, text-indent will inherit so we must reset it */
 
-:root:--advanced-settings[style*="--USER__paraIndent"] p *,
-:root:--advanced-settings[style*="--USER__paraIndent"] p:first-letter {
+:root[style*="--USER__paraIndent"] p *,
+:root[style*="--USER__paraIndent"] p:first-letter {
   text-indent: 0 !important;
 }

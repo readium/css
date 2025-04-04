@@ -31,12 +31,12 @@ The following settings are optional but should be applied by any means necessary
 
 The following settings are required and should be applied with their required flag by any means necessary:
 
-- font-family (requires `:--font-overide` flag);
+- font-family (requires `:--font-override` flag);
 - font-size.
 
 ## User overrides advanced
 
-The following settings are optional but should be applied by any means necessary, with the `:--advanced-setting` flag unless otherwise stated, if they are provided to users:
+The following settings are optional but should be applied by any means necessary if they are provided to users:
 
 - line-height;
 - text-align and hyphens (those two should probably work together);
@@ -47,9 +47,9 @@ The following settings are optional but should be applied by any means necessary
 - arabic ligatures;
 - hiding ruby (CJK);
 - accessibility normalization;
-- font optical sizing (requires `:--font-overide` flag and a variable font);
-- font weight (requires `:--font-overide` flag and a variable font);
-- font width (requires `:--font-overide` flag and a variable font);
+- font optical sizing (requires `:--font-override` flag and a variable font);
+- font weight (requires `:--font-override` flag and a variable font);
+- font width (requires `:--font-override` flag and a variable font);
 - image filters.
 
 Please note this classification might change and additional items be added in the future.

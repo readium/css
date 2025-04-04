@@ -17,7 +17,7 @@ The `ReadiumCSS-after.css` stylesheet, which contains user settings, can be appe
 
 User settings require the following process: 
 
-1. add the flag and its value to `html` when applicable (font override, font size and/or advanced setting);
+1. add the flag and its value to `html` when applicable (font override, a11y normalization);
 2. add the setting-specific variable and its value to `html`;
 3. styles are updated live.
 
@@ -89,21 +89,17 @@ Override class: None. This flag is required to change the `font-family` user set
 
 To switch back to the publisher’s font, you can either set an empty string as a value or remove the property.
 
-### Advanced Settings
+### Font Size Normalization
 
-Acts as an explicit switch to override the publisher’s styles.
-
-If you provide users with a “Publisher’s styles” toggle, it must be enabled and disabled accordingly.
+Acts as an explicit switch to force font-normalization in publications whose font-sizing is declared using CSS absolute units, breaking the font-size user setting in engines that don’t support CSS property `zoom`.
 
 ```
---USER__advancedSettings
+--USER__fontSizeNormalize
 ``` 
 
-Supported value: `readium-advanced-on`
+Supported value: `readium-normalize-on`
 
-Override class: None. This flag is required to apply the `font-family` and advanced user settings.
-
-To switch back to the publisher’s styles, you can either set an empty string as a value or remove the property. This will disable all advanced settings requiring the flag.
+Override class: None.
 
 ### Reading Modes
 
@@ -129,8 +125,6 @@ Please note night mode provides two extra specific variables:
 
 Supported value: `readium-darken-on`
 
-Override class: Chrome advanced (optional but should be applied by any means necessary if provided to users)
-
 To disable the filter, you can either set an empty string as a value or remove the property.
 
 ```
@@ -155,8 +149,6 @@ Supported value: `readium-a11y-on`
 
 Required flag: `--USER__fontOverride: readium-font-on`
 
-Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
-
 To disable the normalization, you can either set an empty string as a value or remove the property.
 
 ### Hiding Ruby Text
@@ -168,10 +160,6 @@ Users may want to hide ruby annotations for accessibility reasons.
 ```
 
 Supported value: `readium-noRuby-on`
-
-Required flag: `--USER__advancedSettings: readium-advanced-on`
-
-Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
 To disable the hiding and show ruby annotations, you can either set an empty string as a value of remove the property.
 
@@ -255,8 +243,6 @@ The user can set `text-align` and `hyphens` for body copy contents.
 
 Possible values: `left` (LTR) or `right` (RTL) | `start` (logical property resolving to `left` in LTR, `right` in RTL) | `justify`
 
-Required flag: `--USER__advancedSettings: readium-advanced-on`
-
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
 Note: the value `start` can be used to let all rendering engines, excepted Trident (IE11) and EdgeHTML (Edge), automatically deal with `left` and `right` based on the direction (`dir` attribute) set for the document and its nested elements.
@@ -268,8 +254,6 @@ Note: the value `start` can be used to let all rendering engines, excepted Tride
 ```
 
 Possible Values: `auto` | `none`
-
-Required flag: `--USER__advancedSettings: readium-advanced-on`
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
@@ -303,15 +287,13 @@ In version 1, we had to normalize `font-size` for body copy elements so that it 
 
 Although this approach was backed by actual data (published books), it was an issue to authors and, occasionally, readers too.
 
-In version 2, this normalization is deprecated, and will only be used behind the scenes when there is no other way to make the font-size setting work reliably.
+In version 2, this normalization is deprecated, and will only be used behind the scenes when there is no other way to make the font-size setting work reliably, using the new flag `--USER__fontSizeNormalize: readium-normalize-on`.
 
 ```
 --USER__fontSize
 ```
 
 Recommended values: a range from `75%` to `250%`. Increments are left to implementers’ judgment.
-
-Required flag: `--USER__advancedSettings: readium-advanced-on`
 
 Override class: User settings (should be applied by any means necessary)
 
@@ -322,8 +304,6 @@ Override class: User settings (should be applied by any means necessary)
 ```
 
 Recommended values: a range from `1` to `2`. Increments are left to implementers’ judgment.
-
-Required flag: `--USER__advancedSettings: readium-advanced-on`
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
@@ -339,8 +319,6 @@ The user can set `margin-top`, `margin-bottom` and `text-indent` for paragraphs.
 
 Recommended values: a range from `0` to `2rem`. Increments are left to implementers’ judgment.
 
-Required flag: `--USER__advancedSettings: readium-advanced-on`
-
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
 #### Paragraphs’ indent
@@ -350,8 +328,6 @@ Override class: User settings advanced (optional but should be applied by any me
 ```
 
 Recommended values: a range from `0` to `3rem`. Increments are left to implementers’ judgment.
-
-Required flag: `--USER__advancedSettings: readium-advanced-on`
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
@@ -367,8 +343,6 @@ The user can set `word-spacing` and `letter-spacing` for headings and body copy 
 
 Recommended values: a range from `0` to `1rem`. Increments are left to implementers’ judgment.
 
-Required flag: `--USER__advancedSettings: readium-advanced-on`
-
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
 #### Letter spacing
@@ -379,8 +353,6 @@ Override class: User settings advanced (optional but should be applied by any me
 
 Recommended values: a range from `0` to `0.5rem`. Increments are left to implementers’ judgment.
 
-Required flag: `--USER__advancedSettings: readium-advanced-on`
-
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
 #### Arabic Ligatures
@@ -390,8 +362,6 @@ Override class: User settings advanced (optional but should be applied by any me
 ```
 
 Possible values: `none` | `common-ligatures`
-
-Required flag: `--USER__advancedSettings: readium-advanced-on`
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 

@@ -103,11 +103,7 @@
 
         <pre><code>@custom-selector :--night-mode .night-mode;</code></pre>
 
-        <p>And if you want to use custom attributes for advanced settings, it could look like:</p>
-
-        <pre><code>@custom-selector :--advanced-settings [data-settings="advanced"];</code></pre>
-
-        <p>Both would then have to be appended to <code>html</code> at runtime.</p>
+        <p>It would then have to be appended to <code>html</code> at runtime.</p>
 
 		<p>Once again, you must rebuild <code>dist</code> stylesheets.</p>
       </section>
@@ -225,8 +221,7 @@ root.style.removeProperty("--USER__var");</code></pre>
 
           <p>To change hyphenation and justification, you would do the following:</p>
 
-          <pre><code>root.style.setProperty("--USER__advancedSettings", "readium-advanced-on"); 
-root.style.setProperty("--USER__textAlign", "justify"); 
+          <pre><code>root.style.setProperty("--USER__textAlign", "justify"); 
 root.style.setProperty("--USER__bodyHyphens", "auto");</code></pre>
 
           <p>Of course this example is simplistic. You could for instance create an helper to set multiple properties at once.</p>
