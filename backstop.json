@@ -102,7 +102,7 @@
     {
       "label": "Font family pref",
       "url": "http://localhost:8000/tests/font-family.html",
-      "delay": 0,
+      "delay": 500,
       "selectors": ["document"],
       "misMatchThreshold" : 0.1
     },
@@ -186,7 +186,7 @@
     {
       "label": "Accessibility font pref",
       "url": "http://localhost:8000/tests/a11y-font.html",
-      "delay": 200,
+      "delay": 500,
       "selectors": ["document"],
       "misMatchThreshold" : 0.1
     },
@@ -200,7 +200,7 @@
     {
       "label": "Accessibility custom pref",
       "url": "http://localhost:8000/tests/a11y-custom.html",
-      "delay": 200,
+      "delay": 500,
       "selectors": ["document"],
       "misMatchThreshold" : 0.1
     },
@@ -221,21 +221,21 @@
     {
       "label": "Font weight pref",
       "url": "http://localhost:8000/tests/font-weight.html",
-      "delay": 0,
+      "delay": 500,
       "selectors": ["document"],
       "misMatchThreshold" : 0.1
     },
     {
       "label": "Font width Keyword pref",
       "url": "http://localhost:8000/tests/font-width-keyword.html",
-      "delay": 0,
+      "delay": 500,
       "selectors": ["document"],
       "misMatchThreshold" : 0.1
     },
     {
       "label": "Font width Percentage pref",
       "url": "http://localhost:8000/tests/font-width-percentage.html",
-      "delay": 0,
+      "delay": 500,
       "selectors": ["document"],
       "misMatchThreshold" : 0.1
     },
