@@ -63,12 +63,6 @@
   /* Default is balance and we want columns to be filled entirely (100vh) */
   -moz-column-fill: auto;
   column-fill: auto;
-
-  /* This is needed so that zoom (used in the new implementation of font-size) 
-     can work as expect on iPadOS. Indeed, it disables the desktop-class interference 
-     that is explained here: https://stackoverflow.com/questions/59000766/css-zoom-does-not-work-ipad-os-v13-latest-safari/64998974#64998974 */
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
 }
 
 body {
