@@ -1,5 +1,5 @@
 /*
- * Readium CSS (v. 2.0.0-beta.8)
+ * Readium CSS (v. 2.0.0-beta.9)
  * Developers: Jiminy Panoz 
  * Copyright (c) 2017. Readium Foundation. All rights reserved.
  * Use of this source code is governed by a BSD-style license which is detailed in the
@@ -311,7 +311,7 @@ body{
 }
 
 :root[style*="readium-font-on"][style*="--USER__fontFamily"] *:not(code):not(var):not(kbd):not(samp){
-  font-family:inherit !important;
+  font-family:revert !important;
 }
 
 :root[style*="--USER__fontSize"] body{
