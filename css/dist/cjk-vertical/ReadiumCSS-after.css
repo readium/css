@@ -1,5 +1,5 @@
 /*
- * Readium CSS (v. 2.0.0-beta.9)
+ * Readium CSS (v. 2.0.0-beta.10)
  * Developers: Jiminy Panoz 
  * Copyright (c) 2017. Readium Foundation. All rights reserved.
  * Use of this source code is governed by a BSD-style license which is detailed in the
@@ -56,7 +56,7 @@
   min-height:100vh;
   padding:0 !important;
   margin:0 !important;
-  font-size:100% !important;
+  font-size:1rem !important;
   box-sizing:border-box;
 
   hanging-punctuation:last allow-end;
@@ -310,7 +310,7 @@ body{
   font-family:var(--USER__fontFamily) !important;
 }
 
-:root[style*="readium-font-on"][style*="--USER__fontFamily"] *:not(code):not(var):not(kbd):not(samp){
+:root[style*="readium-font-on"][style*="--USER__fontFamily"] *{
   font-family:revert !important;
 }
 

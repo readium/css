@@ -29,8 +29,10 @@
   /* Prevents options pop-up when long tap in webkit */
   -webkit-touch-callout: none;
 
-  /* Column size will depend on this if we want to make it responsive */
-  font-size: 100% !important;
+  /* Column size will depend on this if we want to make it responsive
+     We have to use rem because zoom won’t work properly on Firefox 
+     if it is set in percentage or em… */
+  font-size: 1rem !important;
 
   /* In case you use left position to scroll, can be removed if using transform: translateX() */
   position: relative;

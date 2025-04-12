@@ -12,6 +12,6 @@
 
 /* We are using revert instead of inherit as Firefox zoom implementation will break 
    as soon as font-family is set to an element, including value inherit */
-:root:--font-override[style*="--USER__fontFamily"] *:not(code):not(var):not(kbd):not(samp) {
+:root:--font-override[style*="--USER__fontFamily"] * {
   font-family: revert !important;
 }
