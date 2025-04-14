@@ -69,3 +69,4 @@ The following modules must be appended after the author’s stylesheets (`Readiu
     16. `ReadiumCSS-ruby_pref.css` (CJK only)
     17. `ReadiumCSS-imageFilters_pref.css`
 8. `ReadiumCSS-fs_normalize.css`
+9. `ReadiumCSS-iPadOS_patch.css`

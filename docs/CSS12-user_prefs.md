@@ -101,6 +101,18 @@ Supported value: `readium-normalize-on`
 
 Override class: None.
 
+### iPadOS Zoom Patch
+
+Acts as an explicit switch to force iPadOS patching of zoom issues so that `--USER__fontSize` can work as expected. This should be applied only when the site is requested in its desktop version on iPadOS – mobile version is completely fine.
+
+```
+--USER__iPadOSPatch
+```
+
+Supported value: `readium-iPadOSPatch-on`
+
+Override class: None.
+
 ### Reading Modes
 
 We currently have two reading modes for night and sepia.
@@ -294,6 +306,8 @@ In version 2, this normalization is deprecated, and will only be used behind the
 Recommended values: a range from `75%` to `250%`. Increments are left to implementers’ judgment.
 
 Override class: User settings (should be applied by any means necessary)
+
+**Note: iPadOS needs a patch when the site is requested in its desktop version. It is activated with the `readium-iPadOSPatch-on` flag.**
 
 #### Line height
 

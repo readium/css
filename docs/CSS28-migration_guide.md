@@ -108,6 +108,8 @@ It doesn’t need any change at the implementation level, and should work out of
 
 As a side-effect of this new implementation, please note the `--USER__typeScale` setting is no longer available.
 
+Due to iPadOS “desktop-class experience” interventions, a patch has to be applied when the site is requested (by default) in desktop version, and only in this version (mobile website is fine without it). The selector for the flag can be configured (`:--ipadOS-patch`) and is `[style*="readium-iPadOSPatch-on"]` by default.
+
 ## Extension of the font-family user setting override
 
 In version 1, the font-family user setting overrode a selection of elements of body copy e.g. `p`, `li`, `dt`, etc. This explained why the font-family of headings would remain the same as the one set in authors’ stylesheets for instance.

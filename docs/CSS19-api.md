@@ -86,6 +86,18 @@ Scope: `html`
 
 Override class: None. This flag can be used to force font-size normalization if the browser/rendering engine does not support CSS property `zoom` and the book’s styles are using absolute units, breaking the font-size user submodule.
 
+* * *
+
+```
+:--ipadOS-patch
+```
+
+Preset: `--USER__iPadOSPatch: readium-iPadOSPatch-on`
+
+Scope: `html`
+
+Override class: None. This flag is used to activate patching of iPadOS’ desktop-class experience in Safari, which disables zoom.
+
 * * * 
 
 ```
