@@ -46,3 +46,6 @@
 /* Direction i.e. ltr and rtl */
 @custom-selector :--ltr [dir="ltr"];
 @custom-selector :--rtl [dir="rtl"];
+
+/* Patch for iPadOS */
+@custom-selector :--ipadOS-patch [style*="readium-iPadOSPatch-on"];
