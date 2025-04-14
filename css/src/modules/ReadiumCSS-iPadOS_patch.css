@@ -72,9 +72,8 @@
   -webkit-text-zoom: normal;
 }
 
-/* Sanitize pseudo elements */
+/* Sanitize first line pseudo element. We have to filter inline elements as they already have the right value */
 
-:root:--ipadOS-patch *:first-line, 
-:root:--ipadOS-patch *:first-letter {
+:root[style*=readium-iPadOSPatch-on] p:not(:has(b, cite, em, i, q, s, small, span, strong)):first-line {
   -webkit-text-zoom: normal;
 }

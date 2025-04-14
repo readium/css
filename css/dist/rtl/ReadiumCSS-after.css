@@ -582,7 +582,6 @@ body{
   -webkit-text-zoom:normal;
 }
 
-:root[style*="readium-iPadOSPatch-on"] *:first-line, 
-:root[style*="readium-iPadOSPatch-on"] *:first-letter{
+:root[style*="readium-iPadOSPatch-on"] p:not(:has(b, cite, em, i, q, s, small, span, strong)):first-line{
   -webkit-text-zoom:normal;
 }
