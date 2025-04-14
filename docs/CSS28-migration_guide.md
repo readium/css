@@ -189,3 +189,9 @@ These settings now work without the flag. This provides with more flexibility si
 It’s been replaced with the flag `--USER__fontSizeNormalize: readium-normalize-on`, whose purpose is to simply force ReadiumCSS 1’s normalization so that the font-size user setting can be guaranteed to work on all publications, even if the book’s font-sizing is styled using absolute units. 
 
 This repurposed flag can be appended as you see fit, when CSS property `zoom` is not supported: you can present it as a toggle to users, or append it programmatically, or append it automatically, etc.
+
+## Removal of line-height compensation for A11y fonts and normalization
+
+Since version `2.0.0-beta.11`, ReadiumCSS no longer applies a line-height compensation when AccessibleDfA and IA Writer Duospace are the current user font, or the accessibility normalize flag is set.
+
+That was a side-effect that could be surprising to implementers, and impacting their line-height user setting experience.

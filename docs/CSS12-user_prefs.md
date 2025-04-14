@@ -147,8 +147,6 @@ Users may want to normalize text (no bold, no italics, etc.) for accessibility r
 
 Supported value: `readium-a11y-on`
 
-Required flag: `--USER__fontOverride: readium-font-on`
-
 To disable the normalization, you can either set an empty string as a value or remove the property.
 
 ### Hiding Ruby Text

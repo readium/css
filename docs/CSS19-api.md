@@ -199,8 +199,6 @@ Preset: `--USER__a11yNormalize: readium-a11y-on`
 
 Scope: `html`
 
-Required flag: `:--fontOverride`
-
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
 It impacts font style, weight and variant, text decoration, super and subscripts.

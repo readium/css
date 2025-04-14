@@ -1359,17 +1359,23 @@
         </navLabel>
         <content src="Text/Section-028.xhtml#sigil_toc_id_209"/>
       </navPoint>
-       <navPoint id="navPoint226">
+      <navPoint id="navPoint226">
         <navLabel>
           <text>Removal of Dynamic Leading</text>
         </navLabel>
         <content src="Text/Section-028.xhtml#sigil_toc_id_211"/>
       </navPoint>
-       <navPoint id="navPoint227">
+      <navPoint id="navPoint227">
         <navLabel>
           <text>Removal of advanced settings flag</text>
         </navLabel>
         <content src="Text/Section-028.xhtml#sigil_toc_id_212"/>
+      </navPoint>
+      <navPoint id="navPoint228">
+        <navLabel>
+          <text>Removal of line-height compensation for A11y fonts and normalization</text>
+        </navLabel>
+        <content src="Text/Section-028.xhtml#sigil_toc_id_213"/>
       </navPoint>
     </navPoint>
   </navMap>
