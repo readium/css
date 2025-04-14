@@ -108,6 +108,8 @@ It doesn’t need any change at the implementation level, and should work out of
 
 As a side-effect of this new implementation, please note the `--USER__typeScale` setting is no longer available.
 
+Due to iPadOS “desktop-class experience” interventions, a patch has to be applied when the site is requested (by default) in desktop version, and only in this version (mobile website is fine without it). The selector for the flag can be configured (`:--ipadOS-patch`) and is `[style*="readium-iPadOSPatch-on"]` by default.
+
 ## Extension of the font-family user setting override
 
 In version 1, the font-family user setting overrode a selection of elements of body copy e.g. `p`, `li`, `dt`, etc. This explained why the font-family of headings would remain the same as the one set in authors’ stylesheets for instance.
@@ -189,3 +191,9 @@ These settings now work without the flag. This provides with more flexibility si
 It’s been replaced with the flag `--USER__fontSizeNormalize: readium-normalize-on`, whose purpose is to simply force ReadiumCSS 1’s normalization so that the font-size user setting can be guaranteed to work on all publications, even if the book’s font-sizing is styled using absolute units. 
 
 This repurposed flag can be appended as you see fit, when CSS property `zoom` is not supported: you can present it as a toggle to users, or append it programmatically, or append it automatically, etc.
+
+## Removal of line-height compensation for A11y fonts and normalization
+
+Since version `2.0.0-beta.11`, ReadiumCSS no longer applies a line-height compensation when AccessibleDfA and IA Writer Duospace are the current user font, or the accessibility normalize flag is set.
+
+That was a side-effect that could be surprising to implementers, and impacting their line-height user setting experience.

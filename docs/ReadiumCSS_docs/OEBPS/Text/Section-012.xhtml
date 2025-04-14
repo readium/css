@@ -119,8 +119,18 @@ root.style.setProperty("name of var", "");</code></pre>
         <p>Supported value: <code>readium-normalize-on</code></p>
 
         <p>Override class: None.</p>
+      </section>
 
-        <p>To switch back to the publisher’s styles, you can either set an empty string as a value or remove the property. This will disable all advanced settings requiring the flag.</p>
+      <section id="ipados-zoom-patch" class="level3">
+        <h3 class="sigil_not_in_toc">iPadOS Zoom Patch</h3>
+
+        <p>Acts as an explicit switch to force iPadOS patching of zoom issues so that <code>--USER__fontSize</code> can work as expected. This should be applied only when the site is requested in its desktop version on iPadOS – mobile version is completely fine.</p>
+
+        <pre><code>--USER__iPadOSPatch</code></pre>
+
+        <p>Supported value: <code>readium-iPadOSPatch-on</code></p>
+
+        <p>Override class: None.</p>
       </section>
 
       <section id="reading-modes" class="level3">
@@ -167,8 +177,6 @@ root.style.setProperty("name of var", "");</code></pre>
         <pre><code>--USER__a11yNormalize</code></pre>
 
         <p>Supported value: <code>readium-a11y-on</code></p>
-
-        <p>Required flag: <code>--USER__fontOverride: readium-font-on</code></p>
 
         <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
 
@@ -326,6 +334,8 @@ root.style.setProperty("name of var", "");</code></pre>
           <p>Recommended values: a range from <code>75%</code> to <code>250%</code>. Increments are left to implementers’ judgment.</p>
 
           <p>Override class: User settings (should be applied by any means necessary)</p>
+
+          <p><strong>Note: iPadOS needs a patch when the site is requested in its desktop version. It is activated with the <code>readium-iPadOSPatch-on</code> flag.</strong></p>
         </section>
 
         <section id="line-height" class="level4">
