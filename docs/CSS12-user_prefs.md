@@ -89,9 +89,23 @@ Override class: None. This flag is required to change the `font-family` user set
 
 To switch back to the publisher’s font, you can either set an empty string as a value or remove the property.
 
+### Toggling the Deprecated Implementation of the Font Size Setting
+
+Allows to switch to the Deprecated Implementation of the Font Size Setting from version 1.
+
+```
+--USER__fontSizeImplementation
+```
+
+Supported value: `readium-deprecatedFontSize-on`
+
+Override class: None.
+
+**Note:** This implementation will automatically be used in case `zoom` is not supported.
+
 ### Font Size Normalization
 
-Acts as an explicit switch to force font-normalization in publications whose font-sizing is declared using CSS absolute units, breaking the font-size user setting in engines that don’t support CSS property `zoom`.
+Acts as an explicit switch to force font-normalization in publications whose font-sizing is declared using CSS absolute units, breaking the font-size user setting.
 
 ```
 --USER__fontSizeNormalize

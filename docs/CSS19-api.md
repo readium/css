@@ -74,6 +74,18 @@ Scope: `html`
 
 Override class: None. This flag is required to change the `font-family` user setting.
 
+* * *
+
+```
+:--deprecated-font-size
+```
+
+Preset: `--USER__fontSizeImplementation: readium-deprecatedFontSize-on`
+
+Scope: `html`
+
+Override class: None. This flag can be used to force the previous and deprecated implementation of font-size setting. It is also used automatically if the browser/rendering engine does not support CSS property `zoom` – note font-size normalization is not triggered by default in that case.
+
 * * * 
 
 ```
