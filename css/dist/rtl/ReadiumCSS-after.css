@@ -1,5 +1,5 @@
 /*
- * Readium CSS (v. 2.0.0-beta.11)
+ * Readium CSS (v. 2.0.0-beta.12)
  * Developers: Jiminy Panoz 
  * Copyright (c) 2017. Readium Foundation. All rights reserved.
  * Use of this source code is governed by a BSD-style license which is detailed in the
@@ -340,7 +340,7 @@ body{
   font-family:revert !important;
 }
 
-:root[style*="--USER__fontSize"] body{
+:root:not([style*="readium-deprecatedFontSize-on"])[style*="--USER__fontSize"] body{
   zoom:var(--USER__fontSize) !important;
 }
 
@@ -349,6 +349,10 @@ body{
   :root[style*="--USER__fontSize"]{
     font-size:var(--USER__fontSize) !important;
   }
+}
+
+:root[style*="readium-deprecatedFontSize-on"][style*="--USER__fontSize"]{
+  font-size:var(--USER__fontSize) !important;
 }
 
 :root[style*="--USER__lineHeight"]{
@@ -471,61 +475,58 @@ body{
   filter:invert(100%) !important;
 }
 
-@supports not (zoom: 1){
+:root[style*="readium-normalize-on"]{
+  --USER__typeScale:1.2;
+}
 
-  :root[style*="readium-normalize-on"]{
-    --USER__typeScale:1.2;
-  }
+:root[style*="readium-normalize-on"] p,
+:root[style*="readium-normalize-on"] li,
+:root[style*="readium-normalize-on"] div,
+:root[style*="readium-normalize-on"] pre,
+:root[style*="readium-normalize-on"] dd{
+  font-size:1rem !important;
+}
 
-  :root[style*="readium-normalize-on"] p,
-  :root[style*="readium-normalize-on"] li,
-  :root[style*="readium-normalize-on"] div,
-  :root[style*="readium-normalize-on"] pre,
-  :root[style*="readium-normalize-on"] dd{
-    font-size:1rem !important;
-  }
+:root[style*="readium-normalize-on"] h1{
+  font-size:1.75rem !important;
+  font-size:calc(((1rem * var(--USER__typeScale)) * var(--USER__typeScale)) * var(--USER__typeScale)) !important;
+}
 
-  :root[style*="readium-normalize-on"] h1{
-    font-size:1.75rem !important;
-    font-size:calc(((1rem * var(--USER__typeScale)) * var(--USER__typeScale)) * var(--USER__typeScale)) !important;
-  }
+:root[style*="readium-normalize-on"] h2{
+  font-size:1.5rem !important;
+  font-size:calc((1rem * var(--USER__typeScale)) * var(--USER__typeScale)) !important;
+}
 
-  :root[style*="readium-normalize-on"] h2{
-    font-size:1.5rem !important;
-    font-size:calc((1rem * var(--USER__typeScale)) * var(--USER__typeScale)) !important;
-  }
+:root[style*="readium-normalize-on"] h3{
+  font-size:1.25rem !important;
+  font-size:calc(1rem * var(--USER__typeScale)) !important;
+}
 
-  :root[style*="readium-normalize-on"] h3{
-    font-size:1.25rem !important;
-    font-size:calc(1rem * var(--USER__typeScale)) !important;
-  }
+:root[style*="readium-normalize-on"] h4,
+:root[style*="readium-normalize-on"] h5,
+:root[style*="readium-normalize-on"] h6{
+  font-size:1rem !important;
+}
 
-  :root[style*="readium-normalize-on"] h4,
-  :root[style*="readium-normalize-on"] h5,
-  :root[style*="readium-normalize-on"] h6{
-    font-size:1rem !important;
-  }
+:root[style*="readium-normalize-on"] small{
+  font-size:smaller !important;
+}
 
-  :root[style*="readium-normalize-on"] small{
-    font-size:smaller !important;
-  }
+:root[style*="readium-normalize-on"] sub,
+:root[style*="readium-normalize-on"] sup{
+  font-size:67.5% !important;
+}
 
-  :root[style*="readium-normalize-on"] sub,
-  :root[style*="readium-normalize-on"] sup{
-    font-size:67.5% !important;
-  }
+:root[style*="readium-normalize-on"][style*="--USER__typeScale"] h1{
+  font-size:calc(((1rem * var(--USER__typeScale)) * var(--USER__typeScale)) * var(--USER__typeScale)) !important;
+}
 
-  :root[style*="readium-normalize-on"][style*="--USER__typeScale"] h1{
-    font-size:calc(((1rem * var(--USER__typeScale)) * var(--USER__typeScale)) * var(--USER__typeScale)) !important;
-  }
+:root[style*="readium-normalize-on"][style*="--USER__typeScale"] h2{
+  font-size:calc((1rem * var(--USER__typeScale)) * var(--USER__typeScale)) !important;
+}
 
-  :root[style*="readium-normalize-on"][style*="--USER__typeScale"] h2{
-    font-size:calc((1rem * var(--USER__typeScale)) * var(--USER__typeScale)) !important;
-  }
-
-  :root[style*="readium-normalize-on"][style*="--USER__typeScale"] h3{
-    font-size:calc(1rem * var(--USER__typeScale)) !important;
-  }
+:root[style*="readium-normalize-on"][style*="--USER__typeScale"] h3{
+  font-size:calc(1rem * var(--USER__typeScale)) !important;
 }
 
 :root[style*="readium-iPadOSPatch-on"] body{

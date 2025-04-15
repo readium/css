@@ -109,10 +109,22 @@ root.style.setProperty("name of var", "");</code></pre>
         <p>To switch back to the publisher’s font, you can either set an empty string as a value or remove the property.</p>
       </section>
 
+      <section id="toggling-font-size-implementation" class="level3">
+        <h3 class="sigil_not_in_toc">Toggling the Deprecated Implementation of the Font Size Setting</h3>
+
+        <p>Allows to switch to the Deprecated Implementation of the Font Size Setting from version 1.</p>
+
+        <pre><code>--USER__fontSizeImplementation</code></pre>
+
+        <p>Supported value: <code>readium-deprecatedFontSize-on</code></p>
+
+        <p>Override class: None.</p>
+      </section>
+
       <section id="font-size-normalization" class="level3">
         <h3 class="sigil_not_in_toc">Font Size Normalization</h3>
 
-        <p>Acts as an explicit switch to orce font-normalization in publications whose font-sizing is declared using CSS absolute units, breaking the font-size user setting in engines that don’t support CSS property <code>zoom</code>.</p>
+        <p>Acts as an explicit switch to orce font-normalization in publications whose font-sizing is declared using CSS absolute units, breaking the font-size user setting.</p>
 
         <pre><code>--USER__fontSizeNormalize</code></pre>
 

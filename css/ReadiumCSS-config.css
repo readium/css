@@ -18,6 +18,9 @@
 /* Font-family override */
 @custom-selector :--font-override [style*="readium-font-on"];
 
+/* Disabling the new implementation for font-size */
+@custom-selector :--deprecated-font-size [style*="readium-deprecatedFontSize-on"];
+
 /* Font-size normalization for engines that don’t support zoom */
 @custom-selector :--fs-normalize [style*="readium-normalize-on"];
 

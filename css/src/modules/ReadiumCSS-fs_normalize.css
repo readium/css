@@ -10,67 +10,66 @@
 /* :root is used so that you can quickly add a class or attribute if you prefer e.g. `:root[data-rs-normalize]` */
 
 /* We create a default so that you don’t need to explicitly set one in the DOM.
-   Once the “Publisher’s styles” checkbox is unchecked, the normalize is applied automatically */
+   The normalize is not applied automatically, even when using the deprecated font-size setting 
+   You have to set it explicitly if you want to make sure all publications are resized the same */
 
-@supports not (zoom: 1) {
-  :root:--fs-normalize {
-    --USER__typeScale: 1.2;
-    /* This is the default type scale you’ll find in most publications */
-  }
+:root:--fs-normalize {
+  --USER__typeScale: 1.2;
+  /* This is the default type scale you’ll find in most publications */
+}
 
-  :root:--fs-normalize p,
-  :root:--fs-normalize li,
-  :root:--fs-normalize div,
-  :root:--fs-normalize pre,
-  :root:--fs-normalize dd {
-    font-size: 1rem !important;
-  }
+:root:--fs-normalize p,
+:root:--fs-normalize li,
+:root:--fs-normalize div,
+:root:--fs-normalize pre,
+:root:--fs-normalize dd {
+  font-size: 1rem !important;
+}
 
-  :root:--fs-normalize h1 {
-    /* Fallback if browser doesn’t support vars */
-    font-size: 1.75rem !important;
-    font-size: calc(((1rem * var(--USER__typeScale)) * var(--USER__typeScale)) * var(--USER__typeScale)) !important;
-  }
+:root:--fs-normalize h1 {
+  /* Fallback if browser doesn’t support vars */
+  font-size: 1.75rem !important;
+  font-size: calc(((1rem * var(--USER__typeScale)) * var(--USER__typeScale)) * var(--USER__typeScale)) !important;
+}
 
-  :root:--fs-normalize h2 {
-    /* Fallback if browser doesn’t support vars */
-    font-size: 1.5rem !important;
-    font-size: calc((1rem * var(--USER__typeScale)) * var(--USER__typeScale)) !important;
-  }
+:root:--fs-normalize h2 {
+  /* Fallback if browser doesn’t support vars */
+  font-size: 1.5rem !important;
+  font-size: calc((1rem * var(--USER__typeScale)) * var(--USER__typeScale)) !important;
+}
 
-  :root:--fs-normalize h3 {
-    /* Fallback if browser doesn’t support vars */
-    font-size: 1.25rem !important;
-    font-size: calc(1rem * var(--USER__typeScale)) !important;
-  }
+:root:--fs-normalize h3 {
+  /* Fallback if browser doesn’t support vars */
+  font-size: 1.25rem !important;
+  font-size: calc(1rem * var(--USER__typeScale)) !important;
+}
 
-  :root:--fs-normalize h4,
-  :root:--fs-normalize h5,
-  :root:--fs-normalize h6 {
-    font-size: 1rem !important;
-  }
+:root:--fs-normalize h4,
+:root:--fs-normalize h5,
+:root:--fs-normalize h6 {
+  font-size: 1rem !important;
+}
 
-  :root:--fs-normalize small {
-    font-size: smaller !important;
-  }
+:root:--fs-normalize small {
+  font-size: smaller !important;
+}
 
-  :root:--fs-normalize sub,
-  :root:--fs-normalize sup {
-    font-size: 67.5% !important;
-  }
+:root:--fs-normalize sub,
+:root:--fs-normalize sup {
+  font-size: 67.5% !important;
+}
 
-  /* The following styles kick in if you define the typeScale variable in the DOM.
+/* The following styles kick in if you define the typeScale variable in the DOM.
    No need to repeat declarations which don’t make use of the variable */
 
-  :root:--fs-normalize[style*="--USER__typeScale"] h1 {
-    font-size: calc(((1rem * var(--USER__typeScale)) * var(--USER__typeScale)) * var(--USER__typeScale)) !important;
-  }
+:root:--fs-normalize[style*="--USER__typeScale"] h1 {
+  font-size: calc(((1rem * var(--USER__typeScale)) * var(--USER__typeScale)) * var(--USER__typeScale)) !important;
+}
 
-  :root:--fs-normalize[style*="--USER__typeScale"] h2 {
-    font-size: calc((1rem * var(--USER__typeScale)) * var(--USER__typeScale)) !important;
-  }
+:root:--fs-normalize[style*="--USER__typeScale"] h2 {
+  font-size: calc((1rem * var(--USER__typeScale)) * var(--USER__typeScale)) !important;
+}
 
-  :root:--fs-normalize[style*="--USER__typeScale"] h3 {
-    font-size: calc(1rem * var(--USER__typeScale)) !important;
-  }
+:root:--fs-normalize[style*="--USER__typeScale"] h3 {
+  font-size: calc(1rem * var(--USER__typeScale)) !important;
 }
