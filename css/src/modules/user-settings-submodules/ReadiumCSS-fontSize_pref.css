@@ -6,12 +6,19 @@
 
    Repo: https://github.com/readium/readium-css */
 
-:root[style*="--USER__fontSize"] body {
+:root:not(:--deprecated-font-size)[style*="--USER__fontSize"] body {
   zoom: var(--USER__fontSize) !important;
 }
+
+/* Older deprecated implementation for when zoom is not supported
+   or it is explicitly enabled because you don’t want the new one */
 
 @supports not (zoom: 1) {
   :root[style*="--USER__fontSize"] {
     font-size: var(--USER__fontSize) !important;
   }
+}
+
+:root:--deprecated-font-size[style*="--USER__fontSize"] {
+  font-size: var(--USER__fontSize) !important;
 }
