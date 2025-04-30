@@ -23,7 +23,7 @@
 }
 
 /* Wrap long strings if larger than line-length */
-a, h1, h2, h3, h4, h5, h6 {
+a, a span, span a, h1, h2, h3, h4, h5, h6 {
   word-wrap: break-word;
 }
 
