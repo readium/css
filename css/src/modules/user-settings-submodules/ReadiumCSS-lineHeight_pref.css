@@ -4,7 +4,7 @@
    A submodule managing line-height for user settings
    Part of “User Overrides Advanced” class – “advanced settings” flag required.
 
-   Repo: https://github.com/readium/readium-css */
+   Repo: https://github.com/readium/css */
 
 :root[style*="--USER__lineHeight"] {
   line-height: var(--USER__lineHeight) !important;

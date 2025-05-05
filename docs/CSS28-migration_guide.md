@@ -11,7 +11,7 @@ In version 1, ReadiumCSS used media queries to automatically handle the number o
 - the `width` of the window was large enough, based on the font-size;
 - the device’s width (`device-width`) was within an arbitrary range based on the font-size, and in landscape orientation.
 
-As a side-effect, this “auto-pagination model” (think of it as an “auto” setting for the number of columns/pages in user settings) was [not reliable enough for implementers](https://github.com/readium/readium-css/issues/143), and created issues with newer devices and form-factors (e.g. foldables). Sometimes it wouldn’t even swith to 2 columns when applying the setting because of the conditions above.
+As a side-effect, this “auto-pagination model” (think of it as an “auto” setting for the number of columns/pages in user settings) was [not reliable enough for implementers](https://github.com/readium/css/issues/143), and created issues with newer devices and form-factors (e.g. foldables). Sometimes it wouldn’t even swith to 2 columns when applying the setting because of the conditions above.
 
 In version 2, ReadiumCSS removed these media queries and the “auto-pagination model” entirely. It applies styles the Reading System/app provides to it. Consequently, control over breakpoints is now the responsibility of the app. 
 
@@ -43,7 +43,7 @@ The issues it resolves are described in [CanIUse’s “known issues” for CSS 
 
 > Chrome is reported to incorrectly calculate the container height, often breaks on margins and padding, and can display one pixel of the next column at the bottom of the previous column. Some of these issues can be solved by adding `-webkit-perspective: 1;` to the column container. This creates a new stacking context for the container, and apparently causes Chrome to (re)calculate column layout.
 
-That hack created a [performance issue for large HTML documents](https://github.com/readium/readium-css/issues/117) as a side-effect though, and it was consequently removed in version 2, especially as it was no longer needed.
+That hack created a [performance issue for large HTML documents](https://github.com/readium/css/issues/117) as a side-effect though, and it was consequently removed in version 2, especially as it was no longer needed.
 
 Blink/Chromium switched to their new LayoutNG for columns in version `v.106.0.5245.0`. This means that if you have to deal with versions below, you have to re-implement this CSS hack specifically for these – and their older layout engine.
 
@@ -148,7 +148,7 @@ If you want to implement the other two, you will have to do so on a variable fon
 
 ## Addition of a fonts patch for Android
 
-This patch is intended to fix a [Fixed-Layout issue on Android](https://github.com/readium/readium-css/issues/149), and only on this platform. **It doesn’t apply to reflowable EPUBs or any other platform.**
+This patch is intended to fix a [Fixed-Layout issue on Android](https://github.com/readium/css/issues/149), and only on this platform. **It doesn’t apply to reflowable EPUBs or any other platform.**
 
 It declares fully metric compatible open source fonts alternatives (Nimbus Roman and Nimbus Sans) as the font-families that generic font-family `serif` and `sans-serif` are usually resolving to on other platforms. Droid Serif and Roboto are not, which creates issues with text that is absolutely positioned in Fixed-Layout e.g. overlapping or overflowing text, etc.
 

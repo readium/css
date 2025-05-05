@@ -4,7 +4,7 @@
    A submodule managing a11y text normalization for user settings
    Part of “User Overrides” class – “font override” flag required.
 
-   Repo: https://github.com/readium/readium-css */
+   Repo: https://github.com/readium/css */
 
 /* For AccessibleDfA, we need to normalize font-weight and font-style since only the normal style is available */
 

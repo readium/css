@@ -18,7 +18,7 @@ Readium CSS provides styles for reflowable text:
 
 BSD-3-Clause (http://opensource.org/licenses/BSD-3-Clause)
 
-See [license.txt](https://github.com/readium/readium-css/blob/master/LICENSE).
+See [license.txt](https://github.com/readium/css/blob/master/LICENSE).
 
 ## Scope of this project
 
@@ -88,4 +88,4 @@ npm run test:approve
 
 Documentation [can be accessed in docs](docs).
 
-[You can alternatively download it as an EPUB file](https://github.com/readium/readium-css/raw/master/docs/ReadiumCSS_docs.epub).
+[You can alternatively download it as an EPUB file](https://github.com/readium/css/raw/master/docs/ReadiumCSS_docs.epub).

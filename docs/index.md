@@ -20,7 +20,7 @@ Readium CSS provides styles for reflowable text:
 
 ## Download
 
-[You can alternatively download this documentation as an EPUB file](https://github.com/readium/readium-css/raw/master/docs/ReadiumCSS_docs.epub).
+[You can alternatively download this documentation as an EPUB file](https://github.com/readium/css/raw/master/docs/ReadiumCSS_docs.epub).
 
 ## Utilities
 

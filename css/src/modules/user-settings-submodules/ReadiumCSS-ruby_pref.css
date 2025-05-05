@@ -4,7 +4,7 @@
    A submodule managing the display of ruby text for user settings
    Part of “User Overrides Advanced” class – “advanced settings” flag required.
 
-   Repo: https://github.com/readium/readium-css */
+   Repo: https://github.com/readium/css */
 
 :root:--no-ruby body rt,
 :root:--no-ruby body rp {

@@ -3,7 +3,7 @@
 
    Namespaces to import in all 3 dist stylesheets
 
-   Repo: https://github.com/readium/readium-css */
+   Repo: https://github.com/readium/css */
 
 @namespace url("http://www.w3.org/1999/xhtml");
 @namespace epub url("http://www.idpf.org/2007/ops");

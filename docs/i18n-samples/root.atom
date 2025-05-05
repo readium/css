@@ -5,7 +5,7 @@
   <updated>2018-02-09T13:55:00Z</updated>
   <author>
     <name>Jiminy Panoz</name>
-    <uri>https://github.com/readium/readium-css</uri>
+    <uri>https://github.com/readium/css</uri>
   </author>
   <link type="application/atom+xml; profile=opds-catalog; kind=navigation" rel="self" href="root.atom" />
   <link type="application/atom+xml; profile=opds-catalog; kind=navigation" rel="start" href="root.atom" />

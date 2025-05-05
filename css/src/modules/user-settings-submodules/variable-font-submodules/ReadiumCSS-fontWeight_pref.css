@@ -4,7 +4,7 @@
    A submodule managing font weight for user settings
    Part of “User Overrides” class – “font override” flag required.
 
-   Repo: https://github.com/readium/readium-css */
+   Repo: https://github.com/readium/css */
 
 :root:--font-override[style*="--USER__fontWeight"] body {
   font-weight: var(--USER__fontWeight) !important;

@@ -10,7 +10,7 @@ In other words, this document may also serve as a list of features you could cho
 
 ## Alternate background colors for lines (A11Y)
 
-Related issue: [#39](https://github.com/readium/readium-css/issues/39)
+Related issue: [#39](https://github.com/readium/css/issues/39)
 
 The idea was to add an alternate `background-color` to each line. Since CSS doesn’t have any concept of `nth-line`, you have to cheat and use a `linear-gradient` switching colors based on the current `line-height`.
 
@@ -22,7 +22,7 @@ In addition, CSS is too limited to handle more complex cases such as images and,
 
 ## Contrasting text against backgrounds in custom user themes
 
-Related issue: [#74](https://github.com/readium/readium-css/issues/74)
+Related issue: [#74](https://github.com/readium/css/issues/74)
 
 The idea was to handle the text color (using the `calc()` function) when the user picks a background color in custom themes. For instance, text would have been automatically inverted (white instead of black) with a dark background. Obviously, that wouldn’t have prevented the user from picking another text color.
 
@@ -32,7 +32,7 @@ This feature should therefore be implemented in the app, as part of the custom t
 
 ## Handle day/night theme based on OSs’ light/dark mode
 
-Related issue: [#75](https://github.com/readium/readium-css/issues/75)
+Related issue: [#75](https://github.com/readium/css/issues/75)
 
 The idea was to switch day/night theme based on the mode the user set in the Operating System’s preferences – using the `prefers-color-scheme` media query.
 

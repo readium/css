@@ -15,7 +15,7 @@ The unicode ranges to be found in this document are specifically scoped to their
 
 ## Test files
 
-Test files can be retrieved from [the Readium CSS’ i18n-samples OPDS feed](https://raw.githubusercontent.com/readium/readium-css/develop/docs/i18n-samples/root.atom).
+Test files can be retrieved from [the Readium CSS’ i18n-samples OPDS feed](https://raw.githubusercontent.com/readium/css/develop/docs/i18n-samples/root.atom).
 
 ## Fundamentals
 

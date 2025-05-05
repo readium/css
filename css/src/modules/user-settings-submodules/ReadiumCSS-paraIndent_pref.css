@@ -4,7 +4,7 @@
    A submodule managing paragraphs’ text-indent for user settings
    Part of “User Overrides Advanced” class – “advanced settings” flag required.
 
-   Repo: https://github.com/readium/readium-css */
+   Repo: https://github.com/readium/css */
 
 :root[style*="--USER__paraIndent"] p {
   text-indent: var(--USER__paraIndent) !important;

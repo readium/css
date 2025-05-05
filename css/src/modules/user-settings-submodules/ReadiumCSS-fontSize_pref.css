@@ -4,7 +4,7 @@
    A submodule managing font-size for user settings
    Part of “User Overrides” class – no flag required.
 
-   Repo: https://github.com/readium/readium-css */
+   Repo: https://github.com/readium/css */
 
 :root:not(:--deprecated-font-size)[style*="--USER__fontSize"] body {
   zoom: var(--USER__fontSize) !important;

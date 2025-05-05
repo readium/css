@@ -66,7 +66,7 @@ Every stylesheet must contain a header using the following template:
 
    Description i.e. which task the stylesheet is trying to accomplish
 
-   Repo: https://github.com/readium/readium-css */
+   Repo: https://github.com/readium/css */
 ```
 
 ### Custom Properties (variables)
@@ -239,7 +239,7 @@ We’ll finally review your pull request to check if everything is OK.
 
 ### Pull Requests
 
-- Test your code (see [platform support](https://github.com/readium/readium-css/wiki/Platform-Support) in the Wiki).
+- Test your code (see [platform support](https://github.com/readium/css/wiki/Platform-Support) in the Wiki).
 - Pull requests should **always** be created against the develop branch – never the master.
 - Please update from the develop branch before proposing a pull request so that we don’t have to deal with conflicts.
 - Use a clear and descriptive title.

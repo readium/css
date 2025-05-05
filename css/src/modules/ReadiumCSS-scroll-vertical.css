@@ -4,7 +4,7 @@
    A set of styles to scroll ePublications in “writing-mode: vertical-*”
    This module overrides pagination
 
-   Repo: https://github.com/readium/readium-css */
+   Repo: https://github.com/readium/css */
 
 :root:--scroll-view,
 :root:--no-vertical-pagination {

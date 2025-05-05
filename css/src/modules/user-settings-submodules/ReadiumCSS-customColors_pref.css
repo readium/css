@@ -4,7 +4,7 @@
    A submodule managing custom colors for user settings
    Part of “Chrome Advanced” class – no flag required.
 
-   Repo: https://github.com/readium/readium-css */
+   Repo: https://github.com/readium/css */
 
 :root[style*="--USER__backgroundColor"] {
   background-color: var(--USER__backgroundColor) !important;

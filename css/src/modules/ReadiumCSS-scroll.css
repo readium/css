@@ -4,7 +4,7 @@
    A set of styles to scroll ePublications
    This module overrides pagination
 
-   Repo: https://github.com/readium/readium-css */
+   Repo: https://github.com/readium/css */
 
 :root:--scroll-view {
   /* Reset html size so that the user can scroll */

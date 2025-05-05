@@ -10,7 +10,7 @@
 
   "links": [
     {"rel": "self", "href": "https://readium.org/readium-css/docs/manifest.json", "type": "application/webpub+json"},
-    {"rel": "alternate", "href": "https://github.com/readium/readium-css/raw/master/docs/ReadiumCSS_docs.epub", "type": "application/epub+zip"}
+    {"rel": "alternate", "href": "https://github.com/readium/css/raw/master/docs/ReadiumCSS_docs.epub", "type": "application/epub+zip"}
   ],
   
   "readingOrder": [
