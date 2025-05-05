@@ -1,4 +1,4 @@
-# readium-css
+# Readium CSS
 
 [![Readium Logo](https://readium.org/assets/logos/readium-logo.png)](https://readium.org)
 
@@ -88,4 +88,4 @@ npm run test:approve
 
 Documentation [can be accessed in docs](docs).
 
-[You can alternatively download it as an EPUB file](https://github.com/readium/readium-css/raw/master/docs/ReadiumCSS_docs.epub).
+[You can alternatively download it as an EPUB file](https://github.com/readium/css/raw/master/docs/ReadiumCSS_docs.epub).
