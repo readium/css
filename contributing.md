@@ -114,7 +114,7 @@ This applies to the custom properties as well:
 
 If possible, user settings must be inherited from the `--USER__variable` set on `:root`. This obviously can’t be done for all user settings as it depends on the scope (the elements targeted).
 
-User settings must also abide by [these recommendations](https://readium.org/readium-css/docs/CSS14-user_settings_recs.html).
+User settings must also abide by [these recommendations](https://readium.org/css/docs/CSS14-user_settings_recs.html).
 
 ## How Can I Contribute?
 
