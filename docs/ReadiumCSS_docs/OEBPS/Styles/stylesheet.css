@@ -391,14 +391,9 @@ rt {
     margin: var(--Author-flowSpacing) 0;
   }
 
-  /* Demonstrates full-width by leveraging Readium CSS variables */
   .fullbleed {
-	margin: var(--Author-flowSpacing) 0;
-	position: relative;
-	left: 0;
-	left: calc((var(--RS__pageGutter) * var(--USER__pageMargins, 1)) * -1);
-	width: 100%;
-	width: calc(100% + ((var(--RS__pageGutter) * var(--USER__pageMargins, 1)) * 2));
+	  margin: var(--Author-flowSpacing) 0;
+	  max-width: 100%;
   }
 }
 
@@ -418,6 +413,6 @@ rt {
   .titlepage h1 {
     margin: auto 0 0 0;
     -webkit-align-self: flex-end;
-	align-self: flex-end;
+	  align-self: flex-end;
   }
 }
