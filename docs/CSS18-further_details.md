@@ -152,6 +152,6 @@ We’re also relying on the `:not()` pseudo-class to exclude some elements. Thin
 
 The biggest issue with this is that it requires some time to get accustomed to, as it objectively feels like some kind of CSS trick borderline to CSS voodoo. It has proved reliable during testing though, and already deals with user settings issues other Reading Systems might have had troubles addressing so far. In addition, it automagically forces the necessary recalc some user settings absolutely require.
 
-## Themes
+## Themes and Presets
 
-In this design model, themes can be a simple set of user settings. They consequently can be treated as objects you can parse to add properties to the `html` (root) element, and stringify to save/cache if the user creates a custom theme. No extra stylesheet needed.
+In Readium CSS design model, themes and presets can be a simple set of user settings. They consequently can be treated as objects you can parse to add properties to the `html` (root) element, and stringify to save/cache if the user creates a custom theme/preset. No extra stylesheet needed.

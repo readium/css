@@ -121,11 +121,9 @@ We currently have two reading modes for night and sepia.
 --USER__appearance
 ```
 
-Supported values: `readium-day-on` | `readium-sepia-on` | `readium-night-on`
+Supported values: `readium-sepia-on` | `readium-night-on`
 
 Override class: Chrome (should be applied by any means necessary)
-
-If the flag is not set, ReadiumCSS will fall back to the day mode.
 
 ### Filters
 
@@ -239,7 +237,9 @@ Required flag: none
 
 Override class: Chrome advanced (optional but should be applied by any means necessary if provided to users)
 
-To reset, remove both variables.
+To reset, remove the variables.
+
+Note that if you are confident you can keep the publisher’s colors while offering good enough contrast, you can use the `--RS__` prefix instead of `--USER__` so that the background color of asides and the color of links are not affected for instance.
 
 ### Hyphenation and justification
 
@@ -429,7 +429,7 @@ Override class: User settings advanced (optional but should be applied by any me
 
 ## Themes
 
-In this model, themes are just a set of user variables with specific values.
+In Readium CSS model, themes are just a set of user variables with specific values.
 
 It becomes even easier to override them for the user as the values are already user settings.
 

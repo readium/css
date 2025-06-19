@@ -117,7 +117,6 @@
 
         <pre><code>@import "../ReadiumCSS-config.css"; 
 @import "modules/ReadiumCSS-base.css"; 
-@import "modules/ReadiumCSS-day_mode.css"; 
 @import "modules/ReadiumCSS-fonts.css"; 
 @import "modules/ReadiumCSS-html5patch.css"; 
 @import "modules/ReadiumCSS-safeguards.css";</code></pre>
@@ -228,9 +227,9 @@ root.style.setProperty("--USER__bodyHyphens", "auto");</code></pre>
         </section>
 
         <section id="apply-sepia-mode" class="level4">
-          <h4 class="sigil_not_in_toc">Apply sepia mode/theme</h4>
+          <h4 class="sigil_not_in_toc">Apply sepia mode</h4>
 
-          <p>To apply the sepia theme/mode, you can use a flag that will apply preset values.</p>
+          <p>To apply the sepia mode, you can use a flag that will apply preset values.</p>
 
           <pre><code>root.style.setProperty("--USER__appearance", "readium-sepia-on");</code></pre>
         </section>
@@ -240,7 +239,9 @@ root.style.setProperty("--USER__bodyHyphens", "auto");</code></pre>
     <section id="create-themes" class="level2">
       <h2 id="sigil_toc_id_167">Create Themes</h2>
 
-      <p>In this model, themes are a set of user settings you can store and retrieve. Add the properties to <code>html</code> and you get a theme.</p>
+      <p>In Readium CSS design model, themes are a set of user settings you can store and retrieve. Add the properties to <code>html</code> and you get a theme.</p>
+
+      <p>Depending on the prefix you are using, <code>--RS__</code> or <code>--USER__</code>, your theme will override the publishers’ styles or not. The rule being <code>USER > PUBLISHER > RS</code>.</p>
 
       <p>Check the <a href="../Text/Section-012.xhtml">User Preferences doc</a> for a list of available user variables.</p>
 

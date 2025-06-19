@@ -138,11 +138,9 @@ root.style.setProperty("name of var", "");</code></pre>
 
         <pre><code>--USER__appearance</code></pre>
 
-        <p>Supported values: <code>readium-day-on</code> | <code>readium-sepia-on</code> | <code>readium-night-on</code></p>
+        <p>Supported values: <code>readium-sepia-on</code> | <code>readium-night-on</code></p>
 
         <p>Override class: Chrome (should be applied by any means necessary)</p>
-
-		<p>If the flag is not set, ReadiumCSS will fall back to the day mode.</p>
       </section>
 
       <section id="filters" class="level3">
@@ -262,7 +260,9 @@ root.style.setProperty("name of var", "");</code></pre>
 
         <p>Override class: Chrome advanced (optional but should be applied by any means necessary if provided to users)</p>
 
-        <p>To reset, remove both variables.</p>
+        <p>To reset, remove the variables.</p>
+
+        <p>Note that if you are confident you can keep the publisher’s colors while offering good enough contrast, you can use the <code>--RS__</code> prefix instead of <code>--USER__</code> so that the background color of asides and the color of links are not affected for instance.</p>
       </section>
 
       <section id="hyphenation-and-justification" class="level3">
@@ -465,7 +465,7 @@ root.style.setProperty("name of var", "");</code></pre>
     <section id="themes" class="level2">
       <h2 id="sigil_toc_id_179">Themes</h2>
 
-      <p>In this model, themes are just a set of user variables with specific values.</p>
+      <p>In ReadiumCSS model, themes are just a set of user variables with specific values.</p>
 
       <p>It becomes even easier to override them for the user as the values are already user settings.</p>
 

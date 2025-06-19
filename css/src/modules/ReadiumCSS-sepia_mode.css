@@ -12,7 +12,7 @@
   @import-json "../../vars/sepia.json";
 }
 
-/* we don’t need to redeclare bg-color and color for :root since we will inherit and update from day/default mode */
+/* we don’t need to redeclare bg-color and color for :root since we will inherit and update from base */
 
 :root:--sepia-mode *:not(a) {
   background-color: transparent !important;

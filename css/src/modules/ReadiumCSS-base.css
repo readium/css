@@ -26,6 +26,25 @@
   --RS__lineHeightCompensation: 1;
 
   --RS__baseLineHeight: calc(1.5 * var(--RS__lineHeightCompensation));
+
+  /* Default theme (previously implemented as day mode) */
+  @import-json "../../vars/day.json";
+
+  background-color: var(--RS__backgroundColor) !important;
+  color: var(--RS__textColor) !important;
+}
+
+/* Note: We’re not defining colors of links cos’ the selector specificity with :link and :visited could override publishers’ styles */
+
+/* Note: Though `::selection` was present in drafts of CSS Selectors Level 3, it was removed during the Candidate Recommendation phase because its behavior was under-specified (especially with nested elements) and interoperability wasn’t achieved. Source: https://developer.mozilla.org/en-US/docs/Web/CSS/::selection */
+::-moz-selection {
+  background-color: var(--RS__selectionBackgroundColor);
+  color: var(--RS__selectionTextColor);
+}
+
+::selection {
+  background-color: var(--RS__selectionBackgroundColor);
+  color: var(--RS__selectionTextColor);
 }
 
 /* Set default font for the html doc, so that it can be overridden by the authors’s stylesheet */

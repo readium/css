@@ -44,7 +44,7 @@
 }
 
 /* Color of ::selection */
-/* This differs from the implementation inherited in (default) day mode 
+/* This differs from the implementation inherited in base 
    as it is using !important and will override authors’ styles. */
 
 :root[style*="--USER__selectionBackgroundColor"][style*="--USER__selectionTextColor"] ::-moz-selection {

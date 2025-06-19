@@ -26,10 +26,9 @@ The following modules must be inserted before the author’s stylesheets (`Readi
 
 1. `ReadiumCSS-config.css`
 2. `ReadiumCSS-base.css`
-3. `ReadiumCSS-day_mode.css`
-4. `ReadiumCSS-fonts.css`
-5. `ReadiumCSS-html5patch.css`
-6. `ReadiumCSS-safeguards.css` (or `ReadiumCSS-safeguards-vertical.css` for CJK – vertical writing mode)
+3. `ReadiumCSS-fonts.css`
+4. `ReadiumCSS-html5patch.css`
+5. `ReadiumCSS-safeguards.css` (or `ReadiumCSS-safeguards-vertical.css` for CJK – vertical writing mode)
 
 ### Append if there is no author’s styles
 
