@@ -62,18 +62,6 @@ Scope: `html`
 
 Override class: Chrome (should be applied by any means necessary)
 
-* * * 
-
-```
-:--font-override
-```
-
-Preset: `--USER__fontOverride: readium-font-on`
-
-Scope: `html`
-
-Override class: None. This flag is required to change the `font-family` user setting.
-
 * * *
 
 ```

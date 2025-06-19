@@ -201,3 +201,7 @@ This repurposed flag can be appended as you see fit, when CSS property `zoom` is
 Since version `2.0.0-beta.11`, ReadiumCSS no longer applies a line-height compensation when AccessibleDfA and IA Writer Duospace are the current user font, or the accessibility normalize flag is set.
 
 That was a side-effect that could be surprising to implementers, and impacting their line-height user setting experience.
+
+## Removal of font-override flag
+
+Since version `2.0.0-beta.14`, ReadiumCSS no longer requires the font-override flag `--USER__fontOverride: readium-font-on` to be appended for font-related user settings (family, width, weight, optical-sizing, accessible fonts, etc.) to work. These settings are now applied as soon as they are set.

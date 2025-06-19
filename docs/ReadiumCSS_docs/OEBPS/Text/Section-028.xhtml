@@ -242,6 +242,12 @@ const sepiaBackground = sepiaMode.sepiaMode.RS__backgroundColor;</code></pre>
 
       <p>That was a side-effect that could be surprising to implementers, and impacting their line-height user setting experience.</p>
     </section>
+
+    <section id="font-override-flag" class="level2">
+      <h2 id="sigil_toc_id_214">Removal of font-override flag</h2>
+
+      <p>Since version <code>2.0.0-beta.14</code>, ReadiumCSS no longer requires the font-override flag <code>--USER__fontOverride: readium-font-on</code> to be appended for font-related user settings (family, width, weight, optical-sizing, accessible fonts, etc.) to work. These settings are now applied as soon as they are set.</p>
+    </section>
   </section>
 </body>
 </html>

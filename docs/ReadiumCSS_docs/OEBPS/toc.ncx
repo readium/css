@@ -1377,6 +1377,12 @@
         </navLabel>
         <content src="Text/Section-028.xhtml#sigil_toc_id_213"/>
       </navPoint>
+      <navPoint id="navPoint229">
+        <navLabel>
+          <text>Removal of font-override flag</text>
+        </navLabel>
+        <content src="Text/Section-028.xhtml#sigil_toc_id_214"/>
+      </navPoint>
     </navPoint>
   </navMap>
 </ncx>

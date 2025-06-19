@@ -17,7 +17,7 @@ The `ReadiumCSS-after.css` stylesheet, which contains user settings, can be appe
 
 User settings require the following process: 
 
-1. add the flag and its value to `html` when applicable (font override, a11y normalization);
+1. add the flag and its value to `html` when applicable (e.g. a11y normalization);
 2. add the setting-specific variable and its value to `html`;
 3. styles are updated live.
 
@@ -74,20 +74,6 @@ Supported values: `readium-paged-on` | `readium-scroll-on`
 Override class: Chrome (should be applied by any means necessary)
 
 If the flag is not set, ReadiumCSS will fall back to the paged view.
-
-### Font Family override
-
-Acts as an explicit switch to override the publisher’s `font-family`.
-
-```
---USER__fontOverride
-```
-
-Supported value: `readium-font-on`
-
-Override class: None. This flag is required to change the `font-family` user setting.
-
-To switch back to the publisher’s font, you can either set an empty string as a value or remove the property.
 
 ### Toggling the Deprecated Implementation of the Font Size Setting
 
@@ -299,7 +285,7 @@ Possible values: `var(--RS__oldStyleTf)` | `var(--RS__modernTf)` | `var(--RS__sa
 
 For Japanese, possible values become: `var(--RS__serif-ja)` (horizontal writing) | `var(--RS__sans-serif-ja)` (horizontal writing) | `var(--RS__serif-ja-v)` (vertical writing) | `var(--RS__sans-serif-ja-v)` (vertical writing) | `<string>`
 
-Required flag: `--USER__fontOverride: readium-font-on`
+Required flag: none
 
 Override class: User settings (should be applied by any means necessary)
 
@@ -409,7 +395,7 @@ When optical sizing is used, small text sizes are often rendered with thicker st
 
 Possible values: `none` | `auto` (default)
 
-Required flag: `--USER__fontOverride: readium-font-on`
+Required flag: none
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
@@ -423,7 +409,7 @@ Possible values: `number` e.g. `230`, `400`, `750`
 
 **Warning: possible values depend on the variable font you may be using.** You can use services such as [Wakamai Fondue](https://wakamaifondue.com) to get the values.
 
-Required flag: `--USER__fontOverride: readium-font-on`
+Required flag: none
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
@@ -437,7 +423,7 @@ Possible values: `ultra-condensed` | `extra-condensed` | `condensed` | `semi-con
 
 **Warning: the percentage values depend on the variable font you may be using.** You can use services such as [Wakamai Fondue](https://wakamaifondue.com) to get the values.
 
-Required flag: `--USER__fontOverride: readium-font-on`
+Required flag: none
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 

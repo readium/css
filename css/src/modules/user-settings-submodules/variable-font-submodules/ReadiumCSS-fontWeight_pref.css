@@ -2,16 +2,16 @@
    Font weight pref
 
    A submodule managing font weight for user settings
-   Part of “User Overrides” class – “font override” flag required.
+   Part of “User Overrides” class – no flag required.
 
    Repo: https://github.com/readium/css */
 
-:root:--font-override[style*="--USER__fontWeight"] body {
+:root[style*="--USER__fontWeight"] body {
   font-weight: var(--USER__fontWeight) !important;
 }
 
 /* Attempt to handle known bolds */
-:root:--font-override[style*="--USER__fontWeight"] b,
-:root:--font-override[style*="--USER__fontWeight"] strong {
+:root[style*="--USER__fontWeight"] b,
+:root[style*="--USER__fontWeight"] strong {
   font-weight: bolder;
 }

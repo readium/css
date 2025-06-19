@@ -2,10 +2,10 @@
    Font width pref
 
    A submodule managing font width for user settings
-   Part of “User Overrides” class – “font override” flag required.
+   Part of “User Overrides” class – no flag required.
 
    Repo: https://github.com/readium/css */
 
-:root:--font-override[style*="--USER__fontWidth"] body {
+:root[style*="--USER__fontWidth"] body {
   font-stretch: var(--USER__fontWidth) !important;
 }

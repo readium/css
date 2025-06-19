@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function() {
   label.textContent = "Add ReadiumCSS flags and prefs: ";
   input.type = "text";
   input.name = "rcss";
-  input.value = "--RS__advancedSettings: readium-advanced-on; --USER__fontOverride: readium-font-on;"
   label.appendChild(input);
   document.documentElement.appendChild(label);
 
