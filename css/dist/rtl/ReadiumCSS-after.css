@@ -97,8 +97,11 @@ body{
   min-height:0 !important;
 }
 
-:root[style*="readium-scroll-on"]:not([style*="readium-noOverflow-on"]) body{
+:root[style*="readium-scroll-on"] body{
   max-width:var(--RS__defaultLineLength) !important;
+}
+
+:root[style*="readium-scroll-on"]:not([style*="readium-noOverflow-on"]) body{
   overflow:auto;
 }
 
