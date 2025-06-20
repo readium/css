@@ -82,7 +82,6 @@
 }
 
 body {
-  overflow: hidden;
   width: 100%;
 
   /* Limit line-length but we have to reset when 2 columns and control the viewport.
@@ -98,12 +97,16 @@ body {
   padding: var(--RS__pageGutter) 0 !important;
 }
 
+:root:not(:--no-overflow) body {
+  overflow: hidden;
+}
+
 @supports (overflow: clip) {
-  :root {
+  :root:not(:--no-overflow) {
      overflow: clip;
   }
 
-  body {
+  :root:not(:--no-overflow) body {
      overflow: clip;
      overflow-clip-margin: content-box;
   }

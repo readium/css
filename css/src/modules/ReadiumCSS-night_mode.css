@@ -13,7 +13,7 @@
   @import-json "../../vars/night.json";
 }
 
-/* we don’t need to redeclare bg-color and color for :root since we will inherit and update from day/default mode */
+/* we don’t need to redeclare bg-color and color for :root since we will inherit and update from base */
 
 :root:--night-mode *:not(a) {
   background-color: transparent !important;

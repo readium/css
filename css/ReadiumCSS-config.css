@@ -15,9 +15,6 @@
 @custom-selector :--paged-view [style*="readium-paged-on"];
 @custom-selector :--scroll-view [style*="readium-scroll-on"];
 
-/* Font-family override */
-@custom-selector :--font-override [style*="readium-font-on"];
-
 /* Disabling the new implementation for font-size */
 @custom-selector :--deprecated-font-size [style*="readium-deprecatedFontSize-on"];
 
@@ -36,6 +33,9 @@
 
 /* Disabling pagination for vertical writing */
 @custom-selector :--no-vertical-pagination [style*="readium-noVerticalPagination-on"];
+
+/* Disabling overflow */
+@custom-selector :--no-overflow [style*="readium-noOverflow-on"];
 
 /* Hiding ruby */
 @custom-selector :--no-ruby [style*="readium-noRuby-on"];

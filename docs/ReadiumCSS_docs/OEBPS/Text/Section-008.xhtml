@@ -20,7 +20,7 @@
     <ul>
       <li>1 base stylesheet for all ebooks;</li>
 
-      <li>1 default reading mode stylesheet for all ebooks (day mode);</li>
+      <li>1 default reading mode stylesheet for all ebooks;</li>
 
       <li>1 default stylesheet for unstyled ebooks;</li>
 
@@ -35,6 +35,8 @@
       <p>The base stylesheet deals with:</p>
 
       <ol>
+        <li>default colors;</li>
+
         <li>default typography;</li>
 
         <li>default font-family depending on the language.</li>
@@ -46,6 +48,45 @@
 
       <section id="variables-you-can-set" class="level3">
         <h3 class="sigil_not_in_toc">Variables you can set</h3>
+
+        <section id="default-colors" class="level4">
+          <h4 class="sigil_not_in_toc">Default colors</h4>
+          <hr/>
+
+          <pre><code>--RS__backgroundColor</code></pre>
+  
+          <p>The <code>background-color</code> for the entire viewport.</p>
+  
+      <hr/>
+  
+          <pre><code>--RS__textColor</code></pre>
+  
+          <p>The <code>color</code> for body copy.</p>
+
+          <hr/>
+
+          <pre><code>--RS__linkColor</code></pre>
+
+          <p>The <code>color</code> for hyperlinks.</p>
+
+		  <hr/>
+
+          <pre><code>--RS__visitedColor</code></pre>
+
+          <p>The <code>color</code> for visited hyperlinks.</p>
+  
+      <hr/>
+  
+          <pre><code>--RS__selectionBackgroundColor</code></pre>
+  
+          <p>The <code>background-color</code> for selected text.</p>
+  
+      <hr/>
+  
+          <pre><code>--RS__selectionTextColor</code></pre>
+  
+          <p>The <code>color</code> for selected text.</p>
+        </section>
 
         <section id="default-font-stacks" class="level4">
           <h4 class="sigil_not_in_toc">Default font-stacks</h4>
@@ -164,44 +205,6 @@
 
 		  <p>This variable is redefined by default, in languages and scripts which need compensation due to the characteristics of their average fonts’ metrics.</p>
         </section>
-      </section>
-    </section>
-
-    <section id="day-mode" class="level2">
-      <h2 id="sigil_toc_id_57">Day Mode</h2>
-
-      <p>The <code>ReadiumCSS-day_mode.css</code> stylesheet serves as a default and handles <code>background-color</code> and <code>color</code> for <code>:root</code> and <code>::selection</code>.</p>
-
-      <section id="variables-you-can-set-1" class="level3">
-        <h3 class="sigil_not_in_toc">Variables you can set</h3>
-
-		<hr/>
-
-        <pre><code>--RS__backgroundColor</code></pre>
-
-        <p>The <code>background-color</code> for the entire viewport.</p>
-
-		<hr/>
-
-        <pre><code>--RS__textColor</code></pre>
-
-        <p>The <code>color</code> for body copy.</p>
-
-		<hr/>
-
-        <pre><code>--RS__selectionBackgroundColor</code></pre>
-
-        <p>The <code>background-color</code> for selected text.</p>
-
-        <p>It is worth noting it can be customized for each reading mode.</p>
-
-		<hr/>
-
-        <pre><code>--RS__selectionTextColor</code></pre>
-
-        <p>The <code>color</code> for selected text.</p>
-
-        <p>It is worth noting it can be customized for each reading mode.</p>
       </section>
     </section>
 

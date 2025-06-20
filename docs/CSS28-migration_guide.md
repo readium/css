@@ -174,7 +174,7 @@ Since version `2.0.0-alpha.10`, ReadiumCSS is enforcing the color of links if th
 
 The motivation is to make life of consumers a little bit easier when it comes to creating custom themes.
 
-Previously, you had to rely on day, sepia, and night mode to enforce the color of links and benefit from their specific image flags/features. 
+Previously, you had to rely on sepia and night mode to enforce the color of links and benefit from their specific image flags/features. 
 
 These decisions are now made to consumers’ discretion, which means they can invert images in their darkest custom themes without having to override ReadiumCSS’ night mode colors for instance, or offer these features to users as they see fit – globally or scoped to a subset of themes – in their app. 
 
@@ -201,3 +201,15 @@ This repurposed flag can be appended as you see fit, when CSS property `zoom` is
 Since version `2.0.0-beta.11`, ReadiumCSS no longer applies a line-height compensation when AccessibleDfA and IA Writer Duospace are the current user font, or the accessibility normalize flag is set.
 
 That was a side-effect that could be surprising to implementers, and impacting their line-height user setting experience.
+
+## Removal of font-override flag
+
+Since version `2.0.0-beta.14`, ReadiumCSS no longer requires the font-override flag `--USER__fontOverride: readium-font-on` to be appended for font-related user settings (family, width, weight, optical-sizing, accessible fonts, etc.) to work. These settings are now applied as soon as they are set.
+
+## Addition of a flag to disable overflow
+
+Since version `2.0.0-beta.14`, ReadiumCSS provides a flag if you want to disable its default `overflow` styles on `:root` and `body`.
+
+This can be useful if you want to implement your own overflow handling as it is highly dependent on the platform and way the content is being progressed through.
+
+It is set to `--RS__disableOverflow: readium-noOverflow-on` by default.

@@ -26,10 +26,9 @@ The following modules must be inserted before the author’s stylesheets (`Readi
 
 1. `ReadiumCSS-config.css`
 2. `ReadiumCSS-base.css`
-3. `ReadiumCSS-day_mode.css`
-4. `ReadiumCSS-fonts.css`
-5. `ReadiumCSS-html5patch.css`
-6. `ReadiumCSS-safeguards.css` (or `ReadiumCSS-safeguards-vertical.css` for CJK – vertical writing mode)
+3. `ReadiumCSS-fonts.css`
+4. `ReadiumCSS-html5patch.css`
+5. `ReadiumCSS-safeguards.css` (or `ReadiumCSS-safeguards-vertical.css` for CJK – vertical writing mode)
 
 ### Append if there is no author’s styles
 
@@ -48,9 +47,8 @@ The following modules must be appended after the author’s stylesheets (`Readiu
 3. `ReadiumCSS-scroll.css` (or `ReadiumCSS-scroll-vertical.css` for CJK – vertical writing mode)
 4. `ReadiumCSS-night_mode.css`
 5. `ReadiumCSS-sepia_mode.css`
-6. `ReadiumCSS-theming.css`
-7. `ReadiumCSS-os_a11y.css`
-8. User settings:
+6. `ReadiumCSS-os_a11y.css`
+7. User settings:
     1. `ReadiumCSS-colNumber_pref.css` (does not apply to CJK – vertical writing mode)
     2. `ReadiumCSS-lineLength_pref.css` (or `ReadiumCSS-lineLength-vertical_pref.css` for CJK – vertical writing mode)
     3. `ReadiumCSS-customColors_pref.css`

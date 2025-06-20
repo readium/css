@@ -72,8 +72,15 @@
       "misMatchThreshold" : 0.1
     },
     {
-      "label": "Day mode pref",
-      "url": "http://localhost:8000/tests/day.html",
+      "label": "Default colors pref",
+      "url": "http://localhost:8000/tests/default-colors.html",
+      "delay": 0,
+      "selectors": ["document"],
+      "misMatchThreshold" : 0.1
+    },
+    {
+      "label": "Default custom colors pref",
+      "url": "http://localhost:8000/tests/default-custom-colors.html",
       "delay": 0,
       "selectors": ["document"],
       "misMatchThreshold" : 0.1

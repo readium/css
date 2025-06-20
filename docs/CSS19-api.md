@@ -62,18 +62,6 @@ Scope: `html`
 
 Override class: Chrome (should be applied by any means necessary)
 
-* * * 
-
-```
-:--font-override
-```
-
-Preset: `--USER__fontOverride: readium-font-on`
-
-Scope: `html`
-
-Override class: None. This flag is required to change the `font-family` user setting.
-
 * * *
 
 ```
@@ -212,6 +200,18 @@ Preset: `--RS__disablePagination: readium-noVerticalPagination-on`
 Scope: `html`
 
 Override class: None. It’s a flag meant for implementers’ convenience as it disables vertical-writing pagination so that they can implement theirs.
+
+* * *
+
+```
+:--no-overflow
+```
+
+Preset: `--RS__disableOverflow: readium-noOverflow-on`
+
+Scope: `html`
+
+Override class: None. It’s a flag meant for implementers’ convenience as it disables overflow so that they can implement theirs.
 
 * * * 
 

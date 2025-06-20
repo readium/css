@@ -9,7 +9,7 @@ Readium CSS provides styles for reflowable text:
 - paged and scrolled views;
 - a “patch” for HTML5 Suggested Rendering specific to publications (e.g. extra styles for hyphenation, breaks, etc.);
 - default styles for unstyled ebooks;
-- reading modes (day, night, and sepia);
+- reading modes (night and sepia);
 - themes;
 - user settings;
 - a set of baselines and recommendations for accessibility, overrides, and internationalization.

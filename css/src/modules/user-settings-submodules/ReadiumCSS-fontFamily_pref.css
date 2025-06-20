@@ -2,16 +2,16 @@
    Font Family pref
 
    A submodule managing font-family for user settings
-   Part of “User Overrides” class – “font override” flag required.
+   Part of “User Overrides” class – no flag required.
 
    Repo: https://github.com/readium/css */
 
-:root:--font-override[style*="--USER__fontFamily"] {
+:root[style*="--USER__fontFamily"] {
   font-family: var(--USER__fontFamily) !important;
 }
 
 /* We are using revert instead of inherit as Firefox zoom implementation will break 
    as soon as font-family is set to an element, including value inherit */
-:root:--font-override[style*="--USER__fontFamily"] * {
+:root[style*="--USER__fontFamily"] * {
   font-family: revert !important;
 }

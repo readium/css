@@ -5,7 +5,7 @@
 Defaults is currently made of 5 stylesheets:
 
 - 1 base stylesheet for all ebooks;
-- 1 default reading mode stylesheet for all ebooks (day mode);
+- 1 default reading mode stylesheet for all ebooks;
 - 1 default stylesheet for unstyled ebooks;
 - 1 stylesheet to deal with the OS’ a11y modes.
 
@@ -15,14 +15,65 @@ Defaults is currently made of 5 stylesheets:
 
 The base stylesheet deals with: 
 
-1. default typography;
-2. default font-family depending on the language.
+1. default colors;
+2. default typography;
+3. default font-family depending on the language.
 
 Those values are obviously customizable.
 
 It should be appended before any author’s stylesheet.
 
 ### Variables you can set
+
+#### Default colors
+
+* * *
+
+```
+--RS__backgroundColor
+```
+
+The `background-color` for the entire viewport.
+
+* * *
+
+```
+--RS__textColor
+```
+
+The `color` for body copy.
+
+* * *
+
+```
+--RS__linkColor
+```
+
+The `color` for hyperlinks.
+
+* * *
+
+```
+--RS__visitedColor
+```
+
+The `color` for visited hyperlinks.
+
+* * *
+
+```
+--RS__selectionBackgroundColor
+```
+
+The `background-color` for selected text.
+
+* * *
+
+```
+--RS__selectionTextColor
+```
+
+The `color` for selected text.
 
 #### Default font-stacks
 
@@ -159,48 +210,6 @@ The default line-height for body copy in case the ebook doesn’t have one decla
 The compensation factor (integer) the dynamic leading pseudo-algorithm must apply, if used. Default is `1` i.e. no compensation.
 
 This variable is redefined by default, in languages and scripts which need compensation due to the characteristics of their average fonts’ metrics.
-
-## Day Mode
-
-The `ReadiumCSS-day_mode.css` stylesheet serves as a default and handles `background-color` and `color` for `:root` and `::selection`.
-
-### Variables you can set
-
-* * *
-
-```
---RS__backgroundColor
-```
-
-The `background-color` for the entire viewport.
-
-* * *
-
-```
---RS__textColor
-```
-
-The `color` for body copy.
-
-* * *
-
-```
---RS__selectionBackgroundColor
-```
-
-The `background-color` for selected text.
-
-It is worth noting it can be customized for each reading mode.
-
-* * *
-
-```
---RS__selectionTextColor
-```
-
-The `color` for selected text.
-
-It is worth noting it can be customized for each reading mode.
 
 ## Default
 

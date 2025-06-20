@@ -73,7 +73,6 @@ In the `css/src` folder, you’ll find all the needed stylesheets you will proce
 ```
 @import "../ReadiumCSS-config.css";
 @import "modules/ReadiumCSS-base.css";
-@import "modules/ReadiumCSS-day_mode.css";
 @import "modules/ReadiumCSS-fonts.css";
 @import "modules/ReadiumCSS-html5patch.css";
 @import "modules/ReadiumCSS-safeguards.css";
@@ -171,9 +170,9 @@ root.style.setProperty("--USER__bodyHyphens", "auto");
 
 Of course this example is simplistic. You could for instance create an helper to set multiple properties at once.
 
-#### Apply sepia theme/mode
+#### Apply sepia mode
 
-To apply the sepia theme/mode, you can use a flag that will apply preset values.
+To apply the sepia mode, you can use a flag that will apply preset values.
 
 ```
 root.style.setProperty("--USER__appearance", "readium-sepia-on");
@@ -182,7 +181,9 @@ root.style.setProperty("--USER__appearance", "readium-sepia-on");
 
 ## Create Themes
 
-In this model, themes are a set of user settings you can store and retrieve. Add the properties to `html` and you get a theme.
+In Readium CSS model, themes are a set of user settings you can store and retrieve. Add the properties to `html` and you get a theme.
+
+Depending on the prefix you are using, `--RS__` or `--USER__`, your theme will override the publisher’s styles or not. The rule being `USER > PUBLISHER > RS`.
 
 Check the [User Preferences doc](../docs/CSS12-user_prefs.md) for a list of available user variables.
 
