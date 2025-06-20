@@ -66,17 +66,20 @@ body{
   max-width:var(--RS__defaultLineLength) !important;
   padding:0 var(--RS__pageGutter) !important;
   margin:0 auto !important;
-  overflow:hidden;
   box-sizing:border-box;
+}
+
+:root:not([style*="readium-noOverflow-on"]) body{
+  overflow:hidden;
 }
 
 @supports (overflow: clip){
 
-   :root{
+   :root:not([style*="readium-noOverflow-on"]){
       overflow:clip;
    }
 
-   body{
+   :root:not([style*="readium-noOverflow-on"]) body{
       overflow:clip;
       overflow-clip-margin:content-box;
    }
@@ -94,18 +97,18 @@ body{
   min-height:0 !important;
 }
 
-:root[style*="readium-scroll-on"] body{
+:root[style*="readium-scroll-on"]:not([style*="readium-noOverflow-on"]) body{
   max-width:var(--RS__defaultLineLength) !important;
   overflow:auto;
 }
 
 @supports (overflow: clip){
 
-  :root[style*="readium-scroll-on"]{
+  :root[style*="readium-scroll-on"]:not([style*="readium-noOverflow-on"]){
      overflow:auto;
   }
 
-  :root[style*="readium-scroll-on"] body{
+  :root[style*="readium-scroll-on"]:not([style*="readium-noOverflow-on"]) body{
      overflow:clip;
   }
 }

@@ -201,6 +201,18 @@ Scope: `html`
 
 Override class: None. It’s a flag meant for implementers’ convenience as it disables vertical-writing pagination so that they can implement theirs.
 
+* * *
+
+```
+:--no-overflow
+```
+
+Preset: `--RS__disableOverflow: readium-noOverflow-on`
+
+Scope: `html`
+
+Override class: None. It’s a flag meant for implementers’ convenience as it disables overflow so that they can implement theirs.
+
 * * * 
 
 ```

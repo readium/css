@@ -205,3 +205,11 @@ That was a side-effect that could be surprising to implementers, and impacting t
 ## Removal of font-override flag
 
 Since version `2.0.0-beta.14`, ReadiumCSS no longer requires the font-override flag `--USER__fontOverride: readium-font-on` to be appended for font-related user settings (family, width, weight, optical-sizing, accessible fonts, etc.) to work. These settings are now applied as soon as they are set.
+
+## Addition of a flag to disable overflow
+
+Since version `2.0.0-beta.14`, ReadiumCSS provides a flag if you want to disable its default `overflow` styles on `:root` and `body`.
+
+This can be useful if you want to implement your own overflow handling as it is highly dependent on the platform and way the content is being progressed through.
+
+It is set to `--RS__disableOverflow: readium-noOverflow-on` by default.

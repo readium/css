@@ -28,11 +28,11 @@
 }
 
 @supports (overflow: clip) {
-  :root:--scroll-view {
+  :root:--scroll-view:not(:--no-overflow) {
      overflow: auto;
   }
 
-  :root:--scroll-view body {
+  :root:--scroll-view:not(:--no-overflow) body {
      overflow: clip;
   }
 }

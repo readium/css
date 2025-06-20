@@ -248,6 +248,16 @@ const sepiaBackground = sepiaMode.sepiaMode.RS__backgroundColor;</code></pre>
 
       <p>Since version <code>2.0.0-beta.14</code>, ReadiumCSS no longer requires the font-override flag <code>--USER__fontOverride: readium-font-on</code> to be appended for font-related user settings (family, width, weight, optical-sizing, accessible fonts, etc.) to work. These settings are now applied as soon as they are set.</p>
     </section>
+
+    <section id="no-overflow-flag" class="level2">
+      <h2 id="sigil_toc_id_215">Addition of a flag to disable overflow</h2>
+
+      <p>Since version <code>2.0.0-beta.14</code>, ReadiumCSS provides a flag if you want to disable its default <code>overflow</code> styles on <code>:root</code> and <code>body</code>.</p>
+
+      <p>This can be useful if you want to implement your own overflow handling as it is highly dependent on the platform and way the content is being progressed through.</p>
+
+      <p>It is set to <code>--RS__disableOverflow: readium-noOverflow-on</code> by default.</p>
+    </section>
   </section>
 </body>
 </html>

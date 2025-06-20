@@ -22,17 +22,17 @@
 }
 
 /* Make sure line-length is limited in all configs */
-:root:--scroll-view body {
+:root:--scroll-view:not(:--no-overflow) body {
   overflow: auto;
   max-width: var(--RS__defaultLineLength) !important;
 }
 
 @supports (overflow: clip) {
-  :root:--scroll-view {
+  :root:--scroll-view:not(:--no-overflow) {
      overflow: auto;
   }
 
-  :root:--scroll-view body {
+  :root:--scroll-view:not(:--no-overflow) body {
      overflow: clip;
   }
 }
