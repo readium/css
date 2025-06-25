@@ -295,6 +295,48 @@ The inline (horizontal by default, vertical in vertical-writing) page margins. I
 
 The default line-length when none is set by the user. It must be set in `rem` in order to take `:root`’s `font-size` as a reference, whichever the `body`’s `font-size` might be.
 
+### Scroll
+
+* * *
+
+```
+--RS__scrollPadding
+```
+
+The `padding` for the `body`. It must be set in pixels so that it won’t resize with font size.
+
+* * *
+
+```
+--RS__scrollPaddingTop
+```
+
+The `padding-top` for the `body`. It must be set in pixels so that it won’t resize with font size.
+
+* * *
+
+```
+--RS__scrollPaddingBottom
+```
+
+The `padding-bottom` for the `body`. It must be set in pixels so that it won’t resize with font size.
+
+* * *
+
+```
+--RS__scrollPaddingLeft
+```
+
+The `padding-left` for the `body`. It must be set in pixels so that it won’t resize with font size.
+
+* * *
+
+```
+--RS__scrollPaddingRight
+```
+
+The `padding-right` for the `body`. It must be set in pixels so that it won’t resize with font size.
+
 ### Safeguards
 
 * * *

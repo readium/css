@@ -213,3 +213,19 @@ Since version `2.0.0-beta.14`, ReadiumCSS provides a flag if you want to disable
 This can be useful if you want to implement your own overflow handling as it is highly dependent on the platform and way the content is being progressed through.
 
 It is set to `--RS__disableOverflow: readium-noOverflow-on` by default.
+
+## Addition of scroll-padding module
+
+Since version `2.0.0-beta.15`, ReadiumCSS provides a module to add padding to body of ePublications’ resources in scroll view.
+
+This can be useful if you want to get around safe area insets, or if you want to add padding to the scroll view for other reasons e.g. layered top and bottom bars.
+
+The 5 following custom properties are available:
+
+- `--RS__scrollPadding`
+- `--RS__scrollPaddingTop`
+- `--RS__scrollPaddingBottom`
+- `--RS__scrollPaddingLeft`
+- `--RS__scrollPaddingRight`
+
+They accept the same values as the CSS property `padding`.
