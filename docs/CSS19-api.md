@@ -275,7 +275,7 @@ The optimal number of columns (depending on the columns’ width).
 --RS__colGap
 ```
 
-The gap between columns. It must be set in pixels so that it won’t resize with font size. 
+The gap between columns. 
 
 You must account for this gap when scrolling.
 
@@ -285,7 +285,7 @@ You must account for this gap when scrolling.
 --RS__pageGutter
 ```
 
-The inline (horizontal by default, vertical in vertical-writing) page margins. It must be set in pixels so that it won’t resize with font size.
+The inline (horizontal by default, vertical in vertical-writing) page margins.
 
 * * *
 
@@ -303,7 +303,7 @@ The default line-length when none is set by the user. It must be set in `rem` in
 --RS__scrollPadding
 ```
 
-The `padding` for the `body`. It must be set in pixels so that it won’t resize with font size.
+The `padding` for the `body`.
 
 * * *
 
@@ -311,7 +311,7 @@ The `padding` for the `body`. It must be set in pixels so that it won’t resize
 --RS__scrollPaddingTop
 ```
 
-The `padding-top` for the `body`. It must be set in pixels so that it won’t resize with font size.
+The `padding-top` for the `body`.
 
 * * *
 
@@ -319,7 +319,7 @@ The `padding-top` for the `body`. It must be set in pixels so that it won’t re
 --RS__scrollPaddingBottom
 ```
 
-The `padding-bottom` for the `body`. It must be set in pixels so that it won’t resize with font size.
+The `padding-bottom` for the `body`.
 
 * * *
 
@@ -327,7 +327,7 @@ The `padding-bottom` for the `body`. It must be set in pixels so that it won’t
 --RS__scrollPaddingLeft
 ```
 
-The `padding-left` for the `body`. It must be set in pixels so that it won’t resize with font size.
+The `padding-left` for the `body`.
 
 * * *
 
@@ -335,7 +335,7 @@ The `padding-left` for the `body`. It must be set in pixels so that it won’t r
 --RS__scrollPaddingRight
 ```
 
-The `padding-right` for the `body`. It must be set in pixels so that it won’t resize with font size.
+The `padding-right` for the `body`.
 
 ### Safeguards
 
