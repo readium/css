@@ -275,7 +275,7 @@ The optimal number of columns (depending on the columns’ width).
 --RS__colGap
 ```
 
-The gap between columns. It must be set in pixels so that it won’t resize with font size. 
+The gap between columns. 
 
 You must account for this gap when scrolling.
 
@@ -285,7 +285,7 @@ You must account for this gap when scrolling.
 --RS__pageGutter
 ```
 
-The inline (horizontal by default, vertical in vertical-writing) page margins. It must be set in pixels so that it won’t resize with font size.
+The inline (horizontal by default, vertical in vertical-writing) page margins.
 
 * * *
 
@@ -294,6 +294,48 @@ The inline (horizontal by default, vertical in vertical-writing) page margins. I
 ```
 
 The default line-length when none is set by the user. It must be set in `rem` in order to take `:root`’s `font-size` as a reference, whichever the `body`’s `font-size` might be.
+
+### Scroll
+
+* * *
+
+```
+--RS__scrollPadding
+```
+
+The `padding` for the `body`.
+
+* * *
+
+```
+--RS__scrollPaddingTop
+```
+
+The `padding-top` for the `body`.
+
+* * *
+
+```
+--RS__scrollPaddingBottom
+```
+
+The `padding-bottom` for the `body`.
+
+* * *
+
+```
+--RS__scrollPaddingLeft
+```
+
+The `padding-left` for the `body`.
+
+* * *
+
+```
+--RS__scrollPaddingRight
+```
+
+The `padding-right` for the `body`.
 
 ### Safeguards
 

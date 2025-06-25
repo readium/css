@@ -2,6 +2,7 @@
 @import "modules/ReadiumCSS-namespaces.css";
 @import "modules/ReadiumCSS-pagination.css";
 @import "modules/ReadiumCSS-scroll.css";
+@import "modules/ReadiumCSS-scroll_padding.css";
 @import "modules/ReadiumCSS-night_mode.css";
 @import "modules/ReadiumCSS-sepia_mode.css";
 @import "modules/ReadiumCSS-os_a11y.css";

@@ -1377,6 +1377,18 @@
         </navLabel>
         <content src="Text/Section-028.xhtml#sigil_toc_id_214"/>
       </navPoint>
+      <navPoint id="navPoint229">
+        <navLabel>
+          <text>Addition of a flag to disable overflow</text>
+        </navLabel>
+        <content src="Text/Section-028.xhtml#sigil_toc_id_215"/>
+      </navPoint>
+      <navPoint id="navPoint230">
+        <navLabel>
+          <text>Addition of scroll-padding module</text>
+        </navLabel>
+        <content src="Text/Section-028.xhtml#sigil_toc_id_216"/>
+      </navPoint>
     </navPoint>
   </navMap>
 </ncx>

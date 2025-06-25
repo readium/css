@@ -105,7 +105,7 @@ The optimal number of columns (depending on the columns’ width).
 --RS__colGap
 ```
 
-The gap between columns. It must be set in pixels so that it won’t resize with font size. 
+The gap between columns. 
 
 You must account for this gap when scrolling.
 
@@ -115,7 +115,7 @@ You must account for this gap when scrolling.
 --RS__pageGutter
 ```
 
-The inline (horizontal by default, vertical in vertical-writing) page margins. It must be set in pixels so that it won’t resize with font size.
+The inline (horizontal by default, vertical in vertical-writing) page margins.
 
 * * *
 

@@ -258,6 +258,26 @@ const sepiaBackground = sepiaMode.sepiaMode.RS__backgroundColor;</code></pre>
 
       <p>It is set to <code>--RS__disableOverflow: readium-noOverflow-on</code> by default.</p>
     </section>
+
+    <section id="scroll-padding" class="level2">
+      <h2 id="sigil_toc_id_216">Addition of scroll-padding module</h2>
+
+      <p>Since version <code>2.0.0-beta.15</code>, ReadiumCSS provides a module to add padding to body of ePublications’ resources in scroll view.</p>
+
+      <p>This can be useful if you want to get around safe area insets, or if you want to add padding to the scroll view for other reasons e.g. layered top and bottom bars.</p>
+
+      <p>The 5 following custom properties are available:</p>
+
+      <ul>
+        <li><code>--RS__scrollPadding</code></li>
+        <li><code>--RS__scrollPaddingTop</code></li>
+        <li><code>--RS__scrollPaddingBottom</code></li>
+        <li><code>--RS__scrollPaddingLeft</code></li>
+        <li><code>--RS__scrollPaddingRight</code></li>
+      </ul>
+
+      <p>They accept the same values as the CSS property <code>padding</code>.</p>
+    </section>
   </section>
 </body>
 </html>
