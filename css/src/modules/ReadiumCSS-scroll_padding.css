@@ -11,24 +11,24 @@
 
 /* Shorthand */
 
-:root:--scroll-view[style*="--RS__scrollPadding"] body {
+:root:--scroll-view[style~="--RS__scrollPadding"] body {
   padding: var(--RS__scrollPadding) !important;
 }
 
 /* Specific */
 
-:root:--scroll-view[style*="--RS__scrollPaddingTop"] body {
+:root:--scroll-view[style~="--RS__scrollPaddingTop"] body {
   padding-top: var(--RS__scrollPaddingTop) !important;
 }
 
-:root:--scroll-view[style*="--RS__scrollPaddingBottom"] body {
+:root:--scroll-view[style~="--RS__scrollPaddingBottom"] body {
   padding-bottom: var(--RS__scrollPaddingBottom) !important;
 }
 
-:root:--scroll-view[style*="--RS__scrollPaddingLeft"] body {
+:root:--scroll-view[style~="--RS__scrollPaddingLeft"] body {
   padding-left: var(--RS__scrollPaddingLeft) !important;
 }
 
-:root:--scroll-view[style*="--RS__scrollPaddingRight"] body {
+:root:--scroll-view[style~="--RS__scrollPaddingRight"] body {
   padding-right: var(--RS__scrollPaddingRight) !important;
 }
