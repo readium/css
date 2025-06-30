@@ -300,14 +300,6 @@ The default line-length when none is set by the user. It must be set in `rem` in
 * * *
 
 ```
---RS__scrollPadding
-```
-
-The `padding` for the `body`.
-
-* * *
-
-```
 --RS__scrollPaddingTop
 ```
 

@@ -1,5 +1,5 @@
 /*
- * Readium CSS (v. 2.0.0-beta.16)
+ * Readium CSS (v. 2.0.0-beta.17)
  * Developers: Jiminy Panoz 
  * Copyright (c) 2017. Readium Foundation. All rights reserved.
  * Use of this source code is governed by a BSD-style license which is detailed in the
@@ -117,23 +117,19 @@ body{
   }
 }
 
-:root[style*="readium-scroll-on"][style~="--RS__scrollPadding"] body{
-  padding:var(--RS__scrollPadding) !important;
-}
-
-:root[style*="readium-scroll-on"][style~="--RS__scrollPaddingTop"] body{
+:root[style*="readium-scroll-on"][style*="--RS__scrollPaddingTop"] body{
   padding-top:var(--RS__scrollPaddingTop) !important;
 }
 
-:root[style*="readium-scroll-on"][style~="--RS__scrollPaddingBottom"] body{
+:root[style*="readium-scroll-on"][style*="--RS__scrollPaddingBottom"] body{
   padding-bottom:var(--RS__scrollPaddingBottom) !important;
 }
 
-:root[style*="readium-scroll-on"][style~="--RS__scrollPaddingLeft"] body{
+:root[style*="readium-scroll-on"][style*="--RS__scrollPaddingLeft"] body{
   padding-left:var(--RS__scrollPaddingLeft) !important;
 }
 
-:root[style*="readium-scroll-on"][style~="--RS__scrollPaddingRight"] body{
+:root[style*="readium-scroll-on"][style*="--RS__scrollPaddingRight"] body{
   padding-right:var(--RS__scrollPaddingRight) !important;
 }
 

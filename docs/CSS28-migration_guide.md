@@ -222,7 +222,6 @@ This can be useful if you want to get around safe area insets, or if you want to
 
 The 5 following custom properties are available:
 
-- `--RS__scrollPadding`
 - `--RS__scrollPaddingTop`
 - `--RS__scrollPaddingBottom`
 - `--RS__scrollPaddingLeft`
