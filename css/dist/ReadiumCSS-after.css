@@ -421,8 +421,12 @@ body{
   vertical-align:baseline !important;
 }
 
-:root:not([style*="readium-deprecatedFontSize-on"])[style*="--USER__fontSize"] body{
+:root:not([style*="readium-deprecatedFontSize-on"]):not([style*="readium-iOSPatch-on"])[style*="--USER__fontSize"] body{
   zoom:var(--USER__fontSize) !important;
+}
+
+:root[style*="readium-iOSPatch-on"][style*="--USER__fontSize"] body{
+  -webkit-text-size-adjust:var(--USER__fontSize) !important;
 }
 
 @supports not (zoom: 1){

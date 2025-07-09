@@ -6,8 +6,12 @@
 
    Repo: https://github.com/readium/css */
 
-:root:not(:--deprecated-font-size)[style*="--USER__fontSize"] body {
+:root:not(:--deprecated-font-size):not(:--iOS-patch)[style*="--USER__fontSize"] body {
   zoom: var(--USER__fontSize) !important;
+}
+
+:root:--iOS-patch[style*="--USER__fontSize"] body {
+  -webkit-text-size-adjust: var(--USER__fontSize) !important;
 }
 
 /* Older deprecated implementation for when zoom is not supported

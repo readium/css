@@ -50,5 +50,6 @@
 @custom-selector :--ltr [dir="ltr"];
 @custom-selector :--rtl [dir="rtl"];
 
-/* Patch for iPadOS */
+/* Patch for iOS and iPadOS */
+@custom-selector :--iOS-patch [style*="readium-iOSPatch-on"];
 @custom-selector :--ipadOS-patch [style*="readium-iPadOSPatch-on"];
