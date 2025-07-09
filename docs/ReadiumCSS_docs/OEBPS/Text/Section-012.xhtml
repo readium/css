@@ -119,6 +119,18 @@ root.style.setProperty("name of var", "");</code></pre>
         <p>Override class: None.</p>
       </section>
 
+      <section id="ios-scale-patch" class="level3">
+        <h3 class="sigil_not_in_toc">iOS Scaling Patch</h3>
+
+        <p>Acts as an explicit switch to force iOS patching of scaling issues so that <code>--USER__fontSize</code> can work as expected. This should be applied only when the site is requested in its mobile version on iOS and iPadOS.</p>
+
+        <pre><code>--USER__iOSPatch</code></pre>
+
+        <p>Supported value: <code>readium-iOSPatch-on</code></p>
+
+        <p>Override class: None.</p>
+      </section>
+
       <section id="ipados-zoom-patch" class="level3">
         <h3 class="sigil_not_in_toc">iPadOS Zoom Patch</h3>
 
