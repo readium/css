@@ -89,6 +89,18 @@ Override class: None. This flag can be used to force font-size normalization if 
 * * *
 
 ```
+:--ios-patch
+```
+
+Preset: `--USER__iOSPatch: readium-iOSPatch-on`
+
+Scope: `html`
+
+Override class: None. This flag is used to activate patching of iOS scaling issues in Safari, which can happen on rotate for instance.
+
+* * *
+
+```
 :--ipadOS-patch
 ```
 

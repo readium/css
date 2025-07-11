@@ -108,7 +108,11 @@ It doesn’t need any change at the implementation level, and should work out of
 
 As a side-effect of this new implementation, please note the `--USER__typeScale` setting is no longer available.
 
-Due to iPadOS “desktop-class experience” interventions, a patch has to be applied when the site is requested (by default) in desktop version, and only in this version (mobile website is fine without it). The selector for the flag can be configured (`:--ipadOS-patch`) and is `[style*="readium-iPadOSPatch-on"]` by default.
+iOS and iPadOS require patches to be applied to be able to use the font-size user setting properly, as the management of zooming and scaling has numerous and complex heuristics issues depending on the platform, and the way the site is requested (mobile or desktop).
+
+iOS and iPadOS both require a patch to be applied when the site is requested in mobile version, and only in this version. The selector for the flag can be configured (`:--ios-patch`) and is `[style*="readium-iOSPatch-on"]` by default.
+
+Due to iPadOS “desktop-class experience” interventions, another patch has to be applied when the site is requested (by default) in desktop version, and only in this version (mobile website is fine without it). The selector for the flag can be configured (`:--ipadOS-patch`) and is `[style*="readium-iPadOSPatch-on"]` by default.
 
 Starting version `2.0.0-beta.12` the previous and deprecated implementation of font-size is exposed under a flag that can be configured (`:--deprecated-font-size`) and is `[style*="readium-deprecatedFontSize-on"]` by default. This can be used if you need some time to switch to the new implementation, or simply prefer to use the old one. The font-size normalize is no longer applied by default though, and is relying on another flag (`:--fs-normalize`) with `[style*="readium-normalize-on"]` as default.
 

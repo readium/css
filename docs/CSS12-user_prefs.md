@@ -101,9 +101,21 @@ Supported value: `readium-normalize-on`
 
 Override class: None.
 
+### iOS Scaling Patch
+
+Acts as an explicit switch to force iOS patching of scaling issues so that `--USER__fontSize` can work as expected. This should be applied only when the site is requested in its mobile version on iOS and iPadOS.
+
+```
+--USER__iOSPatch
+```
+
+Supported value: `readium-iOSPatch-on`
+
+Override class: None.
+
 ### iPadOS Zoom Patch
 
-Acts as an explicit switch to force iPadOS patching of zoom issues so that `--USER__fontSize` can work as expected. This should be applied only when the site is requested in its desktop version on iPadOS – mobile version is completely fine.
+Acts as an explicit switch to force iPadOS patching of zoom issues so that `--USER__fontSize` can work as expected. This should be applied only when the site is requested in its desktop version on iPadOS.
 
 ```
 --USER__iPadOSPatch
