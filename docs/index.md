@@ -1,18 +1,15 @@
 ## Introduction
 
-Readium CSS is a set of reference stylesheets for EPUB Reading Systems, starting with Readium 2.
+Readium CSS is a set of reference stylesheets for EPUB Reading Systems.
 
 Readium CSS provides styles for reflowable text: 
 
 - paged and scrolled views;
 - a “patch” for HTML5 Suggested Rendering specific to publications (e.g. extra styles for hyphenation, breaks, etc.);
 - default styles for unstyled ebooks;
-- reading modes (night and sepia);
-- themes;
+- theming;
 - user settings;
 - a set of baselines and recommendations for accessibility, overrides, and internationalization.
-
-**Readium CSS is currently in beta** (version `1.0.0-beta.2`).
 
 ## Contents
 
