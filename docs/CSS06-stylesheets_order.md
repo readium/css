@@ -45,10 +45,7 @@ The following modules must be appended after the author’s stylesheets (`Readiu
 1. `ReadiumCSS-config.css`
 2. `ReadiumCSS-pagination.css` (or `ReadiumCSS-pagination-vertical.css` for CJK – vertical writing mode)
 3. `ReadiumCSS-scroll.css` (or `ReadiumCSS-scroll-vertical.css` for CJK – vertical writing mode)
-4. `ReadiumCSS-night_mode.css`
-5. `ReadiumCSS-sepia_mode.css`
-6. `ReadiumCSS-os_a11y.css`
-7. User settings:
+4. User settings:
     1. `ReadiumCSS-colNumber_pref.css` (does not apply to CJK – vertical writing mode)
     2. `ReadiumCSS-lineLength_pref.css` (or `ReadiumCSS-lineLength-vertical_pref.css` for CJK – vertical writing mode)
     3. `ReadiumCSS-customColors_pref.css`
@@ -66,5 +63,5 @@ The following modules must be appended after the author’s stylesheets (`Readiu
     15. `ReadiumCSS-variableFont_pref.css` (this contains optical sizing, weight and width prefs)
     16. `ReadiumCSS-ruby_pref.css` (CJK only)
     17. `ReadiumCSS-imageFilters_pref.css`
-8. `ReadiumCSS-fs_normalize.css`
-9. `ReadiumCSS-iPadOS_patch.css`
+5. `ReadiumCSS-fs_normalize.css`
+6. `ReadiumCSS-iPadOS_patch.css`
