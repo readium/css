@@ -18,8 +18,6 @@
   color: var(--USER__textColor) !important;
 }
 
-/* The 2 following declarations are consistent with night mode */
-
 :root[style*="--USER__textColor"] *:not(a) {
   background-color: transparent !important;
   color: inherit !important;

@@ -142,7 +142,7 @@ In version 2, ReadiumCSS provides support for three registered (read common) axe
 2. `--USER__fontWidth`
 3. `--USER__fontOpticalSizing`
 
-These are documented in [User Settings, Reading Modes, and Themes](CSS12-user_prefs.md#font-variations).
+These are documented in [User Settings and Themes](CSS12-user_prefs.md#font-variations).
 
 To help implementers, a new document specific to [variable fonts](CSS10b-variable_fonts.md) has been created. It explains the challenges they’ll encounter, and lists a selection of open source and libre fonts they can embed in their Reading Systems/Apps.
 
@@ -160,16 +160,16 @@ The logic for loading this patch is up to implementers.
 
 ## Public exposition of some Reading System Variables
 
-Since version `2.0.0-alpha.8`, ReadiumCSS is exposing variables for pagination, default font-stacks, and day, sepia, and night modes, in JSON form.
+As of version `2.0.0-alpha.19`, ReadiumCSS is exposing variables for pagination, default font-stacks, and default colors, in JSON form.
 
 This is intended to make it easier for consumers to retrieve important values they need w/o having to get it from the DOM at runtime. For instance, this can be leveraged to keep the theme of the UI and contents in sync (colors and typeface).
 
 For instance, in NodeJS, you would add ReadiumCSS to your dependencies then import it like this:
 
 ```
-import sepiaMode from "readium-css/css/vars/sepia.json";
+import defaultColors from "readium-css/css/vars/colors.json";
 
-const sepiaBackground = sepiaMode.sepiaMode.RS__backgroundColor;
+const backgroundColor = defaultColors.RS__backgroundColor;
 ```
 
 ## Theming Improvements
@@ -182,7 +182,7 @@ Previously, you had to rely on sepia and night mode to enforce the color of link
 
 These decisions are now made to consumers’ discretion, which means they can invert images in their darkest custom themes without having to override ReadiumCSS’ night mode colors for instance, or offer these features to users as they see fit – globally or scoped to a subset of themes – in their app. 
 
-**Note you’ll have to take gaiji into account in dark custom themes as inverting them so that they match the color of text can only be done automatically in readiumCSS’ own night mode.**
+**Note you’ll have to take gaiji into account in dark custom themes as inverting them so that they match the color of text can not be done automatically.**
 
 ## Removal of Dynamic Leading
 

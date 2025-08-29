@@ -24,9 +24,7 @@
 
       <li>default styles;</li>
 
-      <li>reading modes (night, sepia, etc.);</li>
-
-      <li>themes;</li>
+      <li>theming;</li>
 
       <li>user settings.</li>
     </ul>
@@ -95,13 +93,13 @@
       <section id="flags-for-user-settings" class="level3">
         <h3 class="sigil_not_in_toc">Flags for user settings</h3>
 
-        <p>By default, we are using flags in the form of CSS variables to manage reading modes and user settings. But you might want to customize those flags in order to use custom attributes (<code>data-*</code>) or good old CSS classes.</p>
+        <p>By default, we are using flags in the form of CSS variables to manage user settings. But you might want to customize those flags in order to use custom attributes (<code>data-*</code>) or good old CSS classes.</p>
 
         <p>A complete list of flags can be found in the <a href="../Text/Section-012.xhtml">User preferences doc</a>.</p>
 
-        <p>As an example, if you want to use a CSS class for night mode, it could look like:</p>
+        <p>As an example, if you want to use custom attributes for advanced settings, it could look like:</p>
 
-        <pre><code>@custom-selector :--night-mode .night-mode;</code></pre>
+        <pre><code>@custom-selector :--advanced-settings [data-settings="advanced"];</code></pre>
 
         <p>It would then have to be appended to <code>html</code> at runtime.</p>
 
@@ -225,14 +223,6 @@ root.style.setProperty("--USER__bodyHyphens", "auto");</code></pre>
 
           <p>Of course this example is simplistic. You could for instance create an helper to set multiple properties at once.</p>
         </section>
-
-        <section id="apply-sepia-mode" class="level4">
-          <h4 class="sigil_not_in_toc">Apply sepia mode</h4>
-
-          <p>To apply the sepia mode, you can use a flag that will apply preset values.</p>
-
-          <pre><code>root.style.setProperty("--USER__appearance", "readium-sepia-on");</code></pre>
-        </section>
       </section>
     </section>
 
@@ -245,11 +235,11 @@ root.style.setProperty("--USER__bodyHyphens", "auto");</code></pre>
 
       <p>Check the <a href="../Text/Section-012.xhtml">User Preferences doc</a> for a list of available user variables.</p>
 
-      <p>You can also retrieve ReadiumCSS presets for font-stacks and modes by adding it as a dependency, then importing its exposed json files. For instance in JS/TS:</p>
+      <p>You can also retrieve ReadiumCSS presets for font-stacks, default colors and pagination by adding it as a dependency, then importing its exposed json files. For instance in JS/TS:</p>
 
-      <pre><code>import sepiaMode from "readium-css/css/vars/sepia.json";
+      <pre><code>import defaultColors from "readium-css/css/vars/colors.json";
         
-const sepiaBackground = sepiaMode.sepiaMode.RS__backgroundColor;</code></pre>
+const backgroundColor = defaultColors.RS__backgroundColor;</code></pre>
     </section>
   </section>
 </body>

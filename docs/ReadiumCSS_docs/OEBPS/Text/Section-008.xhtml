@@ -15,16 +15,12 @@
 
     <p>[Implementers’ doc] [Authors’ info]</p>
 
-    <p>Defaults is currently made of 5 stylesheets:</p>
+    <p>Defaults is currently made of 2 stylesheets:</p>
 
     <ul>
       <li>1 base stylesheet for all ebooks;</li>
 
-      <li>1 default reading mode stylesheet for all ebooks;</li>
-
-      <li>1 default stylesheet for unstyled ebooks;</li>
-
-      <li>1 stylesheet to deal with the OS’ a11y modes.</li>
+      <li>1 default stylesheet for unstyled ebooks.</li>
     </ul>
 
     <p><strong>Note:</strong> The default stylesheet should not be appended if there are author styles in the EPUB file.</p>
@@ -340,24 +336,6 @@
           <p>An optional secondary accentuation <code>color</code> you could use for any element of your choice.</p>
         </section>
       </section>
-    </section>
-
-    <section id="os-a11y-modes" class="level2">
-      <h2 id="sigil_toc_id_134">OS’ a11y modes</h2>
-        
-      <p>This stylesheet is intended to deal with a11y settings users can set at the OS level, whenever possible:</p>
-
-      <ul>
-        <li>high-contrast mode;</li>
-
-        <li>inverted colors;</li>
-
-        <li>monochrome;</li>
-
-        <li>reduced motion.</li>
-      </ul>
-
-      <p>For <code>monochrome</code>, we’ll have to adjust reading modes (night, sepia, etc.) in their specific stylesheet; we’ll see if we can at least manage some more global settings in there.</p>
     </section>
   </section>
 </body>

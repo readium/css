@@ -15,7 +15,6 @@ Those types can help you decide which settings should be applied to every book, 
 
 The following settings are required and should be applied by any means necessary:
 
-- reading modes;
 - paged/scrolled view.
 
 ## Chrome advanced
@@ -24,7 +23,7 @@ The following settings are optional but should be applied by any means necessary
 
 - number of columns;
 - line length;
-- custom reading modes/themes (background, text, link and selection colors);
+- custom themes (background, text, link and selection colors);
 - image filters (blend, darken and invert).
 
 ## User overrides

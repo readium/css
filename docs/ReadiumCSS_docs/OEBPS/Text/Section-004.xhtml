@@ -263,11 +263,7 @@ body { column-width: 300px; column-count: 2; }</code></pre>
     <section id="reflow" class="level2">
       <h2 id="sigil_toc_id_55">Reflow</h2>
 
-      <p>CSS multicol relies on a complex (fragmentation) logic, and this logic varies for each browser.</p>
-
-      <p>In Blink and Webkit for instance, a reflow won’t happen for the document (<code>:root</code>) if we don’t force a reflow at the <code>body</code> level. As a consequence, we’re using the <code>--RS__defaultLineLength</code> CSS variable to force this reflow and slightly alter its value whenever needed e.g. “pagination to scroll” in vertical writing, <code>mix-blend-mode</code> in sepia mode, “number of columns” user setting, etc.</p>
-
-      <p>This will recalc the <code>body</code>’s <code>max-width</code>, causing a reflow which will propagate to the column layout we set for <code>:root</code>.</p>
+      <p>CSS multicol relies on a complex (fragmentation) logic, and this logic varies for each browser. In some cases, it can be necessary to force a reflow or recalc to update the layout.</p>
     </section>
 
     <section id="notorious-limitations" class="level2">

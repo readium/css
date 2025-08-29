@@ -27,8 +27,8 @@
 
   --RS__baseLineHeight: calc(1.5 * var(--RS__lineHeightCompensation));
 
-  /* Default theme (previously implemented as day mode) */
-  @import-json "../../vars/day.json";
+  /* Default colors (previously implemented as day mode) */
+  @import-json "../../vars/colors.json";
 
   background-color: var(--RS__backgroundColor) !important;
   color: var(--RS__textColor) !important;

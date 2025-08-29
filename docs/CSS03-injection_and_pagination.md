@@ -22,7 +22,7 @@ Finally, on larger screens, you’ll have to set dimensions on this container so
 
 ### Background color
 
-Please note you must deal with the `background-color` outside this container, especially as the user can set reading modes (night, sepia, etc.). In other words, it must be synced with this user setting so that the entire screen is the same `background-color`.
+Please note you must deal with the `background-color` outside this container, especially as the user could set an arbitrary color through theming. In other words, it must be synced with this user setting so that the entire screen is the same `background-color`.
 
 As a friendly reminder, you can allow transparency for the iframe if you’re using one. That should help deal with `background-color` at the global level.
 

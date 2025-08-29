@@ -1,8 +1,7 @@
 /* Readium CSS 
    Config module
 
-   A file allowing implementers to customize flags for reading modes,
-   user settings, etc.
+   A file allowing implementers to customize flags for user settings, etc.
 
    Repo: https://github.com/readium/css */
 
@@ -20,10 +19,6 @@
 
 /* Font-size normalization for engines that don’t support zoom */
 @custom-selector :--fs-normalize [style*="readium-normalize-on"];
-
-/* Reading Modes */
-@custom-selector :--sepia-mode [style*="readium-sepia-on"];
-@custom-selector :--night-mode [style*="readium-night-on"];
 
 /* Filters (images) */
 @custom-selector :--blend-filter [style*="readium-blend-on"];

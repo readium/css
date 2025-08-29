@@ -10,7 +10,7 @@ This is really tricky as **there may be a cultural factor to take into account**
 
 ## User Settings
 
-When asked directly, the vast majority of users will say they prefer basic settings (reading modes, typeface, and font size) over other options (maximum amount of settings possible, themes, customizable themes). Customizable themes and advanced settings are equally popular, at a distant second place.
+When asked directly, the vast majority of users will say they prefer basic settings (themes, typeface, and font size) over other options (maximum amount of settings possible, customizable themes). Customizable themes and advanced settings are equally popular, at a distant second place.
 
 Once again, this is a complex UX issue and your mileage may vary. On Android for instance, there is a lot of apps with advanced settings as the default, and millions of people are using them daily. So it’s primarily about your UX proposal, people using it, etc.
 

@@ -4,7 +4,7 @@
 
 Our current baseline for user settings includes:
 
-- night/sepia modes, and custom `background-color` and `color`;
+- custom `background-color` and `color`;
 - `text-align` and `hyphens`;
 - `font-size` and `line-height`;
 - a11y-related typefaces;
@@ -27,9 +27,9 @@ Removing italics, subs and sups, drop caps and floated elements should probably 
 
 ## OS settings
 
-Some Operating Systems provide users with global settings. We must take those settings into account, which is the purpose of the “OS a11y” module. This module still needs improvements. 
+Some Operating Systems provide users with global settings. 
 
-We’ll have to make decisions about reading modes there: if the user sets the monochrome option, how are we supposed to deal with sepia and colors? If the user sets an inverted high-contrast mode, what happens in night mode? There can indeed be multiple users for the same computer, using the same account, and we should cover this  case out of the box.
+You’ll have to make decisions about theming there: if the user sets the monochrome option, how are we supposed to deal with colors? If the user sets an inverted high-contrast mode, what happens with dark colors?
 
 ## Current a11y Features on the market
 

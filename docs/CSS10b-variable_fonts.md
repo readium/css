@@ -126,7 +126,7 @@ The overarching goal was to provide variable fonts mapped to the default stacks 
 
 Then, each of the fonts has been undergoing tests in real rendering situations. 
 
-They were rendered on the Android, iOS, MacOS, and Windows platforms, using SD and HD displays when possible, in multiple browsers (Edge, Safari, Chrome, Firefox), and in different reading modes (default, sepia, and night).
+They were rendered on the Android, iOS, MacOS, and Windows platforms, using SD and HD displays when possible, in multiple browsers (Edge, Safari, Chrome, Firefox), and in different themes (default, sepia, and night).
 
 Then each font was:
 

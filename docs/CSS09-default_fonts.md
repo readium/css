@@ -446,7 +446,7 @@ It is important to emphasize that the user settings (and their values) implement
 - avoid italics (`--USER__a11yNormalize` flag);
 - generally use sans serif faces (`font-family` setting);
 - use larger text (`font-size` setting);
-- use good contrast (`background-` and `color` settings, reading modes, themes);
+- use good contrast (`background-` and `color` settings);
 - use clear, concise writing.
 
 [The WCAG 2.1 spec](https://www.w3.org/TR/WCAG21/), especially [the “Adapting text” section](https://www.w3.org/TR/WCAG21/#adapting-text), can serve as a starting point to choose the values you might at least offer to users for those settings.
