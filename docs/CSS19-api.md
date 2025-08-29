@@ -113,38 +113,6 @@ Override class: None. This flag is used to activate patching of iPadOS’ deskto
 * * * 
 
 ```
-:--sepia-mode
-```
-
-Preset: `--USER__appearance: readium-sepia-on`
-
-Scope: `html`
-
-Override class: Chrome (should be applied by any means necessary)
-
-This flag applies the sepia reading mode.
-
-**Note: sepia mode automatically blends images so that you don’t have to manually set the flag.**
-
-* * * 
-
-```
-:--night-mode
-```
-
-Preset: `--USER__appearance: readium-night-on`
-
-Scope: `html`
-
-Override class: Chrome (should be applied by any means necessary)
-
-This flag applies the night reading mode.
-
-**Note: night mode automatically inverts gaiji so that you don’t have to manually set the flag.**
-
-* * * 
-
-```
 :--blend-filter
 ```
 
@@ -517,8 +485,6 @@ The default `background-color` for pages.
 
 The `background-color` for selected text.
 
-It is worth noting it can be customized for each reading mode.
-
 * * *
 
 ```
@@ -526,8 +492,6 @@ It is worth noting it can be customized for each reading mode.
 ```
 
 The `color` for selected text.
-
-It is worth noting it can be customized for each reading mode.
 
 ### Default styles for unstyled publications
 
@@ -639,9 +603,9 @@ An optional primary accentuation `color` you could use for headings or any other
 
 An optional secondary accentuation `color` you could use for any element of your choice.
 
-## Reading Modes
+## Themes
 
-Custom properties for reading modes are prefixed with `--RS__`.
+Custom properties for themes are prefixed with `--RS__`.
 
 Note these variables are publicly exposed as JSON in `css/vars` so that it’s easier to retrieve their value and use it in your codebase.
 
@@ -651,7 +615,7 @@ Note these variables are publicly exposed as JSON in `css/vars` so that it’s e
 --RS__backgroundColor
 ```
 
-The `background-color` which must be applied to the entire screen in the reading mode.
+The `background-color` which must be applied to the entire screen in the theme.
 
 * * *
 
@@ -659,7 +623,7 @@ The `background-color` which must be applied to the entire screen in the reading
 --RS__textColor
 ```
 
-The `color` for text in the reading mode.
+The `color` for text in the theme.
 
 * * *
 
@@ -667,7 +631,7 @@ The `color` for text in the reading mode.
 --RS__linkColor
 ```
 
-The `color` for the links in the reading mode.
+The `color` for the links in the theme.
 
 * * *
 
@@ -675,7 +639,7 @@ The `color` for the links in the reading mode.
 --RS__visitedColor
 ```
 
-The `color` for visited links in the reading mode.
+The `color` for visited links in the theme.
 
 * * *
 
@@ -683,7 +647,7 @@ The `color` for visited links in the reading mode.
 --RS__selectionBackgroundColor
 ```
 
-The `background-color` for selected text in the reading mode.
+The `background-color` for selected text in the theme.
 
 * * *
 
@@ -691,7 +655,7 @@ The `background-color` for selected text in the reading mode.
 --RS__selectionTextColor
 ```
 
-The `color` for selected text in the reading mode.
+The `color` for selected text in the theme.
 
 ## User Settings
 

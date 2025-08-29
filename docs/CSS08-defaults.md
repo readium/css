@@ -2,12 +2,10 @@
 
 [Implementers’ doc] [Authors’ info]
 
-Defaults is currently made of 5 stylesheets:
+Defaults is currently made of 2 stylesheets:
 
 - 1 base stylesheet for all ebooks;
-- 1 default reading mode stylesheet for all ebooks;
-- 1 default stylesheet for unstyled ebooks;
-- 1 stylesheet to deal with the OS’ a11y modes.
+- 1 default stylesheet for unstyled ebooks.
 
 **Note:** The default stylesheet should not be appended if there are author styles in the EPUB file.
 
@@ -342,14 +340,3 @@ An optional primary accentuation `color` you could use for headings or any other
 ```
 
 An optional secondary accentuation `color` you could use for any element of your choice.
-
-## OS’ a11y modes
-
-This stylesheet is intended to deal with a11y settings users can set at the OS level, whenever possible: 
-
-- high-contrast mode;
-- inverted colors;
-- monochrome;
-- reduced motion.
-
-For `monochrome`, we’ll have to adjust reading modes (night, sepia, etc.) in their specific stylesheet; we’ll see if we can at least manage some more global settings in there.

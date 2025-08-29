@@ -1,4 +1,4 @@
-# User Settings, Reading Modes and Themes
+# User Settings and Themes
 
 [Implementers’ doc] [Authors’ info]
 
@@ -21,7 +21,7 @@ User settings require the following process:
 2. add the setting-specific variable and its value to `html`;
 3. styles are updated live.
 
-The selectors used in user settings are indeed “conditional”, styles are applied if the variable (or a specific value for reading modes) is set as an inline style in `html` (`:root`).
+The selectors used in user settings are indeed “conditional”, styles are applied if the variable is set as an inline style in `html` (`:root`).
 
 ### Setting and removing a variable
 
@@ -125,21 +125,7 @@ Supported value: `readium-iPadOSPatch-on`
 
 Override class: None.
 
-### Reading Modes
-
-We currently have two reading modes for night and sepia.
-
-```
---USER__appearance
-```
-
-Supported values: `readium-sepia-on` | `readium-night-on`
-
-Override class: Chrome (should be applied by any means necessary)
-
 ### Filters
-
-Please note night mode provides two extra specific variables: 
 
 ```
 --USER__darkenFilter
@@ -497,7 +483,7 @@ There is not a lot of alternatives when it comes to managing user settings. Opti
 
 - appending/removing stylesheets (either `link` or `style` element) dynamically;
 - traversing the DOM and appending inline styles using JavaScript;
-- using classes or custom attributes for a limited subset of settings (e.g. reading modes);
+- using classes or custom attributes for a limited subset of settings;
 - leveraging native features web views have to offer.
 
 Please bear in mind Readium CSS provides a baseline, it resonably manages all those issues using CSS only. But if you want to offer users the most advanced experience there can be, you’ll end up with a mix of all those options.

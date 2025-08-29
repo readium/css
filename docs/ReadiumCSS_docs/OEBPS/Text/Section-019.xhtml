@@ -110,34 +110,6 @@
 
       <hr/>
 
-      <pre><code>:--sepia-mode</code></pre>
-
-      <p>Preset: <code>--USER__appearance: readium-sepia-on</code></p>
-
-      <p>Scope: <code>html</code></p>
-
-      <p>Override class: Chrome (should be applied by any means necessary)</p>
-
-      <p>This flag applies the sepia reading mode.</p>
-
-      <p><strong>Note: sepia mode automatically blends images so that you don’t have to manually set the flag.</strong></p>
-
-      <hr/>
-
-      <pre><code>:--night-mode</code></pre>
-
-      <p>Preset: <code>--USER__appearance: readium-night-on</code></p>
-
-      <p>Scope: <code>html</code></p>
-
-      <p>Override class: Chrome (should be applied by any means necessary)</p>
-
-      <p>This flag applies the night reading mode.</p>
-
-      <p><strong>Note: night mode automatically inverts gaiji so that you don’t have to manually set the flag.</strong></p>
-
-      <hr/>
-
       <pre><code>:--blend-filter</code></pre>
 
       <p>Preset: <code>--USER__blendImages: readium-blend-on</code></p>
@@ -455,15 +427,11 @@
 
         <p>The <code>background-color</code> for selected text.</p>
 
-        <p>It is worth noting it can be customized for each reading mode.</p>
-
         <hr/>
 
         <pre><code>--RS__selectionTextColor</code></pre>
 
         <p>The <code>color</code> for selected text.</p>
-
-        <p>It is worth noting it can be customized for each reading mode.</p>
       </section>
 
       <section id="default-styles-for-unstyled-publications" class="level3">
@@ -565,10 +533,10 @@
       </section>
     </section>
 
-    <section id="reading-modes" class="level2">
-      <h2 id="sigil_toc_id_186">Reading Modes</h2>
+    <section id="themes" class="level2">
+      <h2 id="sigil_toc_id_186">Themes</h2>
 
-      <p>Custom properties for reading modes are prefixed with <code>--RS__</code>.</p>
+      <p>Custom properties for themes are prefixed with <code>--RS__</code>.</p>
 
       <p>Note these variables are publicly exposed as JSON in <code>css/vars</code> so that it’s easier to retrieve their value and use it in your codebase.</p>
 
@@ -576,37 +544,37 @@
 
       <pre><code>--RS__backgroundColor</code></pre>
 
-      <p>The <code>background-color</code> which must be applied to the entire screen in the reading mode.</p>
+      <p>The <code>background-color</code> which must be applied to the entire screen in the theme.</p>
 
       <hr/>
 
       <pre><code>--RS__textColor</code></pre>
 
-      <p>The <code>color</code> for text in the reading mode.</p>
+      <p>The <code>color</code> for text in the theme.</p>
 
       <hr/>
 
       <pre><code>--RS__linkColor</code></pre>
 
-      <p>The <code>color</code> for the links in the reading mode.</p>
+      <p>The <code>color</code> for the links in the theme.</p>
 
       <hr/>
 
       <pre><code>--RS__visitedColor</code></pre>
 
-      <p>The <code>color</code> for visited links in the reading mode.</p>
+      <p>The <code>color</code> for visited links in the theme.</p>
 
       <hr/>
 
       <pre><code>--RS__selectionBackgroundColor</code></pre>
 
-      <p>The <code>background-color</code> for selected text in the reading mode.</p>
+      <p>The <code>background-color</code> for selected text in the theme.</p>
 
       <hr/>
 
       <pre><code>--RS__selectionTextColor</code></pre>
 
-      <p>The <code>color</code> for selected text in the reading mode.</p>
+      <p>The <code>color</code> for selected text in the theme.</p>
     </section>
 
     <section id="user-settings" class="level2">

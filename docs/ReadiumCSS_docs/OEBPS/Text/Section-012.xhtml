@@ -10,8 +10,8 @@
 </head>
 
 <body xml:lang="en">
-  <section id="user-settings-reading-modes-and-themes" class="level1">
-    <h1>User Settings, Reading Modes and Themes</h1>
+  <section id="user-settings-and-themes" class="level1">
+    <h1>User Settings and Themes</h1>
 
     <p>[Implementers’ doc] [Authors’ info]</p>
 
@@ -42,7 +42,7 @@
         <li>styles are updated live.</li>
       </ol>
 
-      <p>The selectors used in user settings are indeed “conditional”, styles are applied if the variable (or a specific value for reading modes) is set as an inline style in <code>html</code> (<code>:root</code>).</p>
+      <p>The selectors used in user settings are indeed “conditional”, styles are applied if the variable is set as an inline style in <code>html</code> (<code>:root</code>).</p>
 
       <section id="setting-and-removing-a-variable" class="level3">
         <h3 class="sigil_not_in_toc">Setting and removing a variable</h3>
@@ -143,22 +143,8 @@ root.style.setProperty("name of var", "");</code></pre>
         <p>Override class: None.</p>
       </section>
 
-      <section id="reading-modes" class="level3">
-        <h3 class="sigil_not_in_toc">Reading Modes</h3>
-
-        <p>We currently have two reading modes for night and sepia.</p>
-
-        <pre><code>--USER__appearance</code></pre>
-
-        <p>Supported values: <code>readium-sepia-on</code> | <code>readium-night-on</code></p>
-
-        <p>Override class: Chrome (should be applied by any means necessary)</p>
-      </section>
-
       <section id="filters" class="level3">
         <h3 class="sigil_not_in_toc">Filters</h3>
-
-        <p>Please note night mode provides two extra specific variables:</p>
 
         <pre><code>--USER__darkenFilter</code></pre>
 
@@ -536,7 +522,7 @@ root.style.setProperty("name of var", "");</code></pre>
 
         <li>traversing the DOM and appending inline styles using JavaScript;</li>
 
-        <li>using classes or custom attributes for a limited subset of settings (e.g. reading modes);</li>
+        <li>using classes or custom attributes for a limited subset of settings;</li>
 
         <li>leveraging native features web views have to offer.</li>
       </ul>

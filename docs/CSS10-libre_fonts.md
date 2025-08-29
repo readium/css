@@ -46,7 +46,7 @@ Here’s the complete list of those 27 fonts:
 
 Each of the 27 fonts has been undergoing tests in real rendering situations. 
 
-They were rendered on the Android, iOS, MacOS, and Windows platforms, using SD and HD displays when possible, in multiple browsers (Edge, Safari, Chrome, Firefox), and in different reading modes (default, sepia and night).
+They were rendered on the Android, iOS, MacOS, and Windows platforms, using SD and HD displays when possible, in multiple browsers (Edge, Safari, Chrome, Firefox), and in different themes (none, sepia and night).
 
 Then each font was:
 

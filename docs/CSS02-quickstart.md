@@ -7,8 +7,7 @@ Readium CSS is a set of reference stylesheets for EPUB Reading Systems. It provi
 - a CSS normalize for EPUB contents;
 - paged and scrolled views;
 - default styles;
-- reading modes (night, sepia, etc.);
-- themes;
+- theming;
 - user settings.
 
 **Note:** Readium CSS stylesheets were not designed and should not be used for fixed-layout EPUB, nor other file formats like FB2, PRC, Mobi, TEI, etc.
@@ -50,14 +49,14 @@ In order to provide this customization, we use custom selectors, which will hope
 
 ### Flags for user settings
 
-By default, we are using flags in the form of CSS variables to manage reading modes and user settings. But you might want to customize those flags in order to use custom attributes (`data-*`) or good old CSS classes.
+By default, we are using flags in the form of CSS variables to manage user settings. But you might want to customize those flags in order to use custom attributes (`data-*`) or good old CSS classes.
 
 A complete list of flags can be found in the [User preferences doc](../docs/CSS12-user_prefs.md).
 
-As an example, if you want to use a CSS class for night mode, it could look like: 
+As an example, if you want to use custom attributes for advanced settings, it could look like:
 
 ```
-@custom-selector :--night-mode .night-mode;
+@custom-selector :--advanced-settings [data-settings="advanced"];
 ```
 
 It would then have to be appended to `html` at runtime.
@@ -170,15 +169,6 @@ root.style.setProperty("--USER__bodyHyphens", "auto");
 
 Of course this example is simplistic. You could for instance create an helper to set multiple properties at once.
 
-#### Apply sepia mode
-
-To apply the sepia mode, you can use a flag that will apply preset values.
-
-```
-root.style.setProperty("--USER__appearance", "readium-sepia-on");
-
-```
-
 ## Create Themes
 
 In Readium CSS model, themes are a set of user settings you can store and retrieve. Add the properties to `html` and you get a theme.
@@ -187,10 +177,11 @@ Depending on the prefix you are using, `--RS__` or `--USER__`, your theme will o
 
 Check the [User Preferences doc](../docs/CSS12-user_prefs.md) for a list of available user variables.
 
-You can also retrieve ReadiumCSS presets for font-stacks and modes by adding it as a dependency, then importing its exposed json files. For instance in JS/TS:
+You can also retrieve ReadiumCSS presets for font-stacks, colors and pagination by adding it as a dependency, then importing its exposed json files. For instance in JS/TS:
 
 ```
-import sepiaMode from "readium-css/css/vars/sepia.json";
+import defaultColors from "readium-css/css/vars/colors.json";
 
-const sepiaBackground = sepiaMode.sepiaMode.RS__backgroundColor;
+const backgroundColor = defaultColors.RS__backgroundColor;
+const textColor = defaultColors.RS__color;
 ```

@@ -217,11 +217,7 @@ What is important to remark is that:
 
 ## Reflow
 
-CSS multicol relies on a complex (fragmentation) logic, and this logic varies for each browser. 
-
-In Blink and Webkit for instance, a reflow won’t happen for the document (`:root`) if we don’t force a reflow at the `body` level. As a consequence, we’re using the `--RS__defaultLineLength` CSS variable to force this reflow and slightly alter its value whenever needed e.g. “pagination to scroll” in vertical writing, `mix-blend-mode` in sepia mode, “number of columns” user setting, etc. 
-
-This will recalc the `body`’s `max-width`, causing a reflow which will propagate to the column layout we set for `:root`.
+CSS multicol relies on a complex (fragmentation) logic, and this logic varies for each browser. In some cases, it can be necessary to force a reflow or recalc to update the layout.
 
 ## Notorious limitations
 
