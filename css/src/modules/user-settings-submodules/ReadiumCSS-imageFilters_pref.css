@@ -6,8 +6,7 @@
 
    Repo: https://github.com/readium/css */
 
-/* Blending images with their backgroung
-   Note this is automatically applied in sepia mode */
+/* Blending images with their backgroung */
 :root:--blend-filter svg,
 :root:--blend-filter img {
   /* Make sure the proper bg-color is used for the blend mode */
@@ -62,8 +61,7 @@
   filter: brightness(80%) invert(100%) !important;
 }
 
-/* Invert gaiji only. 
-   Note this is automatically applied in night mode */
+/* Invert gaiji only. */
 :root[style*="--USER__invertGaiji"] img[class*="gaiji"] {
   -webkit-filter: invert(var(--USER__invertGaiji)) !important;
   filter: invert(var(--USER__invertGaiji)) !important;
