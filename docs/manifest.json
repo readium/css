@@ -14,7 +14,7 @@
   ],
   
   "readingOrder": [
-    {"href": "https://readium.org/css/docs/", "type": "text/html", "rel": "contents"}, 
+    {"href": "https://readium.org/css/docs/", "type": "text/html", "title": "Introduction", "rel": "contents"}, 
     {"href": "https://readium.org/css/docs/CSS01-readiumcss_fundamentals.html", "type": "text/html", "title": "Readium CSS Fundamental Concepts"}, 
     {"href": "https://readium.org/css/docs/CSS02-quickstart.html", "type": "text/html", "title": "Quickstart"}, 
     {"href": "https://readium.org/css/docs/CSS03-injection_and_pagination.html", "type": "text/html", "title": "Inject and paginate EPUB contents"}, 
