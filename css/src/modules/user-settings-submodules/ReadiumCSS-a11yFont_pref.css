@@ -27,16 +27,16 @@
 }
 
 /* Targeting everything except code. Note that Open Dyslexic has a monospaced font for code */
-:root:--a11y-font *:not(code):not(var):not(kbd):not(samp),
-:root:--a11y-normalize *:not(code):not(var):not(kbd):not(samp) {
+:root:--a11y-font body *:not(code):not(var):not(kbd):not(samp),
+:root:--a11y-normalize body *:not(code):not(var):not(kbd):not(samp) {
   font-family: inherit !important;
   font-weight: inherit !important;
   font-style: inherit !important;
 }
 
 /* Normalizing text-decoration, subs and sups */
-:root:--a11y-font *,
-:root:--a11y-normalize * {
+:root:--a11y-font body *,
+:root:--a11y-normalize body * {
   text-decoration: none !important;
   font-variant-caps: normal !important;
   font-variant-position: normal !important;
