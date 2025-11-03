@@ -261,7 +261,7 @@ The typeface for code snippets. The value can be another variable e.g. `var(-RS_
 
 The scale to be used for computing all elements’ `font-size`. Since those font sizes are computed dynamically, you can set a smaller type scale when the user sets one of the largest font sizes.
 
-Possible values: `1` | `1.067` | `1.125` | `1.2` (suggested default) | `1.25` | `1.333` | `1.414` | `1.5` | `1.618`
+Possible values: `1` / `1.067` / `1.125` / `1.2` (suggested default) / `1.25` / `1.333` / `1.414` / `1.5` / `1.618`
 
 * * *
 
