@@ -1,7 +1,7 @@
 {
   "name": "@readium/css",
   "description": "A set of reference stylesheets for EPUB Reading Systems",
-  "version": "2.0.0-beta.20",
+  "version": "2.0.0-beta.21",
   "homepage": "https://github.com/readium/css",
   "license": "BSD-3-Clause",
   "keywords": [
@@ -45,7 +45,8 @@
     "stylelint": "^16.4.0"
   },
   "scripts": {
-    "build": "npm run build:ltr && npm run build:rtl && npm run build:cjk && npm run build:vertical && npm run copyPatches",
+    "build": "npm run build:ltr && npm run build:rtl && npm run build:cjk && npm run build:vertical && npm run build:web && npm run copyPatches",
+    "build:web": "postcss css/src/ReadiumCSS-webPub.css -o css/dist/webPub/ReadiumCSS-webPub.css",
     "build:ltr": "postcss css/src/ReadiumCSS-before.css -o css/dist/ReadiumCSS-before.css && postcss css/src/ReadiumCSS-default.css -o css/dist/ReadiumCSS-default.css && postcss css/src/ReadiumCSS-after.css -o css/dist/ReadiumCSS-after.css",
     "build:rtl": "postcss css/src/ReadiumCSS-before-rtl.css -o css/dist/rtl/ReadiumCSS-before.css && postcss css/src/ReadiumCSS-default-rtl.css -o css/dist/rtl/ReadiumCSS-default.css && postcss css/src/ReadiumCSS-after-rtl.css -o css/dist/rtl/ReadiumCSS-after.css",
     "build:cjk": "postcss css/src/ReadiumCSS-before-cjk-horizontal.css -o css/dist/cjk-horizontal/ReadiumCSS-before.css && postcss css/src/ReadiumCSS-default-cjk-horizontal.css -o css/dist/cjk-horizontal/ReadiumCSS-default.css && postcss css/src/ReadiumCSS-after-cjk-horizontal.css -o css/dist/cjk-horizontal/ReadiumCSS-after.css",

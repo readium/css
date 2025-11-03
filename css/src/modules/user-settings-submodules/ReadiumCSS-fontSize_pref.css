@@ -14,6 +14,31 @@
   -webkit-text-size-adjust: var(--USER__fontSize) !important;
 }
 
+@supports selector(figure:has(> img)) {
+  :root[style*="--USER__fontSize"] figure:has(> img),
+  :root[style*="--USER__fontSize"] figure:has(> video),
+  :root[style*="--USER__fontSize"] figure:has(> svg),
+  :root[style*="--USER__fontSize"] figure:has(> canvas),
+  :root[style*="--USER__fontSize"] figure:has(> iframe),
+  :root[style*="--USER__fontSize"] figure:has(> audio),
+  :root[style*="--USER__fontSize"] div:has(> img),
+  :root[style*="--USER__fontSize"] div:has(> video),
+  :root[style*="--USER__fontSize"] div:has(> svg),
+  :root[style*="--USER__fontSize"] div:has(> canvas),
+  :root[style*="--USER__fontSize"] div:has(> iframe),
+  :root[style*="--USER__fontSize"] div:has(> audio),
+  :root[style*="--USER__fontSize"] table {
+    zoom: calc(100% / var(--USER__fontSize)) !important;
+  }
+
+  :root[style*="--USER__fontSize"] figcaption,
+  :root[style*="--USER__fontSize"] caption,
+  :root[style*="--USER__fontSize"] td,
+  :root[style*="--USER__fontSize"] th {
+    zoom: var(--USER__fontSize) !important;
+  }
+}
+
 /* Older deprecated implementation for when zoom is not supported
    or it is explicitly enabled because you don’t want the new one */
 
