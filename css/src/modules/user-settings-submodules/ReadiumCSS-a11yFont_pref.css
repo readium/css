@@ -34,15 +34,21 @@
   font-style: inherit !important;
 }
 
-/* Normalizing text-decoration, subs and sups */
+/* Normalizing text-decoration */
+:root:--a11y-font body *:not(a),
+:root:--a11y-normalize body *:not(a) {
+  text-decoration: none !important;
+}
+
+/* Normalizing font-variant */
 :root:--a11y-font body *,
 :root:--a11y-normalize body * {
-  text-decoration: none !important;
   font-variant-caps: normal !important;
   font-variant-position: normal !important;
   font-variant-numeric: normal !important;
 }
 
+/* Normalizing sup and sub */
 :root:--a11y-font sup,
 :root:--a11y-normalize sup,
 :root:--a11y-font sub,
