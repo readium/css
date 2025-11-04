@@ -1377,6 +1377,18 @@
         </navLabel>
         <content src="Text/Section-028.xhtml#sigil_toc_id_216"/>
       </navPoint>
+      <navPoint id="navPoint229">
+        <navLabel>
+          <text>Ligatures moved to the global space</text>
+        </navLabel>
+        <content src="Text/Section-028.xhtml#sigil_toc_id_217"/>
+      </navPoint>
+      <navPoint id="navPoint230">
+        <navLabel>
+          <text>Experimental Web Publications stylesheet</text>
+        </navLabel>
+        <content src="Text/Section-028.xhtml#sigil_toc_id_218"/>
+      </navPoint>
     </navPoint>
   </navMap>
 </ncx>

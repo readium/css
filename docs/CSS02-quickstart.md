@@ -118,7 +118,8 @@ Other scripts are available:
 - `build:ltr` for default stylesheets (Left to Right);
 - `build:rtl` for Right to Left stylesheets;
 - `build:cjk` for CJK scripts;
-- `build:vertical` for CJK and the Mongolian scripts in vertical writing.
+- `build:vertical` for CJK and the Mongolian scripts in vertical writing;
+- `build:web` for Web Publications stylesheets.
 
 ### Additional info
 
