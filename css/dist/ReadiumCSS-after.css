@@ -1,5 +1,5 @@
 /*!
- * Readium CSS v.2.0.0-beta.20
+ * Readium CSS v.2.0.0-beta.21
  * Copyright (c) 2017–2025. Readium Foundation. All rights reserved.
  * Use of this source code is governed by a BSD-style license which is detailed in the
  * LICENSE file present in the project repository where this source code is maintained.
@@ -293,8 +293,34 @@ body{
   zoom:var(--USER__fontSize) !important;
 }
 
-:root[style*="readium-iOSPatch-on"][style*="--USER__fontSize"] body{
+:root:not([style*="readium-deprecatedFontSize-on"])[style*="readium-iOSPatch-on"][style*="--USER__fontSize"] body{
   -webkit-text-size-adjust:var(--USER__fontSize) !important;
+}
+
+@supports selector(figure:has(> img)){
+
+  :root:not([style*="readium-deprecatedFontSize-on"]):not([style*="readium-iOSPatch-on"])[style*="--USER__fontSize"] figure:has(> img),
+  :root:not([style*="readium-deprecatedFontSize-on"]):not([style*="readium-iOSPatch-on"])[style*="--USER__fontSize"] figure:has(> video),
+  :root:not([style*="readium-deprecatedFontSize-on"]):not([style*="readium-iOSPatch-on"])[style*="--USER__fontSize"] figure:has(> svg),
+  :root:not([style*="readium-deprecatedFontSize-on"]):not([style*="readium-iOSPatch-on"])[style*="--USER__fontSize"] figure:has(> canvas),
+  :root:not([style*="readium-deprecatedFontSize-on"]):not([style*="readium-iOSPatch-on"])[style*="--USER__fontSize"] figure:has(> iframe),
+  :root:not([style*="readium-deprecatedFontSize-on"]):not([style*="readium-iOSPatch-on"])[style*="--USER__fontSize"] figure:has(> audio),
+  :root:not([style*="readium-deprecatedFontSize-on"]):not([style*="readium-iOSPatch-on"])[style*="--USER__fontSize"] div:has(> img),
+  :root:not([style*="readium-deprecatedFontSize-on"]):not([style*="readium-iOSPatch-on"])[style*="--USER__fontSize"] div:has(> video),
+  :root:not([style*="readium-deprecatedFontSize-on"]):not([style*="readium-iOSPatch-on"])[style*="--USER__fontSize"] div:has(> svg),
+  :root:not([style*="readium-deprecatedFontSize-on"]):not([style*="readium-iOSPatch-on"])[style*="--USER__fontSize"] div:has(> canvas),
+  :root:not([style*="readium-deprecatedFontSize-on"]):not([style*="readium-iOSPatch-on"])[style*="--USER__fontSize"] div:has(> iframe),
+  :root:not([style*="readium-deprecatedFontSize-on"]):not([style*="readium-iOSPatch-on"])[style*="--USER__fontSize"] div:has(> audio),
+  :root:not([style*="readium-deprecatedFontSize-on"]):not([style*="readium-iOSPatch-on"])[style*="--USER__fontSize"] table{
+    zoom:calc(100% / var(--USER__fontSize)) !important;
+  }
+
+  :root:not([style*="readium-deprecatedFontSize-on"]):not([style*="readium-iOSPatch-on"])[style*="--USER__fontSize"] figcaption,
+  :root:not([style*="readium-deprecatedFontSize-on"]):not([style*="readium-iOSPatch-on"])[style*="--USER__fontSize"] caption,
+  :root:not([style*="readium-deprecatedFontSize-on"]):not([style*="readium-iOSPatch-on"])[style*="--USER__fontSize"] td,
+  :root:not([style*="readium-deprecatedFontSize-on"]):not([style*="readium-iOSPatch-on"])[style*="--USER__fontSize"] th{
+    zoom:var(--USER__fontSize) !important;
+  }
 }
 
 @supports not (zoom: 1){
@@ -360,6 +386,14 @@ body{
 :root[style*="--USER__letterSpacing"] dd{
   letter-spacing:var(--USER__letterSpacing);
   font-variant:none;
+}
+
+:root[style*="--USER__ligatures"]{
+  font-variant-ligatures:var(--USER__ligatures) !important;
+}
+
+:root[style*="--USER__ligatures"] *{
+  font-variant-ligatures:inherit !important;
 }
 
 :root[style*="--USER__fontWeight"] body{
