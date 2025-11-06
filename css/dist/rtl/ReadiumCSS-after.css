@@ -292,7 +292,7 @@ body{
   margin-bottom:var(--USER__paraSpacing) !important;
 }
 
-:root[style*="--USER__paraIndent"] p{
+:root[style*="--USER__paraIndent"] p:not([class*="title"]):not(blockquote p):not(figcaption p):not(header p):not(hgroup p):not(div:has(+ *) > h1 + p):not(div:has(+ *) > p:has(+ h1)){
   text-indent:var(--USER__paraIndent) !important;
 }
 
