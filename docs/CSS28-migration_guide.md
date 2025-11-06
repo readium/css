@@ -232,3 +232,29 @@ The 5 following custom properties are available:
 - `--RS__scrollPaddingRight`
 
 They accept the same values as the CSS property `padding`.
+
+## Ligatures moved to the global space
+
+As of version `2.0.0-beta.22`, ligatures are no longer limited to RTL (arabic and farsi scripts). The setting is now available in Latin scripts as well.
+
+## Experimental Web Publications stylesheet
+
+As of version `2.0.0-beta.22`, ReadiumCSS provides an experimental stylesheet for Web Publications. It ships with the following features:
+
+- font-family
+- font variations (weight, width, optical-sizing)
+- hyphens
+- letter spacing
+- ligatures
+- line height
+- paragraph indent
+- paragraph spacing
+- Ruby annotations disabling
+- text alignment
+- text normalization
+- word spacing
+- zoom
+
+As well as the patching of zoom for iOS and iPadOS. **Note there is no fallback in case the `zoom` CSS property is not supported.**
+
+Typically, you would use zoom for all web publications, and the rest of the styles if the web publication’s accessibility metadata contains feature `displayTransformability`.

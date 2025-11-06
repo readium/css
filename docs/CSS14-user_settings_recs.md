@@ -215,11 +215,11 @@ It is very rare authors’ will use those CSS properties for body copy. They may
 
 In any case, implementers should force those settings for body copy.
 
-## Ligatures (Arabic & Persian scripts)
+## Ligatures
 
 ### User’s intent
 
-The user intends to disable ligatures. This setting applies to the Arabic and Persian scripts, and is believed to help dyslexic readers as `word-spacing` in Latin.
+The user intends to disable ligatures. This setting applies to the Latin, Arabic and Persian scripts. In the two latter, it is believed to help dyslexic readers as `word-spacing` in Latin.
 
 ### Author’s intent
 

@@ -281,6 +281,34 @@ const backgroundColor = defaultColors.RS__backgroundColor;</code></pre>
 
       <p>They accept the same values as the CSS property <code>padding</code>.</p>
     </section>
+
+    <section id="ligatures-moved" class="level2">
+      <h2 id="sigil_toc_id_217">Ligatures moved to the global space</h2>
+
+      <p>Since version <code>2.0.0-beta.22</code>, ligatures are no longer limited to RTL (arabic and farsi scripts). The setting is now available in Latin scripts as well.</p>
+    </section>
+
+    <section id="experimental-web-publications-stylesheet" class="level2">
+      <h2 id="sigil_toc_id_218">Experimental Web Publications stylesheet</h2>
+
+      <p>Since version <code>2.0.0-beta.22</code>, ReadiumCSS provides an experimental stylesheet for Web Publications. It ships with the following features:</p>
+
+      <ul>
+        <li>font-family</li>
+        <li>font variations (weight, width, optical-sizing)</li>
+        <li>hyphens</li>
+        <li>letter spacing</li>
+        <li>ligatures</li>
+        <li>line height</li>
+        <li>paragraph indent</li>
+        <li>paragraph spacing</li>
+        <li>Ruby annotations disabling</li>
+      </ul>
+
+      <p>As well as the patching of zoom for iOS and iPadOS. <strong>Note there is no fallback in case the <code>zoom</code> CSS property is not supported.</strong></p>
+
+      <p>Typically, you would use zoom for all web publications, and the rest of the styles if the web publication’s accessibility metadata contains feature <code>displayTransformability</code>.</p>
+    </section>
   </section>
 </body>
 </html>

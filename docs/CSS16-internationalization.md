@@ -156,7 +156,7 @@ Several parts of the UI must follow the direction (`rtl`) of the primary languag
 - user settings e.g. text align;
 - implementers might want to localize the interface based on the language set at the system level, or at least fall back to English.
 
-Moreover, some user settings should be removed if used (`letter-spacing`) and another one added (arabic ligatures in `ar` and `fa`).
+Moreover, some user settings should be removed if used (`letter-spacing`).
 
 #### CJK
 

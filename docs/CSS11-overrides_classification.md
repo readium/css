@@ -43,7 +43,7 @@ The following settings are optional but should be applied by any means necessary
 - paragraph indent;
 - letter-spacing;
 - word-spacing;
-- arabic ligatures;
+- ligatures;
 - hiding ruby (CJK);
 - accessibility normalization;
 - font optical sizing (requires a variable font);

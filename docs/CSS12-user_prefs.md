@@ -69,7 +69,7 @@ Allows to switch between paged and scroll view.
 --USER__view
 ```
 
-Supported values: `readium-paged-on` | `readium-scroll-on`
+Supported values: `readium-paged-on` / `readium-scroll-on`
 
 Override class: Chrome (should be applied by any means necessary)
 
@@ -249,7 +249,7 @@ The user can set `text-align` and `hyphens` for body copy contents.
 --USER__textAlign
 ```
 
-Possible values: `left` (LTR) or `right` (RTL) | `start` (logical property resolving to `left` in LTR, `right` in RTL) | `justify`
+Possible values: `left` (LTR) or `right` (RTL) / `start` (logical property resolving to `left` in LTR, `right` in RTL) / `justify`
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
@@ -261,7 +261,7 @@ Note: the value `start` can be used to let all rendering engines, excepted Tride
 --USER__bodyHyphens
 ```
 
-Possible Values: `auto` | `none`
+Possible Values: `auto` / `none`
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
@@ -279,9 +279,9 @@ The user can set `font-family`, `font-size` and `line-height` for body copy cont
 --USER__fontFamily
 ```
 
-Possible values: `var(--RS__oldStyleTf)` | `var(--RS__modernTf)` | `var(--RS__sansTf)` | `var(--RS__humanistTf)` | `<string>`
+Possible values: `var(--RS__oldStyleTf)` / `var(--RS__modernTf)` / `var(--RS__sansTf)` / `var(--RS__humanistTf)` / `<string>`
 
-For Japanese, possible values become: `var(--RS__serif-ja)` (horizontal writing) | `var(--RS__sans-serif-ja)` (horizontal writing) | `var(--RS__serif-ja-v)` (vertical writing) | `var(--RS__sans-serif-ja-v)` (vertical writing) | `<string>`
+For Japanese, possible values become: `var(--RS__serif-ja)` (horizontal writing) / `var(--RS__sans-serif-ja)` (horizontal writing) / `var(--RS__serif-ja-v)` (vertical writing) / `var(--RS__sans-serif-ja-v)` (vertical writing) / `<string>`
 
 Required flag: none
 
@@ -365,13 +365,13 @@ Recommended values: a range from `0` to `0.5rem`. Increments are left to impleme
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
-#### Arabic Ligatures
+#### Ligatures
 
 ```
 --USER__ligatures
 ```
 
-Possible values: `none` | `common-ligatures`
+Possible values: `none` / `common-ligatures`
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
@@ -391,7 +391,7 @@ Rendering engines and browsers enable optical sizing by default for fonts that h
 
 When optical sizing is used, small text sizes are often rendered with thicker strokes and larger serifs, whereas larger text is often rendered more delicately with more contrast between thicker and thinner strokes.
 
-Possible values: `none` | `auto` (default)
+Possible values: `none` / `auto` (default)
 
 Required flag: none
 
@@ -417,7 +417,7 @@ Override class: User settings advanced (optional but should be applied by any me
 --USER__fontWidth
 ```
 
-Possible values: `ultra-condensed` | `extra-condensed` | `condensed` | `semi-condensed` | `normal` | `semi-expanded` | `expanded` | `extra-expanded` | `ultra-expanded` | `percentage` e.g. `50%`, `125%`
+Possible values: `ultra-condensed` / `extra-condensed` / `condensed` / `semi-condensed` / `normal` / `semi-expanded` / `expanded` / `extra-expanded` / `ultra-expanded` / `percentage` e.g. `50%`, `125%`
 
 **Warning: the percentage values depend on the variable font you may be using.** You can use services such as [Wakamai Fondue](https://wakamaifondue.com) to get the values.
 
@@ -453,7 +453,7 @@ This will apply a `mix-blend-mode` of `multiply` with a transparent background t
 --USER__darkenImages
 ```
 
-Possible values: `readium-darken-on` | `percentage` e.g. `50%`.
+Possible values: `readium-darken-on` / `percentage` e.g. `50%`.
 
 This will apply a `brightness` filter with the percentage value it’s given, or a preset of `80%` if using it as a flag. 
 
@@ -463,7 +463,7 @@ This will apply a `brightness` filter with the percentage value it’s given, or
 --USER__invertImages
 ```
 
-Possible values: `readium-invert-on` | `percentage` e.g. `50%`.
+Possible values: `readium-invert-on` / `percentage` e.g. `50%`.
 
 This will apply an `invert` filter with the percentage value it’s given, or a preset of `100%` if using it as a flag.
 
@@ -473,7 +473,7 @@ If you want to only invert gaiji (valid Japanese character as `img`), you can us
 --USER__invertGaiji
 ```
 
-Possible values: `readium-invertGaiji-on` | `percentage` e.g. `50%`.
+Possible values: `readium-invertGaiji-on` / `percentage` e.g. `50%`.
 
 This will apply an `invert` filter with the percentage value it’s given, or a preset of `100%` if using it as a flag, only to `img class="gaiji"`.
 

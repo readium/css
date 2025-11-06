@@ -523,7 +523,7 @@ The typeface for code snippets. The value can be another variable e.g. `var(-RS_
 
 The scale to be used for computing all elements’ `font-size`. Since those font sizes are computed dynamically, you can set a smaller type scale when the user sets one of the largest font sizes.
 
-Possible values: `1` | `1.067` | `1.125` | `1.2` (suggested default) | `1.25` | `1.333` | `1.414` | `1.5` | `1.618`
+Possible values: `1` / `1.067` / `1.125` / `1.2` (suggested default) / `1.25` / `1.333` / `1.414` / `1.5` / `1.618`
 
 * * *
 
@@ -831,7 +831,7 @@ Scope: `html`
 
 It impacts `body`, `li`, and `p` which are not children of `blockquote` and `figcaption`.
 
-Possible values: `left` (LTR) or `right` (RTL) | `start` (logical property resolving to `left` in LTR, `right` in RTL) | `justify`
+Possible values: `left` (LTR) or `right` (RTL) / `start` (logical property resolving to `left` in LTR, `right` in RTL) / `justify`
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
@@ -849,7 +849,7 @@ Scope: `html`
 
 It impacts `body`, `p`, `li`, `div` and `dd`.
 
-Possible Values: `auto` | `none`
+Possible Values: `auto` / `none`
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
@@ -867,9 +867,9 @@ Scope: `html`
 
 It impacts everything except `code `, `var`, `kbd`, and `samp`.
 
-Possible values: `var(--RS__oldStyleTf)` | `var(--RS__modernTf)` | `var(--RS__sansTf)` | `var(--RS__humanistTf)` | `<string>`
+Possible values: `var(--RS__oldStyleTf)` / `var(--RS__modernTf)` / `var(--RS__sansTf)` / `var(--RS__humanistTf)` / `<string>`
 
-For Japanese, possible values become: `var(--RS__serif-ja)` (horizontal writing) | `var(--RS__sans-serif-ja)` (horizontal writing) | `var(--RS__serif-ja-v)` (vertical writing) | `var(--RS__sans-serif-ja-v)` (vertical writing) | `<string>`
+For Japanese, possible values become: `var(--RS__serif-ja)` (horizontal writing) / `var(--RS__sans-serif-ja)` (horizontal writing) / `var(--RS__serif-ja-v)` (vertical writing) / `var(--RS__sans-serif-ja-v)` (vertical writing) / `<string>`
 
 Required flag: `:--fontOverride`
 
@@ -971,13 +971,13 @@ Override class: User settings advanced (optional but should be applied by any me
 --USER__ligatures
 ```
 
-Enabling and disabling ligatures in Arabic (related to a11y).
+Enabling and disabling ligatures.
 
 Scope: `html`
 
 It impacts all text.
 
-Possible values: `none` | `common-ligatures`
+Possible values: `none` / `common-ligatures`
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
@@ -993,7 +993,7 @@ Scope: `html`
 
 It impacts all text.
 
-Possible values: `none` | `auto`
+Possible values: `none` / `auto`
 
 Required flag: `:--fontOverride`
 
@@ -1031,7 +1031,7 @@ Scope: `html`
 
 It impacts all text.
 
-Possible values: `ultra-condensed` | `extra-condensed` | `condensed` | `semi-condensed` | `normal` | `semi-expanded` | `expanded` | `extra-expanded` | `ultra-expanded` | `percentage`
+Possible values: `ultra-condensed` / `extra-condensed` / `condensed` / `semi-condensed` / `normal` / `semi-expanded` / `expanded` / `extra-expanded` / `ultra-expanded` / `percentage`
 
 **Warning: the percentage values depend on the variable font you may be using.** You can use services such as [Wakamai Fondue](https://wakamaifondue.com) to get the values.
 
@@ -1065,7 +1065,7 @@ Scope: `html`
 
 It impacts all images.
 
-Possible values: `readium-darken-on` | `percentage` e.g. `50%`
+Possible values: `readium-darken-on` / `percentage` e.g. `50%`
 
 * * *
 
@@ -1079,7 +1079,7 @@ Scope: `html`
 
 It impacts all images, including gaiji.
 
-Possible values: `readium-invert-on` | `percentage` e.g. `50%`
+Possible values: `readium-invert-on` / `percentage` e.g. `50%`
 
 * * *
 
@@ -1093,4 +1093,4 @@ Scope: `html`
 
 It impacts images with a `gaiji` class name.
 
-Possible values: `readium-invertGaiji-on` | `percentage` e.g. `50`
+Possible values: `readium-invertGaiji-on` / `percentage` e.g. `50`
