@@ -235,11 +235,11 @@ They accept the same values as the CSS property `padding`.
 
 ## Ligatures moved to the global space
 
-As of version `2.0.0-beta.21`, ligatures are no longer limited to RTL (arabic and farsi scripts). The setting is now available in Latin scripts as well.
+As of version `2.0.0-beta.22`, ligatures are no longer limited to RTL (arabic and farsi scripts). The setting is now available in Latin scripts as well.
 
 ## Experimental Web Publications stylesheet
 
-As of version `2.0.0-beta.21`, ReadiumCSS provides an experimental stylesheet for Web Publications. It ships with the following features:
+As of version `2.0.0-beta.22`, ReadiumCSS provides an experimental stylesheet for Web Publications. It ships with the following features:
 
 - font-family
 - font variations (weight, width, optical-sizing)
