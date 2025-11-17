@@ -21,12 +21,6 @@
   :root:not(:--iOS-patch)[style*="--USER__zoom"] figure:has(> canvas),
   :root:not(:--iOS-patch)[style*="--USER__zoom"] figure:has(> iframe),
   :root:not(:--iOS-patch)[style*="--USER__zoom"] figure:has(> audio),
-  :root:not(:--iOS-patch)[style*="--USER__zoom"] div:has(> img),
-  :root:not(:--iOS-patch)[style*="--USER__zoom"] div:has(> video),
-  :root:not(:--iOS-patch)[style*="--USER__zoom"] div:has(> svg),
-  :root:not(:--iOS-patch)[style*="--USER__zoom"] div:has(> canvas),
-  :root:not(:--iOS-patch)[style*="--USER__zoom"] div:has(> iframe),
-  :root:not(:--iOS-patch)[style*="--USER__zoom"] div:has(> audio),
   :root:not(:--iOS-patch)[style*="--USER__zoom"] table {
     zoom: calc(100% / var(--USER__zoom)) !important;
   }
