@@ -15,26 +15,26 @@
 }
 
 @supports selector(figure:has(> img)) {
-  :root:not(:--iOS-patch)[style*="--USER__zoom"] figure:has(> img),
-  :root:not(:--iOS-patch)[style*="--USER__zoom"] figure:has(> video),
-  :root:not(:--iOS-patch)[style*="--USER__zoom"] figure:has(> svg),
-  :root:not(:--iOS-patch)[style*="--USER__zoom"] figure:has(> canvas),
-  :root:not(:--iOS-patch)[style*="--USER__zoom"] figure:has(> iframe),
-  :root:not(:--iOS-patch)[style*="--USER__zoom"] figure:has(> audio),
-  :root:not(:--iOS-patch)[style*="--USER__zoom"] div:has(> img:only-child),
-  :root:not(:--iOS-patch)[style*="--USER__zoom"] div:has(> video:only-child),
-  :root:not(:--iOS-patch)[style*="--USER__zoom"] div:has(> svg:only-child),
-  :root:not(:--iOS-patch)[style*="--USER__zoom"] div:has(> canvas:only-child),
-  :root:not(:--iOS-patch)[style*="--USER__zoom"] div:has(> iframe:only-child),
-  :root:not(:--iOS-patch)[style*="--USER__zoom"] div:has(> audio:only-child),
-  :root:not(:--iOS-patch)[style*="--USER__zoom"] table {
+  :root:--experimental-zoom:not(:--iOS-patch)[style*="--USER__zoom"] figure:has(> img),
+  :root:--experimental-zoom:not(:--iOS-patch)[style*="--USER__zoom"] figure:has(> video),
+  :root:--experimental-zoom:not(:--iOS-patch)[style*="--USER__zoom"] figure:has(> svg),
+  :root:--experimental-zoom:not(:--iOS-patch)[style*="--USER__zoom"] figure:has(> canvas),
+  :root:--experimental-zoom:not(:--iOS-patch)[style*="--USER__zoom"] figure:has(> iframe),
+  :root:--experimental-zoom:not(:--iOS-patch)[style*="--USER__zoom"] figure:has(> audio),
+  :root:--experimental-zoom:not(:--iOS-patch)[style*="--USER__zoom"] div:has(> img:only-child),
+  :root:--experimental-zoom:not(:--iOS-patch)[style*="--USER__zoom"] div:has(> video:only-child),
+  :root:--experimental-zoom:not(:--iOS-patch)[style*="--USER__zoom"] div:has(> svg:only-child),
+  :root:--experimental-zoom:not(:--iOS-patch)[style*="--USER__zoom"] div:has(> canvas:only-child),
+  :root:--experimental-zoom:not(:--iOS-patch)[style*="--USER__zoom"] div:has(> iframe:only-child),
+  :root:--experimental-zoom:not(:--iOS-patch)[style*="--USER__zoom"] div:has(> audio:only-child),
+  :root:--experimental-zoom:not(:--iOS-patch)[style*="--USER__zoom"] table {
     zoom: calc(100% / var(--USER__zoom)) !important;
   }
 
-  :root:not(:--iOS-patch)[style*="--USER__zoom"] figcaption,
-  :root:not(:--iOS-patch)[style*="--USER__zoom"] caption,
-  :root:not(:--iOS-patch)[style*="--USER__zoom"] td,
-  :root:not(:--iOS-patch)[style*="--USER__zoom"] th {
+  :root:--experimental-zoom:not(:--iOS-patch)[style*="--USER__zoom"] figcaption,
+  :root:--experimental-zoom:not(:--iOS-patch)[style*="--USER__zoom"] caption,
+  :root:--experimental-zoom:not(:--iOS-patch)[style*="--USER__zoom"] td,
+  :root:--experimental-zoom:not(:--iOS-patch)[style*="--USER__zoom"] th {
     zoom: var(--USER__zoom) !important;
   }
 }
