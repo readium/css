@@ -51,4 +51,4 @@
 
 /* Experimental/Feature flags */
 @custom-selector :--experimental-zoom [style*="readium-experimentalZoom-on"];
-@custom-selector :--experimental-header-filtering [style*="readium-experimentalHeaderFiltering-on"]
+@custom-selector :--experimental-header-filtering [style*="readium-experimentalHeaderFiltering-on"];
