@@ -1,5 +1,5 @@
 /*!
- * Readium CSS v.2.0.0-beta.22
+ * Readium CSS v.2.0.0-beta.23
  * Copyright (c) 2017–2025. Readium Foundation. All rights reserved.
  * Use of this source code is governed by a BSD-style license which is detailed in the
  * LICENSE file present in the project repository where this source code is maintained.
@@ -18,9 +18,10 @@
 }
 
 :root[style*="--USER__textAlign"] body,
-:root[style*="--USER__textAlign"] p:not([class*="title"]):not(blockquote p):not(figcaption p):not(header p):not(hgroup p):not(div:has(+ *) > h1 + p):not(div:has(+ *) > p:has(+ h1)),
+:root[style*="--USER__textAlign"] p:not(blockquote p):not(figcaption p):not(header p):not(hgroup p),
 :root[style*="--USER__textAlign"] li,
-:root[style*="--USER__textAlign"] dd{
+:root[style*="--USER__textAlign"] dd,
+:root[style*="--USER__textAlign"][style*="readium-experimentalHeaderFiltering-on"] p:not([class*="title"]):not(div:has(+ *) > h1 + p):not(div:has(+ *) > p:has(+ h1)){
   text-align:var(--USER__textAlign) !important;
   -moz-text-align-last:auto !important;
   -epub-text-align-last:auto !important;
@@ -107,26 +108,26 @@
 
 @supports selector(figure:has(> img)){
 
-  :root:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] figure:has(> img),
-  :root:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] figure:has(> video),
-  :root:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] figure:has(> svg),
-  :root:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] figure:has(> canvas),
-  :root:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] figure:has(> iframe),
-  :root:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] figure:has(> audio),
-  :root:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] div:has(> img),
-  :root:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] div:has(> video),
-  :root:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] div:has(> svg),
-  :root:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] div:has(> canvas),
-  :root:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] div:has(> iframe),
-  :root:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] div:has(> audio),
-  :root:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] table{
+  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] figure:has(> img),
+  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] figure:has(> video),
+  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] figure:has(> svg),
+  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] figure:has(> canvas),
+  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] figure:has(> iframe),
+  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] figure:has(> audio),
+  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] div:has(> img:only-child),
+  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] div:has(> video:only-child),
+  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] div:has(> svg:only-child),
+  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] div:has(> canvas:only-child),
+  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] div:has(> iframe:only-child),
+  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] div:has(> audio:only-child),
+  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] table{
     zoom:calc(100% / var(--USER__zoom)) !important;
   }
 
-  :root:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] figcaption,
-  :root:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] caption,
-  :root:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] td,
-  :root:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] th{
+  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] figcaption,
+  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] caption,
+  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] td,
+  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] th{
     zoom:var(--USER__zoom) !important;
   }
 }
@@ -147,7 +148,8 @@
   margin-bottom:var(--USER__paraSpacing) !important;
 }
 
-:root[style*="--USER__paraIndent"] p:not([class*="title"]):not(blockquote p):not(figcaption p):not(header p):not(hgroup p):not(div:has(+ *) > h1 + p):not(div:has(+ *) > p:has(+ h1)){
+:root[style*="--USER__paraIndent"] p:not(blockquote p):not(figcaption p):not(header p):not(hgroup p),
+:root[style*="--USER__paraIndent"][style*="readium-experimentalHeaderFiltering-on"] p:not([class*="title"]):not(div:has(+ *) > h1 + p):not(div:has(+ *) > p:has(+ h1)){
   text-indent:var(--USER__paraIndent) !important;
 }
 

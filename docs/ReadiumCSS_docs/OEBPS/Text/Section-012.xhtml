@@ -172,8 +172,6 @@ root.style.setProperty("name of var", "");</code></pre>
 
         <p>Supported value: <code>readium-a11y-on</code></p>
 
-        <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
-
 		    <p>To disable the normalization, you can either set an empty string as a value or remove the property.</p>
       </section>
 
@@ -185,11 +183,31 @@ root.style.setProperty("name of var", "");</code></pre>
         <pre><code>--USER__no-ruby</code></pre>
     
         <p>Supported value: <code>readium-noRuby-on</code></p>
-        
-        <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
-    
+            
         <p>To disable the hiding and show ruby annotations, you can either set an empty string as a value of remove the property.</p>
-        </section>
+      </section>
+
+      <section id="experimental-features-flags" class="level3">
+        <h3 class="sigil_not_in_toc">Experimental Features Flags</h3>
+    
+        <p>Experimental flags are used to opt-in to and test improvements to existing features. That way they can also be disabled without having to wait on a quickfix in case they are creating new issues</p>
+    
+        <pre><code>--RS__experimentalHeaderFiltering</code></pre>
+    
+        <p>Supported value: <code>readium-experimentalHeaderFiltering-on</code></p>
+
+        <p>This attempts to filter out paragraphs that are implicitly headings or part of headers.</p>
+
+        <p>To disable the hiding and show ruby annotations, you can either set an empty string as a value of remove the property.</p>
+
+        <pre><code>--RS__experimentalZoom</code></pre>
+
+        <p>Supported value: <code>readium-experimentalZoom-on</code></p>
+
+        <p>This attempts to filter out elements that are sized using viewport units and should not be scaled directly.</p>
+
+        <p>To disable the experimental zoom, you can either set an empty string as a value of remove the property.</p>
+      </section>
     </section>
 
     <section id="list-of-variables" class="level2">

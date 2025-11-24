@@ -48,3 +48,7 @@
 /* Patch for iOS and iPadOS */
 @custom-selector :--iOS-patch [style*="readium-iOSPatch-on"];
 @custom-selector :--ipadOS-patch [style*="readium-iPadOSPatch-on"];
+
+/* Experimental/Feature flags */
+@custom-selector :--experimental-zoom [style*="readium-experimentalZoom-on"];
+@custom-selector :--experimental-header-filtering [style*="readium-experimentalHeaderFiltering-on"];
