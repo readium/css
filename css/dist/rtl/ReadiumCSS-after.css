@@ -214,9 +214,10 @@ body{
 }
 
 :root[style*="--USER__textAlign"] body,
-:root[style*="--USER__textAlign"] p:not([class*="title"]):not(blockquote p):not(figcaption p):not(header p):not(hgroup p):not(div:has(+ *) > h1 + p):not(div:has(+ *) > p:has(+ h1)),
+:root[style*="--USER__textAlign"] p:not(blockquote p):not(figcaption p):not(header p):not(hgroup p),
 :root[style*="--USER__textAlign"] li,
-:root[style*="--USER__textAlign"] dd{
+:root[style*="--USER__textAlign"] dd,
+:root[style*="--USER__textAlign"][style*="readium-experimentalHeaderFiltering-on"] p:not([class*="title"]):not(div:has(+ *) > h1 + p):not(div:has(+ *) > p:has(+ h1)){
   text-align:var(--USER__textAlign) !important;
   -moz-text-align-last:auto !important;
   -epub-text-align-last:auto !important;
@@ -292,7 +293,8 @@ body{
   margin-bottom:var(--USER__paraSpacing) !important;
 }
 
-:root[style*="--USER__paraIndent"] p:not([class*="title"]):not(blockquote p):not(figcaption p):not(header p):not(hgroup p):not(div:has(+ *) > h1 + p):not(div:has(+ *) > p:has(+ h1)){
+:root[style*="--USER__paraIndent"] p:not(blockquote p):not(figcaption p):not(header p):not(hgroup p),
+:root[style*="--USER__paraIndent"][style*="readium-experimentalHeaderFiltering-on"] p:not([class*="title"]):not(div:has(+ *) > h1 + p):not(div:has(+ *) > p:has(+ h1)){
   text-indent:var(--USER__paraIndent) !important;
 }
 
