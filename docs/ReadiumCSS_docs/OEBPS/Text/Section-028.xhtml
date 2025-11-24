@@ -309,6 +309,17 @@ const backgroundColor = defaultColors.RS__backgroundColor;</code></pre>
 
       <p>Typically, you would use zoom for all web publications, and the rest of the styles if the web publication’s accessibility metadata contains feature <code>displayTransformability</code>.</p>
     </section>
+
+    <section id="experimental-flags" class="level2">
+      <h2 id="sigil_toc_id_219">Experimental Flags</h2>
+
+      <p>As of version <code>2.0.0-beta.23</code>, ReadiumCSS provides flags as a way to opt-in to and test improvements to existing features. That way they can also be disabled without having to wait on a quickfix in case they are creating new issues.</p>
+
+      <ul>
+        <li><code>--RS__experimentalHeaderFiltering: readium-experimentalHeaderFiltering-on</code>: attempts to filter out paragraphs that are implicitly headings or part of headers</li>
+        <li><code>--RS__experimentalZoom: readium-experimentalZoom-on</code>: attemps to filter out elements that are sized using viewport units and should not be scaled directly</li>
+      </ul>
+    </section>
   </section>
 </body>
 </html>

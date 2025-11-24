@@ -169,6 +169,30 @@ Supported value: `readium-noRuby-on`
 
 To disable the hiding and show ruby annotations, you can either set an empty string as a value of remove the property.
 
+### Experimental Features Flags
+
+Experimental flags are used to opt-in to and test improvements to existing features. That way they can also be disabled without having to wait on a quickfix in case they are creating new issues.
+
+```
+--RS__experimentalHeaderFiltering
+```
+
+Supported value: `readium-experimentalHeaderFiltering-on`
+
+This attempts to filter out paragraphs that are implicitly headings or part of headers.
+
+To disable the experimental header filtering, you can either set an empty string as a value or remove the property.
+
+```
+--RS__experimentalZoom
+```
+
+Supported value: `readium-experimentalZoom-on`
+
+This attempts to filter out elements that are sized using viewport units and should not be scaled directly.
+
+To disable the experimental zoom, you can either set an empty string as a value or remove the property.
+
 ## List of variables 
 
 ### Layout 

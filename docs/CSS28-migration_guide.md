@@ -258,3 +258,12 @@ As of version `2.0.0-beta.22`, ReadiumCSS provides an experimental stylesheet fo
 As well as the patching of zoom for iOS and iPadOS. **Note there is no fallback in case the `zoom` CSS property is not supported.**
 
 Typically, you would use zoom for all web publications, and the rest of the styles if the web publication’s accessibility metadata contains feature `displayTransformability`.
+
+## Experimental Features Flags
+
+As of version `2.0.0-beta.23`, ReadiumCSS provides flags as a way to opt-in to and test improvements to existing features. That way they can also be disabled without having to wait on a quickfix in case they are creating new issues.
+
+- `--RS__experimentalHeaderFiltering: readium-experimentalHeaderFiltering-on`: attempts to filter out paragraphs that are implicitly headings or part of headers
+- `--RS__experimentalZoom: readium-experimentalZoom-on`: attemps to filter out elements that are sized using viewport units and should not be scaled directly
+
+These flags are expected to be found on `:root`.
