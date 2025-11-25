@@ -1,5 +1,5 @@
 /*!
- * Readium CSS v.2.0.0-beta.23
+ * Readium CSS v.2.0.0-beta.24
  * Copyright (c) 2017–2025. Readium Foundation. All rights reserved.
  * Use of this source code is governed by a BSD-style license which is detailed in the
  * LICENSE file present in the project repository where this source code is maintained.
@@ -214,10 +214,17 @@ body{
 }
 
 :root[style*="--USER__textAlign"] body,
-:root[style*="--USER__textAlign"] p:not(blockquote p):not(figcaption p):not(header p):not(hgroup p),
+:root[style*="--USER__textAlign"] p:not(
+  blockquote p,
+  figcaption p,
+  header p,
+  hgroup p,
+  :root[style*="readium-experimentalHeaderFiltering-on"] p[class*="title"],
+  :root[style*="readium-experimentalHeaderFiltering-on"] div:has(+ *) > h1 + p,
+  :root[style*="readium-experimentalHeaderFiltering-on"] div:has(+ *) > p:has(+ h1)
+),
 :root[style*="--USER__textAlign"] li,
-:root[style*="--USER__textAlign"] dd,
-:root[style*="--USER__textAlign"][style*="readium-experimentalHeaderFiltering-on"] p:not([class*="title"]):not(div:has(+ *) > h1 + p):not(div:has(+ *) > p:has(+ h1)){
+:root[style*="--USER__textAlign"] dd{
   text-align:var(--USER__textAlign) !important;
   -moz-text-align-last:auto !important;
   -epub-text-align-last:auto !important;
@@ -355,8 +362,15 @@ body{
   margin-bottom:var(--USER__paraSpacing) !important;
 }
 
-:root[style*="--USER__paraIndent"] p:not(blockquote p):not(figcaption p):not(header p):not(hgroup p),
-:root[style*="--USER__paraIndent"][style*="readium-experimentalHeaderFiltering-on"] p:not([class*="title"]):not(div:has(+ *) > h1 + p):not(div:has(+ *) > p:has(+ h1)){
+:root[style*="--USER__paraIndent"] p:not(
+  blockquote p,
+  figcaption p,
+  header p,
+  hgroup p,
+  :root[style*="readium-experimentalHeaderFiltering-on"] p[class*="title"],
+  :root[style*="readium-experimentalHeaderFiltering-on"] div:has(+ *) > h1 + p,
+  :root[style*="readium-experimentalHeaderFiltering-on"] div:has(+ *) > p:has(+ h1)
+){
   text-indent:var(--USER__paraIndent) !important;
 }
 
