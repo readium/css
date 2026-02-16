@@ -51,7 +51,7 @@
     "build:rtl": "postcss css/src/ReadiumCSS-before-rtl.css -o css/dist/rtl/ReadiumCSS-before.css && postcss css/src/ReadiumCSS-default-rtl.css -o css/dist/rtl/ReadiumCSS-default.css && postcss css/src/ReadiumCSS-after-rtl.css -o css/dist/rtl/ReadiumCSS-after.css",
     "build:cjk": "postcss css/src/ReadiumCSS-before-cjk-horizontal.css -o css/dist/cjk-horizontal/ReadiumCSS-before.css && postcss css/src/ReadiumCSS-default-cjk-horizontal.css -o css/dist/cjk-horizontal/ReadiumCSS-default.css && postcss css/src/ReadiumCSS-after-cjk-horizontal.css -o css/dist/cjk-horizontal/ReadiumCSS-after.css",
     "build:vertical": "postcss css/src/ReadiumCSS-before-cjk-vertical.css -o css/dist/cjk-vertical/ReadiumCSS-before.css && postcss css/src/ReadiumCSS-default-cjk-vertical.css -o css/dist/cjk-vertical/ReadiumCSS-default.css && postcss css/src/ReadiumCSS-after-cjk-vertical.css -o css/dist/cjk-vertical/ReadiumCSS-after.css",
-    "copyPatches": "copyfiles -u 2 css/src/ReadiumCSS-ebpaj_fonts_patch.css 'css/src/android-fonts-patch/android-fonts-patch.css' css/dist",
+    "copyPatches": "copyfiles -u 2 css/src/ReadiumCSS-ebpaj_fonts_patch.css css/dist",
     "start": "node \"./server.js\"",
     "test": "npm run build && (npm start & for i in {1..10}; do if curl -s http://localhost:8000 >/dev/null; then backstop test; pkill -f \"node ./server.js\"; echo '\\nVisual Regression testing has been completed.\\n'; exit 0; fi; sleep 1; done; echo 'Failed to start server'; exit 1)",
     "test:ref": "npm start & backstop reference && pkill -9 -f \"node ./server.js\" && echo '\nVisual Regression references have been generated.\n'",

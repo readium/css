@@ -1325,71 +1325,65 @@
       </navPoint>
       <navPoint id="navPoint220">
         <navLabel>
-          <text>Addition of a fonts patch for Android</text>
-        </navLabel>
-        <content src="Text/Section-028.xhtml#sigil_toc_id_207"/>
-      </navPoint>
-      <navPoint id="navPoint221">
-        <navLabel>
           <text>Public exposition of some Reading System Variables</text>
         </navLabel>
         <content src="Text/Section-028.xhtml#sigil_toc_id_208"/>
       </navPoint>
-      <navPoint id="navPoint222">
+      <navPoint id="navPoint221">
         <navLabel>
           <text>Theming Improvements</text>
         </navLabel>
         <content src="Text/Section-028.xhtml#sigil_toc_id_209"/>
       </navPoint>
-      <navPoint id="navPoint223">
+      <navPoint id="navPoint222">
         <navLabel>
           <text>Removal of Dynamic Leading</text>
         </navLabel>
         <content src="Text/Section-028.xhtml#sigil_toc_id_211"/>
       </navPoint>
-      <navPoint id="navPoint224">
+      <navPoint id="navPoint223">
         <navLabel>
           <text>Removal of advanced settings flag</text>
         </navLabel>
         <content src="Text/Section-028.xhtml#sigil_toc_id_212"/>
       </navPoint>
-      <navPoint id="navPoint225">
+      <navPoint id="navPoint224">
         <navLabel>
           <text>Removal of line-height compensation for A11y fonts and normalization</text>
         </navLabel>
         <content src="Text/Section-028.xhtml#sigil_toc_id_213"/>
       </navPoint>
-      <navPoint id="navPoint226">
+      <navPoint id="navPoint225">
         <navLabel>
           <text>Removal of font-override flag</text>
         </navLabel>
         <content src="Text/Section-028.xhtml#sigil_toc_id_214"/>
       </navPoint>
-      <navPoint id="navPoint227">
+      <navPoint id="navPoint226">
         <navLabel>
           <text>Addition of a flag to disable overflow</text>
         </navLabel>
         <content src="Text/Section-028.xhtml#sigil_toc_id_215"/>
       </navPoint>
-      <navPoint id="navPoint228">
+      <navPoint id="navPoint227">
         <navLabel>
           <text>Addition of scroll-padding module</text>
         </navLabel>
         <content src="Text/Section-028.xhtml#sigil_toc_id_216"/>
       </navPoint>
-      <navPoint id="navPoint229">
+      <navPoint id="navPoint228">
         <navLabel>
           <text>Ligatures moved to the global space</text>
         </navLabel>
         <content src="Text/Section-028.xhtml#sigil_toc_id_217"/>
       </navPoint>
-      <navPoint id="navPoint230">
+      <navPoint id="navPoint229">
         <navLabel>
           <text>Experimental Web Publications stylesheet</text>
         </navLabel>
         <content src="Text/Section-028.xhtml#sigil_toc_id_218"/>
       </navPoint>
-      <navPoint id="navPoint231">
+      <navPoint id="navPoint230">
         <navLabel>
           <text>Experimental Features Flags</text>
         </navLabel>

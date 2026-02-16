@@ -225,34 +225,6 @@ math{
   --RS__lineHeightCompensation:1.167;
 }
 
-@font-face{
-  font-family:AccessibleDfA;
-  font-style:normal;
-  font-weight:normal;
-  src:local("AccessibleDfA"), url("fonts/AccessibleDfA-Regular.woff2") format("woff2"), url("fonts/AccessibleDfA-Regular.woff") format("woff");
-}
-
-@font-face{
-  font-family:AccessibleDfA;
-  font-style:normal;
-  font-weight:bold;
-  src:local("AccessibleDfA"), url("fonts/AccessibleDfA-Bold.woff2") format("woff2");
-}
-
-@font-face{
-  font-family:AccessibleDfA;
-  font-style:italic;
-  font-weight:normal;
-  src:local("AccessibleDfA"), url("fonts/AccessibleDfA-Italic.woff2") format("woff2");
-}
-
-@font-face{
-  font-family:"IA Writer Duospace";
-  font-style:normal;
-  font-weight:normal;
-  src:local("iAWriterDuospace-Regular"), url("fonts/iAWriterDuospace-Regular.ttf") format("truetype");
-}
-
 body{
   widows:2;
   orphans:2;
