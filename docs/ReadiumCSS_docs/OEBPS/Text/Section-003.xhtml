@@ -120,7 +120,7 @@
           <img src="../Images/Page-Model.jpg" alt="The single page model relies on the column width of the :root element. Line-length is constrained by the max-width of the body element, including its padding. Finally an auto margin centers the content."/>
         </figure>
 
-        <p>Page gutters are part of <code>body</code> (<code>--RS__pageGutter</code>), hence <code>--USER__lineLength</code> (or <code>--RS__defaultLineLength</code> if no user preference is set). Contents are centered in <code>:root</code> using the <code>auto</code> value for <code>body</code> margins.</p>
+        <p>Page gutters are part of <code>body</code> (<code>--RS__pageGutter</code>), hence <code>--USER__lineLength</code>. Contents are centered in <code>:root</code> using the <code>auto</code> value for <code>body</code> margins.</p>
 
         <p>By default, <code>--RS__pageGutter</code> is set to <code>0</code>. You can set it as you wish, but take into account it will substract from <code>--USER__lineLength</code>. </p>
 		</section>
@@ -155,12 +155,6 @@
           <pre><code>--RS__pageGutter</code></pre>
 
           <p>The inline (horizontal by default, vertical in vertical-writing) page margins.</p>
-
-		  <hr/>
-
-          <pre><code>--RS__defaultLineLength</code></pre>
-
-          <p>The default line-length when none is set by the user. It must be set in <code>rem</code> in order to take <code>:root</code>’s <code>font-size</code> as a reference, whichever the <code>body</code>’s <code>font-size</code> might be.</p>
 
       <hr/>
 

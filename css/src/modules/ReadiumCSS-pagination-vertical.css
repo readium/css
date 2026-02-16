@@ -87,7 +87,7 @@ body {
   /* Limit line-length but we have to reset when 2 columns and control the viewport.
      By using max-width + margin auto, margins will shrink when font-size increases,
      which is what would be expected in terms of typography. */
-  max-height: var(--RS__defaultLineLength) !important;
+  max-height: 100% !important;
   margin: auto 0 !important;
 
   /* We need a minimum padding on body so that descandants/ascendants in italic/script are not cut-off.

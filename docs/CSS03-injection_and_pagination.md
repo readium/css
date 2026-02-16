@@ -75,7 +75,7 @@ This is the model you’re dealing with. It’s been simplified in version 2 in 
 
 ![The single page model relies on the column width of the :root element. Line-length is constrained by the max-width of the body element, including its padding. Finally an auto margin centers the content.](assets/Page-Model.jpg)
 
-Page gutters are part of `body` (`--RS__pageGutter`), hence `--USER__lineLength` (or `--RS__defaultLineLength` if no user preference is set). Contents are centered in `:root` using the `auto` value for `body` margins.
+Page gutters are part of `body` (`--RS__pageGutter`), hence `--USER__lineLength`. Contents are centered in `:root` using the `auto` value for `body` margins.
 
 By default, `--RS__pageGutter` is set to `0`. You can set it as you wish, but take into account it will substract from `--USER__lineLength`. 
 
@@ -116,14 +116,6 @@ You must account for this gap when scrolling.
 ```
 
 The inline (horizontal by default, vertical in vertical-writing) page margins.
-
-* * *
-
-```
---RS__defaultLineLength
-```
-
-The default line-length when none is set by the user. It should be set in `rem` in order to take `:root`’s `font-size` as a reference, whichever the `body`’s `font-size` might be.
 
 * * *
 

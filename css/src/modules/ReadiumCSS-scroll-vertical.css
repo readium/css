@@ -25,7 +25,7 @@
 :root:--scroll-view body,
 :root:--no-vertical-pagination body {
   box-sizing: border-box !important;
-  max-width: var(--RS__defaultLineLength) !important;
+  max-width: 100% !important;
 }
 
 @supports (overflow: clip) {

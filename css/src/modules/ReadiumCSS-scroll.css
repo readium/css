@@ -24,7 +24,7 @@
 /* Make sure line-length is limited in all configs */
 :root:--scroll-view body {
   box-sizing: border-box !important;
-  max-width: var(--RS__defaultLineLength) !important;
+  max-width: 100% !important;
 }
 
 :root:--scroll-view:not(:--no-overflow) body {

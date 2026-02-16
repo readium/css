@@ -267,14 +267,6 @@ You must account for this gap when scrolling.
 
 The inline (horizontal by default, vertical in vertical-writing) page margins.
 
-* * *
-
-```
---RS__defaultLineLength
-```
-
-The default line-length when none is set by the user. It must be set in `rem` in order to take `:root`’s `font-size` as a reference, whichever the `body`’s `font-size` might be.
-
 ### Scroll
 
 * * *

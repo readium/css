@@ -27,8 +27,6 @@
 
   --RS__pageGutter:0;
 
-  --RS__defaultLineLength:40rem;
-
   --RS__colGap:0;
 
   --RS__colCount:1;
@@ -70,7 +68,7 @@
 
 body{
   width:100%;
-  max-width:var(--RS__defaultLineLength) !important;
+  max-width:100% !important;
   padding:0 var(--RS__pageGutter) !important;
   margin:0 auto !important;
   box-sizing:border-box;
@@ -105,7 +103,7 @@ body{
 }
 
 :root[style*="readium-scroll-on"] body{
-  max-width:var(--RS__defaultLineLength) !important;
+  max-width:100% !important;
   box-sizing:border-box !important;
 }
 
