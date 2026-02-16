@@ -13,13 +13,17 @@
   --RS__maxMediaWidth: 100%;
 
   /* max-height for media, you can override that via JS if not compiled to static  */
-  --RS__maxMediaHeight: 100vw;
+  --RS__maxMediaHeight: calc(100vw * (1 / var(--USER__fontSize, 1)));
 
   /* value for medias’ box-sizing */
   --RS__boxSizingMedia: border-box;
 
   /* value for table’s box-sizing */
   --RS__boxSizingTable: border-box;
+}
+
+:root:not(:--deprecated-font-size):not(:--iOS-patch) {
+  --RS__maxMediaHeight: 100vw;
 }
 
 /* Wrap long strings if larger than line-length */

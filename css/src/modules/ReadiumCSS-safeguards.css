@@ -14,13 +14,17 @@
 
   /* max-height for media, you can override that via JS if not compiled to static
      Please consider figures might have a figcaption, which is why 95vh in the first place */
-  --RS__maxMediaHeight: 95vh;
+  --RS__maxMediaHeight: calc(95vh * (1 / var(--USER__fontSize, 1)));
 
   /* value for medias’ box-sizing */
   --RS__boxSizingMedia: border-box;
 
   /* value for table’s box-sizing */
   --RS__boxSizingTable: border-box;
+}
+
+:root:not(:--deprecated-font-size):not(:--iOS-patch) {
+  --RS__maxMediaHeight: 95vh;
 }
 
 /* Wrap long strings if larger than line-length */
