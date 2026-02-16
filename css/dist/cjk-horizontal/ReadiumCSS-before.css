@@ -374,9 +374,13 @@ ruby > rt, ruby > rp{
 
 :root{
   --RS__maxMediaWidth:100%;
-  --RS__maxMediaHeight:95vh;
+  --RS__maxMediaHeight:calc(95vh * (1 / var(--USER__fontSize, 1)));
   --RS__boxSizingMedia:border-box;
   --RS__boxSizingTable:border-box;
+}
+
+:root:not([style*="readium-deprecatedFontSize-on"]):not([style*="readium-iOSPatch-on"]){
+  --RS__maxMediaHeight:95vh;
 }
 
 a, a span, span a, h1, h2, h3, h4, h5, h6{
