@@ -67,3 +67,9 @@ Then:
 document.documentElement.style.setProperty("--USER__fontWeight", "575");
 document.documentElement.style.setProperty("--USER__fontWidth", "125%");
 ```
+
+And for accessibility purposes, you can normalize text, which will remove all italics, font variants such as small capitals, subscript, and superscript formatting:
+
+```javascript
+document.documentElement.style.setProperty("--USER__a11yNormalize", "readium-a11y-on");
+```
