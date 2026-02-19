@@ -1425,6 +1425,12 @@
       </navLabel>
       <content src="Text/Section-028.xhtml#sigil_toc_id_224" />
     </navPoint>
+    <navPoint id="navPoint237">
+      <navLabel>
+        <text>Default line-length value has changed</text>
+      </navLabel>
+      <content src="Text/Section-028.xhtml#sigil_toc_id_225" />
+    </navPoint>
   </navPoint>
 </navMap>
 </ncx>

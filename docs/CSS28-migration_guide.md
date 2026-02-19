@@ -275,3 +275,9 @@ As of version `2.0.0` (stable), the `--RS__pageGutter` property no longer applie
 **This is a breaking change.**
 
 If you need to apply padding to the scroll view, you can use the `--RS__scrollPadding` properties instead. This can be useful to get around safe area insets, or to add whitespace so that contents are not hidden behind UI elements.
+
+## Default line-length value has changed
+
+As of version `2.0.0` (stable), the default line-length when none is set by the user is `100%` instead of `40rem`. This is to prevent conflicts with the zoom factor.
+
+The custom property has been kept so that consumers of ReadiumCSS can still customize the value if they wish, especially as they can opt out of the new font-size implementation.

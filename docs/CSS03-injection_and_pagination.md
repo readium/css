@@ -123,7 +123,7 @@ The inline (horizontal by default, vertical in vertical-writing) page margins.
 --RS__defaultLineLength
 ```
 
-The default line-length when none is set by the user. It should be set in `rem` in order to take `:root`’s `font-size` as a reference, whichever the `body`’s `font-size` might be.
+The default line-length when none is set by the user. It represents the `max-width` of the `body` element and is `100%` by default so that it does not conflict with the the zoom factor.
 
 * * *
 
