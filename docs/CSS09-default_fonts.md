@@ -498,3 +498,9 @@ Implementers might want to load this patch only if they find one of the followin
 - version 1.1: `<meta property="ebpaj:guide-version">1.1</meta>`
 
 Since `@font-face` must be used to align with EBPAJ’s specific implementation (rendering engines have to go through 9–11 `local` sources in the worst-case scenario), implementers should expect a performance debt.
+
+## Android System Generic families Patch
+
+In beta versions of Readium CSS 2, we introduced a patch for Times, Times New Roman, Arial, and Helvetica, relying on Nimbus Sans and Nimbus Roman as metric-compatible replacements on Android devices. It can be critical for Fixed-Layout publications using these fonts without having embedded their fonts.
+
+Since we cannot provide `@font-face` rules for system fonts, this patch was not included in the final version of Readium CSS 2 and you will need to implement it yourself if you want to support these fonts on Android.

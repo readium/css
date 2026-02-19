@@ -957,6 +957,14 @@ unicode-range: U+0500-052F;</code></pre>
 
       <p>Since <code>@font-face</code> must be used to align with EBPAJ’s specific implementation (rendering engines have to go through 9–11 <code>local</code> sources in the worst-case scenario), implementers should expect a performance debt.</p>
     </section>
+    
+    <section id="android-system-generic-families-patch" class="level2">
+      <h2 id="sigil_toc_id_220">Android System Generic families Patch</h2>
+
+      <p>In beta versions of Readium CSS 2, we introduced a patch for Times, Times New Roman, Arial, and Helvetica, relying on Nimbus Sans and Nimbus Roman as metric-compatible replacements on Android devices. It can be critical for Fixed-Layout publications using these fonts without having embedded their fonts.</p>
+
+      <p>Since we cannot provide <code>@font-face</code> rules for system fonts, this patch was not included in the final version of Readium CSS 2 and you will need to implement it yourself if you want to support these fonts on Android.</p>
+    </section>
   </section>
 </body>
 </html>
