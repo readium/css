@@ -259,3 +259,19 @@ As of version `2.0.0-beta.23`, ReadiumCSS provides flags as a way to opt-in to a
 - `--RS__experimentalZoom: readium-experimentalZoom-on`: attemps to filter out elements that are sized using viewport units and should not be scaled directly
 
 These flags are expected to be found on `:root`.
+
+## Fonts are no longer distributed in the package
+
+As of version `2.0.0` (stable), ReadiumCSS no longer distributes fonts and their `font-face` rules. You will need to load them yourself.
+
+**This is a breaking change.**
+
+This means AccessibleDfa, iA Writer Duospace, and the Android FXL fonts patch are no longer included, nor are their `font-face` rules.
+
+## PageGutter no longer applies in scroll view
+
+As of version `2.0.0` (stable), the `--RS__pageGutter` property no longer applies in scroll view.
+
+**This is a breaking change.**
+
+If you need to apply padding to the scroll view, you can use the `--RS__scrollPadding` properties instead. This can be useful to get around safe area insets, or to add whitespace so that contents are not hidden behind UI elements.

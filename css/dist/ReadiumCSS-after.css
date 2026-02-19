@@ -71,9 +71,12 @@
 body{
   width:100%;
   max-width:var(--RS__defaultLineLength) !important;
-  padding:0 var(--RS__pageGutter) !important;
   margin:0 auto !important;
   box-sizing:border-box;
+}
+
+:root:not([style*="readium-scroll-on"]) body{
+  padding:0 var(--RS__pageGutter) !important;
 }
 
 :root:not([style*="readium-noOverflow-on"]) body{

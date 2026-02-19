@@ -1413,6 +1413,18 @@
       </navLabel>
       <content src="Text/Section-028.xhtml#sigil_toc_id_219" />
     </navPoint>
+    <navPoint id="navPoint235">
+      <navLabel>
+        <text>Fonts are no longer distributed in the package</text>
+      </navLabel>
+      <content src="Text/Section-028.xhtml#sigil_toc_id_223" />
+    </navPoint>
+    <navPoint id="navPoint236">
+      <navLabel>
+        <text>PageGutter no longer applies in scroll view</text>
+      </navLabel>
+      <content src="Text/Section-028.xhtml#sigil_toc_id_224" />
+    </navPoint>
   </navPoint>
 </navMap>
 </ncx>

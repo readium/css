@@ -310,6 +310,26 @@ const backgroundColor = defaultColors.RS__backgroundColor;</code></pre>
         <li><code>--RS__experimentalZoom: readium-experimentalZoom-on</code>: attemps to filter out elements that are sized using viewport units and should not be scaled directly</li>
       </ul>
     </section>
+
+    <section id="fonts-removed-from-package" class="level2">
+      <h2 id="sigil_toc_id_223">Fonts are no longer distributed in the package</h2>
+
+      <p>As of version <code>2.0.0</code> (stable), ReadiumCSS no longer distributes fonts and their <code>font-face</code> rules. You will need to load them yourself.</p>
+
+      <p><strong>This is a breaking change.</strong></p>
+
+      <p>This means AccessibleDfa, iA Writer Duospace, and the Android FXL fonts patch are no longer included, nor are their <code>font-face</code> rules.</p>
+    </section>
+
+    <section id="pagegutter-removed-from-scroll-view" class="level2">
+      <h2 id="sigil_toc_id_224">PageGutter no longer applies in scroll view</h2>
+
+      <p>As of version <code>2.0.0</code> (stable), the <code>--RS__pageGutter</code> property no longer applies in scroll view.</p>
+
+      <p><strong>This is a breaking change.</strong></p>
+
+      <p>If you need to apply padding to the scroll view, you can use the <code>--RS__scrollPadding</code> properties instead. This can be useful to get around safe area insets, or to add whitespace so that contents are not hidden behind UI elements.</p>
+    </section>
   </section>
 </body>
 </html>

@@ -94,6 +94,9 @@ body {
      Drawback: we have to use border-box so that it doesn’t screw the box model,
      which means it impacts colWidth and max-width */
   box-sizing: border-box;
+}
+
+:root:not(:--scroll-view) body {
   padding: var(--RS__pageGutter) 0 !important;
 }
 
