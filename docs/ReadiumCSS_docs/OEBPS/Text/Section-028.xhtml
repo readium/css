@@ -181,16 +181,6 @@
       <p>If you want to implement the other two, you will have to do so on a variable font basis.</p>
     </section>
 
-    <section id="addition-of-a-fonts-patch-for-android" class="level2">
-      <h2 id="sigil_toc_id_207">Addition of a fonts patch for Android</h2>
-  
-      <p>This patch is intended to fix a <a href="https://github.com/readium/css/issues/149">Fixed-Layout issue on Android</a>, and only on this platform. <strong>It doesn’t apply to reflowable EPUBs or any other platform.</strong></p>
-  
-      <p>It declares fully metric compatible open source fonts alternatives (Nimbus Roman and Nimbus Sans) as the font-families that generic font-family <code>serif</code> and <code>sans-serif</code> are usually resolving to on other platforms. Droid Serif and Roboto are not, which creates issues with text that is absolutely positioned in Fixed-Layout e.g.&#160;overlapping or overflowing text, etc.</p>
-  
-      <p>The logic for loading this patch is up to implementers.</p>
-    </section>
-
     <section id="public-exposition-of-some-rs-variables" class="level2">
       <h2 id="sigil_toc_id_208">Public exposition of some Reading System Variables</h2>
 

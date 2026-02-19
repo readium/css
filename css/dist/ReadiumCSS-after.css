@@ -259,43 +259,28 @@ body{
   font-family:revert !important;
 }
 
-:root[style*="AccessibleDfA"]{
-  font-family:AccessibleDfA, Verdana, Tahoma, "Trebuchet MS", sans-serif !important;
-}
-
-:root[style*="IA Writer Duospace"]{
-  font-family:"IA Writer Duospace", Menlo, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", Courier, monospace !important;
-}
-
-:root[style*="AccessibleDfA"],:root[style*="IA Writer Duospace"],
 :root[style*="readium-a11y-on"]{
   font-style:normal !important;
   font-weight:normal !important;
 }
 
-:root[style*="AccessibleDfA"] body *:not(code):not(var):not(kbd):not(samp),:root[style*="IA Writer Duospace"] body *:not(code):not(var):not(kbd):not(samp),
 :root[style*="readium-a11y-on"] body *:not(code):not(var):not(kbd):not(samp){
   font-family:inherit !important;
   font-style:inherit !important;
   font-weight:inherit !important;
 }
 
-:root[style*="AccessibleDfA"] body *:not(a),:root[style*="IA Writer Duospace"] body *:not(a),
 :root[style*="readium-a11y-on"] body *:not(a){
   text-decoration:none !important;
 }
 
-:root[style*="AccessibleDfA"] body *,:root[style*="IA Writer Duospace"] body *,
 :root[style*="readium-a11y-on"] body *{
   font-variant-caps:normal !important;
   font-variant-numeric:normal !important;
   font-variant-position:normal !important;
 }
 
-:root[style*="AccessibleDfA"] sup,:root[style*="IA Writer Duospace"] sup,
 :root[style*="readium-a11y-on"] sup,
-:root[style*="AccessibleDfA"] sub,
-:root[style*="IA Writer Duospace"] sub,
 :root[style*="readium-a11y-on"] sub{
   font-size:1rem !important;
   vertical-align:baseline !important;

@@ -6,28 +6,14 @@
 
    Repo: https://github.com/readium/css */
 
-/* For AccessibleDfA, we need to normalize font-weight and font-style since only the normal style is available */
-
-:root[style*="AccessibleDfA"] {
-  /* We won’t use the variable there since we need fallbacks for missing characters */
-  font-family: AccessibleDfA, Verdana, Tahoma, "Trebuchet MS", sans-serif !important;
-}
-
-:root[style*="IA Writer Duospace"] {
-  /* We won’t use the variable there since we need fallbacks for missing characters */
-  font-family: "IA Writer Duospace", Menlo, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", Courier, monospace !important;
-}
-
 /* Maybe users want a setting to normalize any font offered so there is a “a11y Normalize” flag for it */
 
-:root:--a11y-font,
 :root:--a11y-normalize {
   font-weight: normal !important;
   font-style: normal !important;
 }
 
 /* Targeting everything except code. Note that Open Dyslexic has a monospaced font for code */
-:root:--a11y-font body *:not(code):not(var):not(kbd):not(samp),
 :root:--a11y-normalize body *:not(code):not(var):not(kbd):not(samp) {
   font-family: inherit !important;
   font-weight: inherit !important;
@@ -35,13 +21,11 @@
 }
 
 /* Normalizing text-decoration */
-:root:--a11y-font body *:not(a),
 :root:--a11y-normalize body *:not(a) {
   text-decoration: none !important;
 }
 
 /* Normalizing font-variant */
-:root:--a11y-font body *,
 :root:--a11y-normalize body * {
   font-variant-caps: normal !important;
   font-variant-position: normal !important;
@@ -49,9 +33,7 @@
 }
 
 /* Normalizing sup and sub */
-:root:--a11y-font sup,
 :root:--a11y-normalize sup,
-:root:--a11y-font sub,
 :root:--a11y-normalize sub {
   font-size: 1rem !important;
   vertical-align: baseline !important;
