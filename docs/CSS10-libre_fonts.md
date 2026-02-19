@@ -485,15 +485,12 @@ As a consequence, we strongly recommend prioritizing such system fonts for the c
 
 ## Recommended fonts for Accessibility
 
-ReadiumCSS is shipping with 2 a11y-related fonts to be found in the `dist/fonts` folder:
+ReadiumCSS cannot ship with fonts as their path cannot be customized dynamically and would therefore require them to be embedded into every EPUB file read in your application.
 
-- [AccessibleDfA](https://github.com/Orange-OpenSource/font-accessible-dfa), by Orange;
-- [IA Writer Duospace](https://github.com/iaolo/iA-Fonts/tree/master/iA%20Writer%20Duospace), by iA.
+But here is a list of fonts that can be used for accessibility purposes:
 
-Those fonts should be applied by those exact names as we need very precise fallbacks for missing characters. We may create variables in the future, once those fonts have been properly reviewed and validated.
-
-In addition or replacement of AccessibleDfa, we can also recommend:
-
+- [AccessibleDfA](https://github.com/Orange-OpenSource/font-accessible-dfa);
+- [IA Writer Duospace](https://github.com/iaolo/iA-Fonts/tree/master/iA%20Writer%20Duospace);
 - [Open Dyslexic](https://github.com/antijingoist/open-dyslexic);
 - [Luciole Vision](https://www.luciole-vision.com/luciole-en.html);
 - [Atkinson Hyperlegible](https://brailleinstitute.org/freefont).

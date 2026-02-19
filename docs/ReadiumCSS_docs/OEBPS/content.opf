@@ -8,7 +8,7 @@
     <dc:language>en</dc:language>
     <dc:identifier id="epub-id-1">urn:uuid:527D093B-9C0A-4C83-8AF6-0A40E91D30FC</dc:identifier>
     <meta name="cover" content="cover_jpg" />
-    <meta property="dcterms:modified">2025-11-03T17:21:00Z</meta>
+    <meta property="dcterms:modified">2026-02-19T10:52:18Z</meta>
     <meta name="Sigil version" content="0.9.8" />
     <meta property="schema:accessibilityFeature">displayTransformability</meta>
     <meta property="schema:accessibilityFeature">readingOrder</meta>
@@ -77,6 +77,7 @@
     <item id="Section-028.xhtml" href="Text/Section-028.xhtml" media-type="application/xhtml+xml"/>
     <item id="alt-lines.png" href="Images/alt-lines.png" media-type="image/png"/>
     <item id="Section-010b.xhtml" href="Text/Section-010b.xhtml" media-type="application/xhtml+xml"/>
+    <item id="Section-010c.xhtml" href="Text/Section-010c.xhtml" media-type="application/xhtml+xml"/>
     <item id="Cabin.png" href="Images/Cabin.png" media-type="image/png"/>
     <item id="Crimson-pro.png" href="Images/Crimson-pro.png" media-type="image/png"/>
     <item id="EB-Garamond.png" href="Images/EB-Garamond.png" media-type="image/png"/>
@@ -106,6 +107,7 @@
     <itemref idref="Section-009.xhtml"/>
     <itemref idref="Section-010.xhtml"/>
     <itemref idref="Section-010b.xhtml"/>
+    <itemref idref="Section-010c.xhtml"/>
     <itemref idref="Section-011.xhtml"/>
     <itemref idref="Section-012.xhtml"/>
     <itemref idref="Section-013.xhtml"/>

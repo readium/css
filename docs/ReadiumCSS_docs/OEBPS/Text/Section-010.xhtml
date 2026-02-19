@@ -848,19 +848,15 @@
     <section id="recommended-fonts-for-accessibility" class="level2">
       <h2 id="sigil_toc_id_168">Recommended fonts for Accessibility</h2>
 
-      <p>ReadiumCSS is shipping with 2 a11y-related fonts to be found in the <code>dist/fonts</code> folder:</p>
+      <p>ReadiumCSS cannot ship with fonts as their path cannot be customized dynamically and would therefore require them to be embedded into every EPUB file read in your application.</p>
+
+      <p>But here is a list of fonts that can be used for accessibility purposes:</p>
 
       <ul>
-        <li><a href="https://github.com/Orange-OpenSource/font-accessible-dfa">AccessibleDfA</a>, by Orange;</li>
+        <li><a href="https://github.com/Orange-OpenSource/font-accessible-dfa">AccessibleDfA</a>;</li>
 
-        <li><a href="https://github.com/iaolo/iA-Fonts/tree/master/iA%20Writer%20Duospace">IA Writer Duospace</a>, by iA;</li>
-      </ul>
+        <li><a href="https://github.com/iaolo/iA-Fonts/tree/master/iA%20Writer%20Duospace">IA Writer Duospace</a>;</li>
 
-      <p>Those fonts should be applied by those exact names as we need very precise fallbacks for missing characters. We may create variables in the future, once those fonts have been properly reviewed and validated.</p>
-
-      <p>In addition or replacement of AccessibleDfa, we can also recommend:</p>
-
-      <ul>
         <li><a href="https://github.com/antijingoist/open-dyslexic">Open Dyslexic</a>;</li>
 
         <li><a href="https://www.luciole-vision.com/luciole-en.html">Lucile Vision</a>;</li>

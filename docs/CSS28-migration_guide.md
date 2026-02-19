@@ -150,14 +150,6 @@ While it’s possible to provide users with a complete selection of variable fon
 
 If you want to implement the other two, you will have to do so on a variable font basis.
 
-## Addition of a fonts patch for Android
-
-This patch is intended to fix a [Fixed-Layout issue on Android](https://github.com/readium/css/issues/149), and only on this platform. **It doesn’t apply to reflowable EPUBs or any other platform.**
-
-It declares fully metric compatible open source fonts alternatives (Nimbus Roman and Nimbus Sans) as the font-families that generic font-family `serif` and `sans-serif` are usually resolving to on other platforms. Droid Serif and Roboto are not, which creates issues with text that is absolutely positioned in Fixed-Layout e.g. overlapping or overflowing text, etc.
-
-The logic for loading this patch is up to implementers.
-
 ## Public exposition of some Reading System Variables
 
 As of version `2.0.0-alpha.19`, ReadiumCSS is exposing variables for pagination, default font-stacks, and default colors, in JSON form.
