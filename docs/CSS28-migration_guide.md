@@ -279,3 +279,5 @@ If you need to apply padding to the scroll view, you can use the `--RS__scrollPa
 ## Default line-length value has changed
 
 As of version `2.0.0` (stable), the default line-length when none is set by the user is `100%` instead of `40rem`. This is to prevent conflicts with the zoom factor.
+
+The custom property has been kept so that consumers of ReadiumCSS can still customize the value if they wish, especially as they can opt out of the new font-size implementation.
