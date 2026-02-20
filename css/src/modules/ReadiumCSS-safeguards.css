@@ -59,9 +59,9 @@ img, svg|svg, video {
 
 /* Zoom Compensation of viewport units in Chrome/Firefox */
 @supports (zoom: 1) and (not ((-webkit-column-axis: horizontal) and (-webkit-column-progression: normal))) {
-  :root:not(:--deprecated-font-size):not(:--iOS-patch)[style*="--USER__fontSize"] img,
-  :root:not(:--deprecated-font-size):not(:--iOS-patch)[style*="--USER__fontSize"] svg|svg,
-  :root:not(:--deprecated-font-size):not(:--iOS-patch)[style*="--USER__fontSize"] video {
+  :root:--experimental-zoom:not(:--deprecated-font-size):not(:--iOS-patch)[style*="--USER__fontSize"] img,
+  :root:--experimental-zoom:not(:--deprecated-font-size):not(:--iOS-patch)[style*="--USER__fontSize"] svg|svg,
+  :root:--experimental-zoom:not(:--deprecated-font-size):not(:--iOS-patch)[style*="--USER__fontSize"] video {
     zoom: calc(100% / var(--USER__fontSize));
   }
 }
