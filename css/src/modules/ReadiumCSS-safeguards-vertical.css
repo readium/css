@@ -56,6 +56,16 @@ img, svg|svg, video {
   break-inside: avoid;
 }
 
+/* Zoom Compensation of viewport units in Chrome/Firefox */
+@supports (zoom: 1) and (not ((-webkit-column-axis: horizontal) and (-webkit-column-progression: normal))) {
+  :root:not(:--deprecated-font-size):not(:--iOS-patch)[style*="--USER__fontSize"] img,
+  :root:not(:--deprecated-font-size):not(:--iOS-patch)[style*="--USER__fontSize"] svg|svg,
+  :root:not(:--deprecated-font-size):not(:--iOS-patch)[style*="--USER__fontSize"] video,
+  :root:not(:--deprecated-font-size):not(:--iOS-patch)[style*="--USER__fontSize"] div {
+    zoom: calc(100% / var(--USER__fontSize));
+  }
+}
+
 /* Setting width and height for audio creates issues with controls (invisible in Chromium, only the play button is displayed in Webkit).
    These styles should just help a little bit if the fallback is displayed cos audio is not supported. */
 audio {
@@ -68,5 +78,5 @@ audio {
 /* Try preventing border being cut-off, webkit + blink have content-box by default */
 table {
   box-sizing: var(--RS__boxSizingTable);
-  max-height: var(--RS__maxMediaWidth)
+  max-height: var(--RS__maxMediaWidth);
 }
