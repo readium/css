@@ -156,7 +156,7 @@ Several parts of the UI must follow the direction (`rtl`) of the primary languag
 - user settings e.g. text align;
 - implementers might want to localize the interface based on the language set at the system level, or at least fall back to English.
 
-Moreover, some user settings should be removed if used (`letter-` and `word-spacing`) and another one added (arabic ligatures in `ar` and `fa`).
+Moreover, some user settings should be removed if used (`letter-spacing`).
 
 #### CJK
 
@@ -206,7 +206,7 @@ What you can do:
 
 First and foremost, please be assured that we’re as annoyed as you are if there is an issue. It doesn’t mean we don’t care, far from it… it just means we lacked information or misunderstood some requirements when designing Readium CSS. Our goal is to achieve the best support possible, and we know we can’t fulfill it without your expertise.
 
-If you encounter any issue specific to a language or script, do not hesitate to [open a new issue in the github repository](https://github.com/readium/readium-css/issues). A reduced sample will definitely help. [Check our guidelines for further details](https://github.com/readium/readium-css/blob/master/contributing.md#reporting-bugs).
+If you encounter any issue specific to a language or script, do not hesitate to [open a new issue in the github repository](https://github.com/readium/css/issues). A reduced sample will definitely help. [Check our guidelines for further details](https://github.com/readium/css/blob/master/contributing.md#reporting-bugs).
 
 The most information we have, the better the fix will be. Please feel free to go into extensive details and provide links, documentation, examples, etc. we can check to get a solid grasp of the issue we have to fix.
 
@@ -218,7 +218,7 @@ If our font-stacks are not good enough, a solider one will help. If we don’t h
 
 If we’ve got something wrong in terms of typography, an example – picture, codepen demo, etc. – will help us see how we got there. Please bear in mind we might be limited by what web browsers can do though, and some issues could be consequently deemed “out of scope.” We will at least do our best to report the issue to whom it may concern whenever possible.
 
-[Check our contribution guidelines for further details](https://github.com/readium/readium-css/blob/master/contributing.md#how-can-i-contribute).
+[Check our contribution guidelines for further details](https://github.com/readium/css/blob/master/contributing.md#how-can-i-contribute).
 
 ## Overarching issues
 

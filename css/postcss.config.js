@@ -1,13 +1,57 @@
 const version = require("../package.json").version;
 
+// Get contributors from git
+function getContributors() {
+  try {
+    const log = require("child_process")
+      .execSync("git log --format='%aN <%aE>' | sort -u")
+      .toString()
+      .split("\n")
+      .filter(Boolean);
+    
+    // Process contributors: filter bots and specific names, extract names, deduplicate, and sort
+    return [
+      ...new Set(
+        log
+          .filter(contributor => {
+            const name = contributor.toLowerCase();
+            return !name.includes("dependabot") && 
+                   !name.includes("[bot]") &&
+                   !name.includes("bot@") &&
+                   !name.includes("jaypanoz") &&
+                   !name.includes("jiminy panoz");
+          })
+          .map(contributor => contributor.split("<")[0].trim())
+      )
+    ].sort();
+  } catch (e) {
+    console.warn("Could not get git contributors:", e.message);
+    return [];
+  }
+}
+
+const contributors = getContributors();
+const contributorsSection = contributors.length > 0
+  ? ` * Contributors: \n${contributors.map(name => ` * ${name}`).join("\n")}`
+  : "";
+
+const header = `/*!
+ * Readium CSS v.${version}
+ * Copyright (c) 2017–${new Date().getFullYear()}. Readium Foundation. All rights reserved.
+ * Use of this source code is governed by a BSD-style license which is detailed in the
+ * LICENSE file present in the project repository where this source code is maintained.
+ * Core maintainer: Jiminy Panoz <jiminy.panoz@edrlab.org> 
+${contributorsSection}
+ */\n`;
+
 module.exports = (ctx) => ({
   map: false,
   plugins: [
     require("postcss-import")({
       root: ctx.file.dirname
     }),
-    require("postcss-custom-media")({}),
     require("postcss-custom-selectors")({}),
+    require("@daltontan/postcss-import-json")({}),
     require("postcss-discard-comments")({}),
     require("stylelint")({
       "fix": true,
@@ -225,7 +269,8 @@ module.exports = (ctx) => ({
       "unspecified-properties-position": "bottomAlphabetical"
     }),
     require("postcss-header")({
-      header: `/*\n * Readium CSS (v. ${version})\n * Developers: Jiminy Panoz \n * Copyright (c) 2017. Readium Foundation. All rights reserved.\n * Use of this source code is governed by a BSD-style license which is detailed in the\n * LICENSE file present in the project repository where this source code is maintained.\n*/`
+      header: header,
+      headerLength: 0
     })
   ]
 })

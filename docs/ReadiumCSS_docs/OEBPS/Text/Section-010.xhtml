@@ -17,7 +17,7 @@
 
     <p>While we recommend using system fonts to get the best performance whenever possible, implementers might want to use Open Source Fonts to offer more choice to users. On the Android platform, for instance, system fonts are limited to one typeface per generic family (<code>serif</code>, <code>sans-serif</code>, <code>fantasy</code>, <code>monospace</code>, and <code>cursive</code>), which means implementers don’t get a lot of options out of the box.</p>
 
-    <p>Consequently, amongst the thousands of fonts available online, a pre-selection of 28 typefaces have been reviewed extensively. Those typefaces were selected based on multiple factors:</p>
+    <p>Consequently, amongst the thousands of fonts available online, a pre-selection of 27 typefaces have been reviewed extensively. Those typefaces were selected based on multiple factors:</p>
 
     <ol>
       <li>they have enough styles (at least the 4 “core styles” i.e. <code>regular</code>, <code>italic</code>, <code>bold</code>, <code>bold italic</code>) so that implementers don’t break authors’ expectations;</li>
@@ -31,7 +31,7 @@
       <li>they offer good-enough support for at least latin-based languages.</li>
     </ol>
 
-    <p>Here’s the complete list of those 28 fonts:</p>
+    <p>Here’s the complete list of those 27 fonts:</p>
 
     <ul>
       <li>Alegreya</li>
@@ -39,8 +39,6 @@
       <li>Bitter</li>
 
       <li>Charis SIL</li>
-
-      <li>Clear Sans</li>
 
       <li>Crimson Text</li>
 
@@ -94,9 +92,9 @@
     <section id="how-were-those-fonts-reviewed" class="level2">
       <h2 id="sigil_toc_id_117">How were those fonts reviewed</h2>
 
-      <p>Each of the 28 fonts has been undergoing tests in real rendering situations.</p>
+      <p>Each of the 27 fonts has been undergoing tests in real rendering situations.</p>
 
-      <p>They were rendered on the Android, iOS, MacOS, and Windows platforms, using SD and HD displays when possible, in multiple browsers (IE11, Edge, Safari, Chrome, Firefox), and in different reading modes (day, sepia, night).</p>
+      <p>They were rendered on the Android, iOS, MacOS, and Windows platforms, using SD and HD displays when possible, in multiple browsers (Edge, Safari, Chrome, Firefox), and in different themes (default, sepia, and night).</p>
 
       <p>Then each font was:</p>
 
@@ -105,10 +103,10 @@
 
         <li>tested against the latin, cyrillic and greek alphabets and languages;</li>
 
-        <li>tested against the small capitals and numeric OpenType features.</li>
-      </ol>
+        <li>tested against the small capitals and numeric OpenType features;</li>
 
-      <p><strong>Note:</strong> For some reason, a lot of Google Fonts don’t have the “™” character. Font stacks should consequently be fine-tuned so that this character doesn’t disrupt the reading experience.</p>
+        <li>tested against the font-width, font-weight, and optical-sizing variations.</li>
+      </ol>
     </section>
 
     <section id="results" class="level2">
@@ -121,14 +119,6 @@
       <p>The 12 recommended fonts are simply providing the best rendering in the worst situations possible (Windows ClearType on a mediocre screen), and the best language support as well. If you don’t have to support Windows, for instance, then you can try fonts which are not recommended.</p>
 
       <p>For your information, here are the results for Windows ClearType rendering at <code>1em</code> (or <code>100%</code>).</p>
-
-      <section id="buggy" class="level3">
-        <h3 class="sigil_not_in_toc">Buggy</h3>
-
-        <ul>
-          <li>IBM Plex Sans (will become excellent once hinting issues are fixed)</li>
-        </ul>
-      </section>
 
       <section id="mediocre" class="level3">
         <h3 class="sigil_not_in_toc">Mediocre</h3>
@@ -188,11 +178,11 @@
         <h3 class="sigil_not_in_toc">Excellent</h3>
 
         <ul>
-          <li>Clear Sans</li>
-
           <li>Fira Sans</li>
 
           <li>Gandhi Sans</li>
+
+          <li>IBM Plex Sans</li>
 
           <li>IBM Plex Serif</li>
 
@@ -261,6 +251,8 @@
           <p>Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish, Cyrillic.</p>
 
           <p>OpenType Features: none.</p>
+
+          <p>Variations: none.</p>
         </section>
 
         <section id="faustina" class="level4">
@@ -307,6 +299,8 @@
           <p>Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish.</p>
 
           <p>OpenType Features: none.</p>
+
+          <p>Variations: weight (<code>300–800</code>).</p>
         </section>
 
         <section id="ibm-plex-serif" class="level4">
@@ -353,6 +347,8 @@
           <p>Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish.</p>
 
           <p>OpenType Features: none.</p>
+
+          <p>Variations: none.</p>
         </section>
 
         <section id="literata" class="level4">
@@ -399,6 +395,8 @@
           <p>Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish, Cyrillic, Greek.</p>
 
           <p>OpenType Features: small caps, numeric figure values, numeric spacing values.</p>
+
+          <p>Variations: optical sizing, weight (<code>200–900</code>).</p>
         </section>
 
         <section id="merriweather" class="level4">
@@ -445,6 +443,8 @@
           <p>Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish, Cyrillic.</p>
 
           <p>OpenType Features: none.</p>
+
+          <p>Variations: none.</p>
         </section>
 
         <section id="pt-serif" class="level4">
@@ -491,6 +491,8 @@
           <p>Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish, Cyrillic.</p>
 
           <p>OpenType Features: none.</p>
+
+          <p>Variations: none.</p>
         </section>
 
         <section id="vollkorn" class="level4">
@@ -537,39 +539,41 @@
           <p>Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish, Cyrillic.</p>
 
           <p>OpenType Features: small caps, numeric figure values, numeric spacing values (and more).</p>
+
+          <p>Variations: weight (<code>400–900</code>).</p>
         </section>
       </section>
 
       <section id="sans-serif-fonts" class="level3">
         <h3 class="sigil_not_in_toc">Sans-serif fonts</h3>
 
-        <section id="clear-sans" class="level4">
-          <h4 class="sigil_not_in_toc">Clear Sans</h4>
+        <section id="plex-sans" class="level4">
+          <h4 class="sigil_not_in_toc">IBM Plex Sans</h4>
 
           <figure class="fullbleed">
-            <img src="../Images/clear-sans.png" alt="Clear Sans compared to Trebuchet MS. The typeface appears a little bit smaller and the aperture of some glyphs like lowercase D appear more enclosed. When comparing an entire paragraph, it feels a little bit smaller but some letters like capital I are easier to differentiate, which is a plus for accessibility."/>
+            <img src="../Images/plex-sans.png" alt="IBM Plex Sans compared to San Francisco, the Apple’s system typeface. The typeface appears a little bit thicker and the design of some glyphs make it more legible. When comparing an entire paragraph, it feels quite similar but some letters like capital I are easier to differentiate, which is a plus for accessibility."/>
           </figure>
 
           <p>Global info:</p>
 
           <ul>
-            <li>Source: <a href="https://01.org/clear-SANS">https://01.org/clear-SANS</a></li>
+            <li>Source: <a href="https://github.com/IBM/plex">https://github.com/IBM/plex</a></li>
 
             <li>Google Fonts: NO</li>
 
-            <li>Design: Intel</li>
+            <li>Design: IBM</li>
 
-            <li>License: Apache 2.0</li>
+            <li>License: SIL-OFL</li>
           </ul>
 
           <p>Technical details:</p>
 
           <ul>
-            <li>Reference: Trebuchet MS</li>
+            <li>Reference: San Francisco</li>
 
             <li>Classification: Sans</li>
 
-            <li>Styles: 8</li>
+            <li>Styles: 16</li>
 
             <li>Metrics: 
 
@@ -587,6 +591,8 @@
           <p>Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish, Cyrillic, Greek.</p>
 
           <p>OpenType Features: none.</p>
+
+          <p>Variations: weight (<code>100–700</code>), width (<code>85–100</code>)</p>
         </section>
 
         <section id="fira-sans" class="level4">
@@ -633,13 +639,15 @@
           <p>Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish, Cyrillic, Greek.</p>
 
           <p>OpenType Features: none.</p>
+
+          <p>Variations: none.</p>
         </section>
 
         <section id="libre-franklin" class="level4">
           <h4 class="sigil_not_in_toc">Libre Franklin</h4>
 
           <figure class="fullbleed">
-            <img src="../Images/libre-franklin.png" alt="Libre Franklin compared to San Fransisco, the Apple’s system typeface. Libre Franklin appears a little bit thinner and feels definitely larger. When comparing an entire paragraph, it shows, although it is capable of keeping the same amount of words on each line."/>
+            <img src="../Images/libre-franklin.png" alt="Libre Franklin compared to San Francisco, the Apple’s system typeface. Libre Franklin appears a little bit thinner and feels definitely larger. When comparing an entire paragraph, it shows, although it is capable of keeping the same amount of words on each line."/>
           </figure>
 
           <p>Global info:</p>
@@ -679,13 +687,15 @@
           <p>Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish.</p>
 
           <p>OpenType Features: none.</p>
+
+          <p>Variations: weight (<code>100–900</code>).</p>
         </section>
 
         <section id="merriweather-sans" class="level4">
           <h4 class="sigil_not_in_toc">Merriweather Sans</h4>
 
           <figure class="fullbleed">
-            <img src="../Images/merriweather-sans.png" alt="Merriweather Sans compared to San Fransisco, the Apple’s system typeface. It appears bolder and feels decidedly larger. This is remarkable when comparing an entire paragraph, especially as its design is less neutral."/>
+            <img src="../Images/merriweather-sans.png" alt="Merriweather Sans compared to San Francisco, the Apple’s system typeface. It appears bolder and feels decidedly larger. This is remarkable when comparing an entire paragraph, especially as its design is less neutral."/>
           </figure>
 
           <p>Global info:</p>
@@ -703,7 +713,7 @@
           <p>Technical details:</p>
 
           <ul>
-            <li>Reference: San Fransisco, Roboto</li>
+            <li>Reference: San Francisco, Roboto</li>
 
             <li>Classification: Sans</li>
 
@@ -725,6 +735,8 @@
           <p>Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish.</p>
 
           <p>OpenType Features: none.</p>
+
+          <p>Variations: weight (<code>300–800</code>).</p>
         </section>
 
         <section id="pt-sans" class="level4">
@@ -771,6 +783,8 @@
           <p>Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish, Cyrillic.</p>
 
           <p>OpenType Features: none.</p>
+
+          <p>Variations: none.</p>
         </section>
 
         <section id="source-sans-pro" class="level4">
@@ -817,6 +831,8 @@
           <p>Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish.</p>
 
           <p>OpenType Features: numeric figure values.</p>
+
+          <p>Variations: weight (<code>200–900</code>).</p>
         </section>
       </section>
 
@@ -832,17 +848,21 @@
     <section id="recommended-fonts-for-accessibility" class="level2">
       <h2 id="sigil_toc_id_168">Recommended fonts for Accessibility</h2>
 
-      <p>ReadiumCSS is shipping with 2 a11y-related fonts to be found in the <code>dist/fonts</code> folder:</p>
+      <p>ReadiumCSS cannot ship with fonts as their path cannot be customized dynamically and would therefore require them to be embedded into every EPUB file read in your application.</p>
+
+      <p>But here is a list of fonts that can be used for accessibility purposes:</p>
 
       <ul>
-        <li><a href="https://github.com/Orange-OpenSource/font-accessible-dfa">AccessibleDfA</a>, by Orange;</li>
+        <li><a href="https://github.com/Orange-OpenSource/font-accessible-dfa">AccessibleDfA</a>;</li>
 
-        <li><a href="https://github.com/iaolo/iA-Fonts/tree/master/iA%20Writer%20Duospace">IA Writer Duospace</a>, by iA;</li>
+        <li><a href="https://github.com/iaolo/iA-Fonts/tree/master/iA%20Writer%20Duospace">IA Writer Duospace</a>;</li>
+
+        <li><a href="https://github.com/antijingoist/open-dyslexic">Open Dyslexic</a>;</li>
+
+        <li><a href="https://www.luciole-vision.com/luciole-en.html">Lucile Vision</a>;</li>
+        
+        <li><a href="https://brailleinstitute.org/freefont">Atkinson Hyperlegible</a>.</li>
       </ul>
-
-      <p>Those fonts should be applied by those exact names as we need very precise fallbacks for missing characters. We may create variables in the future, once those fonts have been properly reviewed and validated.</p>
-
-      <p>We can also recommend <a href="https://github.com/antijingoist/open-dyslexic">Open Dyslexic</a>, either in addition to or replacement of AccessibleDfa.</p>
 
     </section>
 

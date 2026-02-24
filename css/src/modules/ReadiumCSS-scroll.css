@@ -4,7 +4,7 @@
    A set of styles to scroll ePublications
    This module overrides pagination
 
-   Repo: https://github.com/readium/readium-css */
+   Repo: https://github.com/readium/css */
 
 :root:--scroll-view {
   /* Reset html size so that the user can scroll */
@@ -23,5 +23,20 @@
 
 /* Make sure line-length is limited in all configs */
 :root:--scroll-view body {
-  --RS__maxLineLength: 40rem !important;
+  box-sizing: border-box !important;
+  max-width: var(--RS__defaultLineLength) !important;
+}
+
+:root:--scroll-view:not(:--no-overflow) body {
+  overflow: auto;
+}
+
+@supports (overflow: clip) {
+  :root:--scroll-view:not(:--no-overflow) {
+     overflow: auto;
+  }
+
+  :root:--scroll-view:not(:--no-overflow) body {
+     overflow: clip;
+  }
 }

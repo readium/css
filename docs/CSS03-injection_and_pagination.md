@@ -22,7 +22,7 @@ Finally, on larger screens, you’ll have to set dimensions on this container so
 
 ### Background color
 
-Please note you must deal with the `background-color` outside this container, especially as the user can set reading modes (night, sepia, etc.). In other words, it must be synced with this user setting so that the entire screen is the same `background-color`.
+Please note you must deal with the `background-color` outside this container, especially as the user could set an arbitrary color through theming. In other words, it must be synced with this user setting so that the entire screen is the same `background-color`.
 
 As a friendly reminder, you can allow transparency for the iframe if you’re using one. That should help deal with `background-color` at the global level.
 
@@ -43,15 +43,11 @@ Contents are paginated using [CSS multicolumns](https://www.w3.org/TR/css3-multi
 
 ### Default
 
-Pagination is responsive by default, which means it is using relative values in order to adapt layout to the viewport and the current font size.
+Pagination is a single column by default, which means the Reading System/app is responsible for its responsiveness.
 
-We’ve chosen this approach since it appears setting everything in pixels is more likely to create rounding errors and rendering issues (e.g. cut-off text) than letting the rendering engine deal with relative units on its own.
+For instance, if the reader is using a tablet in landscape mode and you want to display two “pages”/columns automatically, you have to tell ReadiumCSS by applying `--USER__colCount: 2;` to the `:root` element – if it’s not already set by this user of course.
 
-The responsive design provides other benefits. For instance, if the reader is using an iPad in landscape mode and sets a bigger font size, the two-column view will automatically switch to a single-page view if needed.
-
-You can also limit line-length by setting a `max-width` for `body`.
-
-Please note a user setting for the number of columns has been designed so that users can set the layout as they wish.
+This is a major change from version 1, as the responsive aspect of pagination was built-in.
 
 ### The RS owns :root and part of body
 
@@ -73,30 +69,15 @@ You can control horizontal margins in several ways:
 
 Please note that when using `padding`, you must take it into account when sizing `:root` and/or `body`. Their widths contain the padding set for the element.
 
-### The auto pagination model
+### The pagination model
 
-By default, responsive columns are built into Readium CSS, which means the layout will automatically switch from a single page to a two-column spread depending on: 
-
-1. the size of the viewport (by default, the minimum `width` is `60em` or the mobile device is in landscape orientation);
-2. the `font-size` currently set by the user.
-
-The spread will consequently switch to a single page once the user sets a `font-size` which is too large for two columns.
-
-The following illustrations are the two models you’ll have to deal with.
+This is the model you’re dealing with. It’s been simplified in version 2 in order to be more reliable.
 
 ![The single page model relies on the column width of the :root element. Line-length is constrained by the max-width of the body element, including its padding. Finally an auto margin centers the content.](assets/Page-Model.jpg)
 
-A single page is just a column which can grow to the entire width of the web view/iframe since it is declared for `html`.
+Page gutters are part of `body` (`--RS__pageGutter`), hence `--USER__lineLength` (or `--RS__defaultLineLength` if no user preference is set). Contents are centered in `:root` using the `auto` value for `body` margins.
 
-Page margins are part of `body`, hence `--RS__maxLineLength`. Contents are centered using the `auto` value for `body` margins.
-
-![The two-column spread model is somehow simpler in the sense the column width is the minimum value that must be reached for this model to be applied. We are relying on left and right padding instead of column-gap for gutters.](assets/spread-model.jpg)
-
-In the spread model, i.e. two columns, the `--RS__colWidth` is a floor: once the minimum width available (viewport) can’t contain 2 columns (the value is computed from the `font-size` user setting), we switch to the single page model.
-
-For instance, if `--RS__colWidth` is `20em` and the `font-size`, `100%` (`16px`), then the floor is `320px`. If 2 columns can fit in the viewport, the spread model is applied. If they can’t, the page model is applied. Hence, if the user sets the `font-size` at `200%` (`32px`), the floor is `640px`, which means the viewport should be at least `1240px`-wide to apply the spread model.
-
-Since we still limit line-length in the spread model, you might want to limit the web view/iframe size so that you don’t end up with wide gaps on large screens (or add `padding` to `:root`, and take it into account when scrolling).
+By default, `--RS__pageGutter` is set to `0`. You can set it as you wish, but take into account it will substract from `--USER__lineLength`. 
 
 #### Variables you can set
 
@@ -108,9 +89,7 @@ Please note those variables’ value can be redefined using media queries. You d
 --RS__colWidth
 ```
 
-The optimal column’s width. It serves as a floor in our design.
-
-It must not be set in `rem` as there is currently a bug with this unit in some implementations (the `em` unit is fine).
+The optimal column’s width. We set it to `100%` (`100vh` in vertical-writing) for a single-column for Safari – otherwise it won’t fragment content, and `auto` for multiple so that the column-count can be prioritized.
 
 * * *
 
@@ -126,7 +105,7 @@ The optimal number of columns (depending on the columns’ width).
 --RS__colGap
 ```
 
-The gap between columns. It must be set in pixels so that it won’t resize with font size. 
+The gap between columns. 
 
 You must account for this gap when scrolling.
 
@@ -136,19 +115,27 @@ You must account for this gap when scrolling.
 --RS__pageGutter
 ```
 
-The horizontal page margins. It must be set in pixels so that it won’t resize with font size.
+The inline (horizontal by default, vertical in vertical-writing) page margins.
 
 * * *
 
 ```
---RS__maxLineLength
+--RS__defaultLineLength
 ```
 
-The optimal line-length. It must be set in `rem` in order to take `:root`’s `font-size` as a reference, whichever the `body`’s `font-size` might be.
+The default line-length when none is set by the user. It represents the `max-width` of the `body` element and is `100%` by default so that it does not conflict with the the zoom factor.
+
+* * *
+
+```
+--USER__lineLength
+```
+
+The line-length set by the user. It can be set in any unit CSS property `max-width` accepts.
 
 ### Right-to-left progression
 
-The auto pagination model will take care of itself if the correct `dir` attribute is set on `html` and `body`.
+The pagination model will take care of itself if the correct `dir` attribute is set on `html` and `body`.
 
 In other words, if `dir="rtl"` is set for both elements, the column-progression will be automatically reversed.
 
@@ -178,7 +165,7 @@ The current implementation is limited to the following combinations:
 
 We may add others at some point in the future. Please feel free to report the languages or scripts missing in this mapping. Please bear in mind a list of default (preferably system) fonts will greatly help to add support for those languages and scripts. See [Default Fonts](../docs/CSS09-default_fonts.md).
 
-Test files can be retrieved from [the Readium CSS’ i18n-samples OPDS feed](https://raw.githubusercontent.com/readium/readium-css/develop/docs/i18n-samples/root.atom).
+Test files can be retrieved from [the Readium CSS’ i18n-samples OPDS feed](https://raw.githubusercontent.com/readium/css/develop/docs/i18n-samples/root.atom).
 
 #### Be cautious, the direction propagates
 
@@ -212,17 +199,21 @@ Note: While this isn’t necessarily the case in practice, in Blink, Gecko/Quant
 
 ### The pagination model for vertical writing modes
 
-When publications are in Chinese, Japanese, Korean, and Mongolian, and laid out with a `vertical-*` writing mode, we must switch to a different model since we can’t do a two-column spread.
+When publications are in Chinese, Japanese, Korean, and Mongolian, and laid out with a `vertical-*` writing mode, we must switch to a different model of pagination.
 
-Indeed, columns are automatically laid out on the `y-axis` (vertical) with such writing modes, and [the behavior of multi-column in orthogonal flows has been deferred to CSS Writing Modes Level 4](https://www.w3.org/TR/css-writing-modes-3/#changes-201512).
+Indeed, columns are automatically laid out on the `y-axis` (vertical) with such writing modes, and [the behavior of multi-column in orthogonal flows has been deferred to CSS Writing Modes Level 4](https://www.w3.org/TR/css-writing-modes-3/#changes-201512). This means we must stick to a single column, and can’t support several columns – they are stacked on top of one another, which is not what is expected.
+
+This also implies the scroll progression is vertical, hence horizontal navigation/swipes have to be re-mapped on this `y-axis`. You may also want to disable animations so that it doesn’t feel disorienting to users.
 
 We consequently use a “Fragmented Model”, as it differs significantly from the “Pagination Model”, especially the column-axis.
 
 ![The fragmented Model is kind of a superset of the single page model in the vertical direction, with extra padding added to the root element for extra horizontal gutters.](assets/Fragmented-Model.jpg)
 
-One can think of the fragmented model as the single page model rotated 90% clockwise. The only difference is that `padding` is added to the `:root` (`html`) element so that text doesn’t run from edge to edge.
+One can think of the fragmented model as the single page model rotated 90% clockwise.
 
-Other options have been explored, e.g. a pseudo-algorithm mimicking `margin: auto`, using the `calc()` function, but it proved complex to manage well and raised serious performance issues, especially when resizing the window of a browser with documents making heavy use of `text-direction` and `text-combine-upright`.
+Due to the limitations listed above, implementers may want to use their own model. It is not uncommon to handle vertical writing pagination programmatically, as it can be done relatively easily and efficiently thanks to characters being (mostly) monospace e.g. scrolling the viewport by an offset based on these characters.
+
+Since pagination is the default view, if you don’t want to use this model and implement yours, you can set `--RS__disablePagination: readium-noVerticalPagination-on` on the `:root` (`html`) element.
 
 #### When to use the fragmented model
 
@@ -250,11 +241,11 @@ Here is the correct mapping for combinations resulting in the `vertical-*` writi
 
 [IANA Language Subtag registery](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry).
 
-Test files can be retrieved from [the Readium CSS’ i18n-samples OPDS feed](https://raw.githubusercontent.com/readium/readium-css/develop/docs/i18n-samples/root.atom).
+Test files can be retrieved from [the Readium CSS’ i18n-samples OPDS feed](https://raw.githubusercontent.com/readium/css/develop/docs/i18n-samples/root.atom).
 
 #### When not to use the fragmented model
 
-If a publication doesn’t need to be laid out in a `vertical-*` writing mode, the auto pagination model can be used.
+If a publication doesn’t need to be laid out in a `vertical-*` writing mode, the default pagination model must be used.
 
 There are still specific styles for CJK Horizontal to load though.
 

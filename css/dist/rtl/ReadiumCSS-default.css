@@ -1,16 +1,23 @@
-/*
- * Readium CSS (v. 1.1.0)
- * Developers: Jiminy Panoz 
- * Copyright (c) 2017. Readium Foundation. All rights reserved.
+/*!
+ * Readium CSS v.2.0.0
+ * Copyright (c) 2017–2026. Readium Foundation. All rights reserved.
  * Use of this source code is governed by a BSD-style license which is detailed in the
  * LICENSE file present in the project repository where this source code is maintained.
-*/
+ * Core maintainer: Jiminy Panoz <jiminy.panoz@edrlab.org> 
+ * Contributors: 
+ * Daniel Weck
+ * Hadrien Gardeur
+ * Innovimax
+ * L. Le Meur
+ * Mickaël Menu
+ * k_taka
+ */
 
 @namespace url("http://www.w3.org/1999/xhtml");
 
 @namespace epub url("http://www.idpf.org/2007/ops");
 
-@namespace m url("http://www.w3.org/1998/Math/MathML/");
+@namespace m url("http://www.w3.org/1998/Math/MathML");
 
 @namespace svg url("http://www.w3.org/2000/svg");
 

@@ -4,21 +4,24 @@
    A reference for user settings variables
    Don’t use this stylesheet
 
-   Repo: https://github.com/readium/readium-css */
+   Repo: https://github.com/readium/css */
 
 :root {
-  --USER__colCount: ;         /* 1, 2, auto */
-  --USER__pageMargins: ;      /* 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2 */
+  --USER__colCount: ;         /* integer */
+  --USER__lineLength: ;       /* any value property max-width|height accepts */
 
   --USER__backgroundColor: ;  /* Custom color (not preset mode) */
   --USER__textColor: ;        /* Custom color (not preset mode) */
+  --USER__linkColor: ;        /* Custom color (not preset mode) */
+  --USER__visitedColor: ;     /* Custom color (not preset mode) */
+  --USER__selectionBackgroundColor: ; /* Custom color (not preset mode) */
+  --USER__selectionTextColor: ; /* Custom color (not preset mode) */
 
   --USER__textAlign: ;        /* left, justify */
   --USER__bodyHyphens: ;      /* none, auto */
 
   --USER__fontFamily: ;       /* font stacks e.g. var(--RS__oldStyleTf) */
   --USER__fontSize: ;         /* 12 = 75%, 14 = 87.5%, 16 = 100%, 18 = 112.5%, 22 = 137.5%, 24 = 150%, 26 = 162.5%, 28 = 175%, 32 = 200%, 36 = 225%, 40 = 250% */
-  --USER__typeScale: ;        /* 1.067 | 1.125 | 1.2 | 1.25 | 1.333 | 1.414 | 1.5 | 1.618 */
   --USER__lineHeight: ;       /* may depend on font size? */
 
   --USER__paraSpacing: ;      /* 0, 0.375rem, 0.75rem, 1rem, 1.25rem, 1.5rem, 1.65rem, 1.75rem, 2rem */
@@ -27,9 +30,14 @@
   --USER__wordSpacing: ;      /* (0.0675rem,) 0.125rem, (0.1875rem,) 0.25rem, (0.3125rem,) 0.375rem, (0.4375rem,) 0.5rem */
   --USER__letterSpacing: ;    /* 0.0675rem, 0.125rem, 0.1875rem */
 
-  /* Night mode specific */
-  --USER__darkenImages: ;     /* any value */
-  --USER__invertImages: ;     /* any value */
+  --USER__blendImages: ;      /* readium-blend-on */
+  --USER__darkenImages: ;     /* readium-darken-on | percentage */
+  --USER__invertImages: ;     /* readium-invert-on | percentage */
+  --USER__invertGaiji: ;      /* readium-invertGaiji-on | percentage */
 
   --USER__ligatures: ;        /* none | common-ligatures */
+
+  --USER__fontOpticalSizing: ; /* none | auto */
+  --USER__fontWeight: ; /* number */
+  --USER__fontWidth: ; /* ultra-condensed | extra-condensed | condensed | semi-condensed | normal | semi-expanded | expanded | extra-expanded | ultra-expanded | percentage */
 }

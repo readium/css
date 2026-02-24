@@ -4,7 +4,7 @@
    A submodule managing custom colors for user settings
    Part of “Chrome Advanced” class – no flag required.
 
-   Repo: https://github.com/readium/readium-css */
+   Repo: https://github.com/readium/css */
 
 :root[style*="--USER__backgroundColor"] {
   background-color: var(--USER__backgroundColor) !important;
@@ -18,6 +18,39 @@
   color: var(--USER__textColor) !important;
 }
 
-:root[style*="--USER__textColor"] *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(pre) {
+:root[style*="--USER__textColor"] *:not(a) {
+  background-color: transparent !important;
   color: inherit !important;
+  border-color: currentColor !important;
+}
+
+:root[style*="--USER__textColor"] svg text {
+  fill: currentColor !important;
+  stroke: none !important;
+}
+
+/* Color of links (:link + :visited) */
+
+:root[style*="--USER__linkColor"] a:link,
+:root[style*="--USER__linkColor"] a:link * {
+  color: var(--USER__linkColor) !important;
+}
+   
+:root[style*="--USER__visitedColor"] a:visited,
+:root[style*="--USER__visitedColor"] a:visited * {
+  color: var(--USER__visitedColor) !important;
+}
+
+/* Color of ::selection */
+/* This differs from the implementation inherited in base 
+   as it is using !important and will override authors’ styles. */
+
+:root[style*="--USER__selectionBackgroundColor"][style*="--USER__selectionTextColor"] ::-moz-selection {
+  background-color: var(--USER__selectionBackgroundColor) !important;
+  color: var(--USER__selectionTextColor) !important;
+}
+
+:root[style*="--USER__selectionBackgroundColor"][style*="--USER__selectionTextColor"] ::selection {
+  background-color: var(--USER__selectionBackgroundColor) !important;
+  color: var(--USER__selectionTextColor) !important;
 }

@@ -1,0 +1,11 @@
+/* Readium CSS
+   Font optical sizing pref
+
+   A submodule managing font optical sizing for user settings
+   Part of “User Overrides” class – no flag required.
+
+   Repo: https://github.com/readium/css */
+
+:root[style*="--USER__fontOpticalSizing"] body {
+  font-optical-sizing: var(--USER__fontOpticalSizing) !important;
+}

@@ -95,8 +95,8 @@
       </section>
     </section>
 
-    <section id="margins" class="level2">
-      <h2 id="sigil_toc_id_49">Page margins</h2>
+    <section id="length" class="level2">
+      <h2 id="sigil_toc_id_49">Line length</h2>
 
       <section id="users-intent-7" class="level3">
         <h3 class="sigil_not_in_toc">User’s intent</h3>
@@ -117,8 +117,8 @@
       </section>
     </section>
 
-    <section id="reading-modes-1" class="level2">
-      <h2 id="sigil_toc_id_50">Reading modes</h2>
+    <section id="themes-1" class="level2">
+      <h2 id="sigil_toc_id_50">Themes</h2>
 
       <section id="users-intent-8" class="level3">
         <h3 class="sigil_not_in_toc">User’s intent</h3>
@@ -129,19 +129,17 @@
       <section id="authors-intent-8" class="level3">
         <h3 class="sigil_not_in_toc">Author’s intent</h3>
 
-        <p>Does not apply to authors but it could if we create a public “API” for authors to express intents related to reading modes.</p>
-
-        <p>Since authors have filed very few use cases at the moment, this is highly conditional.</p>
+        <p>Does not apply to authors.</p>
       </section>
 
       <section id="what-to-do-4" class="level3">
         <h3 class="sigil_not_in_toc">What to do</h3>
 
-        <p>Implementers should take two main variables into account: contrast and luminosity, which means they might want to invert some images or get rid of backgrounds in night mode.</p>
+        <p>Implementers should take two main variables into account: contrast and luminosity, which means they might want to invert some images or get rid of backgrounds in dark colors.</p>
 
         <p>Inverting images that should be inverted in night mode can’t be done well without an author’s intent though.</p>
 
-        <p>Please note Readium CSS provides two extra options to manage images in night mode:</p>
+        <p>Please note Readium CSS provides two extra options to manage images in dark colors:</p>
 
         <ol>
           <li>darken;</li>
@@ -331,13 +329,13 @@
       </section>
     </section>
 
-    <section id="ligatures-arabic-persian-scripts" class="level2">
-      <h2 id="sigil_toc_id_26">Ligatures (Arabic &amp; Persian scripts)</h2>
+    <section id="ligatures" class="level2">
+      <h2 id="sigil_toc_id_26">Ligatures</h2>
 
       <section id="users-intent-11" class="level3">
         <h3 class="sigil_not_in_toc">User’s intent</h3>
 
-        <p>The user intends to disable ligatures. This setting applies to the Arabic and Persian scripts, and is believed to help dyslexic readers as <code>word-spacing</code> in Latin.</p>
+        <p>The user intends to disable ligatures. This setting applies to the Latin, Arabic and Persian scripts. In the two latter, it is believed to help dyslexic readers as <code>word-spacing</code> in Latin.</p>
       </section>
 
       <section id="authors-intent-11" class="level3">

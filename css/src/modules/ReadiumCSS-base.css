@@ -3,7 +3,7 @@
 
    A minimal stylesheet for all ebooks
 
-   Repo: https://github.com/readium/readium-css */
+   Repo: https://github.com/readium/css */
 
 /* Define viewport, HTML5-style */
 @-ms-viewport {
@@ -17,11 +17,7 @@
 
 :root {
   /* Default font-stacks */
-  --RS__oldStyleTf: "Iowan Old Style", "Sitka Text", Palatino, "Book Antiqua", serif;
-  --RS__modernTf: Athelas, Constantia, Georgia, serif;
-  --RS__sansTf: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --RS__humanistTf: Seravek, Calibri, Roboto, Arial, sans-serif;
-  --RS__monospaceTf: "Andale Mono", Consolas, monospace;
+  @import-json "../../vars/fontStacks.json";
 
   /* Config */
   --RS__baseFontFamily: var(--RS__oldStyleTf);
@@ -29,8 +25,26 @@
   /* For square-ish fonts (CJK, Indic, etc.), we must apply some compensation in dynamic leading. Default is 1 i.e. no compensation */
   --RS__lineHeightCompensation: 1;
 
-  /* Dynamic leading based on typeface metrics + font-size setting */
-  --RS__baseLineHeight: calc((1em + (2ex - 1ch) - ((1rem - 16px) * 0.1667)) * var(--RS__lineHeightCompensation));
+  --RS__baseLineHeight: calc(1.5 * var(--RS__lineHeightCompensation));
+
+  /* Default colors (previously implemented as day mode) */
+  @import-json "../../vars/colors.json";
+
+  background-color: var(--RS__backgroundColor) !important;
+  color: var(--RS__textColor) !important;
+}
+
+/* Note: We’re not defining colors of links cos’ the selector specificity with :link and :visited could override publishers’ styles */
+
+/* Note: Though `::selection` was present in drafts of CSS Selectors Level 3, it was removed during the Candidate Recommendation phase because its behavior was under-specified (especially with nested elements) and interoperability wasn’t achieved. Source: https://developer.mozilla.org/en-US/docs/Web/CSS/::selection */
+::-moz-selection {
+  background-color: var(--RS__selectionBackgroundColor);
+  color: var(--RS__selectionTextColor);
+}
+
+::selection {
+  background-color: var(--RS__selectionBackgroundColor);
+  color: var(--RS__selectionTextColor);
 }
 
 /* Set default font for the html doc, so that it can be overridden by the authors’s stylesheet */

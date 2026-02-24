@@ -4,7 +4,7 @@
 
 While we recommend using system fonts to get the best performance whenever possible, implementers might want to use Open Source Fonts to offer more choice to users. On the Android platform, for instance, system fonts are limited to one typeface per generic family (`serif`, `sans-serif`, `fantasy`, `monospace`, and `cursive`), which means implementers don’t get a lot of options out of the box.
 
-Consequently, amongst the thousands of fonts available online, a pre-selection of 28 typefaces have been reviewed extensively. Those typefaces were selected based on multiple factors: 
+Consequently, amongst the thousands of fonts available online, a pre-selection of 27 typefaces have been reviewed extensively. Those typefaces were selected based on multiple factors: 
 
 1. they have enough styles (at least the 4 “core styles” i.e. `regular`, `italic`, `bold`, `bold italic`) so that implementers don’t break authors’ expectations;
 2. they can be used in body copy;
@@ -12,12 +12,11 @@ Consequently, amongst the thousands of fonts available online, a pre-selection o
 4. they can be free alternatives to system fonts available on other platforms;
 5. they offer good-enough support for at least latin-based languages.
 
-Here’s the complete list of those 28 fonts:
+Here’s the complete list of those 27 fonts:
 
 - Alegreya
 - Bitter
 - Charis SIL
-- Clear Sans
 - Crimson Text
 - DejaVu Sans
 - Faustina
@@ -45,17 +44,16 @@ Here’s the complete list of those 28 fonts:
 
 ## How were those fonts reviewed
 
-Each of the 28 fonts has been undergoing tests in real rendering situations. 
+Each of the 27 fonts has been undergoing tests in real rendering situations. 
 
-They were rendered on the Android, iOS, MacOS, and Windows platforms, using SD and HD displays when possible, in multiple browsers (IE11, Edge, Safari, Chrome, Firefox), and in different reading modes (day, sepia, night).
+They were rendered on the Android, iOS, MacOS, and Windows platforms, using SD and HD displays when possible, in multiple browsers (Edge, Safari, Chrome, Firefox), and in different themes (none, sepia and night).
 
 Then each font was:
 
 1. compared to its closest reference (system font);
 2. tested against the latin, cyrillic and greek alphabets and languages;
-3. tested against the small capitals and numeric OpenType features.
-
-**Note:** For some reason, a lot of Google Fonts don’t have the “™” character. Font stacks should consequently be fine-tuned so that this character doesn’t disrupt the reading experience.
+3. tested against the small capitals and numeric OpenType features;
+4. tested against the font-width, font-weight, and optical-sizing variations.
 
 ## Results
 
@@ -66,10 +64,6 @@ We sometimes forget that users can’t necessarily afford bleeding-edge technolo
 The 12 recommended fonts are simply providing the best rendering in the worst situations possible (Windows ClearType on a mediocre screen), and the best language support as well. If you don’t have to support Windows, for instance, then you can try fonts which are not recommended. 
 
 For your information, here are the results for Windows ClearType rendering at `1em` (or `100%`).
-
-### Buggy
-
-- IBM Plex Sans (will become excellent once hinting issues are fixed)
 
 ### Mediocre
 
@@ -100,9 +94,9 @@ For your information, here are the results for Windows ClearType rendering at `1
 
 ### Excellent
 
-- Clear Sans
 - Fira Sans
 - Gandhi Sans
+- IBM Plex Sans
 - IBM Plex Serif
 - Merriweather Sans
 - Merriweather Serif
@@ -143,6 +137,8 @@ Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish,
 
 OpenType Features: none.
 
+Variations: none.
+
 #### Faustina
 
 ![Faustina compared to Charter. The typeface looks smaller and feels definitely condensed. When comparing an entire paragraph, the fact its x-height is larger becomes really visible as it allows for a shorter line-length while appearing larger in weight. Those specificities may help on narrow screens.](assets/faustina.png)
@@ -168,6 +164,8 @@ Technical details:
 Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish.
 
 OpenType Features: none.
+
+Variations: weight (`300–800`).
 
 #### IBM Plex Serif
 
@@ -195,6 +193,8 @@ Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish,
 
 OpenType Features: none.
 
+Variations: none.
+
 #### Literata
 
 ![Literata compared to Georgia. The typeface is noticeably larger and bolder. When comparing an entire paragraph, this become obvious in the sense fewer words fit on a line. This could become an advantage on larger screens, as the user won’t have to increase font-size.](assets/literata.png)
@@ -220,6 +220,8 @@ Technical details:
 Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish, Cyrillic, Greek.
 
 OpenType Features: small caps, numeric figure values, numeric spacing values.
+
+Variations: optical sizing, weight (`200–900`).
 
 #### Merriweather
 
@@ -247,6 +249,8 @@ Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish,
 
 OpenType Features: none.
 
+Variations: none.
+
 #### PT Serif
 
 ![PT Serif compared to Charter. The typeface looks slightly larger and makes for a sharper substitute. When comparing an entire paragraph, it is visibly larger but fits the same amount of words on each line.](assets/pt-serif.png)
@@ -272,6 +276,8 @@ Technical details:
 Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish, Cyrillic.
 
 OpenType Features: none.
+
+Variations: none.
 
 #### Vollkorn
 
@@ -299,24 +305,26 @@ Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish,
 
 OpenType Features: small caps, numeric figure values, numeric spacing values (and more).
 
+Variations: weight (`400–900`).
+
 ### Sans-serif fonts
 
-#### Clear Sans
+#### IBM Plex Sans
 
-![Clear Sans compared to Trebuchet MS. The typeface appears a little bit smaller and the aperture of some glyphs like lowercase D appear more enclosed. When comparing an entire paragraph, it feels a little bit smaller but some letters like capital I are easier to differentiate, which is a plus for accessibility.](assets/clear-sans.png)
+![IBM Plex Sans compared to San Francisco, the Apple’s system typeface. The typeface appears a little bit thicker and the design of some glyphs make it more legible. When comparing an entire paragraph, it feels quite similar but some letters like capital I are easier to differentiate, which is a plus for accessibility.](assets/plex-sans.png)
 
 Global info:
 
-- Source: https://01.org/clear-SANS
+- Source: https://github.com/IBM/plex
 - Google Fonts: NO
-- Design: Intel
-- License: Apache 2.0
+- Design: IBM
+- License: SIL-OFL
 
 Technical details:
 
-- Reference: Trebuchet MS
+- Reference: San Francisco
 - Classification: Sans
-- Styles: 8
+- Styles: 16
 - Metrics: 
     - Contrast: TBD
     - x-height: TBD
@@ -325,7 +333,9 @@ Technical details:
 
 Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish, Cyrillic, Greek.
 
-OpenType Features: none.
+OpenType Features: numeric figure values, numeric spacing values.
+
+Variations: weight (`100–700`), width (`85–100`).
 
 #### Fira Sans
 
@@ -353,9 +363,11 @@ Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish,
 
 OpenType Features: none.
 
+Variations: none.
+
 #### Libre Franklin
 
-![Libre Franklin compared to San Fransisco, the Apple’s system typeface. Libre Franklin appears a little bit thinner and feels definitely larger. When comparing an entire paragraph, it shows, although it is capable of keeping the same amount of words on each line.](assets/libre-franklin.png)
+![Libre Franklin compared to San Francisco, the Apple’s system typeface. Libre Franklin appears a little bit thinner and feels definitely larger. When comparing an entire paragraph, it shows, although it is capable of keeping the same amount of words on each line.](assets/libre-franklin.png)
 
 Global info:
 
@@ -379,9 +391,11 @@ Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish,
 
 OpenType Features: none.
 
+Variations: weight (`100–900`).
+
 #### Merriweather Sans
 
-![Merriweather Sans compared to San Fransisco, the Apple’s system typeface. It appears bolder and feels decidedly larger. This is remarkable when comparing an entire paragraph, especially as its design is less neutral.](assets/merriweather-sans.png)
+![Merriweather Sans compared to San Francisco, the Apple’s system typeface. It appears bolder and feels decidedly larger. This is remarkable when comparing an entire paragraph, especially as its design is less neutral.](assets/merriweather-sans.png)
 
 Global info:
 
@@ -392,7 +406,7 @@ Global info:
 
 Technical details:
 
-- Reference: San Fransisco, Roboto
+- Reference: San Francisco, Roboto
 - Classification: Sans
 - Styles: 8
 - Metrics: 
@@ -404,6 +418,8 @@ Technical details:
 Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish.
 
 OpenType Features: none.
+
+Variations: weight (`300–800`).
 
 #### PT Sans
 
@@ -431,6 +447,8 @@ Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish,
 
 OpenType Features: none.
 
+Variations: none.
+
 #### Source Sans Pro
 
 ![Source Sans Pro compared to Seravek. Its x-height is noticeably – but not remarkably – larger. When comparing an entire paragraph, both feel like they share some common traits, despite very visible differences in the drawing of their glyphs.](assets/source-sans-pro.png)
@@ -457,6 +475,8 @@ Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish,
 
 OpenType Features: numeric figure values.
 
+Variations: weight (`200–900`).
+
 ### Windows
 
 Microsoft has been investing a lot of resources in designing fonts that render perfectly on this platform, especially with ClearType. Typefaces like Cambria, Constantia, Arial Nova, Georgia Pro, Sitka, Verdana Pro, and more, offer a large amount of styles, excellent language support, extensive support of Open Type features, and high quality rendering, even on mediocre screens.
@@ -465,14 +485,15 @@ As a consequence, we strongly recommend prioritizing such system fonts for the c
 
 ## Recommended fonts for Accessibility
 
-ReadiumCSS is shipping with 2 a11y-related fonts to be found in the `dist/fonts` folder:
+ReadiumCSS cannot ship with fonts as their path cannot be customized dynamically and would therefore require them to be embedded into every EPUB file read in your application.
 
-- [AccessibleDfA](https://github.com/Orange-OpenSource/font-accessible-dfa), by Orange;
-- [IA Writer Duospace](https://github.com/iaolo/iA-Fonts/tree/master/iA%20Writer%20Duospace), by iA.
+But here is a list of fonts that can be used for accessibility purposes:
 
-Those fonts should be applied by those exact names as we need very precise fallbacks for missing characters. We may create variables in the future, once those fonts have been properly reviewed and validated.
-
-We can also recommend [Open Dyslexic](https://github.com/antijingoist/open-dyslexic), either in addition to or replacement of AccessibleDfa.
+- [AccessibleDfA](https://github.com/Orange-OpenSource/font-accessible-dfa);
+- [IA Writer Duospace](https://github.com/iaolo/iA-Fonts/tree/master/iA%20Writer%20Duospace);
+- [Open Dyslexic](https://github.com/antijingoist/open-dyslexic);
+- [Luciole Vision](https://www.luciole-vision.com/luciole-en.html);
+- [Atkinson Hyperlegible](https://brailleinstitute.org/freefont).
 
 ## Recommended fonts for CJK
 

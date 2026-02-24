@@ -1,16 +1,23 @@
-/*
- * Readium CSS (v. 1.1.0)
- * Developers: Jiminy Panoz 
- * Copyright (c) 2017. Readium Foundation. All rights reserved.
+/*!
+ * Readium CSS v.2.0.0
+ * Copyright (c) 2017–2026. Readium Foundation. All rights reserved.
  * Use of this source code is governed by a BSD-style license which is detailed in the
  * LICENSE file present in the project repository where this source code is maintained.
-*/
+ * Core maintainer: Jiminy Panoz <jiminy.panoz@edrlab.org> 
+ * Contributors: 
+ * Daniel Weck
+ * Hadrien Gardeur
+ * Innovimax
+ * L. Le Meur
+ * Mickaël Menu
+ * k_taka
+ */
 
 @namespace url("http://www.w3.org/1999/xhtml");
 
 @namespace epub url("http://www.idpf.org/2007/ops");
 
-@namespace m url("http://www.w3.org/1998/Math/MathML/");
+@namespace m url("http://www.w3.org/1998/Math/MathML");
 
 @namespace svg url("http://www.w3.org/2000/svg");
 
@@ -24,14 +31,45 @@
 }
 
 :root{
-  --RS__oldStyleTf:"Iowan Old Style", "Sitka Text", palatino, "Book Antiqua", serif;
-  --RS__modernTf:athelas, constantia, georgia, serif;
-  --RS__sansTf:-apple-system, system-ui, blinkmacsystemfont, "Segoe UI", roboto, "Helvetica Neue", arial, sans-serif;
-  --RS__humanistTf:seravek, calibri, roboto, arial, sans-serif;
-  --RS__monospaceTf:"Andale Mono", consolas, monospace;
+
+  --RS__monospaceTf:ui-monospace, 'Andale Mono', 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+
+  --RS__humanistTf:Seravek, Calibri, 'Gill Sans Nova', Roboto, Ubuntu, 'DejaVu Sans', source-sans-pro, sans-serif;
+
+  --RS__sansTf:-ui-sans-serif, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI Variable', 'Segoe UI', Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Liberation Sans', Arial, sans-serif;
+
+  --RS__modernTf:Athelas, Constantia, Charter, 'Bitstream Charter', Cambria, 'Georgia Pro', Georgia, serif;
+
+  --RS__oldStyleTf:'Iowan Old Style', Sitka, 'Sitka Text', Palatino, 'Book Antiqua', 'URW Palladio L', P052, serif;
   --RS__baseFontFamily:var(--RS__oldStyleTf);
   --RS__lineHeightCompensation:1;
-  --RS__baseLineHeight:calc((1em + (2ex - 1ch) - ((1rem - 16px) * 0.1667)) * var(--RS__lineHeightCompensation));
+
+  --RS__baseLineHeight:calc(1.5 * var(--RS__lineHeightCompensation));
+
+  --RS__selectionTextColor:inherit;
+
+  --RS__selectionBackgroundColor:#b4d8fe;
+
+  --RS__visitedColor:#551A8B;
+
+  --RS__linkColor:#0000EE;
+
+  --RS__textColor:#121212;
+
+  --RS__backgroundColor:#FFFFFF;
+  color:var(--RS__textColor) !important;
+
+  background-color:var(--RS__backgroundColor) !important;
+}
+
+::-moz-selection{
+  color:var(--RS__selectionTextColor);
+  background-color:var(--RS__selectionBackgroundColor);
+}
+
+::selection{
+  color:var(--RS__selectionTextColor);
+  background-color:var(--RS__selectionBackgroundColor);
 }
 
 html{
@@ -185,56 +223,6 @@ math{
 :lang(zh-HK){
   --RS__baseFontFamily:"方體", "PingFang HK", "方體", "PingFang TC", "黑體", "Heiti TC", "Microsoft JhengHei UI", "Microsoft JhengHei", roboto, noto, "Noto Sans CJK TC", sans-serif;
   --RS__lineHeightCompensation:1.167;
-}
-
-:root{
-  --RS__backgroundColor:#FFFFFF;
-  --RS__textColor:#121212;
-  --RS__selectionBackgroundColor:#b4d8fe;
-  --RS__selectionTextColor:inherit;
-}
-
-:root{
-  color:var(--RS__textColor) !important;
-  background-color:var(--RS__backgroundColor) !important;
-}
-
-::-moz-selection{
-  color:var(--RS__selectionTextColor);
-  background-color:var(--RS__selectionBackgroundColor);
-}
-
-::selection{
-  color:var(--RS__selectionTextColor);
-  background-color:var(--RS__selectionBackgroundColor);
-}
-
-@font-face{
-  font-family:AccessibleDfA;
-  font-style:normal;
-  font-weight:normal;
-  src:local("AccessibleDfA"), url("fonts/AccessibleDfA-Regular.woff2") format("woff2"), url("fonts/AccessibleDfA-Regular.woff") format("woff");
-}
-
-@font-face{
-  font-family:AccessibleDfA;
-  font-style:normal;
-  font-weight:bold;
-  src:local("AccessibleDfA"), url("fonts/AccessibleDfA-Bold.woff2") format("woff2");
-}
-
-@font-face{
-  font-family:AccessibleDfA;
-  font-style:italic;
-  font-weight:normal;
-  src:local("AccessibleDfA"), url("fonts/AccessibleDfA-Italic.woff2") format("woff2");
-}
-
-@font-face{
-  font-family:"IA Writer Duospace";
-  font-style:normal;
-  font-weight:normal;
-  src:local("iAWriterDuospace-Regular"), url("fonts/iAWriterDuospace-Regular.ttf") format("truetype");
 }
 
 body{
@@ -391,15 +379,7 @@ ruby > rt, ruby > rp{
   --RS__boxSizingTable:border-box;
 }
 
-html{
-  -webkit-line-box-contain:block glyphs replaced;
-}
-
-:lang(ja){
-  -webkit-line-box-contain:block inline replaced;
-}
-
-a, h1, h2, h3, h4, h5, h6{
+a, a span, span a, h1, h2, h3, h4, h5, h6{
   word-wrap:break-word;
 }
 
@@ -407,7 +387,7 @@ div{
   max-width:var(--RS__maxMediaWidth);
 }
 
-img, svg, video{
+img, svg|svg, video{
   object-fit:contain;
 
   width:auto;
@@ -418,6 +398,15 @@ img, svg, video{
   -webkit-column-break-inside:avoid;
   page-break-inside:avoid;
   break-inside:avoid;
+}
+
+@supports (zoom: 1) and (not ((-webkit-column-axis: horizontal) and (-webkit-column-progression: normal))){
+
+  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-deprecatedFontSize-on"]):not([style*="readium-iOSPatch-on"])[style*="--USER__fontSize"] img,
+  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-deprecatedFontSize-on"]):not([style*="readium-iOSPatch-on"])[style*="--USER__fontSize"] svg|svg,
+  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-deprecatedFontSize-on"]):not([style*="readium-iOSPatch-on"])[style*="--USER__fontSize"] video{
+    zoom:calc(100% / var(--USER__fontSize));
+  }
 }
 
 audio{

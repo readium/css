@@ -116,7 +116,7 @@
 
           <p>If you need to build stylesheets for IE11 or an early version of Edge (e.g. 14), then you can use most of ReadiumCSS, excepted user settings. You’ll consequently have to customize the <code>src</code>’s <code>ReadiumCSS-before.css</code>, <code>ReadiumCSS-default.css</code> and <code>ReadiumCSS-after.css</code> and remove the user settings submodules.</p>
 
-          <p>Then you must customize the selectors in <code>ReadiumCSS-config.js</code> and replace them with either CSS classes or custom attributes so that reading modes and flags can work as expected.</p>
+          <p>Then you must customize the selectors in <code>ReadiumCSS-config.js</code> and replace them with either CSS classes or custom attributes so that flags can work as expected.</p>
 
           <p>Finally you will have to enable the <code>postcss-css-variables</code> and <code>postcss-alter-property-value</code> in the <code>postcss.config.js</code> file to be found at the <code>src</code> folder’s root.</p>
 
@@ -164,7 +164,7 @@ require("postcss-alter-property-value")({
 
       <p>Once you have build <code>dist</code> stylesheets, you can run regression tests using <a href="https://github.com/garris/BackstopJS">Backstop.js</a>.</p>
 
-      <p>It helps you check if you didn’t accidentally create a breaking change when customizing stylesheets, and make sure pagination, reading modes, and user settings work as expected.</p>
+      <p>It helps you check if you didn’t accidentally create a breaking change when customizing stylesheets, and make sure pagination and user settings work as expected.</p>
 
       <section id="config" class="level3">
         <h3 class="sigil_not_in_toc">Config</h3>

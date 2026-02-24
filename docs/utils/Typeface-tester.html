@@ -200,6 +200,26 @@
       font-variant-numeric: lining-nums tabular-nums slashed-zero;
     }
 
+    .font-weight {
+      font-family: var(--custom-font);
+      font-weight: var(--font-weight, 400);
+    }
+
+    .font-width {
+      font-family: var(--custom-font);
+      font-stretch: var(--font-width, 100);
+    }
+
+    .optical-sizing-heading {
+      font-family: var(--custom-font);
+      font-size: 2rem;
+    }
+
+    .optical-sizing {
+      font-family: var(--custom-font);
+      font-optical-sizing: var(--optical-sizing, auto);
+    }
+
     #how-to p {
       line-height: 1.75;
       max-width: 65rem;
@@ -229,7 +249,9 @@
   <section id="how-to">
     <h2>How-to</h2>
     
-    <p>First pick a reference (default) font then a custom one in the inputs located in the top right corner so that you can compare them. Both can either be a font installed locally e.g. <code>Georgia</code> or a google font e.g. <code>google:Noto Serif</code> – there should be no space after the <code>google:</code> prefix and you must use the name of the font as seen on Google Fonts without quotes.</p>
+    <p>First pick a reference (default) font then a custom one in the inputs located in the top right corner so that you can compare them. Both can either be a font installed locally e.g. <code>Georgia</code> or a google font e.g. <code>google:Noto Serif</code>.</p>
+
+    <p>If testing a variable font, add the variations Google Fonts gives you for this font e.g. <br/><code>google:Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000</code></p>
 
     <p>You can quickly compare their metrics (you can change the word and text by clicking the left sample in “Comparison”, typing your text then pressing return) to see if the custom font can be a proper alternative.</p>
 
@@ -1082,6 +1104,38 @@
       </section>
     </section>
   </section>
+
+  <section id="variations">
+    <h2>Variations</h2>
+
+    <section id="font-weight" data-checker="on">
+      <h3>Font weight</h3>
+
+      <p class="font-weight" id="font-weight-target">This paragraph is intended to test the range of weights of the font. It is currently <span id="font-weight-value">400</span>.</p>
+
+      <label>Font weight: <input type="range" id="weight" name="weight" min="100" max="1000" value="400"/></label>
+    </section>
+
+    <section id="font-width" data-checker="on">
+      <h3>Font width</h3>
+
+      <p class="font-width" id="font-width-target">This paragraph is intended to test the range of widths of the font. It is currently <span id="font-width-value">100</span>.</p>
+
+      <label>Font Width: <input type="range" id="width" name="width" min="25" max="250" value="100"/></label>
+    </section>
+
+    <section id="font-optical-sizing" data-checker="on">
+      <h3>Font optical sizing</h3>
+
+      <div><label><input type="checkbox" id="optical-sizing" name="optical-sizing" /> Disable optical sizing</label></div>
+
+      <div class="optical-sizing" id="optical-sizing-target">
+        <h4 class="optical-sizing-heading">Optical sizing</h4>
+
+        <p>This section is intended to test optical sizing i.e. contrast of strokes and serifs.</p>
+      </div>
+    </section>
+  </section>
 </main>
 
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
@@ -1096,6 +1150,14 @@
         customFont = document.getElementById("custom-font"),
         customMode = document.getElementById("custom-mode"),
         checkers = document.querySelectorAll("[data-checker]"),
+        fontWeight = document.getElementById("font-weight"),
+        fontWeightTarget = document.getElementById("font-weight-target"),
+        fontWeightValueHolder = document.getElementById("font-weight-value"),
+        fontWidth = document.getElementById("font-width"),
+        fontWidthTarget = document.getElementById("font-width-target"),
+        fontWidthValueHolder = document.getElementById("font-width-value"),
+        opticalSizing = document.getElementById("optical-sizing"),
+        opticalSizingTarget = document.getElementById("optical-sizing-target"),
         downloadLink = document.createElement("a");
         
     var newCustom;
@@ -1154,7 +1216,7 @@
         previousLoader.parentElement.removeChild(previousLoader);
       }
 
-      var val = customFont.value,
+      var val = customFont.value.replace("+", " "),
           loadFont = val.split(":");
       
       if (loadFont[0] === "google") {
@@ -1162,7 +1224,7 @@
         
         newCustom = loadFont[1];
         loader.id = "font-loader";
-        loader.innerHTML = "WebFont.load({ google:{families:['"+ loadFont[1] +"']}});";
+        loader.innerHTML = "WebFont.load({ google:{families:['"+ val.replace("google:", "") +"']}});";
         document.body.appendChild(loader);
       } else {
         newCustom = customFont.value;
@@ -1174,6 +1236,8 @@
         let checkbox = checkers[i].getElementsByTagName("input")[0];
         checkbox.checked = false;
       }
+
+      resetVariations();
     }, false);
 
     customMode.addEventListener("change", function (e) {
@@ -1186,10 +1250,41 @@
       }
     }, false);
 
+    fontWeight.addEventListener("input", function(e) {
+      fontWeightTarget.style.setProperty("--font-weight", e.target.value);
+      fontWeightValueHolder.textContent = e.target.value;
+    }, false);
+
+    fontWidth.addEventListener("input", function(e) {
+      fontWidthTarget.style.setProperty("--font-width", e.target.value + "%");
+      fontWidthValueHolder.textContent = e.target.value;
+    }, false);
+
+    opticalSizing.addEventListener("change", function (e) {
+      if (this.checked) {
+        opticalSizingTarget.style.setProperty("--optical-sizing", "none");
+      } else {
+        opticalSizingTarget.style.setProperty("--optical-sizing", "auto");
+      }
+    }, false);
+
     downloadLink.addEventListener("click", function(e) {
       e.preventDefault();
       download();
     }, false);
+
+    function resetVariations() {
+      fontWeight.value = 400;
+      fontWeightTarget.style.removeProperty("--font-weight");
+      fontWeightValueHolder.textContent = "400";
+
+      fontWidth.value = 100;
+      fontWidthTarget.style.removeProperty("--font-width");
+      fontWidthValueHolder.textContent = "100";
+
+      opticalSizing.checked = false;
+      opticalSizingTarget.style.removeProperty("--optical-sizing");
+    };
 
     function download() {
       let title = customFont.value,

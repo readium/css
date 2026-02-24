@@ -1,0 +1,15 @@
+/* Readium CSS
+   Ligatures pref
+
+   A submodule managing ligatures for user settings
+   Part of “User Overrides Advanced” class – “advanced settings” flag required.
+
+   Repo: https://github.com/readium/css */
+
+:root[style*="--USER__ligatures"] {
+  font-variant-ligatures: var(--USER__ligatures) !important;
+}
+
+:root[style*="--USER__ligatures"] * {
+  font-variant-ligatures: inherit !important;
+}

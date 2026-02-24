@@ -1,0 +1,79 @@
+/* Readium CSS
+   iPadOS + desktop website Patch stylesheet
+
+   A set of style to get around iPadOS specific issues with zoom.
+   This has to be applied when the desktop version is requested by iPadOS
+   When the user requests the mobile version it is entirely fine and should
+   not be used
+
+   See https://github.com/readium/css/issues/172
+
+   Repo: https://github.com/readium/css */
+
+/* Disable iPadOS + desktop zoom intervention */
+
+:root:--ipadOS-patch body {
+  -webkit-text-size-adjust: none;
+}
+
+/* There is nothing we can use in CSS to alternate the values so this will be high maintenance */
+
+/* Sanitize flow/block elements, we have to reset them */
+
+:root:--ipadOS-patch p, 
+:root:--ipadOS-patch h1, 
+:root:--ipadOS-patch h2, 
+:root:--ipadOS-patch h3, 
+:root:--ipadOS-patch h4, 
+:root:--ipadOS-patch h5, 
+:root:--ipadOS-patch h6, 
+:root:--ipadOS-patch li, 
+:root:--ipadOS-patch th, 
+:root:--ipadOS-patch td, 
+:root:--ipadOS-patch dt, 
+:root:--ipadOS-patch dd, 
+:root:--ipadOS-patch pre, 
+:root:--ipadOS-patch address, 
+:root:--ipadOS-patch details, 
+:root:--ipadOS-patch summary,
+:root:--ipadOS-patch figcaption,
+:root:--ipadOS-patch div:not(:has(p, h1, h2, h3, h4, h5, h6, li, th, td, dt, dd, pre, address, aside, details, figcaption, summary)),
+:root:--ipadOS-patch aside:not(:has(p, h1, h2, h3, h4, h5, h6, li, th, td, dt, dd, pre, address, aside, details, figcaption, summary)) {
+  -webkit-text-zoom: reset;
+}
+
+/* Sanitize phrasing/inline elements, their value should be the opposite of their parent element… */
+
+:root:--ipadOS-patch abbr, 
+:root:--ipadOS-patch b, 
+:root:--ipadOS-patch bdi, 
+:root:--ipadOS-patch bdo, 
+:root:--ipadOS-patch cite, 
+:root:--ipadOS-patch code, 
+:root:--ipadOS-patch dfn, 
+:root:--ipadOS-patch em, 
+:root:--ipadOS-patch i, 
+:root:--ipadOS-patch kbd, 
+:root:--ipadOS-patch mark, 
+:root:--ipadOS-patch q, 
+:root:--ipadOS-patch rp, 
+:root:--ipadOS-patch rt, 
+:root:--ipadOS-patch ruby, 
+:root:--ipadOS-patch s, 
+:root:--ipadOS-patch samp, 
+:root:--ipadOS-patch small, 
+:root:--ipadOS-patch span, 
+:root:--ipadOS-patch strong, 
+:root:--ipadOS-patch sub, 
+:root:--ipadOS-patch sup, 
+:root:--ipadOS-patch time, 
+:root:--ipadOS-patch u, 
+:root:--ipadOS-patch var {
+  -webkit-text-zoom: normal;
+}
+
+/* Sanitize first line pseudo element. We have to filter inline elements as they already have the right value */
+
+:root[style*=readium-iPadOSPatch-on] p:not(:has(b, cite, em, i, q, s, small, span, strong)):first-line {
+  -webkit-text-zoom: normal;
+}

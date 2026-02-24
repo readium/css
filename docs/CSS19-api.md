@@ -30,44 +30,6 @@ var root = document.documentElement;
 root.style.removeProperty("--USER__var");
 ```
 
-## Customizable medias
-
-You will find those customizable medias in `ReadiumCSS-config.css`. The values defined are used in media queries to control use of the auto pagination model.
-
-* * *
-
-```
---responsive-columns
-```
-
-Default is `60em`
-
-The `min-width` at which the auto pagination model must be used – will switch from 1 to 2 columns and vice versa.
-
-* * *
-
-```
---min-device-columns
-```
-
-Default is `36em`
-
-The minimum device width of the mobile device for which the auto pagination model must be used.
-
-* * *
-
-```
---max-device-columns
-```
-
-Default is `47em`
-
-The maximum device width of the mobile device for which the auto pagination model must be used.
-
-* * *
-
-**Warning:** if you customize those medias, all ReadiumCSS `dist` stylesheets must be rebuilt.
-
 ## Customizable flags
 
 You will find those customizable flags in `ReadiumCSS-config.css`, and can think of the preset values as boolean inline styles: if they are set on the `:root` element (i.e. `html`) then the flag is enabled. If another value is, or they are removed, then the flag is disabled.
@@ -100,57 +62,68 @@ Scope: `html`
 
 Override class: Chrome (should be applied by any means necessary)
 
-* * * 
+* * *
 
 ```
-:--font-override
+:--deprecated-font-size
 ```
 
-Preset: `--USER__fontOverride: readium-font-on`
+Preset: `--USER__fontSizeImplementation: readium-deprecatedFontSize-on`
 
 Scope: `html`
 
-Override class: None. This flag is required to change the `font-family` user setting.
-
-* * * 
-
-```
-:--advanced-settings
-```
-
-Preset: `--USER__advancedSettings: readium-advanced-on`
-
-Scope: `html`
-
-Override class: None. This flag is required to apply the `font-family`, the `font-size` and/or advanced user settings.
+Override class: None. This flag can be used to force the previous and deprecated implementation of font-size setting. It is also used automatically if the browser/rendering engine does not support CSS property `zoom` – note font-size normalization is not triggered by default in that case.
 
 * * * 
 
 ```
-:--sepia-mode
+:--fs-normalize
 ```
 
-Preset: `--USER__appearance: readium-sepia-on`
+Preset: `--USER__fontSizeNormalize: readium-normalize-on`
 
 Scope: `html`
 
-Override class: Chrome (should be applied by any means necessary)
+Override class: None. This flag can be used to force font-size normalization if the browser/rendering engine does not support CSS property `zoom` and the book’s styles are using absolute units, breaking the font-size user submodule.
 
-This flag applies the sepia reading mode.
+* * *
+
+```
+:--ios-patch
+```
+
+Preset: `--USER__iOSPatch: readium-iOSPatch-on`
+
+Scope: `html`
+
+Override class: None. This flag is used to activate patching of iOS scaling issues in Safari, which can happen on rotate for instance.
+
+* * *
+
+```
+:--ipadOS-patch
+```
+
+Preset: `--USER__iPadOSPatch: readium-iPadOSPatch-on`
+
+Scope: `html`
+
+Override class: None. This flag is used to activate patching of iPadOS’ desktop-class experience in Safari, which disables zoom.
 
 * * * 
 
 ```
-:--night-mode
+:--blend-filter
 ```
 
-Preset: `--USER__appearance: readium-night-on`
+Preset: `--USER__blendImages: readium-blend-on`
 
 Scope: `html`
 
-Override class: Chrome (should be applied by any means necessary)
+Override class: Chrome advanced (optional but should be applied by any means necessary if provided to users)
 
-This flag applies the night reading mode.
+It impacts `img` and blends them using `mix-blend-mode`.
+
 
 * * * 
 
@@ -164,7 +137,7 @@ Scope: `html`
 
 Override class: Chrome advanced (optional but should be applied by any means necessary if provided to users)
 
-This will only apply in night mode to darken images and impact `img`.
+It impacts `img` and darken them using a filter (`brightness(80%)`).
 
 * * * 
 
@@ -178,7 +151,47 @@ Scope: `html`
 
 Override class: Chrome advanced (optional but should be applied by any means necessary if provided to users)
 
-This will only apply in night mode to invert images and impact `img`.
+It impacts `img` and invert them using a filter (`invert(100%)`).
+
+**Note: this will automatically invert gaiji since they are images.**
+
+* * * 
+
+```
+:--invert-gaiji
+```
+
+Preset: `--USER__invertGaiji: readium-invertGaiji-on`
+
+Scope: `html`
+
+Override class: Chrome advanced (optional but should be applied by any means necessary if provided to users)
+
+It impacts gaiji (valid Japanese character as `img`) and invert them using a filter (`invert(100%)`).
+
+* * *
+
+```
+:--no-vertical-pagination
+```
+
+Preset: `--RS__disablePagination: readium-noVerticalPagination-on`
+
+Scope: `html`
+
+Override class: None. It’s a flag meant for implementers’ convenience as it disables vertical-writing pagination so that they can implement theirs.
+
+* * *
+
+```
+:--no-overflow
+```
+
+Preset: `--RS__disableOverflow: readium-noOverflow-on`
+
+Scope: `html`
+
+Override class: None. It’s a flag meant for implementers’ convenience as it disables overflow so that they can implement theirs.
 
 * * * 
 
@@ -189,8 +202,6 @@ This will only apply in night mode to invert images and impact `img`.
 Preset: `--USER__a11yNormalize: readium-a11y-on`
 
 Scope: `html`
-
-Required flag: `:--fontOverride`
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
@@ -206,8 +217,6 @@ Preset: `--USER__noRuby: readium-noRuby-on`
 
 Scope: `html`
 
-Required flag: `:--advancedSettings`
-
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
 This will hide ruby annotations i.e. `rt` and `rb`.
@@ -222,13 +231,15 @@ Custom properties for the Reading System are prefixed with `--RS__`.
 
 ### Pagination
 
+Note these variables are publicly exposed as JSON in `css/vars` so that it’s easier to retrieve their value and use it in your codebase.
+
 * * *
 
 ```
 --RS__colWidth
 ```
 
-The optimal column’s width. It serves as a floor in our design.
+The optimal column’s width. We set it to `100vw` (`100vh` in vertical-writing) for a single-column for Safari – otherwise it won’t fragment content, and `auto` for multiple so that the column-count can be prioritized.
 
 * * *
 
@@ -244,7 +255,7 @@ The optimal number of columns (depending on the columns’ width).
 --RS__colGap
 ```
 
-The gap between columns. It must be set in pixels so that it won’t resize with font size. 
+The gap between columns. 
 
 You must account for this gap when scrolling.
 
@@ -254,15 +265,49 @@ You must account for this gap when scrolling.
 --RS__pageGutter
 ```
 
-The horizontal page margins. It must be set in pixels so that it won’t resize with font size.
+The inline (horizontal by default, vertical in vertical-writing) page margins.
 
 * * *
 
 ```
---RS__maxLineLength
+--RS__defaultLineLength
 ```
 
-The optimal line-length. It must be set in `rem` in order to take `:root`’s `font-size` as a reference, whichever the `body`’s `font-size` might be.
+The default line-length when none is set by the user. It represents the `max-width` of the `body` element and is `100%` by default so that it does not conflict with the the zoom factor.
+
+### Scroll
+
+* * *
+
+```
+--RS__scrollPaddingTop
+```
+
+The `padding-top` for the `body`.
+
+* * *
+
+```
+--RS__scrollPaddingBottom
+```
+
+The `padding-bottom` for the `body`.
+
+* * *
+
+```
+--RS__scrollPaddingLeft
+```
+
+The `padding-left` for the `body`.
+
+* * *
+
+```
+--RS__scrollPaddingRight
+```
+
+The `padding-right` for the `body`.
 
 ### Safeguards
 
@@ -300,6 +345,8 @@ The box model (`box-sizing`) you want to use for tables.
 
 ### Default font-stacks
 
+Note these variables are publicly exposed as JSON in `css/vars` so that it’s easier to retrieve their value and use it in your codebase.
+
 * * *
 
 ```
@@ -308,7 +355,7 @@ The box model (`box-sizing`) you want to use for tables.
 
 An old style serif font-stack relying on pre-installed fonts.
 
-Default is `"Iowan Old Style", "Sitka Text", Palatino, "Book Antiqua", serif`.
+Default is `"Iowan Old Style", Sitka, "Sitka Text", Palatino, "Book Antiqua", "URW Palladio L", P052, serif`.
 
 * * *
 
@@ -318,7 +365,7 @@ Default is `"Iowan Old Style", "Sitka Text", Palatino, "Book Antiqua", serif`.
 
 A modern serif font-stack relying on pre-installed fonts.
 
-Default is `Athelas, Constantia, Georgia, serif`.
+Default is `Athelas, Constantia, Charter, "Bitstream Charter", Cambria, "Georgia Pro", Georgia, serif`.
 
 * * *
 
@@ -328,7 +375,7 @@ Default is `Athelas, Constantia, Georgia, serif`.
 
 A neutral sans-serif font-stack relying on pre-installed fonts.
 
-Default is `-apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif`.
+Default is `-ui-sans-serif, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI Variable", "Segoe UI", Inter, Roboto, "Helvetica Neue", "Arial Nova", "Liberation Sans", Arial, sans-serif`.
 
 * * *
 
@@ -338,7 +385,7 @@ Default is `-apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "H
 
 A humanist sans-serif font-stack relying on pre-installed fonts.
 
-Default is `Seravek, Calibri, Roboto, Arial, sans-serif`.
+Default is `Seravek, Calibri, "Gill Sans Nova", Roboto, Ubuntu, "DejaVu Sans", source-sans-pro, sans-serif`.
 
 * * *
 
@@ -348,7 +395,7 @@ Default is `Seravek, Calibri, Roboto, Arial, sans-serif`.
 
 A monospace font-stack relying on pre-installed fonts.
 
-Default is `"Andale Mono", Consolas, monospace`.
+Default is `ui-monospace, "Andale Mono", "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace`.
 
 ### Default font-stacks for Japanese publications
 
@@ -438,8 +485,6 @@ The default `background-color` for pages.
 
 The `background-color` for selected text.
 
-It is worth noting it can be customized for each reading mode.
-
 * * *
 
 ```
@@ -447,8 +492,6 @@ It is worth noting it can be customized for each reading mode.
 ```
 
 The `color` for selected text.
-
-It is worth noting it can be customized for each reading mode.
 
 ### Default styles for unstyled publications
 
@@ -480,7 +523,7 @@ The typeface for code snippets. The value can be another variable e.g. `var(-RS_
 
 The scale to be used for computing all elements’ `font-size`. Since those font sizes are computed dynamically, you can set a smaller type scale when the user sets one of the largest font sizes.
 
-Possible values: `1` | `1.067` | `1.125` | `1.2` (suggested default) | `1.25` | `1.333` | `1.414` | `1.5` | `1.618`
+Possible values: `1` / `1.067` / `1.125` / `1.2` (suggested default) / `1.25` / `1.333` / `1.414` / `1.5` / `1.618`
 
 * * *
 
@@ -560,9 +603,11 @@ An optional primary accentuation `color` you could use for headings or any other
 
 An optional secondary accentuation `color` you could use for any element of your choice.
 
-## Reading Modes
+## Themes
 
-Custom properties for reading modes are prefixed with `--RS__`.
+Custom properties for themes are prefixed with `--RS__`.
+
+Note these variables are publicly exposed as JSON in `css/vars` so that it’s easier to retrieve their value and use it in your codebase.
 
 * * *
 
@@ -570,7 +615,7 @@ Custom properties for reading modes are prefixed with `--RS__`.
 --RS__backgroundColor
 ```
 
-The `background-color` which must be applied to the entire screen in the reading mode.
+The `background-color` which must be applied to the entire screen in the theme.
 
 * * *
 
@@ -578,7 +623,7 @@ The `background-color` which must be applied to the entire screen in the reading
 --RS__textColor
 ```
 
-The `color` for text in the reading mode.
+The `color` for text in the theme.
 
 * * *
 
@@ -586,7 +631,7 @@ The `color` for text in the reading mode.
 --RS__linkColor
 ```
 
-The `color` for the links in the reading mode.
+The `color` for the links in the theme.
 
 * * *
 
@@ -594,7 +639,7 @@ The `color` for the links in the reading mode.
 --RS__visitedColor
 ```
 
-The `color` for visited links in the reading mode.
+The `color` for visited links in the theme.
 
 * * *
 
@@ -602,7 +647,7 @@ The `color` for visited links in the reading mode.
 --RS__selectionBackgroundColor
 ```
 
-The `background-color` for selected text in the reading mode.
+The `background-color` for selected text in the theme.
 
 * * *
 
@@ -610,7 +655,7 @@ The `background-color` for selected text in the reading mode.
 --RS__selectionTextColor
 ```
 
-The `color` for selected text in the reading mode.
+The `color` for selected text in the theme.
 
 ## User Settings
 
@@ -622,37 +667,37 @@ Custom properties for user settings are prefixed with `--USER__`.
 --USER__colCount
 ```
 
-The number of columns (`column-count`) the user wants displayed (one-page view or two-page spread).
+The number of columns (`column-count`) the user wants displayed (one-page view, two-page spread, 3 columns, etc.).
 
 Scope: `html`
 
-Possible values: `1` | `2` | `auto` (default)
+Possible values: `integer`. Value `0` is handled as an error and resolves to `1`.
 
 Required flag: none
 
 Override class: Chrome advanced (optional but should be applied by any means necessary if provided to users)
 
-To reset, change the value to `auto`.
+To reset, remove the variable.
 
 * * *
 
 ```
---USER__pageMargins
+--USER__lineLength
 ```
 
-A factor applied to horizontal margins (`padding-left` and `padding-right`) the user wants to set.
+The `max-width` of `body` (to shrink or grow the line-length of body copy).
 
 Scope: `html`
 
 It impacts `body`.
 
-Recommended values: a range from `0.5` to `2`.  Increments are left to implementers’ judgment.
+Possible values: any value CSS property `max-width|height` accepts.
 
 Required flag: none
 
 Override class: Chrome advanced (optional but should be applied by any means necessary if provided to users)
 
-To reset, change the value to `1`.
+To reset, remove the variable.
 
 * * *
 
@@ -684,7 +729,87 @@ The `color` for textual contents.
 
 Scope: `html`
 
-It impacts all elements but headings and `pre` in the DOM.
+It impacts all elements in the DOM.
+
+Possible values: Color HEX (e.g. `#FFFFFF`), `rgb(a)`, `hsl`.
+
+Required flag: none
+
+Override class: Chrome advanced (optional but should be applied by any means necessary if provided to users)
+
+To reset, remove the CSS variable.
+
+* * *
+
+```
+--USER__linkColor
+```
+
+The `color` for links.
+
+Scope: `html`
+
+It impacts all anchor elements in the DOM that have not been visited yet.
+
+Possible values: Color HEX (e.g. `#FFFFFF`), `rgb(a)`, `hsl`.
+
+Required flag: none
+
+Override class: Chrome advanced (optional but should be applied by any means necessary if provided to users)
+
+To reset, remove the CSS variable.
+
+* * *
+
+```  
+--USER__visitedColor
+```
+
+The `color` for visited links.
+
+Scope: `html`
+
+It impacts all anchor elements in the DOM that have already been visited.
+
+Possible values: Color HEX (e.g. `#FFFFFF`), `rgb(a)`, `hsl`.
+
+Required flag: none
+
+Override class: Chrome advanced (optional but should be applied by any means necessary if provided to users)
+
+To reset, remove the CSS variable.
+
+* * *
+
+```
+--USER__selectionBackgroundColor
+```
+
+The `background-color` for selected text.
+
+Scope: `html`
+
+It impacts all elements in the DOM.
+
+Possible values: Color HEX (e.g. `#FFFFFF`), `rgb(a)`, `hsl`.
+
+Required flag: none
+
+Override class: Chrome advanced (optional but should be applied by any means necessary if provided to users)
+
+To reset, remove the CSS variable.
+
+* * *
+
+```
+--USER__selectionTextColor
+```
+
+The `color` for selected text.
+
+Scope: `html`
+
+It impacts all elements in the DOM.
 
 Possible values: Color HEX (e.g. `#FFFFFF`), `rgb(a)`, `hsl`.
 
@@ -706,9 +831,7 @@ Scope: `html`
 
 It impacts `body`, `li`, and `p` which are not children of `blockquote` and `figcaption`.
 
-Possible values: `left` (LTR) or `right` (RTL) | `start` (logical property resolving to `left` in LTR, `right` in RTL) | `justify`
-
-Required flag: `:--advancedSettings`
+Possible values: `left` (LTR) or `right` (RTL) / `start` (logical property resolving to `left` in LTR, `right` in RTL) / `justify`
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
@@ -726,9 +849,7 @@ Scope: `html`
 
 It impacts `body`, `p`, `li`, `div` and `dd`.
 
-Possible Values: `auto` | `none`
-
-Required flag: `:--advancedSettings`
+Possible Values: `auto` / `none`
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
@@ -744,7 +865,11 @@ The typeface (`font-family`) the user wants to read with.
 
 Scope: `html`
 
-It impacts `body`, `p`, `li`, `div`, `dt`, `dd` and phrasing elements which don’t have a `lang` or `xml:lang` attribute.
+It impacts everything except `code `, `var`, `kbd`, and `samp`.
+
+Possible values: `var(--RS__oldStyleTf)` / `var(--RS__modernTf)` / `var(--RS__sansTf)` / `var(--RS__humanistTf)` / `<string>`
+
+For Japanese, possible values become: `var(--RS__serif-ja)` (horizontal writing) / `var(--RS__sans-serif-ja)` (horizontal writing) / `var(--RS__serif-ja-v)` (vertical writing) / `var(--RS__sans-serif-ja-v)` (vertical writing) / `<string>`
 
 Required flag: `:--fontOverride`
 
@@ -762,35 +887,11 @@ Increasing and decreasing the root `font-size`. It will serve as a reference for
 
 Scope: `html`
 
-Possible values: `var(--RS__oldStyleTf)` | `var(--RS__modernTf)` | `var(--RS__sansTf)` | `var(--RS__humanistTf)` | `<string>`
-
-For Japanese, possible values become: `var(--RS__serif-ja)` (horizontal writing) | `var(--RS__sans-serif-ja)` (horizontal writing) | `var(--RS__serif-ja-v)` (vertical writing) | `var(--RS__sans-serif-ja-v)` (vertical writing) | `<string>`
-
-Required flag: `:--fontOverride`
+Possible values: percentage.
 
 Override class: User settings (should be applied by any means necessary)
 
 To reset, remove the required flag.
-
-* * *
-
-```
---USER__typeScale
-```
-
-The type scale the user wants to use for the publication.
-
-Scope: `html`
-
-It requires the `ReadiumCSS-fs_normalize.css` stylesheet.
-
-It impacts headings, `p`, `li`, `div`, `pre`, `dd`, `small`, `sub`, and `sup`.
-
-Recommended values: a range from `75%` to `250%`. Increments are left to implementers’ judgment.
-
-Required flag: `:--advancedSettings`
-
-Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
 * * *
 
@@ -806,8 +907,6 @@ It impacts `body`, `p`, `li` and `div`
 
 Recommended values: a range from `1` to `2`. Increments are left to implementers’ judgment.
 
-Required flag: `:--advancedSettings`
-
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
 * * *
@@ -821,8 +920,6 @@ The vertical margins (`margin-top` and `margin-bottom`) for paragraphs.
 Scope: `p`
 
 Recommended values: a range from `0` to `2rem`. Increments are left to implementers’ judgment.
-
-Required flag: `:--advancedSettings`
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
@@ -838,8 +935,6 @@ Scope: `p`
 
 Recommended values: a range from `0` to `3rem`. Increments are left to implementers’ judgment.
 
-Required flag: `:--advancedSettings`
-
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
 * * *
@@ -853,8 +948,6 @@ Increasing space between words (`word-spacing`, related to a11y).
 Scope: `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `p`, `li`, `div`
 
 Recommended values: a range from `0` to `1rem`. Increments are left to implementers’ judgment.
-
-Required flag: `:--advancedSettings`
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
@@ -870,8 +963,6 @@ Scope: `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `p`, `li`, `div`
 
 Recommended values: a range from `0` to `0.5rem`. Increments are left to implementers’ judgment.
 
-Required flag: `:--advancedSettings`
-
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
 * * *
@@ -880,14 +971,126 @@ Override class: User settings advanced (optional but should be applied by any me
 --USER__ligatures
 ```
 
-Enabling and disabling ligatures in Arabic (related to a11y).
+Enabling and disabling ligatures.
 
 Scope: `html`
 
 It impacts all text.
 
-Possible values: `none` | `common-ligatures`
-
-Required flag: `:--advancedSettings`
+Possible values: `none` / `common-ligatures`
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
+
+* * *
+
+```
+--USER__fontOpticalSizing
+```
+
+Enabling and disabling optical sizing (stroke optimizations).
+
+Scope: `html`
+
+It impacts all text.
+
+Possible values: `none` / `auto`
+
+Required flag: `:--fontOverride`
+
+Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
+
+* * *
+
+```
+--USER__fontWeight
+```
+
+Setting the weight of the variable font.
+
+Scope: `html`
+
+It impacts all text.
+
+Possible values: `number`
+
+**Warning: possible values depend on the variable font you may be using.** You can use services such as [Wakamai Fondue](https://wakamaifondue.com) to get the values.
+
+Required flag: `:--fontOverride`
+
+Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
+
+* * *
+
+```
+--USER__fontWidth
+```
+
+Setting the width of the variable font.
+
+Scope: `html`
+
+It impacts all text.
+
+Possible values: `ultra-condensed` / `extra-condensed` / `condensed` / `semi-condensed` / `normal` / `semi-expanded` / `expanded` / `extra-expanded` / `ultra-expanded` / `percentage`
+
+**Warning: the percentage values depend on the variable font you may be using.** You can use services such as [Wakamai Fondue](https://wakamaifondue.com) to get the values.
+
+Required flag: `:--fontOverride`
+
+Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
+
+* * *
+
+```
+--USER__blendImages
+```
+
+Blending images with the background color of the current theme.
+
+Scope: `html`
+
+It impacts all images.
+
+Possible values: `readium-blend-on`
+
+* * *
+
+```
+--USER__darkenImages
+```
+
+Darkening images.
+
+Scope: `html`
+
+It impacts all images.
+
+Possible values: `readium-darken-on` / `percentage` e.g. `50%`
+
+* * *
+
+```
+--USER__invertImages
+```
+
+Inverting colors of images.
+
+Scope: `html`
+
+It impacts all images, including gaiji.
+
+Possible values: `readium-invert-on` / `percentage` e.g. `50%`
+
+* * *
+
+```
+--USER__invertGaiji
+```
+
+Inverting colors of gaiji (valid Japanese character as image).
+
+Scope: `html`
+
+It impacts images with a `gaiji` class name.
+
+Possible values: `readium-invertGaiji-on` / `percentage` e.g. `50`

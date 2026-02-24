@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="generator" content="pandoc"/>
+  <title>Readium CSS Implementers’ doc</title>
+  <link rel="stylesheet" type="text/css" href="../Styles/stylesheet.css"/>
+</head>
+
+<body xml:lang="en">
+  <section id="custom-fonts" class="level1">
+    <h1>Using custom fonts with Readium CSS</h1>
+
+    <p>[Implementers’ doc]</p>
+
+    <p>Now that we have seen libre and variable fonts, let's see how to use custom fonts with Readium CSS.</p>
+
+    <p>Readium CSS cannot provide <code>@font-face</code> rules, as this would require apps to embed fonts in every EPUB file they render, at a specific path relative to the current resource displayed. This does not scale,  would bloat file sizes, and would not resolve the issue of previewing these fonts in the app itself.</p>
+
+    <section id="declaring-fonts" class="level2">
+      <h2 id="sigil_toc_id_221">Declaring fonts</h2>
+
+      <p>Apps can declare custom fonts by injecting <code>@font-face</code> rules into the content’s <code>head</code> element. It is critical that these rules are injected in each content resource, as the browser needs to resolve the <code>font-family</code> values used in the Readium CSS stylesheet.</p>
+
+      <p>To declare a static font:</p>
+
+      <pre><code>@font-face {  
+  font-family: "MyCustomFont";
+  src: url("https://example.org/path/to/font.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "MyCustomFont";
+  src: url("https://example.org/path/to/font-italic.woff2") format("woff2");
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* Bold and BoldItalic */</code></pre>
+
+      <p>To declare a variable font:</p>
+
+      <pre><code>@font-face {
+  font-family: "MyCustomVariableFont";
+  src: url("https://example.org/path/to/variable-font.woff2") format("woff2");
+  font-weight: 100 900;
+  font-stretch: 50% 200%;
+}</code></pre>
+
+      <p>Your <code>src</code> url must be the exact path to the font file. The path type depends on how you serve the fonts:</p>
+
+      <ul>
+        <li><strong>Relative paths</strong> (e.g., <code>url("../fonts/font.woff2")</code>) when fonts are bundled within the package you serve</li>
+        <li><strong>Full absolute URLs</strong> (e.g., <code>url("https://example.org/path/to/font.woff2")</code>) when fonts are hosted externally</li>
+      </ul>
+
+      <p>This is important because the CSS may be used in different contexts such as iframes where incorrect path resolution will fail to load the font.</p>
+    </section>
+
+    <section id="applying-a-custom-font" class="level2">
+      <h2 id="sigil_toc_id_222">Applying a custom font</h2>
+
+      <p>Once you have declared a custom font, you can apply it to elements in your EPUB content by using the <code>--USER__fontFamily</code> property of Readium CSS.</p>
+
+      <pre><code>document.documentElement.style.setProperty("--USER__fontFamily", "MyCustomFont, sans-serif");</code></pre>
+
+      <p>You can also leverage variable fonts by using their dedicated properties:</p>
+
+      <ul>
+        <li><code>--USER__fontWeight</code></li>
+        <li><code>--USER__fontWidth</code></li>
+      </ul>
+
+	  <p>Then:</p>
+
+      <pre><code>document.documentElement.style.setProperty("--USER__fontWeight", "575");
+document.documentElement.style.setProperty("--USER__fontWidth", "125%");</code></pre>
+
+      <p>And for accessibility purposes, you can normalize text, which will remove all italics, font variants such as small capitals, subscript, and superscript formatting:</p>
+
+      <pre><code>document.documentElement.style.setProperty("--USER__a11yNormalize", "readium-a11y-on");</code></pre>
+    </section>
+  </section>
+</body>
+</html>

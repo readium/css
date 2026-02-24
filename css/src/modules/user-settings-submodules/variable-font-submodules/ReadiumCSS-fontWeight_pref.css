@@ -1,0 +1,17 @@
+/* Readium CSS
+   Font weight pref
+
+   A submodule managing font weight for user settings
+   Part of “User Overrides” class – no flag required.
+
+   Repo: https://github.com/readium/css */
+
+:root[style*="--USER__fontWeight"] body {
+  font-weight: var(--USER__fontWeight) !important;
+}
+
+/* Attempt to handle known bolds */
+:root[style*="--USER__fontWeight"] b,
+:root[style*="--USER__fontWeight"] strong {
+  font-weight: bolder;
+}

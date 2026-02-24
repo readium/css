@@ -17,7 +17,7 @@ In addition:
 
 ## CSS Snapshot
 
-Since we’re relying on web browsers’ rendering engine and web views, this should not be an issue. Our main concern should be future-proofing Readium CSS to stay up-to-date with current/modern CSS authoring (cf. [issue #12](https://github.com/readium/readium-css/issues/12))
+Since we’re relying on web browsers’ rendering engine and web views, this should not be an issue. Our main concern should be future-proofing Readium CSS to stay up-to-date with current/modern CSS authoring (cf. [issue #12](https://github.com/readium/css/issues/12))
 
 ## Prefixed properties
 

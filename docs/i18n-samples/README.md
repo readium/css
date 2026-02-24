@@ -121,4 +121,4 @@ Unfortunately, there is currently no way to emulate this CSS property, and `html
 
 ## Reporting issues
 
-An [i18n-specific issue](https://github.com/readium/readium-css/issues/26) has been opened to deal with issues, documentation and support. Please feel free to raise any global issue you may encounter.
+An [i18n-specific issue](https://github.com/readium/css/issues/26) has been opened to deal with issues, documentation and support. Please feel free to raise any global issue you may encounter.

@@ -1,8 +1,8 @@
 {
-  "name": "readium-css",
+  "name": "@readium/css",
   "description": "A set of reference stylesheets for EPUB Reading Systems",
-  "version": "1.1.0",
-  "homepage": "https://github.com/readium/readium-css",
+  "version": "2.0.0",
+  "homepage": "https://github.com/readium/css",
   "license": "BSD-3-Clause",
   "keywords": [
     "epub",
@@ -18,20 +18,26 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/readium/readium-css.git"
+    "url": "https://github.com/readium/css.git"
   },
   "bugs": {
-    "url": "https://github.com/readium/readium-css/issues"
+    "url": "https://github.com/readium/css/issues"
   },
-  "main": "css/ReadiumCSS-config.css",
+  "files": [
+    "css/**/*",
+    "!css/*.js",
+    "!css/demo/**/*",
+    "!css/src/**/*",
+    "!css/ReadiumCSS-config.css"
+  ],
   "devDependencies": {
+    "@daltontan/postcss-import-json": "^1.1.1",
     "backstopjs": "^6.3.23",
     "copyfiles": "^2.4.1",
-    "express": "^4.19.1",
+    "express": "^4.21.1",
     "postcss-alter-property-value": "^1.1.3",
     "postcss-cli": "^11.0.0",
     "postcss-css-variables": "^0.19.0",
-    "postcss-custom-media": "^10.0.4",
     "postcss-custom-selectors": "^6.0.3",
     "postcss-discard-comments": "^6.0.2",
     "postcss-header": "^3.0.3",
@@ -40,14 +46,15 @@
     "stylelint": "^16.4.0"
   },
   "scripts": {
-    "build": "npm run build:ltr && npm run build:rtl && npm run build:cjk && npm run build:vertical && npm run copyPatches",
+    "build": "npm run build:ltr && npm run build:rtl && npm run build:cjk && npm run build:vertical && npm run build:web && npm run copyPatches",
+    "build:web": "postcss css/src/ReadiumCSS-webPub.css -o css/dist/webPub/ReadiumCSS-webPub.css",
     "build:ltr": "postcss css/src/ReadiumCSS-before.css -o css/dist/ReadiumCSS-before.css && postcss css/src/ReadiumCSS-default.css -o css/dist/ReadiumCSS-default.css && postcss css/src/ReadiumCSS-after.css -o css/dist/ReadiumCSS-after.css",
     "build:rtl": "postcss css/src/ReadiumCSS-before-rtl.css -o css/dist/rtl/ReadiumCSS-before.css && postcss css/src/ReadiumCSS-default-rtl.css -o css/dist/rtl/ReadiumCSS-default.css && postcss css/src/ReadiumCSS-after-rtl.css -o css/dist/rtl/ReadiumCSS-after.css",
     "build:cjk": "postcss css/src/ReadiumCSS-before-cjk-horizontal.css -o css/dist/cjk-horizontal/ReadiumCSS-before.css && postcss css/src/ReadiumCSS-default-cjk-horizontal.css -o css/dist/cjk-horizontal/ReadiumCSS-default.css && postcss css/src/ReadiumCSS-after-cjk-horizontal.css -o css/dist/cjk-horizontal/ReadiumCSS-after.css",
     "build:vertical": "postcss css/src/ReadiumCSS-before-cjk-vertical.css -o css/dist/cjk-vertical/ReadiumCSS-before.css && postcss css/src/ReadiumCSS-default-cjk-vertical.css -o css/dist/cjk-vertical/ReadiumCSS-default.css && postcss css/src/ReadiumCSS-after-cjk-vertical.css -o css/dist/cjk-vertical/ReadiumCSS-after.css",
-    "copyPatches": "copyfiles -f css/src/ReadiumCSS-ebpaj_fonts_patch.css css/dist",
+    "copyPatches": "copyfiles -u 2 css/src/ReadiumCSS-ebpaj_fonts_patch.css css/dist",
     "start": "node \"./server.js\"",
-    "test": "npm start & backstop test && pkill -9 -f \"node ./server.js\" && echo '\nVisual Regression testing has been completed.\n'",
+    "test": "npm run build && (npm start & for i in {1..10}; do if curl -s http://localhost:8000 >/dev/null; then backstop test; pkill -f \"node ./server.js\"; echo '\\nVisual Regression testing has been completed.\\n'; exit 0; fi; sleep 1; done; echo 'Failed to start server'; exit 1)",
     "test:ref": "npm start & backstop reference && pkill -9 -f \"node ./server.js\" && echo '\nVisual Regression references have been generated.\n'",
     "test:approve": "backstop approve"
   }

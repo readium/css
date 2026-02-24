@@ -1,0 +1,73 @@
+/* Readium CSS
+   Image Filters pref
+
+   A submodule applying filters to images
+   Part of “Chrome Advanced” class – no flag required.
+
+   Repo: https://github.com/readium/css */
+
+/* Blending images with their backgroung */
+:root:--blend-filter svg,
+:root:--blend-filter img {
+  /* Make sure the proper bg-color is used for the blend mode */
+  background-color: transparent !important;
+  mix-blend-mode: multiply !important;
+}
+
+/* Below, 1st we handle the custom percentage then the preset so that the flag can override the value */
+
+/* Darken all images */
+:root[style*="--USER__darkenImages"] img {
+  -webkit-filter: brightness(var(--USER__darkenImages)) !important;
+  filter: brightness(var(--USER__darkenImages)) !important;
+}
+
+:root:--darken-filter img {
+  -webkit-filter: brightness(80%) !important;
+  filter: brightness(80%) !important;
+}
+
+/* Invert all images, including gaiji */
+:root[style*="--USER__invertImages"] img {
+  -webkit-filter: invert(var(--USER__invertImages)) !important;
+  filter: invert(var(--USER__invertImages)) !important;
+}
+
+:root:--invert-filter img {
+  -webkit-filter: invert(100%) !important;
+  filter: invert(100%) !important;
+}
+
+/* Darken and invert 
+   This one is a bit more complex cos we have to handle mixings
+*/
+:root[style*="--USER__darkenImages"][style*="--USER__invertImages"] img {
+  -webkit-filter: brightness(var(--USER__darkenImages)) invert(var(--USER__invertImages)) !important;
+  filter: brightness(var(--USER__darkenImages)) invert(var(--USER__invertImages)) !important;
+}
+
+:root:--darken-filter[style*="--USER__invertImages"] img {
+  -webkit-filter: brightness(80%) invert(var(--USER__invertImages)) !important;
+  filter: brightness(80%) invert(var(--USER__invertImages)) !important;
+}
+
+:root[style*="--USER__darkenImages"]:--invert-filter img {
+  -webkit-filter: brightness(var(--USER__darkenImages)) invert(100%) !important;
+  filter: brightness(var(--USER__darkenImages)) invert(100%) !important;
+}
+
+:root:--darken-filter:--invert-filter img {
+  -webkit-filter: brightness(80%) invert(100%) !important;
+  filter: brightness(80%) invert(100%) !important;
+}
+
+/* Invert gaiji only. */
+:root[style*="--USER__invertGaiji"] img[class*="gaiji"] {
+  -webkit-filter: invert(var(--USER__invertGaiji)) !important;
+  filter: invert(var(--USER__invertGaiji)) !important;
+}
+
+:root:--invert-gaiji img[class*="gaiji"] {
+  -webkit-filter: invert(100%) !important;
+  filter: invert(100%) !important;
+}

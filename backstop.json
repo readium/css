@@ -2,11 +2,6 @@
   "id": "ReadiumCSS",
   "viewports": [
     {
-      "label": "phone",
-      "width": 375,
-      "height": 667
-    },
-    {
       "label": "tablet",
       "width": 1024,
       "height": 768
@@ -49,8 +44,15 @@
       "misMatchThreshold" : 0.1
     },
     {
-      "label": "Page margins pref",
-      "url": "http://localhost:8000/tests/margins.html",
+      "label": "3 columns pref",
+      "url": "http://localhost:8000/tests/cols-3.html",
+      "delay": 0,
+      "selectors": ["viewport"],
+      "misMatchThreshold" : 0.1
+    },
+    {
+      "label": "Line length pref",
+      "url": "http://localhost:8000/tests/line-length.html",
       "delay": 0,
       "selectors": ["viewport"],
       "misMatchThreshold" : 0.1
@@ -70,22 +72,29 @@
       "misMatchThreshold" : 0.1
     },
     {
-      "label": "Day mode pref",
-      "url": "http://localhost:8000/tests/day.html",
+      "label": "Scroll padding pref",
+      "url": "http://localhost:8000/tests/scroll-padding.html",
       "delay": 0,
       "selectors": ["document"],
       "misMatchThreshold" : 0.1
     },
     {
-      "label": "Sepia mode pref",
-      "url": "http://localhost:8000/tests/sepia.html",
+      "label": "Default colors pref",
+      "url": "http://localhost:8000/tests/default-colors.html",
       "delay": 0,
       "selectors": ["document"],
       "misMatchThreshold" : 0.1
     },
     {
-      "label": "Night mode pref",
-      "url": "http://localhost:8000/tests/night.html",
+      "label": "Default custom colors pref",
+      "url": "http://localhost:8000/tests/default-custom-colors.html",
+      "delay": 0,
+      "selectors": ["document"],
+      "misMatchThreshold" : 0.1
+    },
+    {
+      "label": "Theming (Reading System)",
+      "url": "http://localhost:8000/tests/theming.html",
       "delay": 0,
       "selectors": ["document"],
       "misMatchThreshold" : 0.1
@@ -93,13 +102,27 @@
     {
       "label": "Font family pref",
       "url": "http://localhost:8000/tests/font-family.html",
-      "delay": 0,
+      "delay": 500,
       "selectors": ["document"],
       "misMatchThreshold" : 0.1
     },
     {
       "label": "Font size pref",
       "url": "http://localhost:8000/tests/font-size.html",
+      "delay": 0,
+      "selectors": ["document"],
+      "misMatchThreshold" : 0.1
+    },
+    {
+      "label": "Deprecated font size pref",
+      "url": "http://localhost:8000/tests/font-size-deprecated.html",
+      "delay": 0,
+      "selectors": ["document"],
+      "misMatchThreshold" : 0.1
+    },
+    {
+      "label": "Font size normalize pref",
+      "url": "http://localhost:8000/tests/font-size-normalize.html",
       "delay": 0,
       "selectors": ["document"],
       "misMatchThreshold" : 0.1
@@ -177,7 +200,7 @@
     {
       "label": "Accessibility font pref",
       "url": "http://localhost:8000/tests/a11y-font.html",
-      "delay": 200,
+      "delay": 500,
       "selectors": ["document"],
       "misMatchThreshold" : 0.1
     },
@@ -191,13 +214,62 @@
     {
       "label": "Accessibility custom pref",
       "url": "http://localhost:8000/tests/a11y-custom.html",
-      "delay": 200,
+      "delay": 500,
       "selectors": ["document"],
       "misMatchThreshold" : 0.1
     },
     {
       "label": "no Ruby pref",
       "url": "http://localhost:8000/tests/no-ruby.html",
+      "delay": 0,
+      "selectors": ["document"],
+      "misMatchThreshold" : 0.1
+    },
+    {
+      "label": "Font optical sizing pref",
+      "url": "http://localhost:8000/tests/font-optical-sizing.html",
+      "delay": 0,
+      "selectors": ["document"],
+      "misMatchThreshold" : 0.1
+    },
+    {
+      "label": "Font weight pref",
+      "url": "http://localhost:8000/tests/font-weight.html",
+      "delay": 500,
+      "selectors": ["document"],
+      "misMatchThreshold" : 0.1
+    },
+    {
+      "label": "Font width Keyword pref",
+      "url": "http://localhost:8000/tests/font-width-keyword.html",
+      "delay": 500,
+      "selectors": ["document"],
+      "misMatchThreshold" : 0.1
+    },
+    {
+      "label": "Font width Percentage pref",
+      "url": "http://localhost:8000/tests/font-width-percentage.html",
+      "delay": 500,
+      "selectors": ["document"],
+      "misMatchThreshold" : 0.1
+    },
+    {
+      "label": "Blend Filter pref",
+      "url": "http://localhost:8000/tests/blend-filter.html",
+      "delay": 0,
+      "selectors": ["document"],
+      "misMatchThreshold" : 0.1
+    },
+    {
+      "label": "Darken Filter pref",
+      "url": "http://localhost:8000/tests/darken-filter.html",
+      "delay": 0,
+      "selectors": ["document"],
+      "misMatchThreshold" : 0.1
+    },
+    {
+      "label": "Invert Filter pref",
+      "url": "http://localhost:8000/tests/invert-filter.html",
       "delay": 0,
       "selectors": ["document"],
       "misMatchThreshold" : 0.1

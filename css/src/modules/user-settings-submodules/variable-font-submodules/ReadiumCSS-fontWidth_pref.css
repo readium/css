@@ -1,0 +1,11 @@
+/* Readium CSS
+   Font width pref
+
+   A submodule managing font width for user settings
+   Part of “User Overrides” class – no flag required.
+
+   Repo: https://github.com/readium/css */
+
+:root[style*="--USER__fontWidth"] body {
+  font-stretch: var(--USER__fontWidth) !important;
+}

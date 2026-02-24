@@ -34,7 +34,7 @@
     <section id="test-files" class="level2">
       <h2 id="sigil_toc_id_124">Test files</h2>
 
-      <p>Test files can be retrieved from <a href="https://raw.githubusercontent.com/readium/readium-css/develop/docs/i18n-samples/root.atom">the Readium CSS’ i18n-samples OPDS feed</a>.</p>
+      <p>Test files can be retrieved from <a href="https://raw.githubusercontent.com/readium/css/develop/docs/i18n-samples/root.atom">the Readium CSS’ i18n-samples OPDS feed</a>.</p>
     </section>
 
     <section id="fundamentals" class="level2">
@@ -85,7 +85,7 @@
       <section id="old-style-serif" class="level3">
         <h3 class="sigil_not_in_toc">Old Style (serif)</h3>
 
-        <pre><code>font-family: "Iowan Old Style", "Sitka Text", Palatino, "Book Antiqua", serif;</code></pre>
+        <pre><code>font-family: "Iowan Old Style", Sitka, "Sitka Text", Palatino, "Book Antiqua", "URW Palladio L", P052, serif;</code></pre>
 
         <p>Serif will resolve to Droid Serif on Android.</p>
 
@@ -205,7 +205,7 @@
       <section id="modern-serif" class="level3">
         <h3 class="sigil_not_in_toc">Modern (serif)</h3>
 
-        <pre><code>font-family: Athelas, Constantia, Georgia, serif;</code></pre>
+        <pre><code>font-family: Athelas, Constantia, Charter, "Bitstream Charter", Cambria, "Georgia Pro", Georgia, serif;</code></pre>
 
         <p>Serif will resolve to Droid Serif on Android.</p>
 
@@ -327,7 +327,7 @@
 
         <p>Same as UI font-stack or the following simplified version:</p>
 
-        <pre><code>font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Noto, "Helvetica Neue", Arial, sans-serif;</code></pre>
+        <pre><code>font-family: -ui-sans-serif, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI Variable", "Segoe UI", Inter, Roboto, Noto, "Helvetica Neue", "Arial Nova", "Liberation Sans", Arial, sans-serif;</code></pre>
 
         <p>Open Type features available for those fonts are:</p>
 
@@ -363,7 +363,7 @@
           <tbody>
             <tr class="odd">
               <td>
-                San Fransisco
+                San Francisco
               </td>
 
               <td style="text-align: center;">
@@ -471,7 +471,7 @@
       <section id="humanist-sans" class="level3">
         <h3 class="sigil_not_in_toc">Humanist (sans)</h3>
 
-        <pre><code>font-family: Seravek, Calibri, Roboto, Arial, sans-serif;</code></pre>
+        <pre><code>font-family: Seravek, Calibri, "Gill Sans Nova", Roboto, Ubuntu, "DejaVu Sans", source-sans-pro, sans-serif;</code></pre>
 
         <p>Sans-serif will resolve to Droid Sans or Roboto on Android.</p>
 
@@ -591,11 +591,11 @@
       <section id="monospace" class="level3">
         <h3 class="sigil_not_in_toc">Monospace</h3>
 
-        <pre><code>font-family: "Andale Mono", Consolas, monospace;</code></pre>
+        <pre><code>font-family: ui-monospace, "Andale Mono", "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;</code></pre>
 
         <p>Monospace will resolve to Droid Sans Mono on Android.</p>
 
-        <p>Apple is shipping a monospaced San Fransisco in High Sierra but it is still unclear how you can access it in CSS.</p>
+        <p>Apple is shipping a monospaced San Francisco in High Sierra but it is still unclear how you can access it in CSS.</p>
       </section>
 
       <section id="unicode-ranges" class="level3">
@@ -881,7 +881,7 @@ unicode-range: U+0500-052F;</code></pre>
 
           <li>use larger text (<code>font-size</code> setting);</li>
 
-          <li>use good contrast (<code>background-</code> and <code>color</code> settings, reading modes, themes);</li>
+          <li>use good contrast (<code>background-</code> and <code>color</code> settings);</li>
 
           <li>use clear, concise writing.</li>
         </ul>
@@ -956,6 +956,14 @@ unicode-range: U+0500-052F;</code></pre>
       </ul>
 
       <p>Since <code>@font-face</code> must be used to align with EBPAJ’s specific implementation (rendering engines have to go through 9–11 <code>local</code> sources in the worst-case scenario), implementers should expect a performance debt.</p>
+    </section>
+    
+    <section id="android-system-generic-families-patch" class="level2">
+      <h2 id="sigil_toc_id_220">Android System Generic families Patch</h2>
+
+      <p>In beta versions of Readium CSS 2, we introduced a patch for Times, Times New Roman, Arial, and Helvetica, relying on Nimbus Sans and Nimbus Roman as metric-compatible replacements on Android devices. It can be critical for Fixed-Layout publications using these fonts without having embedded their fonts.</p>
+
+      <p>Since we cannot provide <code>@font-face</code> rules for system fonts, this patch was not included in the final version of Readium CSS 2 and you will need to implement it yourself if you want to support these fonts on Android.</p>
     </section>
   </section>
 </body>

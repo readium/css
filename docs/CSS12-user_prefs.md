@@ -1,4 +1,4 @@
-# User Settings, Reading Modes and Themes
+# User Settings and Themes
 
 [Implementers’ doc] [Authors’ info]
 
@@ -17,11 +17,11 @@ The `ReadiumCSS-after.css` stylesheet, which contains user settings, can be appe
 
 User settings require the following process: 
 
-1. add the flag and its value to `html` when applicable (font override, font size and/or advanced setting);
+1. add the flag and its value to `html` when applicable (e.g. a11y normalization);
 2. add the setting-specific variable and its value to `html`;
 3. styles are updated live.
 
-The selectors used in user settings are indeed “conditional”, styles are applied if the variable (or a specific value for reading modes) is set as an inline style in `html` (`:root`).
+The selectors used in user settings are indeed “conditional”, styles are applied if the variable is set as an inline style in `html` (`:root`).
 
 ### Setting and removing a variable
 
@@ -69,67 +69,69 @@ Allows to switch between paged and scroll view.
 --USER__view
 ```
 
-Supported values: `readium-paged-on` | `readium-scroll-on`
+Supported values: `readium-paged-on` / `readium-scroll-on`
 
 Override class: Chrome (should be applied by any means necessary)
 
 If the flag is not set, ReadiumCSS will fall back to the paged view.
 
-### Font Family override
+### Toggling the Deprecated Implementation of the Font Size Setting
 
-Acts as an explicit switch to override the publisher’s `font-family`.
-
-```
---USER__fontOverride
-```
-
-Supported value: `readium-font-on`
-
-Override class: None. This flag is required to change the `font-family` user setting.
-
-To switch back to the publisher’s font, you can either set an empty string as a value or remove the property.
-
-### Advanced Settings
-
-Acts as an explicit switch to override the publisher’s styles.
-
-If you provide users with a “Publisher’s styles” toggle, it must be enabled and disabled accordingly.
+Allows to switch to the Deprecated Implementation of the Font Size Setting from version 1.
 
 ```
---USER__advancedSettings
+--USER__fontSizeImplementation
+```
+
+Supported value: `readium-deprecatedFontSize-on`
+
+Override class: None.
+
+**Note:** This implementation will automatically be used in case `zoom` is not supported.
+
+### Font Size Normalization
+
+Acts as an explicit switch to force font-normalization in publications whose font-sizing is declared using CSS absolute units, breaking the font-size user setting.
+
+```
+--USER__fontSizeNormalize
 ``` 
 
-Supported value: `readium-advanced-on`
+Supported value: `readium-normalize-on`
 
-Override class: None. This flag is required to apply the `font-family`, the `font-size` and/or advanced user settings.
+Override class: None.
 
-To switch back to the publisher’s styles, you can either set an empty string as a value or remove the property. This will disable all advanced settings requiring the flag.
+### iOS Scaling Patch
 
-### Reading Modes
-
-We currently have two reading modes for night and sepia.
+Acts as an explicit switch to force iOS patching of scaling issues so that `--USER__fontSize` can work as expected. This should be applied only when the site is requested in its mobile version on iOS and iPadOS.
 
 ```
---USER__appearance
+--USER__iOSPatch
 ```
 
-Supported values: `readium-day-on` | `readium-sepia-on` | `readium-night-on`
+Supported value: `readium-iOSPatch-on`
 
-Override class: Chrome (should be applied by any means necessary)
+Override class: None.
 
-If the flag is not set, ReadiumCSS will fall back to the day mode.
+### iPadOS Zoom Patch
+
+Acts as an explicit switch to force iPadOS patching of zoom issues so that `--USER__fontSize` can work as expected. This should be applied only when the site is requested in its desktop version on iPadOS.
+
+```
+--USER__iPadOSPatch
+```
+
+Supported value: `readium-iPadOSPatch-on`
+
+Override class: None.
 
 ### Filters
-
-Please note night mode provides two extra specific variables: 
 
 ```
 --USER__darkenFilter
 ```
 
 Supported value: `readium-darken-on`
-
-Override class: Chrome advanced (optional but should be applied by any means necessary if provided to users)
 
 To disable the filter, you can either set an empty string as a value or remove the property.
 
@@ -153,10 +155,6 @@ Users may want to normalize text (no bold, no italics, etc.) for accessibility r
 
 Supported value: `readium-a11y-on`
 
-Required flag: `--USER__fontOverride: readium-font-on`
-
-Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
-
 To disable the normalization, you can either set an empty string as a value or remove the property.
 
 ### Hiding Ruby Text
@@ -169,17 +167,37 @@ Users may want to hide ruby annotations for accessibility reasons.
 
 Supported value: `readium-noRuby-on`
 
-Required flag: `--USER__advancedSettings: readium-advanced-on`
-
-Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
-
 To disable the hiding and show ruby annotations, you can either set an empty string as a value of remove the property.
+
+### Experimental Features Flags
+
+Experimental flags are used to opt-in to and test improvements to existing features. That way they can also be disabled without having to wait on a quickfix in case they are creating new issues.
+
+```
+--RS__experimentalHeaderFiltering
+```
+
+Supported value: `readium-experimentalHeaderFiltering-on`
+
+This attempts to filter out paragraphs that are implicitly headings or part of headers.
+
+To disable the experimental header filtering, you can either set an empty string as a value or remove the property.
+
+```
+--RS__experimentalZoom
+```
+
+Supported value: `readium-experimentalZoom-on`
+
+This attempts to filter out elements that are sized using viewport units and should not be scaled directly.
+
+To disable the experimental zoom, you can either set an empty string as a value or remove the property.
 
 ## List of variables 
 
 ### Layout 
 
-The user can set the number of columns and page margins.
+The user can set the number of columns and line length.
 
 #### Number of columns
 
@@ -187,46 +205,53 @@ The user can set the number of columns and page margins.
 --USER__colCount
 ```
 
-Possible values: `1` | `2` | `auto` (default)
+Possible values: `integer`
 
 Required flag: none
 
 Override class: Chrome advanced (optional but should be applied by any means necessary if provided to users)
 
-To reset, change the value to `auto`.
+To reset, remove the variable.
 
-By default, this setting behaves as an `auto` value, it will switch to 1 or 2 columns depending on the minimum `width` available and `font-size`.
+By default, this setting behaves as `1`. Value `0` is handled as an error and resolves to `1`.
 
 It is up to implementers to decide whether they want this setting to be available and override any configuration or only some (e.g. setting only available in landscape and/or larger screens).
 
-#### Page margins
+#### Line length
 
 ```
---USER__pageMargins
+--USER__lineLength
 ```
 
-Recommended values: a range from `0.5` to `2`.  Increments are left to implementers’ judgment.
+Possible values: any value CSS property `max-width|height` accepts.
 
 Required flag: none
 
 Override class: Chrome advanced (optional but should be applied by any means necessary if provided to users)
 
-To reset, change the value to `1`.
+To reset, remove the variable.
 
-The user margins are a factor of the reference we set.
+### Themes
 
-This will probably be fine-tuned in the next version (beta).
+The user can set at least a `background-color` and `color`. 
 
-### Themes (background and text colors)
-
-The user can set a `background-color` and `color`. 
-
-The following two variables must be used together.
+At minimal, the following two variables should therefore must be used together.
 
 ```
 --USER__backgroundColor
 --USER__textColor
 ```
+
+You can use 4 other properties to handle the color of links and selection:
+
+```
+--USER__linkColor
+--USER__visitedColor
+--USER__selectionBackgroundColor
+--USER__selectionTextColor
+```
+
+It’s up to implementers to decide whether they want to expose these as user settings i.e. for power/advanced users, or set them after deriving the value from background and text color (e.g. a contrast algorithm). 
 
 Possible values: Color HEX (e.g. `#FFFFFF`), `rgb(a)`, `hsl`.
 
@@ -234,7 +259,9 @@ Required flag: none
 
 Override class: Chrome advanced (optional but should be applied by any means necessary if provided to users)
 
-To reset, remove both variables.
+To reset, remove the variables.
+
+Note that if you are confident you can keep the publisher’s colors while offering good enough contrast, you can use the `--RS__` prefix instead of `--USER__` so that the background color of asides and the color of links are not affected for instance.
 
 ### Hyphenation and justification
 
@@ -246,9 +273,7 @@ The user can set `text-align` and `hyphens` for body copy contents.
 --USER__textAlign
 ```
 
-Possible values: `left` (LTR) or `right` (RTL) | `start` (logical property resolving to `left` in LTR, `right` in RTL) | `justify`
-
-Required flag: `--USER__advancedSettings: readium-advanced-on`
+Possible values: `left` (LTR) or `right` (RTL) / `start` (logical property resolving to `left` in LTR, `right` in RTL) / `justify`
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
@@ -260,9 +285,7 @@ Note: the value `start` can be used to let all rendering engines, excepted Tride
 --USER__bodyHyphens
 ```
 
-Possible Values: `auto` | `none`
-
-Required flag: `--USER__advancedSettings: readium-advanced-on`
+Possible Values: `auto` / `none`
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
@@ -280,11 +303,11 @@ The user can set `font-family`, `font-size` and `line-height` for body copy cont
 --USER__fontFamily
 ```
 
-Possible values: `var(--RS__oldStyleTf)` | `var(--RS__modernTf)` | `var(--RS__sansTf)` | `var(--RS__humanistTf)` | `<string>`
+Possible values: `var(--RS__oldStyleTf)` / `var(--RS__modernTf)` / `var(--RS__sansTf)` / `var(--RS__humanistTf)` / `<string>`
 
-For Japanese, possible values become: `var(--RS__serif-ja)` (horizontal writing) | `var(--RS__sans-serif-ja)` (horizontal writing) | `var(--RS__serif-ja-v)` (vertical writing) | `var(--RS__sans-serif-ja-v)` (vertical writing) | `<string>`
+For Japanese, possible values become: `var(--RS__serif-ja)` (horizontal writing) / `var(--RS__sans-serif-ja)` (horizontal writing) / `var(--RS__serif-ja-v)` (vertical writing) / `var(--RS__sans-serif-ja-v)` (vertical writing) / `<string>`
 
-Required flag: `--USER__fontOverride: readium-font-on`
+Required flag: none
 
 Override class: User settings (should be applied by any means necessary)
 
@@ -292,9 +315,11 @@ To reset, remove the required flag.
 
 #### Font size
 
-We have to normalize `font-size` for body copy elements so that it can work in pure CSS. In order to do so, we are using a normalize. The `--USER__advancedSettings: readium-advanced-on` inline style must be set for `html` in order for the font-size setting to work.
+In version 1, we had to normalize `font-size` for body copy elements so that it could work in pure CSS. In order to do so, we were using a normalize, and the `--USER__advancedSettings: readium-advanced-on` inline style needed to be set for `html` in order for the font-size setting to work.
 
-Although it might be an issue to authors at first sight, this approach is backed by actual data.
+Although this approach was backed by actual data (published books), it was an issue to authors and, occasionally, readers too.
+
+In version 2, this normalization is deprecated, and will only be used behind the scenes when there is no other way to make the font-size setting work reliably, using the new flag `--USER__fontSizeNormalize: readium-normalize-on`.
 
 ```
 --USER__fontSize
@@ -302,25 +327,9 @@ Although it might be an issue to authors at first sight, this approach is backed
 
 Recommended values: a range from `75%` to `250%`. Increments are left to implementers’ judgment.
 
-Required flag: `--USER__advancedSettings: readium-advanced-on`
-
 Override class: User settings (should be applied by any means necessary)
 
-#### Type scale
-
-If the `--USER__advancedSettings: readium-advanced-on` style is set for `html`, you can customize the `font-size` of all elements using a factor. This may come in handy on mobile devices, if the user sets a large font-size.
-
-```
---USER__typeScale
-```
-
-Possible values: `1` | `1.067` | `1.125` | `1.2` (suggested default) | `1.25` | `1.333` | `1.414` | `1.5` | `1.618`
-
-Required flag: `--USER__advancedSettings: readium-advanced-on`
-
-Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
-
-You can use different type scale values depending on the `font-size`. For instance, if the user sets a large one, you might want to decrease the type scale so that headings are not super large.
+**Note: iPadOS needs a patch when the site is requested in its desktop version. It is activated with the `readium-iPadOSPatch-on` flag.**
 
 #### Line height
 
@@ -329,8 +338,6 @@ You can use different type scale values depending on the `font-size`. For instan
 ```
 
 Recommended values: a range from `1` to `2`. Increments are left to implementers’ judgment.
-
-Required flag: `--USER__advancedSettings: readium-advanced-on`
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
@@ -346,8 +353,6 @@ The user can set `margin-top`, `margin-bottom` and `text-indent` for paragraphs.
 
 Recommended values: a range from `0` to `2rem`. Increments are left to implementers’ judgment.
 
-Required flag: `--USER__advancedSettings: readium-advanced-on`
-
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
 #### Paragraphs’ indent
@@ -357,8 +362,6 @@ Override class: User settings advanced (optional but should be applied by any me
 ```
 
 Recommended values: a range from `0` to `3rem`. Increments are left to implementers’ judgment.
-
-Required flag: `--USER__advancedSettings: readium-advanced-on`
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
@@ -374,8 +377,6 @@ The user can set `word-spacing` and `letter-spacing` for headings and body copy 
 
 Recommended values: a range from `0` to `1rem`. Increments are left to implementers’ judgment.
 
-Required flag: `--USER__advancedSettings: readium-advanced-on`
-
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
 #### Letter spacing
@@ -386,29 +387,119 @@ Override class: User settings advanced (optional but should be applied by any me
 
 Recommended values: a range from `0` to `0.5rem`. Increments are left to implementers’ judgment.
 
-Required flag: `--USER__advancedSettings: readium-advanced-on`
-
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
-#### Arabic Ligatures
+#### Ligatures
 
 ```
 --USER__ligatures
 ```
 
-Possible values: `none` | `common-ligatures`
+Possible values: `none` / `common-ligatures`
 
-Required flag: `--USER__advancedSettings: readium-advanced-on`
+Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
+
+### Font variations
+
+If a variable font is available and is currently used, the user can disable its optical sizing, and set its `weight` and `width`.
+
+**Warning: All fonts don’t support all these variations.** ReadiumCSS provides these user settings for convenience but their implementation and use depends on the variable fonts you ship in your app. By very far, the most common variation is `weight` and may be considered a common denominator. 
+
+#### Font Optical Sizing
+
+```
+--USER__fontOpticalSizing
+```
+
+Rendering engines and browsers enable optical sizing by default for fonts that have an optical size variation axis.
+
+When optical sizing is used, small text sizes are often rendered with thicker strokes and larger serifs, whereas larger text is often rendered more delicately with more contrast between thicker and thinner strokes.
+
+Possible values: `none` / `auto` (default)
+
+Required flag: none
+
+Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
+
+#### Font Weight
+
+```
+--USER__fontWeight
+```
+
+Possible values: `number` e.g. `230`, `400`, `750`
+
+**Warning: possible values depend on the variable font you may be using.** You can use services such as [Wakamai Fondue](https://wakamaifondue.com) to get the values.
+
+Required flag: none
+
+Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
+
+#### Font Width
+
+```
+--USER__fontWidth
+```
+
+Possible values: `ultra-condensed` / `extra-condensed` / `condensed` / `semi-condensed` / `normal` / `semi-expanded` / `expanded` / `extra-expanded` / `ultra-expanded` / `percentage` e.g. `50%`, `125%`
+
+**Warning: the percentage values depend on the variable font you may be using.** You can use services such as [Wakamai Fondue](https://wakamaifondue.com) to get the values.
+
+Required flag: none
 
 Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)
 
 ## Themes
 
-In this model, themes are just a set of user variables with specific values.
+In Readium CSS model, themes are just a set of user variables with specific values.
 
 It becomes even easier to override them for the user as the values are already user settings.
 
 In other words, think of preset and custom themes as a set of variables, which makes it easier to create, manipulate and cache them.
+
+### Theming Features
+
+Filters are available for theming purposes so that you can handle images more precisely. 
+
+#### Blending images
+
+```
+--USER__blendImages
+```
+
+Possible values: `readium-blend-on`.
+
+This will apply a `mix-blend-mode` of `multiply` with a transparent background to blend images with a white background with the background-color of your theme. 
+
+#### Darkening images
+
+```
+--USER__darkenImages
+```
+
+Possible values: `readium-darken-on` / `percentage` e.g. `50%`.
+
+This will apply a `brightness` filter with the percentage value it’s given, or a preset of `80%` if using it as a flag. 
+
+#### Inverting images (and/or Gaiji)
+
+```
+--USER__invertImages
+```
+
+Possible values: `readium-invert-on` / `percentage` e.g. `50%`.
+
+This will apply an `invert` filter with the percentage value it’s given, or a preset of `100%` if using it as a flag.
+
+If you want to only invert gaiji (valid Japanese character as `img`), you can use:
+
+```
+--USER__invertGaiji
+```
+
+Possible values: `readium-invertGaiji-on` / `percentage` e.g. `50%`.
+
+This will apply an `invert` filter with the percentage value it’s given, or a preset of `100%` if using it as a flag, only to `img class="gaiji"`.
 
 ## Alternative options
 
@@ -416,7 +507,7 @@ There is not a lot of alternatives when it comes to managing user settings. Opti
 
 - appending/removing stylesheets (either `link` or `style` element) dynamically;
 - traversing the DOM and appending inline styles using JavaScript;
-- using classes or custom attributes for a limited subset of settings (e.g. reading modes);
+- using classes or custom attributes for a limited subset of settings;
 - leveraging native features web views have to offer.
 
 Please bear in mind Readium CSS provides a baseline, it resonably manages all those issues using CSS only. But if you want to offer users the most advanced experience there can be, you’ll end up with a mix of all those options.

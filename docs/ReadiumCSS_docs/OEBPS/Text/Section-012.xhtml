@@ -10,8 +10,8 @@
 </head>
 
 <body xml:lang="en">
-  <section id="user-settings-reading-modes-and-themes" class="level1">
-    <h1>User Settings, Reading Modes and Themes</h1>
+  <section id="user-settings-and-themes" class="level1">
+    <h1>User Settings and Themes</h1>
 
     <p>[Implementers’ doc] [Authors’ info]</p>
 
@@ -35,14 +35,14 @@
       <p>User settings require the following process:</p>
 
       <ol>
-        <li>add the flag and its value to <code>html</code> when applicable (font override, font size and/or advanced setting);</li>
+        <li>add the flag and its value to <code>html</code> when applicable (e.g. a11y normalization);</li>
 
         <li>add the setting-specific variable and its value to <code>html</code>;</li>
 
         <li>styles are updated live.</li>
       </ol>
 
-      <p>The selectors used in user settings are indeed “conditional”, styles are applied if the variable (or a specific value for reading modes) is set as an inline style in <code>html</code> (<code>:root</code>).</p>
+      <p>The selectors used in user settings are indeed “conditional”, styles are applied if the variable is set as an inline style in <code>html</code> (<code>:root</code>).</p>
 
       <section id="setting-and-removing-a-variable" class="level3">
         <h3 class="sigil_not_in_toc">Setting and removing a variable</h3>
@@ -95,54 +95,56 @@ root.style.setProperty("name of var", "");</code></pre>
 		<p>If the flag is not set, ReadiumCSS will fall back to the paged view.</p>
       </section>
 
-      <section id="font-family-override" class="level3">
-        <h3 class="sigil_not_in_toc">Font Family override</h3>
+      <section id="toggling-font-size-implementation" class="level3">
+        <h3 class="sigil_not_in_toc">Toggling the Deprecated Implementation of the Font Size Setting</h3>
 
-        <p>Acts as an explicit switch to override the publisher’s <code>font-family</code>.</p>
+        <p>Allows to switch to the Deprecated Implementation of the Font Size Setting from version 1.</p>
 
-        <pre><code>--USER__fontOverride</code></pre>
+        <pre><code>--USER__fontSizeImplementation</code></pre>
 
-        <p>Supported value: <code>readium-font-on</code></p>
+        <p>Supported value: <code>readium-deprecatedFontSize-on</code></p>
 
-        <p>Override class: None. This flag is required to change the <code>font-family</code> user setting.</p>
-
-        <p>To switch back to the publisher’s font, you can either set an empty string as a value or remove the property.</p>
+        <p>Override class: None.</p>
       </section>
 
-      <section id="advanced-settings" class="level3">
-        <h3 class="sigil_not_in_toc">Advanced Settings</h3>
+      <section id="font-size-normalization" class="level3">
+        <h3 class="sigil_not_in_toc">Font Size Normalization</h3>
 
-        <p>Acts as an explicit switch to override the publisher’s styles.</p>
+        <p>Acts as an explicit switch to orce font-normalization in publications whose font-sizing is declared using CSS absolute units, breaking the font-size user setting.</p>
 
-        <p>If you provide users with a “Publisher’s styles” toggle, it must be enabled and disabled accordingly.</p>
+        <pre><code>--USER__fontSizeNormalize</code></pre>
 
-        <pre><code>--USER__advancedSettings</code></pre>
+        <p>Supported value: <code>readium-normalize-on</code></p>
 
-        <p>Supported value: <code>readium-advanced-on</code></p>
-
-        <p>Override class: None. This flag is required to apply the <code>font-family</code>, the <code>font-size</code> and/or advanced user settings.</p>
-
-        <p>To switch back to the publisher’s styles, you can either set an empty string as a value or remove the property. This will disable all advanced settings requiring the flag.</p>
+        <p>Override class: None.</p>
       </section>
 
-      <section id="reading-modes" class="level3">
-        <h3 class="sigil_not_in_toc">Reading Modes</h3>
+      <section id="ios-scale-patch" class="level3">
+        <h3 class="sigil_not_in_toc">iOS Scaling Patch</h3>
 
-        <p>We currently have two reading modes for night and sepia.</p>
+        <p>Acts as an explicit switch to force iOS patching of scaling issues so that <code>--USER__fontSize</code> can work as expected. This should be applied only when the site is requested in its mobile version on iOS and iPadOS.</p>
 
-        <pre><code>--USER__appearance</code></pre>
+        <pre><code>--USER__iOSPatch</code></pre>
 
-        <p>Supported values: <code>readium-day-on</code> | <code>readium-sepia-on</code> | <code>readium-night-on</code></p>
+        <p>Supported value: <code>readium-iOSPatch-on</code></p>
 
-        <p>Override class: Chrome (should be applied by any means necessary)</p>
+        <p>Override class: None.</p>
+      </section>
 
-		<p>If the flag is not set, ReadiumCSS will fall back to the day mode.</p>
+      <section id="ipados-zoom-patch" class="level3">
+        <h3 class="sigil_not_in_toc">iPadOS Zoom Patch</h3>
+
+        <p>Acts as an explicit switch to force iPadOS patching of zoom issues so that <code>--USER__fontSize</code> can work as expected. This should be applied only when the site is requested in its desktop version on iPadOS – mobile version is completely fine.</p>
+
+        <pre><code>--USER__iPadOSPatch</code></pre>
+
+        <p>Supported value: <code>readium-iPadOSPatch-on</code></p>
+
+        <p>Override class: None.</p>
       </section>
 
       <section id="filters" class="level3">
         <h3 class="sigil_not_in_toc">Filters</h3>
-
-        <p>Please note night mode provides two extra specific variables:</p>
 
         <pre><code>--USER__darkenFilter</code></pre>
 
@@ -170,10 +172,6 @@ root.style.setProperty("name of var", "");</code></pre>
 
         <p>Supported value: <code>readium-a11y-on</code></p>
 
-        <p>Required flag: <code>--USER__fontOverride: readium-font-on</code></p>
-
-        <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
-
 		    <p>To disable the normalization, you can either set an empty string as a value or remove the property.</p>
       </section>
 
@@ -185,13 +183,31 @@ root.style.setProperty("name of var", "");</code></pre>
         <pre><code>--USER__no-ruby</code></pre>
     
         <p>Supported value: <code>readium-noRuby-on</code></p>
-    
-        <p>Required flag: <code>--USER__advancedSettings: readium-advanced-on</code></p>
-    
-        <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
-    
+            
         <p>To disable the hiding and show ruby annotations, you can either set an empty string as a value of remove the property.</p>
-        </section>
+      </section>
+
+      <section id="experimental-features-flags" class="level3">
+        <h3 class="sigil_not_in_toc">Experimental Features Flags</h3>
+    
+        <p>Experimental flags are used to opt-in to and test improvements to existing features. That way they can also be disabled without having to wait on a quickfix in case they are creating new issues</p>
+    
+        <pre><code>--RS__experimentalHeaderFiltering</code></pre>
+    
+        <p>Supported value: <code>readium-experimentalHeaderFiltering-on</code></p>
+
+        <p>This attempts to filter out paragraphs that are implicitly headings or part of headers.</p>
+
+        <p>To disable the hiding and show ruby annotations, you can either set an empty string as a value of remove the property.</p>
+
+        <pre><code>--RS__experimentalZoom</code></pre>
+
+        <p>Supported value: <code>readium-experimentalZoom-on</code></p>
+
+        <p>This attempts to filter out elements that are sized using viewport units and should not be scaled directly.</p>
+
+        <p>To disable the experimental zoom, you can either set an empty string as a value of remove the property.</p>
+      </section>
     </section>
 
     <section id="list-of-variables" class="level2">
@@ -200,53 +216,59 @@ root.style.setProperty("name of var", "");</code></pre>
       <section id="layout" class="level3">
         <h3 class="sigil_not_in_toc">Layout</h3>
 
-        <p>The user can set the number of columns and page margins.</p>
+        <p>The user can set the number of columns and line length.</p>
 
         <section id="number-of-columns" class="level4">
           <h4 class="sigil_not_in_toc">Number of columns</h4>
 
           <pre><code>--USER__colCount</code></pre>
 
-          <p>Possible values: <code>1</code> | <code>2</code> | <code>auto</code> (default)</p>
+          <p>Possible values: <code>integer</code></p>
 
           <p>Required flag: none</p>
 
           <p>Override class: Chrome advanced (optional but should be applied by any means necessary if provided to users)</p>
 
-          <p>To reset, change the value to <code>auto</code>.</p>
+          <p>To reset, remove the variable.</p>
 
-          <p>By default, this setting behaves as an <code>auto</code> value, it will switch to 1 or 2 columns depending on the minimum <code>width</code> available and <code>font-size</code>.</p>
+          <p>By default, this setting behaves as <code>1</code>. Value <code>0</code> is handled as an error and resolves to <code>1</code>.</p>
 
           <p>It is up to implementers to decide whether they want this setting to be available and override any configuration or only some (e.g. setting only available in landscape and/or larger screens).</p>
         </section>
 
-        <section id="page-margins" class="level4">
-          <h4 class="sigil_not_in_toc">Page margins</h4>
+        <section id="line-length" class="level4">
+          <h4 class="sigil_not_in_toc">Line length</h4>
 
-          <pre><code>--USER__pageMargins</code></pre>
+          <pre><code>--USER__lineLength</code></pre>
 
-          <p>Recommended values: a range from <code>0.5</code> to <code>2</code>. Increments are left to implementers’ judgment.</p>
+          <p>Possible values: any value CSS property `max-width|height` accepts.</p>
 
           <p>Required flag: none</p>
 
           <p>Override class: Chrome advanced (optional but should be applied by any means necessary if provided to users)</p>
 
-          <p>To reset, change the value to <code>1</code>.</p>
-
-          <p>The user margins are a factor of the reference we set.</p>
-
-          <p>This will probably be fine-tuned in the next version (beta).</p>
+          <p>To reset, remove the variable.</p>
         </section>
       </section>
 
-      <section id="themes-background-and-text-colors" class="level3">
-        <h3 class="sigil_not_in_toc">Themes (background and text colors)</h3>
+      <section id="themes" class="level3">
+        <h3 class="sigil_not_in_toc">Themes</h3>
 
-        <p>The user can set a <code>background-color</code> and <code>color</code>.</p>
+        <p>The user can set at least a <code>background-color</code> and <code>color</code>.</p>
 
-        <p>The following two variables must be used together.</p>
+        <p>At minimal, the following two variables should therefore must be used together.</p>
 
-        <pre><code>--USER__backgroundColor --USER__textColor</code></pre>
+        <pre><code>--USER__backgroundColor 
+--USER__textColor</code></pre>
+
+        <p>You can use 4 other properties to handle the color of links and selection:</p>
+
+        <pre><code>--USER__linkColor
+--USER__visitedColor
+--USER__selectionBackgroundColor
+--USER__selectionTextColor</code></pre>
+
+        <p>It’s up to implementers to decide whether they want to expose these as user settings i.e. for power/advanced users, or set them after deriving the value from background and text color (e.g. a contrast algorithm).</p>
 
         <p>Possible values: Color HEX (e.g. <code>#FFFFFF</code>), <code>rgb(a)</code>, <code>hsl</code>.</p>
 
@@ -254,7 +276,9 @@ root.style.setProperty("name of var", "");</code></pre>
 
         <p>Override class: Chrome advanced (optional but should be applied by any means necessary if provided to users)</p>
 
-        <p>To reset, remove both variables.</p>
+        <p>To reset, remove the variables.</p>
+
+        <p>Note that if you are confident you can keep the publisher’s colors while offering good enough contrast, you can use the <code>--RS__</code> prefix instead of <code>--USER__</code> so that the background color of asides and the color of links are not affected for instance.</p>
       </section>
 
       <section id="hyphenation-and-justification" class="level3">
@@ -269,8 +293,6 @@ root.style.setProperty("name of var", "");</code></pre>
 
           <p>Possible values: <code>left</code> (LTR) or <code>right</code> (RTL) | <code>start</code> (logical property resolving to <code>left</code> in LTR, <code>right</code> in RTL) | <code>justify</code></p>
 
-          <p>Required flag: <code>--USER__advancedSettings: readium-advanced-on</code></p>
-
           <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
 
           <p>Note: the value <code>start</code> can be used to let all rendering engines, excepted Trident (IE11) and EdgeHTML (Edge), automatically deal with <code>left</code> and <code>right</code> based on the direction (<code>dir</code> attribute) set for the document and its nested elements.</p>
@@ -282,8 +304,6 @@ root.style.setProperty("name of var", "");</code></pre>
           <pre><code>--USER__bodyHyphens</code></pre>
 
           <p>Possible Values: <code>auto</code> | <code>none</code></p>
-
-          <p>Required flag: <code>--USER__advancedSettings: readium-advanced-on</code></p>
 
           <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
 
@@ -307,7 +327,7 @@ root.style.setProperty("name of var", "");</code></pre>
 
           <p>For Japanese, possible values become: <code>var(--RS__serif-ja)</code> (horizontal writing) | <code>var(--RS__sans-serif-ja)</code> (horizontal writing) | <code>var(--RS__serif-ja-v)</code> (vertical writing) | <code>var(--RS__sans-serif-ja-v)</code> (vertical writing) | <code>&lt;string&gt;</code></p>
 
-          <p>Required flag: <code>--USER__fontOverride: readium-font-on</code></p>
+          <p>Required flag: none</p>
 
           <p>Override class: User settings (should be applied by any means necessary)</p>
 
@@ -317,33 +337,19 @@ root.style.setProperty("name of var", "");</code></pre>
         <section id="font-size" class="level4">
           <h4 class="sigil_not_in_toc">Font size</h4>
 
-          <p>We have to normalize <code>font-size</code> for body copy elements so that it can work in pure CSS. In order to do so, we are using a normalize. The <code>--USER__advancedSettings: readium-advanced-on</code> inline style must be set for <code>html</code> in order for the font-size setting to work.</p>
+          <p>In version 1 we had to normalize <code>font-size</code> for body copy elements so that it could work in pure CSS. In order to do so, we were using a normalize, and the <code>--USER__advancedSettings: readium-advanced-on</code> inline style needed to be set for <code>html</code> in order for the font-size setting to work.</p>
 
-          <p>Although it might be an issue to authors at first sight, this approach is backed by actual data.</p>
+          <p>Although this approach was backed by actual data (published books), it was an issue to authors and, occasionally, readers too.</p>
+
+          <p>In version 2, this normalization is deprecated, and will only be used behind the scenes when there is no other way to make the font-size setting work reliably, using the new flag <code>--USER__fontSizeNormalize: readium-normalize-on</code>.</p>
 
           <pre><code>--USER__fontSize</code></pre>
 
           <p>Recommended values: a range from <code>75%</code> to <code>250%</code>. Increments are left to implementers’ judgment.</p>
 
-          <p>Required flag: <code>--USER__advancedSettings: readium-advanced-on</code></p>
-
           <p>Override class: User settings (should be applied by any means necessary)</p>
-        </section>
 
-        <section id="type-scale" class="level4">
-          <h4 class="sigil_not_in_toc">Type scale</h4>
-
-          <p>If the <code>--USER__advancedSettings: readium-advanced-on</code> style is set for <code>html</code>, you can customize the <code>font-size</code> of all elements using a factor. This may come in handy on mobile devices, if the user sets a large font-size.</p>
-
-          <pre><code>--USER__typeScale</code></pre>
-
-          <p>Possible values: <code>1</code> | <code>1.067</code> | <code>1.125</code> | <code>1.2</code> (suggested default) | <code>1.25</code> | <code>1.333</code> | <code>1.414</code> | <code>1.5</code> | <code>1.618</code></p>
-
-          <p>Required flag: <code>--USER__advancedSettings: readium-advanced-on</code></p>
-
-          <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
-
-          <p>You can use different type scale values depending on the <code>font-size</code>. For instance, if the user sets a large one, you might want to decrease the type scale so that headings are not super large.</p>
+          <p><strong>Note: iPadOS needs a patch when the site is requested in its desktop version. It is activated with the <code>readium-iPadOSPatch-on</code> flag.</strong></p>
         </section>
 
         <section id="line-height" class="level4">
@@ -352,8 +358,6 @@ root.style.setProperty("name of var", "");</code></pre>
           <pre><code>--USER__lineHeight</code></pre>
 
           <p>Recommended values: a range from <code>1</code> to <code>2</code>. Increments are left to implementers’ judgment.</p>
-
-          <p>Required flag: <code>--USER__advancedSettings: readium-advanced-on</code></p>
 
           <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
         </section>
@@ -371,8 +375,6 @@ root.style.setProperty("name of var", "");</code></pre>
 
           <p>Recommended values: a range from <code>0</code> to <code>2rem</code>. Increments are left to implementers’ judgment.</p>
 
-          <p>Required flag: <code>--USER__advancedSettings: readium-advanced-on</code></p>
-
           <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
         </section>
 
@@ -382,8 +384,6 @@ root.style.setProperty("name of var", "");</code></pre>
           <pre><code>--USER__paraIndent</code></pre>
 
           <p>Recommended values: a range from <code>0</code> to <code>3rem</code>. Increments are left to implementers’ judgment.</p>
-
-          <p>Required flag: <code>--USER__advancedSettings: readium-advanced-on</code></p>
 
           <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
         </section>
@@ -401,8 +401,6 @@ root.style.setProperty("name of var", "");</code></pre>
 
           <p>Recommended values: a range from <code>0</code> to <code>1rem</code>. Increments are left to implementers’ judgment.</p>
 
-          <p>Required flag: <code>--USER__advancedSettings: readium-advanced-on</code></p>
-
           <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
         </section>
 
@@ -413,19 +411,67 @@ root.style.setProperty("name of var", "");</code></pre>
 
           <p>Recommended values: a range from <code>0</code> to <code>0.5rem</code>. Increments are left to implementers’ judgment.</p>
 
-          <p>Required flag: <code>--USER__advancedSettings: readium-advanced-on</code></p>
-
           <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
         </section>
 
-        <section id="arabic-ligatures" class="level4">
-          <h4 class="sigil_not_in_toc">Arabic Ligatures</h4>
+        <section id="ligatures" class="level4">
+          <h4 class="sigil_not_in_toc">Ligatures</h4>
 
           <pre><code>--USER__ligatures</code></pre>
 
           <p>Possible values: <code>none</code> | <code>common-ligatures</code></p>
 
-          <p>Required flag: <code>--USER__advancedSettings: readium-advanced-on</code></p>
+          <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
+        </section>
+      </section>
+
+      <section id="font-variations" class="level3">
+        <h3 class="sigil_not_in_toc">Font variations</h3>
+
+        <p>If a variable font is available and is currently used, the user can disable its optical sizing, and set its `weight` and `width`.</p>
+
+        <p><strong>Warning: All fonts don’t support all these variations.</strong> ReadiumCSS provides these user settings for convenience but their implementation and use depends on the variable fonts you ship in your app. By very far, the most common variation is `weight` and may be considered a common denominator.</p>
+
+        <section id="font-optical-sizing" class="level4">
+          <h4 class="sigil_not_in_toc">Font Optical Sizing</h4>
+
+          <pre><code>--USER__fontOpticalSizing</code></pre>
+
+          <p>Rendering engines and browsers enable optical sizing by default for fonts that have an optical size variation axis.</p>
+
+          <p>When optical sizing is used, small text sizes are often rendered with thicker strokes and larger serifs, whereas larger text is often rendered more delicately with more contrast between thicker and thinner strokes.</p>
+
+          <p>Possible values: <code>none</code> | <code>auto</code> (default)</p>
+
+          <p>Required flag: none</p>
+
+          <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
+        </section>
+
+        <section id="font-weight" class="level4">
+          <h4 class="sigil_not_in_toc">Font Weight</h4>
+
+          <pre><code>--USER__fontWeight</code></pre>
+
+          <p>Possible values: <code>number</code> e.g. <code>230</code>, <code>400</code>, <code>750</code></p>
+
+          <p><strong>Warning: possible values depend on the variable font you may be using.</strong> You can use services such as <a href="https://wakamaifondue.com">Wakamai Fondue</a> to get the values.</p>
+
+          <p>Required flag: none</p>
+
+          <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
+        </section>
+
+        <section id="font-width" class="level4">
+          <h4 class="sigil_not_in_toc">Font Width</h4>
+
+          <pre><code>--USER__fontWidth</code></pre>
+
+          <p>Possible values: <code>ultra-condensed</code> | <code>extra-condensed</code> | <code>condensed</code> | <code>semi-condensed</code> | <code>normal</code> | <code>semi-expanded</code> | <code>expanded</code> | <code>extra-expanded</code> | <code>ultra-expanded</code> | <code>percentage</code> e.g. <code>50%</code>, <code>125%</code></p>
+
+          <p><strong>Warning: the percentage values depend on the variable font you may be using.</strong> You can use services such as <a href="https://wakamaifondue.com">Wakamai Fondue</a> to get the values.</p>
+
+          <p>Required flag: none</p>
 
           <p>Override class: User settings advanced (optional but should be applied by any means necessary if provided to users)</p>
         </section>
@@ -435,11 +481,53 @@ root.style.setProperty("name of var", "");</code></pre>
     <section id="themes" class="level2">
       <h2 id="sigil_toc_id_179">Themes</h2>
 
-      <p>In this model, themes are just a set of user variables with specific values.</p>
+      <p>In ReadiumCSS model, themes are just a set of user variables with specific values.</p>
 
       <p>It becomes even easier to override them for the user as the values are already user settings.</p>
 
       <p>In other words, think of preset and custom themes as a set of variables, which makes it easier to create, manipulate and cache them.</p>
+
+      <section id="theming-features" class="level3">
+        <h3 class="sigil_not_in_toc">Theming Features</h3>
+
+        <section id="blending-images" class="level4">
+          <h4 class="sigil_not_in_toc">Blending images</h4>
+
+          <pre><code>--USER__blendImages</code></pre>
+
+          <p>Possible values: <code>readium-blend-on</code>.</p>
+
+          <p>This will apply a <code>mix-blend-mode</code> of <code>multiply</code> with a transparent background to blend images with a white background with the background-color of your theme.</p>
+        </section>
+
+        <section id="darkening-images" class="level4">
+          <h4 class="sigil_not_in_toc">Darkening images</h4>
+
+          <pre><code>--USER__darkenImages</code></pre>
+
+          <p>Possible values: <code>readium-darken-on</code> | <code>percentage</code> e.g. <code>50%</code>.</p>
+
+          <p>This will apply a <code>brightness</code> filter with the percentage value it’s given, or a preset of <code>80%</code> if using it as a flag.</p>
+        </section>
+
+        <section id="inverting-images" class="level4">
+          <h4 class="sigil_not_in_toc">Inverting images (and/or Gaiji)</h4>
+
+          <pre><code>--USER__invertImages</code></pre>
+
+          <p>Possible values: <code>readium-invert-on</code> | <code>percentage</code> e.g. <code>50%</code>.</p>
+
+          <p>This will apply an <code>invert</code> filter with the percentage value it’s given, or a preset of <code>100%</code> if using it as a flag.</p>
+
+          <p>If you want to only invert gaiji (valid Japanese character as <code>img</code>), you can use:</p>
+
+          <pre><code>--USER__invertGaiji</code></pre>
+
+          <p>Possible values: <code>readium-invertGaiji-on</code> | <code>percentage</code> e.g. <code>50%</code>.</p>
+
+          <p>This will apply an <code>invert</code> filter with the percentage value it’s given, or a preset of <code>100%</code> if using it as a flag, only to <code>img class="gaiji"</code>.</p>
+        </section>
+      </section>
     </section>
 
     <section id="alternative-options" class="level2">
@@ -452,7 +540,7 @@ root.style.setProperty("name of var", "");</code></pre>
 
         <li>traversing the DOM and appending inline styles using JavaScript;</li>
 
-        <li>using classes or custom attributes for a limited subset of settings (e.g. reading modes);</li>
+        <li>using classes or custom attributes for a limited subset of settings;</li>
 
         <li>leveraging native features web views have to offer.</li>
       </ul>

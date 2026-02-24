@@ -24,9 +24,7 @@
 
       <li>default styles;</li>
 
-      <li>reading modes (night, sepia, etc.);</li>
-
-      <li>themes;</li>
+      <li>theming;</li>
 
       <li>user settings.</li>
     </ul>
@@ -88,48 +86,22 @@
     <section id="customize" class="level2">
       <h2 id="sigil_toc_id_165">Customize</h2>
 
-      <p>ReadiumCSS ships with a <code>ReadiumCSS-config.css</code> file you can use to customize it a little bit. It allows implementers to:</p>
+      <p>ReadiumCSS ships with a <code>ReadiumCSS-config.css</code> file you can use to customize it a little bit. It allows implementers to choose selectors for the user settings’ flags.</p>
 
-      <ol>
-        <li>define in which conditions the auto pagination model is used;</li>
-
-        <li>choose selectors for the user settings’ flags.</li>
-      </ol>
-
-      <p>In order to provide this customization, we use custom media and custom selectors, which will hopefully become <a href="https://drafts.csswg.org/css-extensions/">standards implemented at some point</a>, but require PostCSS at the moment. Consequently, you’ll have to rebuild all <code>dist</code> stylesheets if you’re changing this file.</p>
-
-      <section id="auto-pagination-model" class="level3">
-        <h3 class="sigil_not_in_toc">Auto pagination model</h3>
-
-        <p>The auto pagination model switches from 1 to 2 columns, and vice versa, when the conditions defined in <code>ReadiumCSS-config.css</code> are met. Further details about this model can be found in <a href="../Text/Section-003.xhtml">“Injection and pagination” doc</a>.</p>
-
-        <p>On desktop, <code>--responsive-columns</code> is the <code>min-width</code> at which the model must be used. Default is <code>60em</code>, a relative unit since it is responsive by default and will switch depending on the window’s dimensions and the font size.</p>
-
-        <p>Should you want it never or always applied, you can either define a <code>min-width</code> large or small enough, or remove the media queries entirely in <code>ReadiumCSS-pagination.css</code> and <code>ReadiumCSS-colNumber_pref.css</code>.</p>
-
-        <p>On mobile, <code>--min-device-columns</code> and <code>--max-device-columns</code> is the range of (minimum and maximum) device widths in which the model must be used. We are forcing the orientation in <code>landscape</code>.</p>
-
-        <p>We recommend not trying to apply it in portrait orientation because 2 columns will provide users with quite a terrible reading experience in this configuration.</p>
-
-        <p>Those custom medias may be extended at some point, depending on implementers’ feedbacks and issues.</p>
-      </section>
+      <p>In order to provide this customization, we use custom selectors, which will hopefully become <a href="https://drafts.csswg.org/css-extensions/">standards implemented at some point</a>, but require PostCSS at the moment. Consequently, you’ll have to rebuild all <code>dist</code> stylesheets if you’re changing this file.</p>
 
       <section id="flags-for-user-settings" class="level3">
         <h3 class="sigil_not_in_toc">Flags for user settings</h3>
 
-        <p>By default, we are using flags in the form of CSS variables to manage reading modes and user settings. But you might want to customize those flags in order to use custom attributes (<code>data-*</code>) or good old CSS classes.</p>
+        <p>By default, we are using flags in the form of CSS variables to manage user settings. But you might want to customize those flags in order to use custom attributes (<code>data-*</code>) or good old CSS classes.</p>
 
         <p>A complete list of flags can be found in the <a href="../Text/Section-012.xhtml">User preferences doc</a>.</p>
 
-        <p>As an example, if you want to use a CSS class for night mode, it could look like:</p>
-
-        <pre><code>@custom-selector :--night-mode .night-mode;</code></pre>
-
-        <p>And if you want to use custom attributes for advanced settings, it could look like:</p>
+        <p>As an example, if you want to use custom attributes for advanced settings, it could look like:</p>
 
         <pre><code>@custom-selector :--advanced-settings [data-settings="advanced"];</code></pre>
 
-        <p>Both would then have to be appended to <code>html</code> at runtime.</p>
+        <p>It would then have to be appended to <code>html</code> at runtime.</p>
 
 		<p>Once again, you must rebuild <code>dist</code> stylesheets.</p>
       </section>
@@ -143,7 +115,6 @@
 
         <pre><code>@import "../ReadiumCSS-config.css"; 
 @import "modules/ReadiumCSS-base.css"; 
-@import "modules/ReadiumCSS-day_mode.css"; 
 @import "modules/ReadiumCSS-fonts.css"; 
 @import "modules/ReadiumCSS-html5patch.css"; 
 @import "modules/ReadiumCSS-safeguards.css";</code></pre>
@@ -190,7 +161,9 @@
 
           <li><code>build:cjk</code> for CJK scripts;</li>
 
-          <li><code>build:vertical</code> for CJK and the Mongolian scripts in vertical writing.</li>
+          <li><code>build:vertical</code> for CJK and the Mongolian scripts in vertical writing;</li>
+
+          <li><code>build:web</code> for Web Publications stylesheets.</li>
         </ul>
       </section>
 
@@ -239,26 +212,18 @@ root.style.removeProperty("--USER__var");</code></pre>
         <p>Please note you must implement a fallback strategy if you want to support Internet Explorer 11 and early versions of Microsoft Edge.</p>
       </section>
 
-      <section id="examples" class="level3">
+      <section id="example" class="level3">
         <h3 class="sigil_not_in_toc">Examples</h3>
 
-        <section id="changing-hyphenation-and-justification" class="level4">
+        <section id="hyphenation-justification" class="level4">
           <h4 class="sigil_not_in_toc">Changing hyphenation and justification</h4>
 
-          <pre><code>root.style.setProperty("--USER__advancedSettings", "readium-advanced-on"); 
-root.style.setProperty("--USER__textAlign", "justify"); 
+          <p>To change hyphenation and justification, you would do the following:</p>
+
+          <pre><code>root.style.setProperty("--USER__textAlign", "justify"); 
 root.style.setProperty("--USER__bodyHyphens", "auto");</code></pre>
 
           <p>Of course this example is simplistic. You could for instance create an helper to set multiple properties at once.</p>
-        </section>
-
-        <section id="changing-the-type-scale" class="level4">
-          <h4 class="sigil_not_in_toc">Changing the type scale</h4>
-
-          <p>You might want to change the type scale in order to adjust the <code>font-size</code> of all elements to the size of the screen and the global <code>font-size</code> set by the user. It can indeed help solve overflow issues for long words in headings, ridiculously large sizes, etc.</p>
-
-          <pre><code>root.style.setProperty("--USER__advancedSettings", "readium-advanced-on"); 
-root.style.setProperty("--USER__typeScale", "1.067");</code></pre>
         </section>
       </section>
     </section>
@@ -266,9 +231,17 @@ root.style.setProperty("--USER__typeScale", "1.067");</code></pre>
     <section id="create-themes" class="level2">
       <h2 id="sigil_toc_id_167">Create Themes</h2>
 
-      <p>In this model, themes are a set of user settings you can store and retrieve. Add the properties to <code>html</code> and you get a theme.</p>
+      <p>In Readium CSS design model, themes are a set of user settings you can store and retrieve. Add the properties to <code>html</code> and you get a theme.</p>
+
+      <p>Depending on the prefix you are using, <code>--RS__</code> or <code>--USER__</code>, your theme will override the publishers’ styles or not. The rule being <code>USER > PUBLISHER > RS</code>.</p>
 
       <p>Check the <a href="../Text/Section-012.xhtml">User Preferences doc</a> for a list of available user variables.</p>
+
+      <p>You can also retrieve ReadiumCSS presets for font-stacks, default colors and pagination by adding it as a dependency, then importing its exposed json files. For instance in JS/TS:</p>
+
+      <pre><code>import defaultColors from "readium-css/css/vars/colors.json";
+        
+const backgroundColor = defaultColors.RS__backgroundColor;</code></pre>
     </section>
   </section>
 </body>

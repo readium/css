@@ -15,16 +15,12 @@
 
     <p>[Implementers’ doc] [Authors’ info]</p>
 
-    <p>Defaults is currently made of 5 stylesheets:</p>
+    <p>Defaults is currently made of 2 stylesheets:</p>
 
     <ul>
       <li>1 base stylesheet for all ebooks;</li>
 
-      <li>1 default reading mode stylesheet for all ebooks (day mode);</li>
-
-      <li>1 default stylesheet for unstyled ebooks;</li>
-
-      <li>1 stylesheet to deal with the OS’ a11y modes.</li>
+      <li>1 default stylesheet for unstyled ebooks.</li>
     </ul>
 
     <p><strong>Note:</strong> The default stylesheet should not be appended if there are author styles in the EPUB file.</p>
@@ -35,6 +31,8 @@
       <p>The base stylesheet deals with:</p>
 
       <ol>
+        <li>default colors;</li>
+
         <li>default typography;</li>
 
         <li>default font-family depending on the language.</li>
@@ -47,6 +45,45 @@
       <section id="variables-you-can-set" class="level3">
         <h3 class="sigil_not_in_toc">Variables you can set</h3>
 
+        <section id="default-colors" class="level4">
+          <h4 class="sigil_not_in_toc">Default colors</h4>
+          <hr/>
+
+          <pre><code>--RS__backgroundColor</code></pre>
+  
+          <p>The <code>background-color</code> for the entire viewport.</p>
+  
+      <hr/>
+  
+          <pre><code>--RS__textColor</code></pre>
+  
+          <p>The <code>color</code> for body copy.</p>
+
+          <hr/>
+
+          <pre><code>--RS__linkColor</code></pre>
+
+          <p>The <code>color</code> for hyperlinks.</p>
+
+		  <hr/>
+
+          <pre><code>--RS__visitedColor</code></pre>
+
+          <p>The <code>color</code> for visited hyperlinks.</p>
+  
+      <hr/>
+  
+          <pre><code>--RS__selectionBackgroundColor</code></pre>
+  
+          <p>The <code>background-color</code> for selected text.</p>
+  
+      <hr/>
+  
+          <pre><code>--RS__selectionTextColor</code></pre>
+  
+          <p>The <code>color</code> for selected text.</p>
+        </section>
+
         <section id="default-font-stacks" class="level4">
           <h4 class="sigil_not_in_toc">Default font-stacks</h4>
 
@@ -56,7 +93,7 @@
 
           <p>An old style serif font-stack relying on pre-installed fonts.</p>
 
-          <p>Default is <code>"Iowan Old Style", "Sitka Text", Palatino, "Book Antiqua", serif</code>.</p>
+          <p>Default is <code>"Iowan Old Style", Sitka, "Sitka Text", Palatino, "Book Antiqua", "URW Palladio L", P052, serif</code>.</p>
 
 		  <hr/>
 
@@ -64,7 +101,7 @@
 
           <p>A modern serif font-stack relying on pre-installed fonts.</p>
 
-          <p>Default is <code>Athelas, Constantia, Georgia, serif</code>.</p>
+          <p>Default is <code>Athelas, Constantia, Charter, "Bitstream Charter", Cambria, "Georgia Pro", Georgia, serif</code>.</p>
 
 		  <hr/>
 
@@ -72,7 +109,7 @@
 
           <p>A neutral sans-serif font-stack relying on pre-installed fonts.</p>
 
-          <p>Default is <code>-apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif</code>.</p>
+          <p>Default is <code>-ui-sans-serif, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI Variable", "Segoe UI", Inter, Roboto, "Helvetica Neue", "Arial Nova", "Liberation Sans", Arial, sans-serif</code>.</p>
 
 		  <hr/>
 
@@ -80,7 +117,7 @@
 
           <p>A humanist sans-serif font-stack relying on pre-installed fonts.</p>
 
-          <p>Default is <code>Seravek, Calibri, Roboto, Arial, sans-serif</code>.</p>
+          <p>Default is <code>Seravek, Calibri, "Gill Sans Nova", Roboto, Ubuntu, "DejaVu Sans", source-sans-pro, sans-serif</code>.</p>
 
 		  <hr/>
 
@@ -88,7 +125,7 @@
 
           <p>A monospace font-stack relying on pre-installed fonts.</p>
 
-          <p>Default is <code>"Andale Mono", Consolas, monospace</code>.</p>
+          <p>Default is <code>ui-monospace, "Andale Mono", "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace</code>.</p>
         </section>
 
         <section id="default-font-stacks-for-japanese-publications" class="level4">
@@ -156,8 +193,6 @@
 
           <p>The default line-height for body copy in case the ebook doesn’t have one declared.</p>
 
-          <p>We’re using an algorithm to find the ideal <code>line-height</code> for the current font based on its metrics (see details in the next subsection below).</p>
-
 		  <hr/>
 
 		  <pre><code>--RS__lineHeightCompensation</code></pre>
@@ -166,75 +201,6 @@
 
 		  <p>This variable is redefined by default, in languages and scripts which need compensation due to the characteristics of their average fonts’ metrics.</p>
         </section>
-      </section>
-
-      <section id="dynamic-leading-line-height" class="level3">
-        <h3 class="sigil_not_in_toc">Dynamic leading (line-height)</h3>
-
-        <p>If we don’t provide a base <code>line-height</code> and the author hasn’t explicitely set one, then the <code>normal</code> value will be applied. On average, it is less than <code>1.2</code>, which makes leading quite solid and can quickly become a readability issue with some fonts, especially the ones with a large x-height.</p>
-
-        <p>Readium CSS consequently uses an algorithm to find the ideal leading for each font by default (with a fallback value accomodating every script/language it supports).</p>
-
-        <p>This algorithm tries to:</p>
-
-        <ol>
-          <li>automagically adjust the <code>line-height</code> to the current typeface;</li>
-
-          <li>adjust this ideal <code>line-height</code> it has just computed to the current <code>font-size</code> the user has set.</li>
-        </ol>
-
-        <pre><code>calc((1em + (2ex - 1ch) - ((1rem - 16px) * 0.1667)) * var(--RS__lineHeightCompensation))</code></pre>
-
-        <p>In which, <code>--RS__lineHeightCompensation</code> is a factor whose default is <code>1</code>. Indeed, the <code>line-height</code> is usually 15–20% larger in CJK than in other scripts/languages (factor of <code>1.167</code>), but it can also used for square-ish fonts, especially in Indic.</p>
-
-        <p>The results we could get for the vast majority of fonts can be described as good in terms of typographic color. Here is Iowan Old Style for instance.</p>
-
-        <figure>
-          <img src="../Images/dynamic-leading.jpg" alt="Comparison of the algorithm using four different font-sizes with the Iowan Old Style typeface. We can notice that the leading applied is solider as font-size increases, which results in a relatively even distribution of typographic color. This is confirmed by the computed values retrieved in the tool ReadiumCSS provides for testing."/>
-
-        </figure>
-
-        <p>This isn’t a perfect solution though, and this algorithm may be revisited in the future.</p>
-
-        <p>See <a href="../Text/Section-018.xhtml">Further Details</a> for an extensive explanation.</p>
-      </section>
-    </section>
-
-    <section id="day-mode" class="level2">
-      <h2 id="sigil_toc_id_57">Day Mode</h2>
-
-      <p>The <code>ReadiumCSS-day_mode.css</code> stylesheet serves as a default and handles <code>background-color</code> and <code>color</code> for <code>:root</code> and <code>::selection</code>.</p>
-
-      <section id="variables-you-can-set-1" class="level3">
-        <h3 class="sigil_not_in_toc">Variables you can set</h3>
-
-		<hr/>
-
-        <pre><code>--RS__backgroundColor</code></pre>
-
-        <p>The <code>background-color</code> for the entire viewport.</p>
-
-		<hr/>
-
-        <pre><code>--RS__textColor</code></pre>
-
-        <p>The <code>color</code> for body copy.</p>
-
-		<hr/>
-
-        <pre><code>--RS__selectionBackgroundColor</code></pre>
-
-        <p>The <code>background-color</code> for selected text.</p>
-
-        <p>It is worth noting it can be customized for each reading mode.</p>
-
-		<hr/>
-
-        <pre><code>--RS__selectionTextColor</code></pre>
-
-        <p>The <code>color</code> for selected text.</p>
-
-        <p>It is worth noting it can be customized for each reading mode.</p>
       </section>
     </section>
 
@@ -370,24 +336,6 @@
           <p>An optional secondary accentuation <code>color</code> you could use for any element of your choice.</p>
         </section>
       </section>
-    </section>
-
-    <section id="os-a11y-modes" class="level2">
-      <h2 id="sigil_toc_id_134">OS’ a11y modes</h2>
-        
-      <p>This stylesheet is intended to deal with a11y settings users can set at the OS level, whenever possible:</p>
-
-      <ul>
-        <li>high-contrast mode;</li>
-
-        <li>inverted colors;</li>
-
-        <li>monochrome;</li>
-
-        <li>reduced motion.</li>
-      </ul>
-
-      <p>For <code>monochrome</code>, we’ll have to adjust reading modes (night, sepia, etc.) in their specific stylesheet; we’ll see if we can at least manage some more global settings in there.</p>
     </section>
   </section>
 </body>

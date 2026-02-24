@@ -12,7 +12,7 @@ Indeed, EPUB is not supported natively so we must build on top of web browsers�
 
 With such a role comes great responsibility: we must try to behave like browsers are behaving – i.e. be liberal in what we accept from authors –, and find a sensible balance between authors’ stylesheets and users’ overrides.
 
-Authors and users have expectations though, and we had to take those into account. For instance, they are used to having EPUB contents laid out in a paged view, with reading modes (paper, sepia, night) and a minimal set of common settings.
+Authors and users have expectations though, and we had to take those into account. For instance, they are used to having EPUB contents laid out in a paged view and a minimal set of common settings.
 
 By serving as a User Agent, we must make sure:
 
@@ -36,7 +36,7 @@ CSS has a lot to offer nowadays, and it can help solve complex issues in simpler
 Readium CSS has been be designed following 4 core principles:
 
 1. **Modularity:** Readium CSS is not a monolithic stylesheet but a set of modules;
-2. **Separation of Reading System’s Concerns:** those modules are task-oriented e.g. paginate, apply default styles, intercept styles for reading modes or user settings, apply a reading mode or user setting, apply a theme, etc.;
+2. **Separation of Reading System’s Concerns:** those modules are task-oriented e.g. paginate, apply default styles, intercept styles for user settings, apply a user setting or theme, etc.;
 3. **Daisy-chainability:** those modules can be loaded and daisy-chained (cascade) depending on conditions;
 4. **Customization:** modules can be customized either before or during runtime (CSS variables), which implies themes can be generated within minutes.
 

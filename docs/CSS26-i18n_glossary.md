@@ -274,7 +274,7 @@ This glossary has been created from the <a href="https://www.w3.org/TR/jlreq/#te
   <dd>A method of placing multiple runs of text in a line. (JIS Z 8125)</dd>
 
   <dt>Gaiji (外字)</dt>
-  <dd>Gaiji are small, inline images that represent characters that are not available in a character or font set. Gaiji are typically used for older symbols or characters in Japanese that have fallen out of use. It should be treated as text, especially in reading modes e.g. inverted in night mode.</dd>
+  <dd>Gaiji are small, inline images that represent characters that are not available in a character or font set. Gaiji are typically used for older symbols or characters in Japanese that have fallen out of use. It should be treated as text, especially in regards to theming e.g. inverted in dark themes.</dd>
 
   <dt>General-ruby / Sō rubi (総ルビ)</dt>
   <dd>A method of ruby annotation that attaches ruby text for all Kanji characters in the text. (JIS Z 8125)</dd>

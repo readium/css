@@ -3,7 +3,7 @@
 
    A set of styles to prevent common issues in pagination
 
-   Repo: https://github.com/readium/readium-css */
+   Repo: https://github.com/readium/css */
 
 
 /* Config */
@@ -23,19 +23,8 @@
   --RS__boxSizingTable: border-box;
 }
 
-/* Sanitize line-heights in webkit e.g. raised cap without a declared line-height
-   See effect by checking this demo in Safari: https://codepen.io/JayPanoz/pen/gRmzrE
-   Note: glyphs has to be reset to inline for CJK */
-html {
-  -webkit-line-box-contain: block glyphs replaced;
-}
-
-:lang(ja) {
-  -webkit-line-box-contain: block inline replaced;
-}
-
 /* Wrap long strings if larger than line-length */
-a, h1, h2, h3, h4, h5, h6 {
+a, a span, span a, h1, h2, h3, h4, h5, h6 {
   word-wrap: break-word;
 }
 
@@ -45,7 +34,7 @@ div {
 
 /* Size medias */
 /* You can override CSS variables by re-defining it for all elements or a specific one */
-img, svg, video {
+img, svg|svg, video {
   /* We probably don’t need to use modern box-sizing as auto behaves like it */
   box-sizing: var(--RS__boxSizingMedia);
 
@@ -66,6 +55,15 @@ img, svg, video {
   -webkit-column-break-inside: avoid;
   page-break-inside: avoid;
   break-inside: avoid;
+}
+
+/* Zoom Compensation of viewport units in Chrome/Firefox */
+@supports (zoom: 1) and (not ((-webkit-column-axis: horizontal) and (-webkit-column-progression: normal))) {
+  :root:--experimental-zoom:not(:--deprecated-font-size):not(:--iOS-patch)[style*="--USER__fontSize"] img,
+  :root:--experimental-zoom:not(:--deprecated-font-size):not(:--iOS-patch)[style*="--USER__fontSize"] svg|svg,
+  :root:--experimental-zoom:not(:--deprecated-font-size):not(:--iOS-patch)[style*="--USER__fontSize"] video {
+    zoom: calc(100% / var(--USER__fontSize));
+  }
 }
 
 /* Setting width and height for audio creates issues with controls (invisible in Chromium, only the play button is displayed in Webkit).

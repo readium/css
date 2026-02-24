@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="generator" content="pandoc"/>
+  <title>Readium CSS Implementers’ doc</title>
+  <link rel="stylesheet" type="text/css" href="../Styles/stylesheet.css"/>
+</head>
+
+<body xml:lang="en">
+  <section id="variable-fonts" class="level1">
+    <h1>Variable Fonts</h1>
+
+    <p>[Implementers’ doc] [WIP]</p>
+
+    <p>With the advent of variable fonts, the font-weight user setting has become a staple in terms of Reader Experience in various ecosystems, and version 2 of ReadiumCSS ships with custom properties specific to these fonts i.e. <code>--USER__fontWeight</code>, <code>--USER__fontWidth</code>, and <code>--USER__fontOpticalSizing</code>.</p>
+
+    <p>The custom properties were chosen as they are part of the registered, or most common axes (see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_fonts/Variable_fonts_guide">MDN’s Variable fonts guide</a> for more). But that doesn’t mean all variable fonts support these axes.</p>
+
+    <p>By very far, the most common axis is <code>font-weight</code>, which might explain why reading apps and devices limit user settings to it. And why you actually might want too, as handling the font variation settings on a font basis might not fit your User Experience.</p>
+
+    <p>In addition, availability of bundled/system fonts in OSes makes it even more challenging, which is why we are providing a list of variable fonts you can embed/bundle/import in your Reading System or app.</p>
+
+    <section id="challenges" class="level2">
+      <h2 id="sigil_toc_id_200">Challenges</h2>
+
+      <section id="font-weight-and-font-width-ranges-can-vary" class="level3">
+        <h3 class="sigil_not_in_toc">Font-weight and font-width ranges can vary</h3>
+
+        <p>The ranges a variable font offers can vary quite a lot, with some fonts offering weights from thin (hairline) (<code>100</code>) to extra-black (<code>1000</code>) while others may only offer from normal (<code>400</code>) to bold (<code>700</code>). Same for width (<code>font-stretch</code>).</p>
+
+        <p>This means the weight user setting of your Reading System/app may end up being relative to the variable font that is currently used.</p>
+
+        <p>And this is the reason why these ranges are mentionned for each variation the font supports.</p>
+      </section>
+
+      <section id="font-stacks-and-fallbacks" class="level3">
+        <h3 class="sigil_not_in_toc">Font-stacks and fallbacks</h3>
+
+        <p>Take the following font-stack:</p>
+
+        <pre><code>font-family: Athelas, Constantia, Georgia, serif;</code></pre>
+
+        <p>A fallback is a font face that is used when the primary font face is not available, or is missing glyphs (characters) necessary to render page content. In other words, if the first font (Athelas) is not available on the system, the rendering engine will fall back on the next ones (Constantia, Georgia), until it finds a match. <code>serif</code> is the generic family that makes sure it will at least pick a font in the same family (<code>sans-serif</code>, <code>serif</code>, <code>cursive</code>, <code>fantasy</code>, or <code>monospace</code>).</p>
+
+        <p>Usually, you will end up with font faces that are commonly bundled in OSes (system fonts) like Segoe, Helvetica, or Georgia, etc. to get a better-looking alternative than the default for the generic family.</p>
+
+        <p>Unfortunately, the challenge with variable fonts is that few of the system fonts actually are variable. Which makes it very challenging to create font-stacks with extensive fallbacks.</p>
+
+        <p>To date, it seems that you can only cover MacOS and iOS reliably, thanks to San Francisco (SF Pro for <code>sans-serif</code>, SF Mono for <code>monospace</code>) and New York (<code>serif</code>).</p>
+
+        <p>This means your variable font stacks will look something like this.</p>
+
+        <pre><code>/** Sans-serif **/ 
+font-family: "Name of your variable font", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif; 
+
+/** Serif **/ 
+font-family: "Name of your variable font", ui-serif, serif;
+
+/** Monospace **/ 
+font-family: "Name of your variable font", ui-monospace, monospace;</code></pre>
+
+        <p>If anything it shows how important it is at the moment to:</p>
+
+        <ol type="1">
+          <li>make sure the variable fonts you’ll pick can be loaded reliably;</li>
+
+          <li>cover the languages you’re targeting.</li>
+        </ol>
+      </section>
+    </section>
+
+    <section id="system-fonts" class="level2">
+      <h2 id="sigil_toc_id_201">System Fonts</h2>
+
+      <p>It is important to note OSes may bundle fonts in a wide variety of weights, but that are not variable fonts <i>per se</i> e.g. True Type Collection (<code>.ttc</code>).</p>
+
+      <p>This is the case for Helvetica Neue or Seravek, but this means their weight can not be arbitrarily set on a range, they only offers predefined values (`100, 200, 300, 400, 500, 700`).</p>
+
+      <p>You may however find them acceptable as pseudo-variable fonts to expose to users since the <code>--USER__fontWeight`</code> setting will mostly work as expected, or at least fallback fonts.</p>
+
+      <section id="macosios" class="level3">
+        <h3 class="sigil_not_in_toc">MacOS/iOS</h3>
+
+        <section id="san-francisco-pro-sans-serif" class="level4">
+          <h4 class="sigil_not_in_toc">San Francisco Pro (sans-serif)</h4>
+
+          <figure class="fullbleed">
+            <img src="../Images/sf-pro.png" alt="San Francisco Pro compared to Helvetica. It has a smaller x-height but is no less legible. If feels like a little bit more rounded in body copy as well."/>
+          </figure>
+
+          <p>CSS Mapping: <code>ui-sans-serif</code></p>
+
+          <p>OpenType Features: small caps, numeric spacing values.</p>
+
+          <p>Variations: weight (<code>1–1000</code>), width (<code>30–150</code>), optical sizing.</p>
+        </section>
+
+        <section id="new-york-serif" class="level4">
+          <h4 class="sigil_not_in_toc">New York (serif)</h4>
+
+          <figure class="fullbleed">
+            <img src="../Images/new-york.png" alt="New York compared to Times. It has a larger x-height and feels more sharp, with greater contrast in strokes and simpler serifs. It’s a lot more readable and balanced in small body copy."/>
+          </figure>
+
+          <p>CSS Mapping: <code>ui-serif</code></p>
+
+          <p>OpenType Features: small caps, numeric figure values, numeric spacing values.</p>
+
+          <p>Variations: weight (<code>400–1000</code>), optical sizing.</p>
+        </section>
+
+        <section id="san-francisco-mono-monospace" class="level4">
+          <h4 class="sigil_not_in_toc">San Francisco Mono (monospace)</h4>
+
+          <figure class="fullbleed">
+            <img src="../Images/sf-monospace.png" alt="SF Mono compared to Courier. It’s a lot more modern and has a larger x-height. With a simpler design, it’s also a lot more neutral and readable."/>
+          </figure>
+
+          <p>CSS Mapping: <code>ui-monospace</code></p>
+
+          <p>OpenType Features: small caps.</p>
+
+          <p>Variations: weight (<code>300–900</code>).</p>
+        </section>
+      </section>
+
+      <section id="windows-11" class="level3">
+        <h3 class="sigil_not_in_toc">Windows 11</h3>
+
+        <section id="segoe-ui-variable" class="level4">
+          <h4 class="sigil_not_in_toc">Segoe UI Variable (sans-serif)</h4>
+
+          <figure class="fullbleed">
+            <img src="../Images/segoe-ui-variable.png" alt="Segoe UI Variable compared to Arial. It’s more readable with a smaller x-height but larger ascenders and descenders. It’s also more condensed, which makes some glyphs more legible."/>
+          </figure>
+
+          <p>CSS Mapping: <code>Segoe UI Variable</code></p>
+
+          <p>OpenType Features: small caps, numeric figure values.</p>
+
+          <p>Variations: weight (<code>200–700</code>), optical sizing.</p>
+        </section>
+
+        <section id="sitka" class="level4">
+          <h4 class="sigil_not_in_toc">Sitka (serif)</h4>
+
+          <figure class="fullbleed">
+            <img src="../Images/sitka.png" alt="Sitka compared to Times New Roman. It’s a lot thicker and sharper, which helps on all types of screens. It’s far more readable as body copy, with a larger x-height."/>
+          </figure>
+
+          <p>CSS Mapping: <code>Sitka</code></p>
+
+          <p>OpenType Features: small caps, numeric figure values.</p>
+
+          <p>Variations: weight (<code>400–700</code>), optical sizing.</p>
+        </section>
+      </section>
+
+      <section id="others" class="level3">
+        <h3 class="sigil_not_in_toc">Others</h3>
+
+        <p>TBD</p>
+      </section>
+    </section>
+
+    <section id="how-were-these-fonts-picked" class="level2">
+      <h2 id="sigil_toc_id_202">How were these fonts picked</h2>
+
+      <p>The overarching goal was to provide variable fonts mapped to the default stacks listed in <a href="../Text/Section-009.xhtml">Typefaces and font-stacks</a> e.g.&#160;in Latin, Old Style, Modern, Neutral, Humanist, and monospace.</p>
+
+      <p>Then, each of the fonts has been undergoing tests in real rendering situations.</p>
+
+      <p>They were rendered on the Android, iOS, MacOS, and Windows platforms, using SD and HD displays when possible, in multiple browsers (Edge, Safari, Chrome, Firefox), and in different themes (default, sepia, and night).</p>
+
+      <p>Then each font was:</p>
+
+      <ol type="1">
+        <li>compared to its closest reference (system font);</li>
+
+        <li>tested against the latin, cyrillic and greek alphabets and languages;</li>
+
+        <li>tested against the small capitals and numeric OpenType features;</li>
+
+        <li>tested against the font-width, font-weight, and optical-sizing variations.</li>
+      </ol>
+    </section>
+
+    <section id="latin" class="level2">
+      <h2 id="sigil_toc_id_203">Latin</h2>
+
+      <section id="old-style-serif" class="level3">
+        <h3 class="sigil_not_in_toc">Old Style (serif)</h3>
+
+        <section id="newsreader" class="level4">
+          <h4 class="sigil_not_in_toc">Newsreader</h4>
+
+          <figure class="fullbleed">
+            <img src="../Images/Newsreader.png" alt="Newsreader compared to Palatino. Its x-height is slightly smaller but it’s also thicker. This is particularly noticeable at smaller font-sizes."/>
+          </figure>
+
+          <p>Global info:</p>
+
+          <ul>
+            <li>Source: <a href="https://github.com/productiontype/Newsreader">https://github.com/productiontype/Newsreader</a></li>
+
+            <li>Google Fonts: YES</li>
+
+            <li>Design: Production Type</li>
+
+            <li>License: SIL-OFL</li>
+          </ul>
+
+          <p>Technical details:</p>
+
+          <ul>
+            <li>Reference: Palatino</li>
+
+            <li>Classification: Old Style</li>
+          </ul>
+
+          <p>Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish.</p>
+
+          <p>OpenType Features: none.</p>
+
+          <p>Variations: weight (<code>200–800</code>), optical sizing.</p>
+        </section>
+
+        <section id="eb-garamond" class="level4">
+          <h4 class="sigil_not_in_toc">EB Garamond</h4>
+
+          <figure class="fullbleed">
+            <img src="../Images/EB-Garamond.png" alt="EB Garamond compared to Iowan Old Style. Its x-height is significantly smaller, and it doesn’t feel specifically designed for lower-definition screens. Its main benefit is offering some familiarity as lots of books are using Adobe Garamond."/>
+          </figure>
+
+          <p>Global info:</p>
+
+          <ul>
+            <li>Source: <a href="https://github.com/georgd/EB-Garamond">https://github.com/georgd/EB-Garamond</a></li>
+
+            <li>Google Fonts: YES</li>
+
+            <li>Design: Georg Duffner, Octavio Pardo</li>
+
+            <li>License: SIL-OFL</li>
+          </ul>
+
+          <p>Technical details:</p>
+
+          <ul>
+            <li>Reference: Iowan Old Style</li>
+
+            <li>Classification: Old Style</li>
+          </ul>
+
+          <p>Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish, Greek, Russian.</p>
+
+          <p>OpenType Features: none.</p>
+
+          <p>Variations: weight (<code>400–800</code>)</p>
+        </section>
+
+        <section id="crimson-pro" class="level4">
+          <h4 class="sigil_not_in_toc">Crimson Pro</h4>
+
+          <figure class="fullbleed">
+            <img src="../Images/Crimson-pro.png" alt="Crimson Pro compared to Charter. A lot smaller, a lot thicker. It works in body copy, although some readers may increase the font-size due to its x-height."/>
+          </figure>
+
+          <p>Global info:</p>
+
+          <ul>
+            <li>Source: <a href="https://github.com/Fonthausen/CrimsonPro">https://github.com/Fonthausen/CrimsonPro</a></li>
+
+            <li>Google Fonts: YES</li>
+
+            <li>Design: Jacques Le Bailly</li>
+
+            <li>License: SIL-OFL</li>
+          </ul>
+
+          <p>Technical details:</p>
+
+          <ul>
+            <li>Reference: Charter</li>
+
+            <li>Classification: Old Style</li>
+          </ul>
+
+          <p>Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish.</p>
+
+          <p>OpenType Features: none.</p>
+
+          <p>Variations: weight (<code>200–900</code>)</p>
+        </section>
+      </section>
+
+      <section id="modern-serif" class="level3">
+        <h3 class="sigil_not_in_toc">Modern (serif)</h3>
+
+        <section id="from-open-source-and-libre-fonts-we-already-recommended" class="level4">
+          <h4 class="sigil_not_in_toc">From Open source and libre fonts we already recommended</h4>
+
+          <ul>
+            <li><a href="../Text/Section-010.xhtml#faustina">Faustina</a></li>
+
+            <li><a href="../Text/Section-010.xhtml#literata">Literata</a></li>
+
+            <li><a href="../Text/Section-010.xhtml#vollkorn">Vollkorn</a></li>
+          </ul>
+        </section>
+
+        <section id="roboto-serif" class="level4">
+          <h4 class="sigil_not_in_toc">Roboto Serif</h4>
+
+          <figure class="fullbleed">
+            <img src="../Images/Roboto-serif.png" alt="Roboto Serif compared to Georgia. It is remarkably larger and simpler in its design, so much so that it feels like a slab serif. There’s very little contrast in strokes, but it looks readable in body copy, although the user might want to increase line-height."/>
+          </figure>
+
+          <p>Global info:</p>
+
+          <ul>
+            <li>Source: <a href="https://github.com/CommercialType/RobotoSerif">https://github.com/CommercialType/RobotoSerif</a></li>
+
+            <li>Google Fonts: YES</li>
+
+            <li>Design: Commercial Type, Greg Gazdowicz</li>
+
+            <li>License: SIL-OFL</li>
+          </ul>
+
+          <p>Technical details:</p>
+
+          <ul>
+            <li>Reference: Georgia</li>
+
+            <li>Classification: Modern</li>
+          </ul>
+
+          <p>Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish, Russian.</p>
+
+          <p>OpenType Features: none.</p>
+
+          <p>Variations: weight (<code>100–900</code>), width (<code>50–150</code>), optical sizing</p>
+        </section>
+
+        <section id="source-serif-pro" class="level4">
+          <h4 class="sigil_not_in_toc">Source Serif Pro</h4>
+
+          <figure class="fullbleed">
+            <img src="../Images/Source-serif-pro.png" alt="Source Serif Pro compared to Georgia. It has a similar x-height but slightly less contrast in strokes. It is quite a good replacement and is as readable as its reference."/>
+          </figure>
+
+          <p>Global info:</p>
+
+          <ul>
+            <li>Source: <a href="http://github.com/adobe-fonts/source-serif-pro/releases/latest">http://github.com/adobe-fonts/source-serif-pro/releases/latest</a></li>
+
+            <li>Google Fonts: YES</li>
+
+            <li>Design: Frank Grießhammer</li>
+
+            <li>License: SIL-OFL</li>
+          </ul>
+
+          <p>Technical details:</p>
+
+          <ul>
+            <li>Reference: Georgia</li>
+
+            <li>Classification: Modern</li>
+          </ul>
+
+          <p>Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish, Greek, Russian.</p>
+
+          <p>OpenType Features: none.</p>
+
+          <p>Variations: weight (<code>200–900</code>), optical sizing</p>
+        </section>
+      </section>
+
+      <section id="neutral-sans-serif" class="level3">
+        <h3 class="sigil_not_in_toc">Neutral (sans-serif)</h3>
+
+        <section id="from-open-source-and-libre-fonts-we-already-recommended-1" class="level4">
+          <h4 class="sigil_not_in_toc">From Open source and libre fonts we already recommended</h4>
+
+          <ul>
+            <li><a href="../Text/Section-010.xhtml#ibm-plex-sans">IBM Plex Sans</a></li>
+
+            <li><a href="../Text/Section-010.xhtml#libre-franklin">Libre Franklin</a></li>
+
+            <li><a href="../Text/Section-010.xhtml#merriweather-sans">Merriweather Sans</a></li>
+          </ul>
+        </section>
+
+        <section id="roboto-flex" class="level4">
+          <h4 class="sigil_not_in_toc">Roboto Flex</h4>
+
+          <figure class="fullbleed">
+            <img src="../Images/Roboto-flex.png" alt="Roboto Flex compared to San Francisco Pro. It’s difficult to tell at first sight because it’s thicker, but its x-height is slightly smaller. Both look very similar though, and could help offer a consistent user experience across platforms."/>
+          </figure>
+
+          <p>Global info:</p>
+
+          <ul>
+            <li>Source: <a href="https://github.com/googlefonts/roboto-flex">https://github.com/googlefonts/roboto-flex</a></li>
+
+            <li>Google Fonts: YES</li>
+
+            <li>Design: Font Bureau, David Berlow, Santiago Orozco, Irene Vlachou, Ilya Ruderman, Yury Ostromentsky, Mikhail Strukov</li>
+
+            <li>License: SIL-OFL</li>
+          </ul>
+
+          <p>Technical details:</p>
+
+          <ul>
+            <li>Reference: San Francisco (SF Pro)</li>
+
+            <li>Classification: Sans serif</li>
+          </ul>
+
+          <p>Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish, Greek, Russian.</p>
+
+          <p>OpenType Features: none.</p>
+
+          <p>Variations: weight (<code>100–1000</code>), width (<code>25–151</code>), optical sizing</p>
+        </section>
+
+        <section id="public-sans" class="level4">
+          <h4 class="sigil_not_in_toc">Public Sans</h4>
+
+          <figure class="fullbleed">
+            <img src="../Images/Public-sans.png" alt="Public Sans compared to San Francisco Pro. It’s a little bit thicker and larger, with more complex shapes. This is quite noticeable in body copy, with a less neutral look that can work well in the reading context."/>
+          </figure>
+
+          <p>Global info:</p>
+
+          <ul>
+            <li>Source: <a href="https://github.com/uswds/public-sans">https://github.com/uswds/public-sans</a></li>
+
+            <li>Google Fonts: YES</li>
+
+            <li>Design: USWDS, Dan Williams, Pablo Impallari, Rodrigo Fuenzalida</li>
+
+            <li>License: SIL-OFL</li>
+          </ul>
+
+          <p>Technical details:</p>
+
+          <ul>
+            <li>Reference: San Francisco (SF Pro)</li>
+
+            <li>Classification: Sans serif</li>
+          </ul>
+
+          <p>Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish.</p>
+
+          <p>OpenType Features: numeric spacing values.</p>
+
+          <p>Variations: weight (<code>100–900</code>)</p>
+        </section>
+      </section>
+
+      <section id="humanist-sans-serif" class="level3">
+        <h3 class="sigil_not_in_toc">Humanist (sans-serif)</h3>
+
+        <section id="from-open-source-and-libre-fonts-we-already-recommended-2" class="level4">
+          <h4 class="sigil_not_in_toc">From Open source and libre fonts we already recommended</h4>
+
+          <ul>
+            <li><a href="../Text/Section-010.xhtml#source-sans-pro">Source Sans Pro</a></li>
+          </ul>
+        </section>
+
+        <section id="cabin" class="level4">
+          <h4 class="sigil_not_in_toc">Cabin</h4>
+
+          <figure class="fullbleed">
+            <img src="../Images/Cabin.png" alt="Cabin compared to Gill Sans. It’s quite a reasonable match, but with a larger x-height that makes it easier to use on screens. It’s a lot more readable in body copy as a consequence, and also because it doesn’t borrow the design quirks of its reference."/>
+          </figure>
+
+          <p>Global info:</p>
+
+          <ul>
+            <li>Source: <a href="https://github.com/impallari/Cabin">https://github.com/impallari/Cabin</a></li>
+
+            <li>Google Fonts: YES</li>
+
+            <li>Design: Impallari Type, Rodrigo Fuenzalida</li>
+
+            <li>License: SIL-OFL</li>
+          </ul>
+
+          <p>Technical details:</p>
+
+          <ul>
+            <li>Reference: Gill Sans</li>
+
+            <li>Classification: Humanist</li>
+          </ul>
+
+          <p>Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish.</p>
+
+          <p>OpenType Features: none.</p>
+
+          <p>Variations: weight (<code>400–700</code>), width (<code>75–100</code>)</p>
+        </section>
+      </section>
+
+      <section id="monospace" class="level3">
+        <h3 class="sigil_not_in_toc">Monospace</h3>
+
+        <section id="source-code-pro" class="level4">
+          <h4 class="sigil_not_in_toc">Source Code Pro</h4>
+
+          <figure class="fullbleed">
+            <img src="../Images/Source-code-pro.png" alt="Source Code Pro compared to San Francisco Mono. Its design is less squarish and condensed, and it looks less mechanical as a consequence. It doesn’t necessarily make it more readable though, just different, especially as its x-height is smaller."/>
+          </figure>
+
+          <p>Global info:</p>
+
+          <ul>
+            <li>Source: <a href="https://github.com/adobe-fonts/source-code-pro/releases/latest">https://github.com/adobe-fonts/source-code-pro/releases/latest</a></li>
+
+            <li>Google Fonts: YES</li>
+
+            <li>Design: Paul D. Hunt</li>
+
+            <li>License: SIL-OFL</li>
+          </ul>
+
+          <p>Technical details:</p>
+
+          <ul>
+            <li>Reference: San Francisco Mono</li>
+
+            <li>Classification: monospace</li>
+          </ul>
+
+          <p>Supported Languages: Albanian, Bosnian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Hungarian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish, Turkish, Greek, Russian.</p>
+
+          <p>OpenType Features: none.</p>
+
+          <p>Variations: weight (<code>200–900</code>)</p>
+        </section>
+      </section>
+    </section>
+
+    <section id="accessibility" class="level2">
+      <h2 id="sigil_toc_id_210">Accessibility</h2>
+
+      <p>A variable version of <a href="https://www.brailleinstitute.org/freefont/?_sc=NjQ1ODg2NiM2ODIzNA%3D%3D#:~:text=The%20Atkinson%20Hyperlegible%20Next%E2%84%A2%20Font">Atkinson Hyperlegible Next</a> and <a href="https://www.brailleinstitute.org/freefont/?_sc=NjQ1ODg2NiM2ODIzNA%3D%3D#:~:text=The%20Atkinson%20Hyperlegible%20Mono%E2%84%A2%20Font">Atkinson Hyperlegible Mono</a> are available, with support for over 150 languages.</p>
+
+      <p>These 2 fonts are also available on <a href="https://fonts.google.com/?query=Atkinson">Google Fonts</a>.</p>
+
+      <p>Global info:</p>
+
+      <ul>
+        <li>Source: <a href="https://www.brailleinstitute.org/freefont">https://www.brailleinstitute.org/freefont</a></li>
+        
+        <li>Google Fonts: YES</li>
+  
+        <li>Design: Braille Institute, Applied Design Works, Elliott Scott, Megan Eiswerth, Letters from Sweden</li>
+  
+        <li>License: SIL-OFL</li>
+      </ul>
+
+      <p>OpenType Features: Numeric figure values.</p>
+
+      <p>Variations: Weight (<code>200–800</code>)</p>
+    </section>
+
+    <section id="arabic-ar-and-persian-fa" class="level2">
+      <h2 id="sigil_toc_id_204">Arabic (ar) and Persian (fa)</h2>
+
+      <section id="estedad" class="level3">
+        <h3 class="sigil_not_in_toc">Estedad</h3>
+
+        <p>Global info:</p>
+
+        <ul>
+          <li>Source: <a href="https://github.com/aminabedi68/Estedad">https://github.com/aminabedi68/Estedad</a></li>
+
+          <li>Google Fonts: NO</li>
+
+          <li>Design: Amin Abedi</li>
+
+          <li>License: SIL-OFL</li>
+        </ul>
+
+        <p>OpenType Features: small capitals, numeric figure values, numeric spacing values.</p>
+
+        <p>Variations: weight (<code>100–900</code>)</p>
+      </section>
+
+      <section id="markazi-text" class="level3">
+        <h3 class="sigil_not_in_toc">Markazi Text</h3>
+
+        <p>Global info:</p>
+
+        <ul>
+          <li>Source: <a href="https://github.com/BornaIz/markazitext">https://github.com/BornaIz/markazitext</a></li>
+
+          <li>Google Fonts: YES</li>
+
+          <li>Design: Borna Izadpanah, Florian Runge, Fiona Ross</li>
+
+          <li>License: SIL-OFL</li>
+        </ul>
+
+        <p>OpenType Features: none.</p>
+
+        <p>Variations: weight (<code>400–700</code>)</p>
+      </section>
+    </section>
+  </section>
+</body>
+</html>

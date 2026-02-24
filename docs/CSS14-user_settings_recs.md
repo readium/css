@@ -59,7 +59,7 @@ Does not apply to authors.
 
 It depends on the implementers’ approach (presets with typographic rules as references Vs. the user can override on a setting-by-setting basis). 
 
-## Page margins
+## Line length
 
 ### User’s intent
 
@@ -73,7 +73,7 @@ We have to override margins for pagination so the most important style is `max-w
 
 The author intends to limit line-length, but it is unclear they are doing it because some Reading Systems don’t or because they want to enforce one specific (max) line-length.
 
-## Reading modes
+## Themes
 
 ### User’s intent
 
@@ -81,17 +81,15 @@ The user intends to improve visual comfort.
 
 ### Author’s intent
 
-Does not apply to authors but it could if we create a public “API” for authors to express intents related to reading modes. 
-
-Since authors have filed very few use cases at the moment, this is highly conditional.
+Does not apply to authors.
 
 ### What to do
 
-Implementers should take two main variables into account: contrast and luminosity, which means they might want to invert some images or get rid of backgrounds in night mode. 
+Implementers should take two main variables into account: contrast and luminosity, which means they might want to invert some images or get rid of backgrounds in dark colors. 
 
-Inverting images that should be inverted in night mode can’t be done well without an author’s intent though.
+Inverting images that should be inverted in dark colors can’t be done well without an author’s intent though.
 
-Please note Readium CSS provides two extra options to manage images in night mode: 
+Please note Readium CSS provides two extra options to manage images in dark colors: 
 
 1. darken;
 2. invert.
@@ -217,11 +215,11 @@ It is very rare authors’ will use those CSS properties for body copy. They may
 
 In any case, implementers should force those settings for body copy.
 
-## Ligatures (Arabic & Persian scripts)
+## Ligatures
 
 ### User’s intent
 
-The user intends to disable ligatures. This setting applies to the Arabic and Persian scripts, and is believed to help dyslexic readers as `word-spacing` in Latin.
+The user intends to disable ligatures. This setting applies to the Latin, Arabic and Persian scripts. In the two latter, it is believed to help dyslexic readers as `word-spacing` in Latin.
 
 ### Author’s intent
 

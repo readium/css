@@ -26,10 +26,9 @@ The following modules must be inserted before the author’s stylesheets (`Readi
 
 1. `ReadiumCSS-config.css`
 2. `ReadiumCSS-base.css`
-3. `ReadiumCSS-day_mode.css`
-4. `ReadiumCSS-fonts.css`
-5. `ReadiumCSS-html5patch.css`
-6. `ReadiumCSS-safeguards.css` (or `ReadiumCSS-safeguards-vertical.css` for CJK – vertical writing mode)
+3. `ReadiumCSS-fonts.css`
+4. `ReadiumCSS-html5patch.css`
+5. `ReadiumCSS-safeguards.css` (or `ReadiumCSS-safeguards-vertical.css` for CJK – vertical writing mode)
 
 ### Append if there is no author’s styles
 
@@ -46,12 +45,9 @@ The following modules must be appended after the author’s stylesheets (`Readiu
 1. `ReadiumCSS-config.css`
 2. `ReadiumCSS-pagination.css` (or `ReadiumCSS-pagination-vertical.css` for CJK – vertical writing mode)
 3. `ReadiumCSS-scroll.css` (or `ReadiumCSS-scroll-vertical.css` for CJK – vertical writing mode)
-4. `ReadiumCSS-night_mode.css`
-5. `ReadiumCSS-sepia_mode.css`
-6. `ReadiumCSS-os_a11y.css`
-7. User settings:
+4. User settings:
     1. `ReadiumCSS-colNumber_pref.css` (does not apply to CJK – vertical writing mode)
-    2. `ReadiumCSS-pageMargins_pref.css` (or `ReadiumCSS-pageMargins-vertical_pref.css` for CJK – vertical writing mode)
+    2. `ReadiumCSS-lineLength_pref.css` (or `ReadiumCSS-lineLength-vertical_pref.css` for CJK – vertical writing mode)
     3. `ReadiumCSS-customColors_pref.css`
     4. `ReadiumCSS-textAlign_pref.css` (does not apply to CJK scripts)
     5. `ReadiumCSS-bodyHyphens_pref.css` (does not apply to CJK scripts)
@@ -61,8 +57,11 @@ The following modules must be appended after the author’s stylesheets (`Readiu
     9. `ReadiumCSS-lineHeight_pref.css`
     10. `ReadiumCSS-paraSpacing_pref.css` (or `ReadiumCSS-paraSpacing-vertical_pref.css` for CJK – vertical writing mode)
     11. `ReadiumCSS-paraIndent_pref.css` (does not apply to CJK scripts)
-    12. `ReadiumCSS-wordSpacing_pref.css` (does not apply to RTL and CJK scripts)
+    12. `ReadiumCSS-wordSpacing_pref.css` (does not apply to CJK scripts)
     13. `ReadiumCSS-letterSpacing_pref.css` (does not apply to RTL scripts, except in vertical writing mode)
-    14. `ReadiumCSS-arabicLigatures_pref.css` (RTL only)
-    15. `ReadiumCSS-ruby_pref.css` (CJK only)
-8. `ReadiumCSS-fs_normalize.css`
+    14. `ReadiumCSS-ligatures_pref.css` (RTL only)
+    15. `ReadiumCSS-variableFont_pref.css` (this contains optical sizing, weight and width prefs)
+    16. `ReadiumCSS-ruby_pref.css` (CJK only)
+    17. `ReadiumCSS-imageFilters_pref.css`
+5. `ReadiumCSS-fs_normalize.css`
+6. `ReadiumCSS-iPadOS_patch.css`
