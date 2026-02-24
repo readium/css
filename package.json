@@ -1,7 +1,7 @@
 {
   "name": "@readium/css",
   "description": "A set of reference stylesheets for EPUB Reading Systems",
-  "version": "2.0.0-beta.25",
+  "version": "2.0.0",
   "homepage": "https://github.com/readium/css",
   "license": "BSD-3-Clause",
   "keywords": [
@@ -23,11 +23,12 @@
   "bugs": {
     "url": "https://github.com/readium/css/issues"
   },
-  "main": "css/ReadiumCSS-config.css",
   "files": [
     "css/**/*",
     "!css/*.js",
-    "!css/demo/**/*"
+    "!css/demo/**/*",
+    "!css/src/**/*",
+    "!css/ReadiumCSS-config.css"
   ],
   "devDependencies": {
     "@daltontan/postcss-import-json": "^1.1.1",
