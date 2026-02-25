@@ -25,6 +25,8 @@
     {"href": "https://readium.org/css/docs/CSS08-defaults.html", "type": "text/html", "title": "Defaults"}, 
     {"href": "https://readium.org/css/docs/CSS09-default_fonts.html", "type": "text/html", "title": "Typefaces and font-stacks"}, 
     {"href": "https://readium.org/css/docs/CSS10-libre_fonts.html", "type": "text/html", "title": "Open Source and Libre Fonts We Can Recommend"}, 
+    {"href": "https://readium.org/css/docs/CSS10b-variable_fonts.html", "type": "text/html", "title": "Variable Fonts"}, 
+    {"href": "https://readium.org/css/docs/CSS10c-custom_fonts.html", "type": "text/html", "title": "Using custom fonts with Readium CSS"}, 
     {"href": "https://readium.org/css/docs/CSS11-overrides_classification.html", "type": "text/html", "title": "User Overrides’ Classification"}, 
     {"href": "https://readium.org/css/docs/CSS12-user_prefs.html", "type": "text/html", "title": "User Settings and Themes"}, 
     {"href": "https://readium.org/css/docs/CSS13-a11y_settings_baseline.html", "type": "text/html", "title": "Baseline for a11y-related user settings"}, 
