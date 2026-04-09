@@ -20,7 +20,6 @@
 
 /* If there are inline-block elements in paragraphs, text-indent will inherit so we must reset it */
 
-:root[style*="--USER__paraIndent"] p *,
-:root[style*="--USER__paraIndent"] p:first-letter {
+:root[style*="--USER__paraIndent"] p * {
   text-indent: 0 !important;
 }

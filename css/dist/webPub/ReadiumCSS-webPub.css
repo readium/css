@@ -1,5 +1,5 @@
 /*!
- * Readium CSS v.2.0.0
+ * Readium CSS v.2.0.1
  * Copyright (c) 2017–2026. Readium Foundation. All rights reserved.
  * Use of this source code is governed by a BSD-style license which is detailed in the
  * LICENSE file present in the project repository where this source code is maintained.
@@ -152,8 +152,7 @@
   text-indent:var(--USER__paraIndent) !important;
 }
 
-:root[style*="--USER__paraIndent"] p *,
-:root[style*="--USER__paraIndent"] p:first-letter{
+:root[style*="--USER__paraIndent"] p *{
   text-indent:0 !important;
 }
 
