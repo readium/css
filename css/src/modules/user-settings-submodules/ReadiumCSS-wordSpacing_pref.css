@@ -17,5 +17,5 @@
 :root[style*="--USER__wordSpacing"] div,
 :root[style*="--USER__wordSpacing"] dt,
 :root[style*="--USER__wordSpacing"] dd {
-  word-spacing: var(--USER__wordSpacing);
+  word-spacing: var(--USER__wordSpacing) !important;
 }

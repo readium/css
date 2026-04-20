@@ -14,5 +14,5 @@
 :root[style*="--USER__lineHeight"] p,
 :root[style*="--USER__lineHeight"] li,
 :root[style*="--USER__lineHeight"] div {
-  line-height: inherit;
+  line-height: var(--USER__lineHeight) !important;
 }

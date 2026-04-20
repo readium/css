@@ -16,15 +16,14 @@
   hyphens: var(--USER__bodyHyphens) !important;
 }
 
-/* Sorry, we can’t use `:matches`, `:-moz-any` or `:-webkit-any` because MS doesn’t support it yet */
 :root[style*="--USER__bodyHyphens"] body,
 :root[style*="--USER__bodyHyphens"] p,
 :root[style*="--USER__bodyHyphens"] li,
 :root[style*="--USER__bodyHyphens"] div,
 :root[style*="--USER__bodyHyphens"] dd {
-  -webkit-hyphens: inherit;
-  -moz-hyphens: inherit;
-  -ms-hyphens: inherit;
-  -epub-hyphens: inherit;
-  hyphens: inherit;
+  -webkit-hyphens: var(--USER__bodyHyphens) !important;
+  -moz-hyphens: var(--USER__bodyHyphens) !important;
+  -ms-hyphens: var(--USER__bodyHyphens) !important;
+  -epub-hyphens: var(--USER__bodyHyphens) !important;
+  hyphens: var(--USER__bodyHyphens) !important;
 }
