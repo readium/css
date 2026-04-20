@@ -17,6 +17,6 @@
 :root[style*="--USER__letterSpacing"] div,
 :root[style*="--USER__letterSpacing"] dt,
 :root[style*="--USER__letterSpacing"] dd {
-  letter-spacing: var(--USER__letterSpacing);
-  font-variant: none;
+  letter-spacing: var(--USER__letterSpacing) !important;
+  font-variant: none !important;
 }
