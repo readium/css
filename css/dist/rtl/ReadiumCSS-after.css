@@ -1,5 +1,5 @@
 /*!
- * Readium CSS v.2.0.1
+ * Readium CSS v.2.0.2
  * Copyright (c) 2017–2026. Readium Foundation. All rights reserved.
  * Use of this source code is governed by a BSD-style license which is detailed in the
  * LICENSE file present in the project repository where this source code is maintained.
@@ -295,7 +295,7 @@ body{
 :root[style*="--USER__lineHeight"] p,
 :root[style*="--USER__lineHeight"] li,
 :root[style*="--USER__lineHeight"] div{
-  line-height:inherit;
+  line-height:var(--USER__lineHeight) !important;
 }
 
 :root[style*="--USER__paraSpacing"] p{
@@ -330,7 +330,7 @@ body{
 :root[style*="--USER__wordSpacing"] div,
 :root[style*="--USER__wordSpacing"] dt,
 :root[style*="--USER__wordSpacing"] dd{
-  word-spacing:var(--USER__wordSpacing);
+  word-spacing:var(--USER__wordSpacing) !important;
 }
 
 :root[style*="--USER__ligatures"]{
