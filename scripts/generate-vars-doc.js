@@ -36,6 +36,15 @@ function flatSection(heading, data) {
   return `## ${heading}\n\n| Variable | Value |\n| --- | --- |\n${rows}\n`;
 }
 
+const I18N_STRATEGY = `\
+To determine which \`lineHeightCompensation\` value to apply, a Reading System should use the following lookup against the publication's BCP-47 language tag:
+
+1. Match the full tag including region or script subtag (e.g. \`zh-Hant\`, \`zh-HK\`).
+2. If no match, strip the subtag and match on the primary language code alone (e.g. \`zh\`, \`ja\`).
+3. If still no match, fall back to \`default\` (compensation of \`1\`, i.e. no adjustment).
+
+`;
+
 function i18nSection(heading, data) {
   const langKeys = Object.keys(data);
   const propKeys = [...new Set(langKeys.flatMap((lang) => Object.keys(data[lang])))];
@@ -51,7 +60,7 @@ function i18nSection(heading, data) {
     return `| ${mdCode(lang)} | ${cols.join(" | ")} |`;
   }).join("\n");
 
-  return `## ${heading}\n\n${header}\n${divider}\n${rows}\n`;
+  return `## ${heading}\n\n${I18N_STRATEGY}${header}\n${divider}\n${rows}\n`;
 }
 
 function experimentsSection(heading, data) {

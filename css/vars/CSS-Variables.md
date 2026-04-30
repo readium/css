@@ -38,6 +38,12 @@
 
 ## i18n
 
+To determine which `lineHeightCompensation` value to apply, a Reading System should use the following lookup against the publication's BCP-47 language tag:
+
+1. Match the full tag including region or script subtag (e.g. `zh-Hant`, `zh-HK`).
+2. If no match, strip the subtag and match on the primary language code alone (e.g. `zh`, `ja`).
+3. If still no match, fall back to `default` (compensation of `1`, i.e. no adjustment).
+
 | Language | Base Font Family | Line Height Compensation |
 | --- | --- | --- |
 | `default` | `var(--RS__oldStyleTf)` | `1` |
