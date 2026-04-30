@@ -136,12 +136,8 @@ math {
   /* For CJK, the line-height is usually 15–20% more than for Latin */
   --RS__lineHeightCompensation: 1.167;
 
-  /* Extra variables for Japanese font-stacks as we may want to reuse them for user settings + default */
+  /* See extra variables for Japanese font-stacks in vars as we may want to reuse them for user settings + default */
   /* This setting uses the BIZ UD font for serif and the Yu font for sans serif on Windows. Note: When using the BIZ UD font for vertical writing display, if you set half-width (ASCII) characters to stand upright with `text-orientation: upright`, the width of these characters is narrow. By specifying `font-variant-east-asian: full-width;` at the same time, you can display the characters with the width of one full-width character. */
-  --RS__serif-ja: "Hiragino Mincho ProN", "Hiragino Mincho Pro", "YuMincho", "BIZ UDPMincho", "Yu Mincho", "ＭＳ Ｐ明朝", "MS PMincho", serif;
-  --RS__sans-serif-ja: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ W3", "YuGothic", "Yu Gothic Medium", "BIZ UDPGothic", "Yu Gothic", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-  --RS__serif-ja-v: "Hiragino Mincho ProN", "Hiragino Mincho Pro", "YuMincho", "BIZ UDMincho", "Yu Mincho", "ＭＳ明朝", "MS Mincho", serif;
-  --RS__sans-serif-ja-v: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ W3", "YuGothic", "Yu Gothic Medium", "BIZ UDGothic", "Yu Gothic", "ＭＳゴシック", "MS Gothic", sans-serif;
 }
 
 :lang(km) {
