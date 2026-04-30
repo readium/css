@@ -38,24 +38,11 @@
 
 ## i18n
 
-Different scripts require different amounts of line height. These compensation factors allow a Reading System to adjust a line-height value when the publication's language differs from its own, so that the result feels consistent across scripts rather than too tight or too loose.
+`lineHeightCompensation` factors account for the different line-height needs of scripts, **Latin being the default and the reference for other scripts**. To determine which value to apply, a Reading System should use the following lookup against the publication's BCP-47 language tag:
 
-```
-adjustedLineHeight = lineHeight * (publicationCompensation / appCompensation)
-```
-
-| App language | Publication language | Effect |
-| --- | --- | --- |
-| Latin (`1.0`) | CJK (`1.167`) | line-height increases |
-| CJK (`1.167`) | Latin (`1.0`) | line-height decreases |
-| CJK (`1.167`) | CJK (`1.167`) | no change |
-| Latin (`1.0`) | Latin (`1.0`) | no change |
-
-To resolve a compensation factor for a BCP-47 language tag:
-
-1. Match the full tag including region or script subtag (e.g. `zh-Hant`, `zh-HK`).
-2. If no match, match on the primary language code alone (e.g. `zh`, `ja`).
-3. If still no match, use `default` (`1`).
+1. Find the key matching the publication's full BCP-47 language + region code.
+2. If no match, find the key after removing the region code (only BCP-47 language code).
+3. If no match, use `default` (or ignore, because the line-height compensation should be `1`).
 
 | Language | Base Font Family | Line Height Compensation |
 | --- | --- | --- |
