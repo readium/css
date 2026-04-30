@@ -56,12 +56,11 @@ Building and testing are relying on npm packages and scripts. To initialize your
 npm install
 ```
 
-In case you’re encountering an error with Puppeteer, make sure you’re using at least Node v.20.11.1 – it might work with an earlier version but only the latest LTS as of March 21, 2024 has been tested.
-
-Then create reference bitmaps for visual regression testing:
+Then install the Playwright browser binary and generate reference screenshots for visual regression testing:
 
 ```
-npm run test:ref
+npx playwright install chromium
+npm run test:update
 ```
 
 ### Build
@@ -78,10 +77,10 @@ To test the updated styles and catch visual regression bugs:
 npm run test
 ```
 
-To update reference bitmaps after a bugfix:
+To update reference screenshots after an intentional change:
 
 ```
-npm run test:approve
+npm run test:update
 ```
 
 ## Docs

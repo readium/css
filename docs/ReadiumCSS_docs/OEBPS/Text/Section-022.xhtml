@@ -30,9 +30,10 @@
 
       <p>Then, once the install is finished, type:</p>
 
-      <pre><code>npm run test:ref</code></pre>
+      <pre><code>npx playwright install chromium
+npm run test:update</code></pre>
 
-      <p>This will create reference screenshots for the CSS regression tests.</p>
+      <p>This will install the Playwright browser binary and create reference screenshots for the CSS regression tests.</p>
     </section>
 
     <section id="build" class="level2">
@@ -162,73 +163,52 @@ require("postcss-alter-property-value")({
     <section id="test" class="level2">
       <h2 id="sigil_toc_id_37">Test</h2>
 
-      <p>Once you have build <code>dist</code> stylesheets, you can run regression tests using <a href="https://github.com/garris/BackstopJS">Backstop.js</a>.</p>
+      <p>Once you have built <code>dist</code> stylesheets, you can run visual regression tests using <a href=”https://playwright.dev”>Playwright</a>.</p>
 
       <p>It helps you check if you didn’t accidentally create a breaking change when customizing stylesheets, and make sure pagination and user settings work as expected.</p>
 
-      <section id="config" class="level3">
-        <h3 class="sigil_not_in_toc">Config</h3>
+      <section id=”config” class=”level3”>
+        <h3 class=”sigil_not_in_toc”>Config</h3>
 
-        <p>You will find the configuration file, <code>backstop.json</code> at the root of the project. By default, it runs those tests for a smartphone (portrait) and a tablet (landscape) viewports using Chrome, but you can customize it to fit your needs.</p>
+        <p>The test configuration lives in <code>playwright.config.js</code> at the root of the project. By default, it runs all tests at a 1024×768 tablet viewport using Chromium. You can adjust the viewport or add browsers there.</p>
 
-        <p>For instance, if you don’t need to support mobile, you could modify <code>viewports</code>:</p>
+        <p>If you want to run tests with WebKit (useful for iOS development), install the additional browser and update <code>browserName</code> in the config:</p>
 
-        <pre><code>"viewports": [ 
-  { 
-    "label": "desktop small", 
-    "width": 800, 
-    "height": 600 
-  }, 
-  { 
-    "label": "desktop large", 
-    "width": 1600, 
-    "height": 900 
-  } 
-]</code></pre>
-
-        <p>And if you want to run tests using Webkit instead of Blink because you’re developing iOS apps:</p>
-
-        <pre><code>"engine": "phantomjs"</code></pre>
+        <pre><code>npx playwright install webkit</code></pre>
       </section>
 
-      <section id="test-files" class="level3">
-        <h3 class="sigil_not_in_toc">Test files</h3>
+      <section id=”test-files” class=”level3”>
+        <h3 class=”sigil_not_in_toc”>Test files</h3>
 
         <p>If you customize flags in <code>ReadiumCSS-config.css</code>, you must modify HTML files in the <code>tests</code> folder; user settings are indeed set as inline styles on the <code>html</code> element and are using the default flags.</p>
       </section>
 
-      <section id="available-scripts-1" class="level3">
-        <h3 class="sigil_not_in_toc">Available scripts</h3>
+      <section id=”available-scripts-1” class=”level3”>
+        <h3 class=”sigil_not_in_toc”>Available scripts</h3>
 
         <p>By default, the following scripts are available:</p>
 
         <ul>
-          <li><code>test</code>, will run tests;</li>
+          <li><code>test</code>, will build stylesheets then run visual regression tests;</li>
 
-          <li><code>test:ref</code>, will create reference screenshots;</li>
-
-          <li><code>test:approve</code>, will update reference screenshots from the current test.</li>
+          <li><code>test:update</code>, will create or update reference screenshots.</li>
         </ul>
       </section>
 
-      <section id="usage-1" class="level3">
-        <h3 class="sigil_not_in_toc">Usage</h3>
+      <section id=”usage-1” class=”level3”>
+        <h3 class=”sigil_not_in_toc”>Usage</h3>
 
         <p>First navigate to the <code>readium-css</code> folder if you didn’t already, then…</p>
 
         <pre><code>npm run test</code></pre>
 
-        <p>The regression tests will run against the newly-created <code>dist</code> stylesheets, which is why you must build them beforehand.</p>
+        <p>The regression tests will run against the newly-built <code>dist</code> stylesheets and compare each page against its stored reference screenshot.</p>
 
-        <p>Once all scenarios are tested for the viewports you created, which can take up to a minute, a report will automatically open in your browser.</p>
+        <p>If a test is marked as failed, it doesn’t necessarily mean the user setting failed — it just means you made a change that impacts rendering. Open the Playwright HTML report to inspect the diff, and if you’re happy with the result, update the references:</p>
 
-        <p>If a unit test is marked as “failed”, it doesn’t necessarily mean the user setting failed, it just means you made a significant change which impacts rendering. Take a closer look at the diff, and if you’re happy with the result, head to the terminal and type:</p>
+        <pre><code>npm run test:update</code></pre>
 
-        <pre><code>npm run test:approve</code></pre>
-
-        <p>This will make the current test screenshots the new reference for the next test.</p>
-
-        <p><strong>Note:</strong> on some occasions, an error might happen during tests and the process won’t stop. Try <code>ctrl + c</code> to stop the current process and run the test again.</p>
+        <p>This will make the current screenshots the new reference for the next test run.</p>
       </section>
     </section>
   </section>

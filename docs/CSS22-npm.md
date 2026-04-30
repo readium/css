@@ -21,10 +21,11 @@ This will install all dev dependencies needed and make npm scripts available to 
 Then, once the install is finished, type:
 
 ```
-npm run test:ref
+npx playwright install chromium
+npm run test:update
 ```
 
-This will create reference screenshots for the CSS regression tests.
+This will install the Playwright browser binary and create reference screenshots for the CSS regression tests.
 
 ## Build
 
@@ -116,35 +117,18 @@ Here is a list of additionnal PostCSS plugins which might prove useful to implem
 
 ## Test
 
-Once you have build `dist` stylesheets, you can run regression tests using [Backstop.js](https://github.com/garris/BackstopJS).
+Once you have built `dist` stylesheets, you can run visual regression tests using [Playwright](https://playwright.dev).
 
 It helps you check if you didn’t accidentally create a breaking change when customizing stylesheets, and make sure pagination and user settings work as expected.
 
 ### Config
 
-You will find the configuration file, `backstop.json` at the root of the project. By default, it runs those tests for a smartphone (portrait) and a tablet (landscape) viewports using Chrome, but you can customize it to fit your needs.
+The test configuration lives in `playwright.config.js` at the root of the project. By default, it runs all tests at a 1024×768 tablet viewport using Chromium. You can adjust the viewport or add browsers there.
 
-For instance, if you don’t need to support mobile, you could modify `viewports`: 
-
-```
-"viewports": [
-  {
-    "label": "desktop small",
-    "width": 800,
-    "height": 600
-  },
-  {
-    "label": "desktop large",
-    "width": 1600,
-    "height": 900
-  }
-]
-```
-
-And if you want to run tests using Webkit instead of Blink because you’re developing iOS apps:
+If you want to run tests with WebKit (useful for iOS development), install the additional browser and update `browserName` in the config:
 
 ```
-"engine": "phantomjs"
+npx playwright install webkit
 ```
 
 ### Test files
@@ -153,11 +137,10 @@ If you customize flags in `ReadiumCSS-config.css`, you must modify HTML files in
 
 ### Available scripts
 
-By default, the following scripts are available: 
+By default, the following scripts are available:
 
-- `test`, will run tests;
-- `test:ref`, will create reference screenshots;
-- `test:approve`, will update reference screenshots from the current test.
+- `test`, will build stylesheets then run visual regression tests;
+- `test:update`, will create or update reference screenshots.
 
 ### Usage
 
@@ -167,16 +150,12 @@ First navigate to the `readium-css` folder if you didn’t already, then…
 npm run test
 ```
 
-The regression tests will run against the newly-created `dist` stylesheets, which is why you must build them beforehand.
+The regression tests will run against the newly-built `dist` stylesheets and compare each page against its stored reference screenshot.
 
-Once all scenarios are tested for the viewports you created, which can take up to a minute, a report will automatically open in your browser.
-
-If a unit test is marked as “failed”, it doesn’t necessarily mean the user setting failed, it just means you made a significant change which impacts rendering. Take a closer look at the diff, and if you’re happy with the result, head to the terminal and type:
+If a test is marked as failed, it doesn’t necessarily mean the user setting failed — it just means you made a change that impacts rendering. Open the Playwright HTML report to inspect the diff, and if you’re happy with the result, update the references:
 
 ```
-npm run test:approve
+npm run test:update
 ```
 
-This will make the current test screenshots the new reference for the next test.
-
-**Note:** on some occasions, an error might happen during tests and the process won’t stop. Try `ctrl + c` to stop the current process and run the test again.
+This will make the current screenshots the new reference for the next test run.
