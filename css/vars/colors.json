@@ -1,8 +1,8 @@
 {
-  "RS__backgroundColor": "#FFFFFF",
-  "RS__textColor": "#121212",
-  "RS__linkColor": "#0000EE",
-  "RS__visitedColor": "#551A8B",
-  "RS__selectionBackgroundColor": "#b4d8fe",
-  "RS__selectionTextColor": "inherit"
+  "backgroundColor": "#FFFFFF",
+  "textColor": "#121212",
+  "linkColor": "#0000EE",
+  "visitedColor": "#551A8B",
+  "selectionBackgroundColor": "#b4d8fe",
+  "selectionTextColor": "inherit"
 }

@@ -1,8 +1,8 @@
 {
-  "RS__colWidth": "100vw",
-  "RS__colCount": 1,
-  "RS__colGap": 0,
-  "RS__defaultLineLength": "100%",
-  "RS__pageGutter": 0,
-  "RS__viewportWidth": "100%"
+  "colWidth": "100vw",
+  "colCount": 1,
+  "colGap": 0,
+  "defaultLineLength": "100%",
+  "pageGutter": 0,
+  "viewportWidth": "100%"
 }
