@@ -37,11 +37,24 @@ function flatSection(heading, data) {
 }
 
 const I18N_STRATEGY = `\
-To determine which \`lineHeightCompensation\` value to apply, a Reading System should use the following lookup against the publication's BCP-47 language tag:
+Different scripts require different amounts of line height. These compensation factors allow a Reading System to adjust a line-height value when the publication's language differs from its own, so that the result feels consistent across scripts rather than too tight or too loose.
+
+\`\`\`
+adjustedLineHeight = lineHeight * (publicationCompensation / appCompensation)
+\`\`\`
+
+| App language | Publication language | Effect |
+| --- | --- | --- |
+| Latin (\`1.0\`) | CJK (\`1.167\`) | line-height increases |
+| CJK (\`1.167\`) | Latin (\`1.0\`) | line-height decreases |
+| CJK (\`1.167\`) | CJK (\`1.167\`) | no change |
+| Latin (\`1.0\`) | Latin (\`1.0\`) | no change |
+
+To resolve a compensation factor for a BCP-47 language tag:
 
 1. Match the full tag including region or script subtag (e.g. \`zh-Hant\`, \`zh-HK\`).
-2. If no match, strip the subtag and match on the primary language code alone (e.g. \`zh\`, \`ja\`).
-3. If still no match, fall back to \`default\` (compensation of \`1\`, i.e. no adjustment).
+2. If no match, match on the primary language code alone (e.g. \`zh\`, \`ja\`).
+3. If still no match, use \`default\` (\`1\`).
 
 `;
 
