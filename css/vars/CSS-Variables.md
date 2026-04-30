@@ -88,6 +88,17 @@ To resolve a compensation factor for a BCP-47 language tag:
 | `zh-TW` | `'方體', 'PingFang TC', '黑體', 'Heiti TC', 'Microsoft JhengHei UI', 'Microsoft JhengHei', Roboto, Noto, 'Noto Sans CJK TC', sans-serif` | `1.167` |
 | `zh-HK` | `'方體', 'PingFang HK', '方體', 'PingFang TC', '黑體', 'Heiti TC', 'Microsoft JhengHei UI', 'Microsoft JhengHei', Roboto, Noto, 'Noto Sans CJK TC', sans-serif` | `1.167` |
 
+## Settings
+
+User settings vary by stylesheet variant. Each name below maps to a `--USER__` CSS variable.
+
+| Variant | Disabled | Added |
+| --- | --- | --- |
+| `default` | — | — |
+| `rtl` | `--USER__bodyHyphens`, `--USER__letterSpacing` | — |
+| `cjk-horizontal` | `--USER__textAlign`, `--USER__bodyHyphens`, `--USER__ligatures`, `--USER__paraIndent`, `--USER__wordSpacing` | `--USER__noRuby` |
+| `cjk-vertical` | `--USER__colCount`, `--USER__textAlign`, `--USER__bodyHyphens`, `--USER__ligatures`, `--USER__paraIndent`, `--USER__wordSpacing` | `--USER__noRuby` |
+
 ## Experiments
 
 ### experimentalHeaderFiltering

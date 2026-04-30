@@ -7,34 +7,18 @@ const path = require("path");
 
 const VARS_DIR = path.join(__dirname, "../css/vars");
 const OUTPUT = path.join(VARS_DIR, "CSS-Variables.md");
-const PREFIX = "--RS__";
 
 const FILES = [
   { file: "pagination.json",  heading: "Pagination",   type: "flat" },
   { file: "colors.json",      heading: "Colors",       type: "flat" },
   { file: "fontStacks.json",  heading: "Font Stacks",  type: "flat" },
   { file: "i18n.json",        heading: "i18n",         type: "i18n" },
+  { file: "settings.json",    heading: "Settings",     type: "settings" },
   { file: "experiments.json", heading: "Experiments",  type: "experiments" },
 ];
 
-function camelToWords(str) {
-  return str
-    .replace(/([A-Z])/g, " $1")
-    .replace(/^./, (c) => c.toUpperCase())
-    .trim();
-}
-
-function mdCode(val) {
-  return val !== undefined && val !== null ? `\`${val}\`` : "—";
-}
-
-function flatSection(heading, data) {
-  const rows = Object.entries(data)
-    .map(([key, val]) => `| ${mdCode(PREFIX + key)} | ${mdCode(val)} |`)
-    .join("\n");
-
-  return `## ${heading}\n\n| Variable | Value |\n| --- | --- |\n${rows}\n`;
-}
+const PREFIX = "--RS__";
+const USER_PREFIX = "--USER__";
 
 const I18N_STRATEGY = `\
 Different scripts require different amounts of line height. These compensation factors allow a Reading System to adjust a line-height value when the publication's language differs from its own, so that the result feels consistent across scripts rather than too tight or too loose.
@@ -58,6 +42,25 @@ To resolve a compensation factor for a BCP-47 language tag:
 
 `;
 
+function camelToWords(str) {
+  return str
+    .replace(/([A-Z])/g, " $1")
+    .replace(/^./, (c) => c.toUpperCase())
+    .trim();
+}
+
+function mdCode(val) {
+  return val !== undefined && val !== null ? `\`${val}\`` : "—";
+}
+
+function flatSection(heading, data) {
+  const rows = Object.entries(data)
+    .map(([key, val]) => `| ${mdCode(PREFIX + key)} | ${mdCode(val)} |`)
+    .join("\n");
+
+  return `## ${heading}\n\n| Variable | Value |\n| --- | --- |\n${rows}\n`;
+}
+
 function i18nSection(heading, data) {
   const langKeys = Object.keys(data);
   const propKeys = [...new Set(langKeys.flatMap((lang) => Object.keys(data[lang])))];
@@ -74,6 +77,20 @@ function i18nSection(heading, data) {
   }).join("\n");
 
   return `## ${heading}\n\n${I18N_STRATEGY}${header}\n${divider}\n${rows}\n`;
+}
+
+function settingsSection(heading, data) {
+  const rows = Object.entries(data).map(([variant, { disabled, added }]) => {
+    const disabledCol = disabled.length
+      ? disabled.map((s) => mdCode(USER_PREFIX + s)).join(", ")
+      : "—";
+    const addedCol = added.length
+      ? added.map((s) => mdCode(USER_PREFIX + s)).join(", ")
+      : "—";
+    return `| ${mdCode(variant)} | ${disabledCol} | ${addedCol} |`;
+  }).join("\n");
+
+  return `## ${heading}\n\nUser settings vary by stylesheet variant. Each name below maps to a \`${USER_PREFIX}\` CSS variable.\n\n| Variant | Disabled | Added |\n| --- | --- | --- |\n${rows}\n`;
 }
 
 function experimentsSection(heading, data) {
@@ -95,6 +112,8 @@ function generate() {
       parts.push(flatSection(heading, data));
     } else if (type === "i18n") {
       parts.push(i18nSection(heading, data));
+    } else if (type === "settings") {
+      parts.push(settingsSection(heading, data));
     } else if (type === "experiments") {
       parts.push(experimentsSection(heading, data));
     }
