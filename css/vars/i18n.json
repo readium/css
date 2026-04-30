@@ -1,0 +1,107 @@
+{
+  "default": {
+    "baseFontFamily": "var(--RS__oldStyleTf)",
+    "lineHeightCompensation": 1
+  },
+  "am": {
+    "baseFontFamily": "Kefa, Nyala, Roboto, Noto, 'Noto Sans Ethiopic', serif",
+    "lineHeightCompensation": 1.167
+  },
+  "ar": {
+    "baseFontFamily": "'Geeza Pro', 'Arabic Typesetting', Roboto, Noto, 'Noto Naskh Arabic', 'Times New Roman', serif"
+  },
+  "bn": {
+    "baseFontFamily": "'Kohinoor Bangla', 'Bangla Sangam MN', Vrinda, Roboto, Noto, 'Noto Sans Bengali', sans-serif",
+    "lineHeightCompensation": 1.067
+  },
+  "bo": {
+    "baseFontFamily": "Kailasa, 'Microsoft Himalaya', Roboto, Noto, 'Noto Sans Tibetan', sans-serif"
+  },
+  "chr": {
+    "baseFontFamily": "'Plantagenet Cherokee', Roboto, Noto, 'Noto Sans Cherokee'",
+    "lineHeightCompensation": 1.167
+  },
+  "fa": {
+    "baseFontFamily": "'Geeza Pro', 'Arabic Typesetting', Roboto, Noto, 'Noto Naskh Arabic', 'Times New Roman', serif"
+  },
+  "gu": {
+    "baseFontFamily": "'Gujarati Sangam MN', 'Nirmala UI', Shruti, Roboto, Noto, 'Noto Sans Gujarati', sans-serif",
+    "lineHeightCompensation": 1.167
+  },
+  "he": {
+    "baseFontFamily": "'New Peninim MT', 'Arial Hebrew', Gisha, 'Times New Roman', Roboto, Noto, 'Noto Sans Hebrew' sans-serif",
+    "lineHeightCompensation": 1.1
+  },
+  "hi": {
+    "baseFontFamily": "'Kohinoor Devanagari', 'Devanagari Sangam MN', Kokila, 'Nirmala UI', Roboto, Noto, 'Noto Sans Devanagari', sans-serif",
+    "lineHeightCompensation": 1.1
+  },
+  "hy": {
+    "baseFontFamily": "Mshtakan, Sylfaen, Roboto, Noto, 'Noto Serif Armenian', serif"
+  },
+  "iu": {
+    "baseFontFamily": "'Euphemia UCAS', Euphemia, Roboto, Noto, 'Noto Sans Canadian Aboriginal', sans-serif"
+  },
+  "ja": {
+    "baseFontFamily": "YuGothic, 'Hiragino Maru Gothic ProN', 'Hiragino Sans', 'Yu Gothic UI', 'Meiryo UI', 'MS Gothic', Roboto, Noto, 'Noto Sans CJK JP', sans-serif",
+    "lineHeightCompensation": 1.167
+  },
+  "km": {
+    "baseFontFamily": "'Khmer Sangam MN', 'Leelawadee UI', 'Khmer UI', Roboto, Noto, 'Noto Sans Khmer', sans-serif",
+    "lineHeightCompensation": 1.067
+  },
+  "kn": {
+    "baseFontFamily": "'Kannada Sangam MN', 'Nirmala UI', Tunga, Roboto, Noto, 'Noto Sans Kannada', sans-serif",
+    "lineHeightCompensation": 1.1
+  },
+  "ko": {
+    "baseFontFamily": "'Nanum Gothic', 'Apple SD Gothic Neo', 'Malgun Gothic', Roboto, Noto, 'Noto Sans CJK KR', sans-serif",
+    "lineHeightCompensation": 1.167
+  },
+  "lo": {
+    "baseFontFamily": "'Lao Sangam MN', 'Leelawadee UI', 'Lao UI', Roboto, Noto, 'Noto Sans Lao', sans-serif"
+  },
+  "ml": {
+    "baseFontFamily": "'Malayalam Sangam MN', 'Nirmala UI', Kartika, Roboto, Noto, 'Noto Sans Malayalam', sans-serif",
+    "lineHeightCompensation": 1.067
+  },
+  "or": {
+    "baseFontFamily": "'Oriya Sangam MN', 'Nirmala UI', Kalinga, Roboto, Noto, 'Noto Sans Oriya', sans-serif",
+    "lineHeightCompensation": 1.167
+  },
+  "pa": {
+    "baseFontFamily": "'Gurmukhi MN', 'Nirmala UI', Kartika, Roboto, Noto, 'Noto Sans Gurmukhi', sans-serif",
+    "lineHeightCompensation": 1.1
+  },
+  "si": {
+    "baseFontFamily": "'Sinhala Sangam MN', 'Nirmala UI', 'Iskoola Pota', Roboto, Noto, 'Noto Sans Sinhala', sans-serif",
+    "lineHeightCompensation": 1.167
+  },
+  "ta": {
+    "baseFontFamily": "'Tamil Sangam MN', 'Nirmala UI', Latha, Roboto, Noto, 'Noto Sans Tamil', sans-serif",
+    "lineHeightCompensation": 1.067
+  },
+  "te": {
+    "baseFontFamily": "'Kohinoor Telugu', 'Telugu Sangam MN', 'Nirmala UI', Gautami, Roboto, Noto, 'Noto Sans Telugu', sans-serif"
+  },
+  "th": {
+    "baseFontFamily": "Thonburi, 'Leelawadee UI', 'Cordia New', Roboto, Noto, 'Noto Sans Thai', sans-serif",
+    "lineHeightCompensation": 1.067
+  },
+  "zh": {
+    "baseFontFamily": "'方体', 'PingFang SC', '黑体', 'Heiti SC', 'Microsoft JhengHei UI', 'Microsoft JhengHei', Roboto, Noto, 'Noto Sans CJK SC', sans-serif",
+    "lineHeightCompensation": 1.167
+  },
+  "zh-Hant": {
+    "baseFontFamily": "'方體', 'PingFang TC', '黑體', 'Heiti TC', 'Microsoft JhengHei UI', 'Microsoft JhengHei', Roboto, Noto, 'Noto Sans CJK TC', sans-serif",
+    "lineHeightCompensation": 1.167
+  },
+  "zh-TW": {
+    "baseFontFamily": "'方體', 'PingFang TC', '黑體', 'Heiti TC', 'Microsoft JhengHei UI', 'Microsoft JhengHei', Roboto, Noto, 'Noto Sans CJK TC', sans-serif",
+    "lineHeightCompensation": 1.167
+  },
+  "zh-HK": {
+    "baseFontFamily": "'方體', 'PingFang HK', '方體', 'PingFang TC', '黑體', 'Heiti TC', 'Microsoft JhengHei UI', 'Microsoft JhengHei', Roboto, Noto, 'Noto Sans CJK TC', sans-serif",
+    "lineHeightCompensation": 1.167
+  }
+}
