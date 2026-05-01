@@ -85,17 +85,24 @@ Then you must customize the selectors in `ReadiumCSS-config.js` and replace them
 
 Finally you will have to enable the `postcss-css-variables` and `postcss-alter-property-value` in the `postcss.config.js` file to be found at the `src` folder’s root.
 
-The following must be added to `plugins`: 
+First, add the following imports at the top of the file:
 
 ```
-require("postcss-css-variables")({
-  "preserve": true
+import postcssCssVariables from 'postcss-css-variables';
+import postcssAlterPropertyValue from 'postcss-alter-property-value';
+```
+
+Then add the following to `plugins`:
+
+```
+postcssCssVariables({
+  preserve: true
 }),
-require("postcss-alter-property-value")({
+postcssAlterPropertyValue({
   declarations: {
     "*": {
-      task: "remove"
-    , whenValueEquals: "undefined"
+      task: "remove",
+      whenValueEquals: "undefined"
     }
   }
 })

@@ -119,20 +119,25 @@ npm run test:update</code></pre>
 
           <p>Then you must customize the selectors in <code>ReadiumCSS-config.js</code> and replace them with either CSS classes or custom attributes so that flags can work as expected.</p>
 
-          <p>Finally you will have to enable the <code>postcss-css-variables</code> and <code>postcss-alter-property-value</code> in the <code>postcss.config.js</code> file to be found at the <code>src</code> folder’s root.</p>
+          <p>Finally you will have to enable the <code>postcss-css-variables</code> and <code>postcss-alter-property-value</code> in the <code>postcss.config.js</code> file to be found at the <code>src</code> folder's root.</p>
 
-          <p>The following must be added to <code>plugins</code>:</p>
+          <p>First, add the following imports at the top of the file:</p>
 
-          <pre><code>require("postcss-css-variables")({ 
-  "preserve": true 
-}), 
-require("postcss-alter-property-value")({ 
-  declarations: { 
-    "*": { 
-      task: "remove" 
-    , whenValueEquals: "undefined" 
-    } 
-  } 
+          <pre><code>import postcssCssVariables from 'postcss-css-variables';
+import postcssAlterPropertyValue from 'postcss-alter-property-value';</code></pre>
+
+          <p>Then add the following to <code>plugins</code>:</p>
+
+          <pre><code>postcssCssVariables({
+  preserve: true
+}),
+postcssAlterPropertyValue({
+  declarations: {
+    "*": {
+      task: "remove",
+      whenValueEquals: "undefined"
+    }
+  }
 })</code></pre>
 
           <p>This will:</p>
