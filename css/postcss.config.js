@@ -49,7 +49,7 @@ const header = `/*!
  * Copyright (c) 2017–${new Date().getFullYear()}. Readium Foundation. All rights reserved.
  * Use of this source code is governed by a BSD-style license which is detailed in the
  * LICENSE file present in the project repository where this source code is maintained.
- * Core maintainer: Jiminy Panoz <jiminy.panoz@edrlab.org>
+ * Core maintainer: Jiminy Panoz <jiminy.panoz@edrlab.org> 
 ${contributorsSection}
  */\n`;
 

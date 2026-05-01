@@ -28,7 +28,7 @@ const scenarios = [
   { label: "Word spacing",             url: "/tests/word-spacing.html",            fullPage: true },
   { label: "Letter spacing",           url: "/tests/letter-spacing.html",          fullPage: true },
   { label: "Letter spacing CJK",       url: "/tests/letter-spacing-cjk.html",      fullPage: true },
-  { label: "Ligatures",                url: "/tests/arabic-ligatures.html",        fullPage: true },
+  { label: "Ligatures",                url: "/tests/ligatures.html",               fullPage: true },
   { label: "Accessibility normalize",  url: "/tests/a11y-normalize.html",          fullPage: true },
   { label: "Accessibility custom",     url: "/tests/a11y-custom.html",             fullPage: true },
   { label: "No ruby",                  url: "/tests/no-ruby.html",                 fullPage: true },
