@@ -11,6 +11,7 @@
     "ebook-reader",
     "css"
   ],
+  "type": "module",
   "author": {
     "name": "readium",
     "email": "readium-css@edrlab.org",

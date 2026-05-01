@@ -1,4 +1,4 @@
-const { test, expect } = require("@playwright/test");
+import { test, expect } from '@playwright/test';
 
 const scenarios = [
   // viewport screenshots (paged mode — content is clipped to columns)
