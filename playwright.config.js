@@ -2,8 +2,12 @@ import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
   testDir: "./tests",
+  outputDir: "./tests/test-results",
   snapshotPathTemplate: "tests/snapshots/{arg}{ext}",
-  reporter: [["html", { open: "always" }]],
+  reporter: [
+    ["json", { outputFile: "tests/test-results/results.json" }],
+    ["html", { open: process.argv.includes("--update-snapshots") ? "never" : "always", outputFolder: "tests/playwright-report" }]
+  ],
   use: {
     baseURL: "http://localhost:8000",
     viewport: { width: 1024, height: 768 },
