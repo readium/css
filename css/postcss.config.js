@@ -59,7 +59,9 @@ export default (ctx) => ({
     postcssImport({
       root: ctx.file.dirname
     }),
-    postcssCustomSelectors({}),
+    postcssCustomSelectors({
+      prefix: "--RS__"
+    }),
     postcssImportJson({}),
     postcssDiscardComments({}),
     stylelint({

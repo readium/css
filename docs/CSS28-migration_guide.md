@@ -256,7 +256,7 @@ Typically, you would use zoom for all web publications, and the rest of the styl
 As of version `2.0.0-beta.23`, ReadiumCSS provides flags as a way to opt-in to and test improvements to existing features. That way they can also be disabled without having to wait on a quickfix in case they are creating new issues.
 
 - `--RS__experimentalHeaderFiltering: readium-experimentalHeaderFiltering-on`: attempts to filter out paragraphs that are implicitly headings or part of headers
-- `--RS__experimentalZoom: readium-experimentalZoom-on`: attemps to filter out elements that are sized using viewport units and should not be scaled directly
+- `--RS__experimentalZoom: readium-experimentalZoom-on`: attempts to filter out elements that are sized using viewport units and should not be scaled directly
 
 These flags are expected to be found on `:root`.
 
@@ -281,3 +281,21 @@ If you need to apply padding to the scroll view, you can use the `--RS__scrollPa
 As of version `2.0.0` (stable), the default line-length when none is set by the user is `100%` instead of `40rem`. This is to prevent conflicts with the zoom factor.
 
 The custom property has been kept so that consumers of ReadiumCSS can still customize the value if they wish, especially as they can opt out of the new font-size implementation.
+
+## Exposition of i18n stacks and compensation
+
+As of version `2.0.3`, font-stacks and line-height compensation are exposed for languages e.g. `am`, `ja`, `zh`, etc. so that host apps can import the JSON and consume the data. `default` (Latin) is our reference for all other scripts, and can also be used as a fallback when using the map.
+
+A markdown document with tables generated from the JSON files in `vars` has also been added. 
+
+## JSON properties do not longer have a prefix
+
+As of version `2.0.3`, vars are no longer prefixed with `RS__` in JSON files (colors, fontStacks, pagination). This prefix has to be removed from code if you were already using this data.
+
+```
+// Before
+const backgroundColor = defaultColors.RS__backgroundColor;
+
+// After
+const backgroundColor = defaultColors.backgroundColor;
+```
