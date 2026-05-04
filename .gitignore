@@ -1,6 +1,8 @@
 node_modules/
 *.css.map
 tests/backstop_data/
-tests/snapshots/
+tests/snapshots/local/
 test-results/
 playwright-report/
+blob-report/
+playwright/.cache/

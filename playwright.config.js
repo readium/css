@@ -3,7 +3,9 @@ import { defineConfig } from '@playwright/test';
 export default defineConfig({
   testDir: "./tests",
   outputDir: "./tests/test-results",
-  snapshotPathTemplate: "tests/snapshots/{arg}{ext}",
+  snapshotPathTemplate: process.env.CI
+    ? "tests/snapshots/{arg}{ext}"
+    : "tests/snapshots/local/{arg}{ext}",
   reporter: [
     ["json", { outputFile: "tests/test-results/results.json" }],
     ["html", { open: process.argv.includes("--update-snapshots") ? "never" : "always", outputFolder: "tests/playwright-report" }]
