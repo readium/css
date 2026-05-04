@@ -8,7 +8,7 @@ export default defineConfig({
     : "tests/snapshots/local/{arg}{ext}",
   reporter: [
     ["json", { outputFile: "tests/test-results/results.json" }],
-    ["html", { open: process.argv.includes("--update-snapshots") ? "never" : "always", outputFolder: "tests/playwright-report" }]
+    ["html", { open: process.env.CI || process.argv.includes("--update-snapshots") ? "never" : "always", outputFolder: "tests/playwright-report" }]
   ],
   use: {
     baseURL: "http://localhost:8000",
