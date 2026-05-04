@@ -23,8 +23,8 @@ const USER_PREFIX = "--USER__";
 const I18N_STRATEGY = `\
 \`lineHeightCompensation\` factors account for the different line-height needs of scripts, **Latin being the default and the reference for other scripts**. To determine which value to apply, a Reading System should use the following lookup against the publication's BCP-47 language tag:
 
-1. Find the key matching the publication's full BCP-47 language + region code.
-2. If no match, find the key after removing the region code (only BCP-47 language code).
+1. Find the key matching the publication's full BCP-47 language tag.
+2. If no match, strip the region subtag and try again.
 3. If no match, use \`default\` (or ignore, because the line-height compensation should be \`1\`).
 
 `;

@@ -284,6 +284,18 @@ The custom property has been kept so that consumers of ReadiumCSS can still cust
 
 ## Exposition of i18n stacks and compensation
 
-As of version `2.0.3`, font-stacks and line-height compensation are exposed for languages e.g. `am`, `ja`, `zh`, etc. so that host apps can import the JSON and consume the data. `default` being our reference, Latin scripts, and can be used as a fallback on parsing the mapping.
+As of version `2.0.3`, font-stacks and line-height compensation are exposed for languages e.g. `am`, `ja`, `zh`, etc. so that host apps can import the JSON and consume the data. `default` (Latin) is our reference for all other scripts, and can also be used as a fallback when using the map.
 
 A markdown document with tables generated from the JSON files in `vars` has also been added. 
+
+## JSON properties do not longer have a prefix
+
+As of version `2.0.3`, vars are no longer prefixed with `RS__` in JSON files (colors, fontStacks, pagination). This prefix has to be removed from code if you were already using this data.
+
+```
+// Before
+const backgroundColor = defaultColors.RS__backgroundColor;
+
+// After
+const backgroundColor = defaultColors.backgroundColor;
+```

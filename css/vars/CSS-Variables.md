@@ -40,8 +40,8 @@
 
 `lineHeightCompensation` factors account for the different line-height needs of scripts, **Latin being the default and the reference for other scripts**. To determine which value to apply, a Reading System should use the following lookup against the publication's BCP-47 language tag:
 
-1. Find the key matching the publication's full BCP-47 language + region code.
-2. If no match, find the key after removing the region code (only BCP-47 language code).
+1. Find the key matching the publication's full BCP-47 language tag.
+2. If no match, strip the region subtag and try again.
 3. If no match, use `default` (or ignore, because the line-height compensation should be `1`).
 
 | Language | Base Font Family | Line Height Compensation |
@@ -54,7 +54,7 @@
 | `chr` | `'Plantagenet Cherokee', Roboto, Noto, 'Noto Sans Cherokee'` | `1.167` |
 | `fa` | `'Geeza Pro', 'Arabic Typesetting', Roboto, Noto, 'Noto Naskh Arabic', 'Times New Roman', serif` | — |
 | `gu` | `'Gujarati Sangam MN', 'Nirmala UI', Shruti, Roboto, Noto, 'Noto Sans Gujarati', sans-serif` | `1.167` |
-| `he` | `'New Peninim MT', 'Arial Hebrew', Gisha, 'Times New Roman', Roboto, Noto, 'Noto Sans Hebrew' sans-serif` | `1.1` |
+| `he` | `'New Peninim MT', 'Arial Hebrew', Gisha, 'Times New Roman', Roboto, Noto, 'Noto Sans Hebrew', sans-serif` | `1.1` |
 | `hi` | `'Kohinoor Devanagari', 'Devanagari Sangam MN', Kokila, 'Nirmala UI', Roboto, Noto, 'Noto Sans Devanagari', sans-serif` | `1.1` |
 | `hy` | `Mshtakan, Sylfaen, Roboto, Noto, 'Noto Serif Armenian', serif` | — |
 | `iu` | `'Euphemia UCAS', Euphemia, Roboto, Noto, 'Noto Sans Canadian Aboriginal', sans-serif` | — |

@@ -342,9 +342,21 @@ const backgroundColor = defaultColors.RS__backgroundColor;</code></pre>
     <section id="i18n-stacks-exposition" class="level2">
       <h2 id="sigil_toc_id_226">Exposition of i18n stacks and compensation</h2>
 
-      <p>As of version <code>2.0.3</code>, font-stacks and line-height compensation are exposed for languages e.g. <code>am</code>, <code>ja</code>, <code>zh</code>, etc. so that host apps can import the JSON and consume the data. <code>default</code> being our reference, Latin scripts, and can be used as a fallback on parsing the mapping.</p>
+      <p>As of version <code>2.0.3</code>, font-stacks and line-height compensation are exposed for languages e.g. <code>am</code>, <code>ja</code>, <code>zh</code>, etc. so that host apps can import the JSON and consume the data. <code>default</code> (Latin) is our reference for all other scripts, and can also be used as a fallback when using the map.</p>
 
       <p>A markdown document with tables generated from the JSON files in <code>vars</code> has also been added.</p>
+    </section>
+
+    <section id="json-properties-prefix-removed" class="level2">
+      <h2 id="sigil_toc_id_227">JSON properties no longer have a prefix</h2>
+
+      <p>As of version <code>2.0.3</code>, vars are no longer prefixed with <code>RS__</code> in JSON files (colors, fontStacks, pagination). This prefix has to be removed from code if you were already using this data.</p>
+
+      <pre><code>// Before
+const backgroundColor = defaultColors.RS__backgroundColor;
+
+// After
+const backgroundColor = defaultColors.backgroundColor;</code></pre>
     </section>
   </section>
 </body>
