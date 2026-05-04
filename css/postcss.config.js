@@ -51,7 +51,9 @@ module.exports = (ctx) => ({
       root: ctx.file.dirname
     }),
     require("postcss-custom-selectors")({}),
-    require("@daltontan/postcss-import-json")({}),
+    require("@daltontan/postcss-import-json")({
+      prefix: "--RS__"
+    }),
     require("postcss-discard-comments")({}),
     require("stylelint")({
       "fix": true,

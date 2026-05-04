@@ -307,7 +307,7 @@ const backgroundColor = defaultColors.RS__backgroundColor;</code></pre>
 
       <ul>
         <li><code>--RS__experimentalHeaderFiltering: readium-experimentalHeaderFiltering-on</code>: attempts to filter out paragraphs that are implicitly headings or part of headers</li>
-        <li><code>--RS__experimentalZoom: readium-experimentalZoom-on</code>: attemps to filter out elements that are sized using viewport units and should not be scaled directly</li>
+        <li><code>--RS__experimentalZoom: readium-experimentalZoom-on</code>: attempts to filter out elements that are sized using viewport units and should not be scaled directly</li>
       </ul>
     </section>
 
@@ -330,13 +330,33 @@ const backgroundColor = defaultColors.RS__backgroundColor;</code></pre>
 
       <p>If you need to apply padding to the scroll view, you can use the <code>--RS__scrollPadding</code> properties instead. This can be useful to get around safe area insets, or to add whitespace so that contents are not hidden behind UI elements.</p>
     </section>
-    
+
     <section id="default-line-length-value-changed" class="level2">
       <h2 id="sigil_toc_id_225">Default line-length value has changed</h2>
 
       <p>As of version <code>2.0.0</code> (stable), the default line-length when none is set by the user is <code>100%</code> instead of <code>40rem</code>. This is to prevent conflicts with the zoom factor.</p>
 
       <p>The custom property has been kept so that consumers of ReadiumCSS can still customize the value if they wish, especially as they can opt out of the new font-size implementation.</p>
+    </section>
+
+    <section id="i18n-stacks-exposition" class="level2">
+      <h2 id="sigil_toc_id_226">Exposition of i18n stacks and compensation</h2>
+
+      <p>As of version <code>2.0.3</code>, font-stacks and line-height compensation are exposed for languages e.g. <code>am</code>, <code>ja</code>, <code>zh</code>, etc. so that host apps can import the JSON and consume the data. <code>default</code> (Latin) is our reference for all other scripts, and can also be used as a fallback when using the map.</p>
+
+      <p>A markdown document with tables generated from the JSON files in <code>vars</code> has also been added.</p>
+    </section>
+
+    <section id="json-properties-prefix-removed" class="level2">
+      <h2 id="sigil_toc_id_227">JSON properties no longer have a prefix</h2>
+
+      <p>As of version <code>2.0.3</code>, vars are no longer prefixed with <code>RS__</code> in JSON files (colors, fontStacks, pagination). This prefix has to be removed from code if you were already using this data.</p>
+
+      <pre><code>// Before
+const backgroundColor = defaultColors.RS__backgroundColor;
+
+// After
+const backgroundColor = defaultColors.backgroundColor;</code></pre>
     </section>
   </section>
 </body>

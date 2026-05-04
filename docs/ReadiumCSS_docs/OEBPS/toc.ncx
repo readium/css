@@ -1431,6 +1431,18 @@
       </navLabel>
       <content src="Text/Section-028.xhtml#sigil_toc_id_225" />
     </navPoint>
+    <navPoint id="navPoint238">
+      <navLabel>
+        <text>Exposition of i18n stacks and compensation</text>
+      </navLabel>
+      <content src="Text/Section-028.xhtml#sigil_toc_id_226" />
+    </navPoint>
+    <navPoint id="navPoint239">
+      <navLabel>
+        <text>JSON properties no longer have a prefix</text>
+      </navLabel>
+      <content src="Text/Section-028.xhtml#sigil_toc_id_227" />
+    </navPoint>
   </navPoint>
 </navMap>
 </ncx>
