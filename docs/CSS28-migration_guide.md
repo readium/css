@@ -281,3 +281,9 @@ If you need to apply padding to the scroll view, you can use the `--RS__scrollPa
 As of version `2.0.0` (stable), the default line-length when none is set by the user is `100%` instead of `40rem`. This is to prevent conflicts with the zoom factor.
 
 The custom property has been kept so that consumers of ReadiumCSS can still customize the value if they wish, especially as they can opt out of the new font-size implementation.
+
+## Exposition of i18n stacks and compensation
+
+As of version `2.0.3`, font-stacks and line-height compensation are exposed for languages e.g. `am`, `ja`, `zh`, etc. so that host apps can import the JSON and consume the data. `default` being our reference, Latin scripts, and can be used as a fallback on parsing the mapping.
+
+A markdown document with tables generated from the JSON files in `vars` has also been added. 
