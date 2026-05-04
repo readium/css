@@ -112,7 +112,3 @@ This is currently an edge case as we still have to see whether we want to suppor
     - if `mn-Mong` is set, then `vertical-lr` must be used;
     - if `mn-Cyrl` is set, then the publication is in cyrillic and it is `horizontal-tb`.
 - We don’t currently support the `mn` language, and we can’t rely on system fonts to do so, we’ll have to embed one.
-
-## Android Fonts Patch
-
-See [the specific ReadMe](android-fonts-patch/ReadMe.md) for further information.
