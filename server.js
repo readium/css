@@ -1,5 +1,9 @@
-const http = require("http");
-const express = require("express");
+import http from 'http';
+import express from 'express';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 const httpPort = 8000;

@@ -1,21 +1,30 @@
-const version = require("../package.json").version;
+import { execSync } from 'child_process';
+import pkg from '../package.json' with { type: 'json' };
+import postcssImport from 'postcss-import';
+import postcssCustomSelectors from 'postcss-custom-selectors';
+import postcssImportJson from '@daltontan/postcss-import-json';
+import postcssDiscardComments from 'postcss-discard-comments';
+import stylelint from 'stylelint';
+import postcssSorting from 'postcss-sorting';
+import postcssHeader from 'postcss-header';
+
+const { version } = pkg;
 
 // Get contributors from git
 function getContributors() {
   try {
-    const log = require("child_process")
-      .execSync("git log --format='%aN <%aE>' | sort -u")
+    const log = execSync("git log --format='%aN <%aE>' | sort -u")
       .toString()
       .split("\n")
       .filter(Boolean);
-    
+
     // Process contributors: filter bots and specific names, extract names, deduplicate, and sort
     return [
       ...new Set(
         log
           .filter(contributor => {
             const name = contributor.toLowerCase();
-            return !name.includes("dependabot") && 
+            return !name.includes("dependabot") &&
                    !name.includes("[bot]") &&
                    !name.includes("bot@") &&
                    !name.includes("jaypanoz") &&
@@ -44,18 +53,18 @@ const header = `/*!
 ${contributorsSection}
  */\n`;
 
-module.exports = (ctx) => ({
+export default (ctx) => ({
   map: false,
   plugins: [
-    require("postcss-import")({
+    postcssImport({
       root: ctx.file.dirname
     }),
-    require("postcss-custom-selectors")({}),
-    require("@daltontan/postcss-import-json")({
+    postcssCustomSelectors({}),
+    postcssImportJson({
       prefix: "--RS__"
     }),
-    require("postcss-discard-comments")({}),
-    require("stylelint")({
+    postcssDiscardComments({}),
+    stylelint({
       "fix": true,
       "config": {
         "defaultSeverity": "warning",
@@ -70,18 +79,18 @@ module.exports = (ctx) => ({
             , "severity": "error"
           }]
           , "custom-property-pattern": [ "(RS|USER)__.+", {
-              "message": "It looks like you’re using a CSS variable prefix which is not supported. It should either start with “--RS__” or “--USER__”."
+              "message": "It looks like you're using a CSS variable prefix which is not supported. It should either start with '--RS__' or '--USER__'."
             , "severity": "error"
           }]
           , "color-hex-length": [ "long", {
               "message": "We recommend using long color HEX to prevent unexpected issues."
           }]
           , "font-family-name-quotes": [ "always-where-recommended", {
-              "message": "If looks like there are spaces or digits in your “font-family”, please use quotes."
+              "message": "It looks like there are spaces or digits in your 'font-family', please use quotes."
           }]
           , "function-url-quotes": "always"
           , "length-zero-no-unit": [ true, {
-              "message": "The value of this property being 0, you don’t need an unit. Please remove it."
+              "message": "The value of this property being 0, you don't need a unit. Please remove it."
           }]
           , "selector-type-case": "lower"
           , "function-name-case": "lower"
@@ -93,17 +102,17 @@ module.exports = (ctx) => ({
           , "rule-empty-line-before": "always"
           , "no-duplicate-at-import-rules": true
           , "no-invalid-double-slash-comments": [ true, {
-              "message": "It looks like you’re using single-line JS comments. This is CSS, you can’t use that."
+              "message": "It looks like you're using single-line JS comments. This is CSS, you can't use that."
             , "severity": "error"
           }]
           , "max-nesting-depth": [ 0, {
-              "message": "We’re using Vanilla CSS with PostCSS and our current configuration doesn’t allow nesting selectors as in LESS or SASS."
+              "message": "We're using Vanilla CSS with PostCSS and our current configuration doesn't allow nesting selectors as in LESS or SASS."
             , "severity": "error"
           }]
         }
       }
     }),
-    require("postcss-sorting")({
+    postcssSorting({
       "properties-order": [
           "object-fit"
         , "position"
@@ -270,7 +279,7 @@ module.exports = (ctx) => ({
       ],
       "unspecified-properties-position": "bottomAlphabetical"
     }),
-    require("postcss-header")({
+    postcssHeader({
       header: header,
       headerLength: 0
     })

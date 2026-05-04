@@ -11,6 +11,7 @@
     "ebook-reader",
     "css"
   ],
+  "type": "module",
   "author": {
     "name": "readium",
     "email": "readium-css@edrlab.org",
@@ -32,7 +33,7 @@
   ],
   "devDependencies": {
     "@daltontan/postcss-import-json": "^1.1.1",
-    "backstopjs": "^6.3.23",
+    "@playwright/test": "^1.52.0",
     "copyfiles": "^2.4.1",
     "express": "^4.21.1",
     "postcss-alter-property-value": "^1.1.3",
@@ -55,8 +56,7 @@
     "build:vertical": "postcss css/src/ReadiumCSS-before-cjk-vertical.css -o css/dist/cjk-vertical/ReadiumCSS-before.css && postcss css/src/ReadiumCSS-default-cjk-vertical.css -o css/dist/cjk-vertical/ReadiumCSS-default.css && postcss css/src/ReadiumCSS-after-cjk-vertical.css -o css/dist/cjk-vertical/ReadiumCSS-after.css",
     "copyPatches": "copyfiles -u 2 css/src/ReadiumCSS-ebpaj_fonts_patch.css css/dist",
     "start": "node \"./server.js\"",
-    "test": "npm run build && (npm start & for i in {1..10}; do if curl -s http://localhost:8000 >/dev/null; then backstop test; pkill -f \"node ./server.js\"; echo '\\nVisual Regression testing has been completed.\\n'; exit 0; fi; sleep 1; done; echo 'Failed to start server'; exit 1)",
-    "test:ref": "npm start & backstop reference && pkill -9 -f \"node ./server.js\" && echo '\nVisual Regression references have been generated.\n'",
-    "test:approve": "backstop approve"
+    "test": "npm run build && playwright test",
+    "test:update": "npm run build && playwright test --update-snapshots"
   }
 }
