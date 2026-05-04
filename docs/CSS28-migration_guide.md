@@ -256,7 +256,7 @@ Typically, you would use zoom for all web publications, and the rest of the styl
 As of version `2.0.0-beta.23`, ReadiumCSS provides flags as a way to opt-in to and test improvements to existing features. That way they can also be disabled without having to wait on a quickfix in case they are creating new issues.
 
 - `--RS__experimentalHeaderFiltering: readium-experimentalHeaderFiltering-on`: attempts to filter out paragraphs that are implicitly headings or part of headers
-- `--RS__experimentalZoom: readium-experimentalZoom-on`: attemps to filter out elements that are sized using viewport units and should not be scaled directly
+- `--RS__experimentalZoom: readium-experimentalZoom-on`: attempts to filter out elements that are sized using viewport units and should not be scaled directly
 
 These flags are expected to be found on `:root`.
 

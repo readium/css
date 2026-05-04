@@ -96,6 +96,6 @@ Attempts to filter out paragraphs that are implicitly headings or part of header
 
 ### experimentalZoom
 
-Attemps to filter out elements that are sized using viewport units and should not be scaled directly e.g. tables, images, iframes, etc.
+Attempts to filter out elements that are sized using viewport units and should not be scaled directly e.g. tables, images, iframes, etc.
 
 **Value:** `readium-experimentalZoom-on`
