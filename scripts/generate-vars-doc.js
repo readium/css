@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 
-"use strict";
+import { readFileSync, writeFileSync } from "fs";
+import { join, relative } from "path";
+import { fileURLToPath } from "url";
 
-const fs = require("fs");
-const path = require("path");
+const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
-const VARS_DIR = path.join(__dirname, "../css/vars");
-const OUTPUT = path.join(VARS_DIR, "CSS-Variables.md");
+const VARS_DIR = join(__dirname, "../css/vars");
+const OUTPUT = join(VARS_DIR, "CSS-Variables.md");
 
 const FILES = [
   { file: "pagination.json",  heading: "Pagination",   type: "flat" },
@@ -92,8 +93,8 @@ function generate() {
   const parts = ["# CSS Variables Reference\n"];
 
   for (const { file, heading, type } of FILES) {
-    const src = path.join(VARS_DIR, file);
-    const data = JSON.parse(fs.readFileSync(src, "utf8"));
+    const src = join(VARS_DIR, file);
+    const data = JSON.parse(readFileSync(src, "utf8"));
 
     if (type === "flat") {
       parts.push(flatSection(heading, data));
@@ -106,8 +107,8 @@ function generate() {
     }
   }
 
-  fs.writeFileSync(OUTPUT, parts.join("\n"));
-  console.log(`Generated ${path.relative(process.cwd(), OUTPUT)}`);
+  writeFileSync(OUTPUT, parts.join("\n"));
+  console.log(`Generated ${relative(process.cwd(), OUTPUT)}`);
 }
 
 generate();
