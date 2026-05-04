@@ -86,11 +86,11 @@ export default (ctx) => ({
               "message": "We recommend using long color HEX to prevent unexpected issues."
           }]
           , "font-family-name-quotes": [ "always-where-recommended", {
-              "message": "If looks like there are spaces or digits in your 'font-family', please use quotes."
+              "message": "It looks like there are spaces or digits in your 'font-family', please use quotes."
           }]
           , "function-url-quotes": "always"
           , "length-zero-no-unit": [ true, {
-              "message": "The value of this property being 0, you don't need an unit. Please remove it."
+              "message": "The value of this property being 0, you don't need a unit. Please remove it."
           }]
           , "selector-type-case": "lower"
           , "function-name-case": "lower"
