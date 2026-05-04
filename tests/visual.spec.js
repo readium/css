@@ -44,7 +44,7 @@ const scenarios = [
 for (const { label, url, fullPage = false } of scenarios) {
   test(label, async ({ page }) => {
     await page.goto(url, { waitUntil: "networkidle" });
-    await page.evaluate(() => document.fonts.ready);
+    await page.evaluate(async () => { await document.fonts.ready; });
     const name = url.split("/").pop().replace(".html", "");
 
     if (fullPage) {
