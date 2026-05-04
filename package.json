@@ -57,6 +57,6 @@
     "copyPatches": "copyfiles -u 2 css/src/ReadiumCSS-ebpaj_fonts_patch.css css/dist",
     "start": "node \"./server.js\"",
     "test": "npm run build && playwright test",
-    "test:update": "playwright test --update-snapshots"
+    "test:update": "npm run build && playwright test --update-snapshots"
   }
 }
