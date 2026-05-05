@@ -82,9 +82,9 @@ User settings vary by stylesheet variant. Each name below maps to a `--USER__` C
 | Variant | Disabled | Added |
 | --- | --- | --- |
 | `default` | — | — |
-| `rtl` | `--USER__bodyHyphens`, `--USER__letterSpacing` | — |
-| `cjk-horizontal` | `--USER__textAlign`, `--USER__bodyHyphens`, `--USER__ligatures`, `--USER__paraIndent`, `--USER__wordSpacing` | `--USER__noRuby` |
-| `cjk-vertical` | `--USER__colCount`, `--USER__textAlign`, `--USER__bodyHyphens`, `--USER__ligatures`, `--USER__paraIndent`, `--USER__wordSpacing` | `--USER__noRuby` |
+| `rtl` | `--USER__bodyHyphens`, `--USER__a11yNormalize`, `--USER__letterSpacing` | — |
+| `cjk-horizontal` | `--USER__textAlign`, `--USER__bodyHyphens`, `--USER__a11yNormalize`, `--USER__ligatures`, `--USER__paraIndent`, `--USER__wordSpacing` | `--USER__noRuby` |
+| `cjk-vertical` | `--USER__colCount`, `--USER__textAlign`, `--USER__bodyHyphens`, `--USER__a11yNormalize`, `--USER__ligatures`, `--USER__paraIndent`, `--USER__wordSpacing` | `--USER__noRuby` |
 
 ## Experiments
 

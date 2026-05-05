@@ -4,15 +4,15 @@
     "added": []
   },
   "rtl": {
-    "disabled": ["bodyHyphens", "letterSpacing"],
+    "disabled": ["bodyHyphens", "a11yNormalize", "letterSpacing"],
     "added": []
   },
   "cjk-horizontal": {
-    "disabled": ["textAlign", "bodyHyphens", "ligatures", "paraIndent", "wordSpacing"],
+    "disabled": ["textAlign", "bodyHyphens", "a11yNormalize", "ligatures", "paraIndent", "wordSpacing"],
     "added": ["noRuby"]
   },
   "cjk-vertical": {
-    "disabled": ["colCount", "textAlign", "bodyHyphens", "ligatures", "paraIndent", "wordSpacing"],
+    "disabled": ["colCount", "textAlign", "bodyHyphens", "a11yNormalize", "ligatures", "paraIndent", "wordSpacing"],
     "added": ["noRuby"]
   }
 }
