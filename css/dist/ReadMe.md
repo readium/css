@@ -25,6 +25,7 @@ Finally, page progression is impacted:
 Disabled user settings: 
 
 - `hyphens`;
+- a11y text normalization (`a11yNormalize`);
 - `letter-spacing`.
 
 ## CJK
@@ -48,6 +49,7 @@ Disabled user settings:
 
 - `text-align`;
 - `hyphens`;
+- a11y text normalization (`a11yNormalize`);
 - `ligatures`;
 - paragraphs’ indent;
 - `word-spacing`.
@@ -85,6 +87,7 @@ Disabled user settings:
 - `column-count` (number of columns);
 - `text-align`;
 - `hyphens`;
+- a11y text normalization (`a11yNormalize`);
 - `ligatures`;
 - paragraphs’ indent;
 - `word-spacing`.
