@@ -23,10 +23,10 @@
   @import-json "../../vars/i18n.json";
 
   /* Config */
-  --RS__baseFontFamily: var(--RS__default-baseFontFamily);
+  --RS__baseFontFamily: var(--RS__latin-baseFontFamily);
 
   /* For square-ish fonts (CJK, Indic, etc.), we must apply some compensation in leading. Default is 1 i.e. no compensation */
-  --RS__lineHeightCompensation: var(--RS__default-lineHeightCompensation);
+  --RS__lineHeightCompensation: var(--RS__latin-lineHeightCompensation);
   --RS__baseLineHeight: calc(1.5 * var(--RS__lineHeightCompensation));
 
   /* Default colors (previously implemented as day mode) */

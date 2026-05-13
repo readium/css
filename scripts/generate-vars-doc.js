@@ -26,7 +26,7 @@ const I18N_STRATEGY = `\
 
 1. Find the key matching the publication's full BCP-47 language tag.
 2. If no match, strip the region subtag and try again.
-3. If no match, use \`default\` (or ignore, because the line-height compensation should be \`1\`).
+3. If no match, use \`latin\` (or ignore, because the line-height compensation should be \`1\`).
 
 `;
 

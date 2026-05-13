@@ -1,5 +1,5 @@
 /*!
- * Readium CSS v.2.0.4
+ * Readium CSS v.2.0.5
  * Copyright (c) 2017–2026. Readium Foundation. All rights reserved.
  * Use of this source code is governed by a BSD-style license which is detailed in the
  * LICENSE file present in the project repository where this source code is maintained.
@@ -144,11 +144,11 @@
 
   --RS__am-baseFontFamily:Kefa, Nyala, Roboto, Noto, 'Noto Sans Ethiopic', serif;
 
-  --RS__default-lineHeightCompensation:1;
+  --RS__latin-lineHeightCompensation:1;
 
-  --RS__default-baseFontFamily:var(--RS__oldStyleTf);
-  --RS__baseFontFamily:var(--RS__default-baseFontFamily);
-  --RS__lineHeightCompensation:var(--RS__default-lineHeightCompensation);
+  --RS__latin-baseFontFamily:var(--RS__oldStyleTf);
+  --RS__baseFontFamily:var(--RS__latin-baseFontFamily);
+  --RS__lineHeightCompensation:var(--RS__latin-lineHeightCompensation);
   --RS__baseLineHeight:calc(1.5 * var(--RS__lineHeightCompensation));
 
   --RS__selectionTextColor:inherit;
