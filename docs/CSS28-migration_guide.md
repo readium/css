@@ -284,7 +284,7 @@ The custom property has been kept so that consumers of ReadiumCSS can still cust
 
 ## Exposition of i18n stacks and compensation
 
-As of version `2.0.3`, font-stacks and line-height compensation are exposed for languages e.g. `am`, `ja`, `zh`, etc. so that host apps can import the JSON and consume the data. `default` (Latin) is our reference for all other scripts, and can also be used as a fallback when using the map.
+As of version `2.0.5`, font-stacks and line-height compensation are exposed for languages e.g. `am`, `ja`, `zh`, etc. so that host apps can import the JSON and consume the data. `latin` (previously `default` from `2.0.3`) is our reference for all other scripts, and can also be used as a fallback when using the map.
 
 A markdown document with tables generated from the JSON files in `vars` has also been added. 
 
