@@ -1,5 +1,5 @@
 {
-  "default": {
+  "latin": {
     "baseFontFamily": "var(--RS__oldStyleTf)",
     "lineHeightCompensation": 1
   },

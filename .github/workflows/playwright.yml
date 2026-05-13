@@ -3,8 +3,14 @@ name: Playwright Visual Regression
 on:
   push:
     branches: ["develop"]
+    paths:
+      - "css/src/**"
+      - "css/vars/**"
   pull_request:
     branches: ["develop"]
+    paths:
+      - "css/src/**"
+      - "css/vars/**"
 
 jobs:
   test:

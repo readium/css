@@ -42,11 +42,11 @@
 
 1. Find the key matching the publication's full BCP-47 language tag.
 2. If no match, strip the region subtag and try again.
-3. If no match, use `default` (or ignore, because the line-height compensation should be `1`).
+3. If no match, use `latin` (or ignore, because the line-height compensation should be `1`).
 
 | Language | Base Font Family | Line Height Compensation |
 | --- | --- | --- |
-| `default` | `var(--RS__oldStyleTf)` | `1` |
+| `latin` | `var(--RS__oldStyleTf)` | `1` |
 | `am` | `Kefa, Nyala, Roboto, Noto, 'Noto Sans Ethiopic', serif` | `1.167` |
 | `ar` | `'Geeza Pro', 'Arabic Typesetting', Roboto, Noto, 'Noto Naskh Arabic', 'Times New Roman', serif` | — |
 | `bn` | `'Kohinoor Bangla', 'Bangla Sangam MN', Vrinda, Roboto, Noto, 'Noto Sans Bengali', sans-serif` | `1.067` |
@@ -81,7 +81,7 @@ User settings vary by stylesheet variant. Each name below maps to a `--USER__` C
 
 | Variant | Disabled | Added |
 | --- | --- | --- |
-| `default` | — | — |
+| `ltr` | — | — |
 | `rtl` | `--USER__bodyHyphens`, `--USER__a11yNormalize`, `--USER__letterSpacing` | — |
 | `cjk-horizontal` | `--USER__textAlign`, `--USER__bodyHyphens`, `--USER__a11yNormalize`, `--USER__ligatures`, `--USER__paraIndent`, `--USER__wordSpacing` | `--USER__noRuby` |
 | `cjk-vertical` | `--USER__colCount`, `--USER__textAlign`, `--USER__bodyHyphens`, `--USER__a11yNormalize`, `--USER__ligatures`, `--USER__paraIndent`, `--USER__wordSpacing` | `--USER__noRuby` |
