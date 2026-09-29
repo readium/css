@@ -1,7 +1,7 @@
 {
   "name": "readium-css",
   "description": "A set of reference stylesheets for EPUB Reading Systems",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "homepage": "https://github.com/readium/readium-css",
   "license": "BSD-3-Clause",
   "keywords": [
