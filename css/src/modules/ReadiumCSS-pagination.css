@@ -132,8 +132,8 @@ body {
 /* At this point (80em or so), constraining line length must be done at the web view/iframe level, or by limiting the size of :root itself */
 
 /* Responsive columns */
-@media screen and (--responsive-columns),
-screen and (--min-device-columns) and (--max-device-columns) and (orientation: landscape) {
+@media (--responsive-columns),
+(--foldable-columns) {
   :root {
     /* The size at which we want 2 columns to switch to 1 (depending on font-size) */
     --RS__colWidth: 20em; /* 20 * 16 = 320px but 20 * 28 = 560px so it will switch to 1 col @ 175% font-size (user-setting) on an iPad */

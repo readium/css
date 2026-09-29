@@ -40,29 +40,19 @@ You will find those customizable medias in `ReadiumCSS-config.css`. The values d
 --responsive-columns
 ```
 
-Default is `60em`
+Default is `screen and (min-width: 50em) and (min-height: 30em) and (orientation: landscape)`
 
-The `min-width` at which the auto pagination model must be used – will switch from 1 to 2 columns and vice versa.
-
-* * *
-
-```
---min-device-columns
-```
-
-Default is `36em`
-
-The minimum device width of the mobile device for which the auto pagination model must be used.
+The viewport for which the auto pagination model must be used – will switch from 1 to 2 columns and vice versa. By default, tablets and open foldables in landscape, but not phones.
 
 * * *
 
 ```
---max-device-columns
+--foldable-columns
 ```
 
-Default is `47em`
+Default is `screen and (horizontal-viewport-segments: 2)`
 
-The maximum device width of the mobile device for which the auto pagination model must be used.
+Foldables in book posture, for which the auto pagination model must be used.
 
 * * *
 

@@ -10,16 +10,14 @@
    Syntax: @custom-media --variable (prop: value) */
 
 /* Responsive columns
-   The minimum width for which responsive columns (2 -> 1 and vice versa,
-   depending on the current font-size) must be enabled */
-@custom-media --responsive-columns (min-width: 60em);
+   The viewport for which responsive columns (2 -> 1 and vice versa,
+   depending on the current font-size) must be enabled: tablets and
+   open foldables in landscape. The min-height excludes phones. */
+@custom-media --responsive-columns screen and (min-width: 50em) and (min-height: 30em) and (orientation: landscape);
 
-/* Mobile columns
-   The minimum and maximum width for mobile devices.
-   We’re forcing the landscape orientation by default,
-   and must still investigate large tablets (iPad Pro, Surface Pro 3, etc.). */
-@custom-media --min-device-columns (min-device-width: 36em);
-@custom-media --max-device-columns (max-device-width: 47em);
+/* Foldable columns
+   Foldables in book posture, with the viewport split into two segments */
+@custom-media --foldable-columns screen and (horizontal-viewport-segments: 2);
 
 /* Custom selectors
    Syntax: @custom-selector :--variable selector

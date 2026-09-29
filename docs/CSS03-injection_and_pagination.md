@@ -77,7 +77,7 @@ Please note that when using `padding`, you must take it into account when sizing
 
 By default, responsive columns are built into Readium CSS, which means the layout will automatically switch from a single page to a two-column spread depending on: 
 
-1. the size of the viewport (by default, the minimum `width` is `60em` or the mobile device is in landscape orientation);
+1. the size of the viewport (by default, a minimum `width` of `50em` and `height` of `30em` in landscape orientation, i.e. tablets and open foldables but not phones, or a viewport split into two horizontal segments);
 2. the `font-size` currently set by the user.
 
 The spread will consequently switch to a single page once the user sets a `font-size` which is too large for two columns.

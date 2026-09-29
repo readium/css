@@ -103,11 +103,11 @@
 
         <p>The auto pagination model switches from 1 to 2 columns, and vice versa, when the conditions defined in <code>ReadiumCSS-config.css</code> are met. Further details about this model can be found in <a href="../Text/Section-003.xhtml">“Injection and pagination” doc</a>.</p>
 
-        <p>On desktop, <code>--responsive-columns</code> is the <code>min-width</code> at which the model must be used. Default is <code>60em</code>, a relative unit since it is responsive by default and will switch depending on the window’s dimensions and the font size.</p>
+        <p><code>--responsive-columns</code> is the viewport in which the model must be used. Default is <code>screen and (min-width: 50em) and (min-height: 30em) and (orientation: landscape)</code>: tablets and open foldables in landscape, but not phones. It uses relative units since it is responsive by default and will switch depending on the window’s dimensions and the font size.</p>
 
-        <p>Should you want it never or always applied, you can either define a <code>min-width</code> large or small enough, or remove the media queries entirely in <code>ReadiumCSS-pagination.css</code> and <code>ReadiumCSS-colNumber_pref.css</code>.</p>
+        <p><code>--foldable-columns</code> applies the model to foldables in book posture. Default is <code>screen and (horizontal-viewport-segments: 2)</code>.</p>
 
-        <p>On mobile, <code>--min-device-columns</code> and <code>--max-device-columns</code> is the range of (minimum and maximum) device widths in which the model must be used. We are forcing the orientation in <code>landscape</code>.</p>
+        <p>Should you want it never or always applied, you can either change these medias, or remove the media query entirely in <code>ReadiumCSS-pagination.css</code>.</p>
 
         <p>We recommend not trying to apply it in portrait orientation because 2 columns will provide users with quite a terrible reading experience in this configuration.</p>
 

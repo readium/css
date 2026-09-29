@@ -48,25 +48,17 @@
 
       <pre><code>--responsive-columns</code></pre>
 
-      <p>Default is <code>60em</code></p>
+      <p>Default is <code>screen and (min-width: 50em) and (min-height: 30em) and (orientation: landscape)</code></p>
 
-      <p>The <code>min-width</code> at which the auto pagination model must be used – will switch from 1 to 2 columns and vice versa.</p>
-
-      <hr/>
-
-      <pre><code>--min-device-columns</code></pre>
-
-      <p>Default is <code>36em</code></p>
-
-      <p>The minimum device width of the mobile device for which the auto pagination model must be used.</p>
+      <p>The viewport for which the auto pagination model must be used – will switch from 1 to 2 columns and vice versa. By default, tablets and open foldables in landscape, but not phones.</p>
 
       <hr/>
 
-      <pre><code>--max-device-columns</code></pre>
+      <pre><code>--foldable-columns</code></pre>
 
-      <p>Default is <code>47em</code></p>
+      <p>Default is <code>screen and (horizontal-viewport-segments: 2)</code></p>
 
-      <p>The maximum device width of the mobile device for which the auto pagination model must be used.</p>
+      <p>Foldables in book posture, for which the auto pagination model must be used.</p>
 
       <hr/>
 

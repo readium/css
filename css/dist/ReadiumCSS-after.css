@@ -87,8 +87,7 @@ body{
   }
 }
 
-@media screen and (min-width: 60em),
-screen and (min-device-width: 36em) and (max-device-width: 47em) and (orientation: landscape){
+@media screen and (min-width: 50em) and (min-height: 30em) and (orientation: landscape),screen and (horizontal-viewport-segments: 2){
 
   :root{
     --RS__colWidth:20em;
@@ -265,28 +264,24 @@ screen and (min-device-width: 36em) and (max-device-width: 47em) and (orientatio
 @media screen and (prefers-reduced-motion){
 }
 
-@media screen and (min-width: 60em),
-screen and (min-device-width: 36em) and (max-device-width: 47em) and (orientation: landscape){
+:root[style*="--USER__colCount: 1"],
+:root[style*="--USER__colCount:1"],
+:root[style*="--USER__colCount: 2"],
+:root[style*="--USER__colCount:2"]{
+  -webkit-column-count:var(--USER__colCount);
+  -moz-column-count:var(--USER__colCount);
+  column-count:var(--USER__colCount);
+}
 
-  :root[style*="--USER__colCount: 1"],
-  :root[style*="--USER__colCount:1"],
-  :root[style*="--USER__colCount: 2"],
-  :root[style*="--USER__colCount:2"]{
-    -webkit-column-count:var(--USER__colCount);
-    -moz-column-count:var(--USER__colCount);
-    column-count:var(--USER__colCount);
-  }
+:root[style*="--USER__colCount: 1"],
+:root[style*="--USER__colCount:1"]{
+  --RS__maxLineLength:40rem !important;
+  --RS__colWidth:100vw;
+}
 
-  :root[style*="--USER__colCount: 1"],
-  :root[style*="--USER__colCount:1"]{
-    --RS__maxLineLength:40rem !important;
-    --RS__colWidth:100vw;
-  }
-
-  :root[style*="--USER__colCount: 2"],
-  :root[style*="--USER__colCount:2"]{
-    --RS__colWidth:auto;
-  }
+:root[style*="--USER__colCount: 2"],
+:root[style*="--USER__colCount:2"]{
+  --RS__colWidth:auto;
 }
 
 :root[style*="--USER__pageMargins"] body{
