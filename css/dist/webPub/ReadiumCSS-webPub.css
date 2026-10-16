@@ -23,9 +23,9 @@
   figcaption p,
   header p,
   hgroup p,
-  :root[style*="readium-experimentalHeaderFiltering-on"] p[class*="title"],
-  :root[style*="readium-experimentalHeaderFiltering-on"] div:has(+ *) > h1 + p,
-  :root[style*="readium-experimentalHeaderFiltering-on"] div:has(+ *) > p:has(+ h1)
+  :root:is([style*="readium-experimentalHeaderFiltering-on"]) p[class*="title"],
+  :root:is([style*="readium-experimentalHeaderFiltering-on"]) div:has(+ *) > h1 + p,
+  :root:is([style*="readium-experimentalHeaderFiltering-on"]) div:has(+ *) > p:has(+ h1)
 ),
 :root[style*="--USER__textAlign"] li,
 :root[style*="--USER__textAlign"] dd{
@@ -63,63 +63,63 @@
   font-family:revert !important;
 }
 
-:root[style*="readium-a11y-on"]{
+:root:is([style*="readium-a11y-on"]){
   font-style:normal !important;
   font-weight:normal !important;
 }
 
-:root[style*="readium-a11y-on"] body *:not(code):not(var):not(kbd):not(samp){
+:root:is([style*="readium-a11y-on"]) body *:not(code):not(var):not(kbd):not(samp){
   font-family:inherit !important;
   font-style:inherit !important;
   font-weight:inherit !important;
 }
 
-:root[style*="readium-a11y-on"] body *:not(a){
+:root:is([style*="readium-a11y-on"]) body *:not(a){
   text-decoration:none !important;
 }
 
-:root[style*="readium-a11y-on"] body *{
+:root:is([style*="readium-a11y-on"]) body *{
   font-variant-caps:normal !important;
   font-variant-numeric:normal !important;
   font-variant-position:normal !important;
 }
 
-:root[style*="readium-a11y-on"] sup,
-:root[style*="readium-a11y-on"] sub{
+:root:is([style*="readium-a11y-on"]) sup,
+:root:is([style*="readium-a11y-on"]) sub{
   font-size:1rem !important;
   vertical-align:baseline !important;
 }
 
-:root:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] body{
+:root:not(:is([style*="readium-iOSPatch-on"]))[style*="--USER__zoom"] body{
   zoom:var(--USER__zoom) !important;
 }
 
-:root[style*="readium-iOSPatch-on"][style*="--USER__zoom"] body{
+:root:is([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] body{
   -webkit-text-size-adjust:var(--USER__zoom) !important;
 }
 
 @supports selector(figure:has(> img)){
 
-  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] figure:has(> img),
-  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] figure:has(> video),
-  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] figure:has(> svg),
-  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] figure:has(> canvas),
-  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] figure:has(> iframe),
-  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] figure:has(> audio),
-  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] div:has(> img:only-child),
-  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] div:has(> video:only-child),
-  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] div:has(> svg:only-child),
-  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] div:has(> canvas:only-child),
-  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] div:has(> iframe:only-child),
-  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] div:has(> audio:only-child),
-  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] table{
+  :root:is([style*="readium-experimentalZoom-on"]):not(:is([style*="readium-iOSPatch-on"]))[style*="--USER__zoom"] figure:has(> img),
+  :root:is([style*="readium-experimentalZoom-on"]):not(:is([style*="readium-iOSPatch-on"]))[style*="--USER__zoom"] figure:has(> video),
+  :root:is([style*="readium-experimentalZoom-on"]):not(:is([style*="readium-iOSPatch-on"]))[style*="--USER__zoom"] figure:has(> svg),
+  :root:is([style*="readium-experimentalZoom-on"]):not(:is([style*="readium-iOSPatch-on"]))[style*="--USER__zoom"] figure:has(> canvas),
+  :root:is([style*="readium-experimentalZoom-on"]):not(:is([style*="readium-iOSPatch-on"]))[style*="--USER__zoom"] figure:has(> iframe),
+  :root:is([style*="readium-experimentalZoom-on"]):not(:is([style*="readium-iOSPatch-on"]))[style*="--USER__zoom"] figure:has(> audio),
+  :root:is([style*="readium-experimentalZoom-on"]):not(:is([style*="readium-iOSPatch-on"]))[style*="--USER__zoom"] div:has(> img:only-child),
+  :root:is([style*="readium-experimentalZoom-on"]):not(:is([style*="readium-iOSPatch-on"]))[style*="--USER__zoom"] div:has(> video:only-child),
+  :root:is([style*="readium-experimentalZoom-on"]):not(:is([style*="readium-iOSPatch-on"]))[style*="--USER__zoom"] div:has(> svg:only-child),
+  :root:is([style*="readium-experimentalZoom-on"]):not(:is([style*="readium-iOSPatch-on"]))[style*="--USER__zoom"] div:has(> canvas:only-child),
+  :root:is([style*="readium-experimentalZoom-on"]):not(:is([style*="readium-iOSPatch-on"]))[style*="--USER__zoom"] div:has(> iframe:only-child),
+  :root:is([style*="readium-experimentalZoom-on"]):not(:is([style*="readium-iOSPatch-on"]))[style*="--USER__zoom"] div:has(> audio:only-child),
+  :root:is([style*="readium-experimentalZoom-on"]):not(:is([style*="readium-iOSPatch-on"]))[style*="--USER__zoom"] table{
     zoom:calc(100% / var(--USER__zoom)) !important;
   }
 
-  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] figcaption,
-  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] caption,
-  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] td,
-  :root[style*="readium-experimentalZoom-on"]:not([style*="readium-iOSPatch-on"])[style*="--USER__zoom"] th{
+  :root:is([style*="readium-experimentalZoom-on"]):not(:is([style*="readium-iOSPatch-on"]))[style*="--USER__zoom"] figcaption,
+  :root:is([style*="readium-experimentalZoom-on"]):not(:is([style*="readium-iOSPatch-on"]))[style*="--USER__zoom"] caption,
+  :root:is([style*="readium-experimentalZoom-on"]):not(:is([style*="readium-iOSPatch-on"]))[style*="--USER__zoom"] td,
+  :root:is([style*="readium-experimentalZoom-on"]):not(:is([style*="readium-iOSPatch-on"]))[style*="--USER__zoom"] th{
     zoom:var(--USER__zoom) !important;
   }
 }
@@ -145,9 +145,9 @@
   figcaption p,
   header p,
   hgroup p,
-  :root[style*="readium-experimentalHeaderFiltering-on"] p[class*="title"],
-  :root[style*="readium-experimentalHeaderFiltering-on"] div:has(+ *) > h1 + p,
-  :root[style*="readium-experimentalHeaderFiltering-on"] div:has(+ *) > p:has(+ h1)
+  :root:is([style*="readium-experimentalHeaderFiltering-on"]) p[class*="title"],
+  :root:is([style*="readium-experimentalHeaderFiltering-on"]) div:has(+ *) > h1 + p,
+  :root:is([style*="readium-experimentalHeaderFiltering-on"]) div:has(+ *) > p:has(+ h1)
 ){
   text-indent:var(--USER__paraIndent) !important;
 }
@@ -202,8 +202,8 @@
   font-optical-sizing:var(--USER__fontOpticalSizing) !important;
 }
 
-:root[style*="readium-noRuby-on"] body rt,
-:root[style*="readium-noRuby-on"] body rp{
+:root:is([style*="readium-noRuby-on"]) body rt,
+:root:is([style*="readium-noRuby-on"]) body rp{
   display:none;
 }
 
@@ -215,57 +215,57 @@
   font-variant-ligatures:inherit !important;
 }
 
-:root[style*="readium-iPadOSPatch-on"] body{
+:root:is([style*="readium-iPadOSPatch-on"]) body{
   -webkit-text-size-adjust:none;
 }
 
-:root[style*="readium-iPadOSPatch-on"] p, 
-:root[style*="readium-iPadOSPatch-on"] h1, 
-:root[style*="readium-iPadOSPatch-on"] h2, 
-:root[style*="readium-iPadOSPatch-on"] h3, 
-:root[style*="readium-iPadOSPatch-on"] h4, 
-:root[style*="readium-iPadOSPatch-on"] h5, 
-:root[style*="readium-iPadOSPatch-on"] h6, 
-:root[style*="readium-iPadOSPatch-on"] li, 
-:root[style*="readium-iPadOSPatch-on"] th, 
-:root[style*="readium-iPadOSPatch-on"] td, 
-:root[style*="readium-iPadOSPatch-on"] dt, 
-:root[style*="readium-iPadOSPatch-on"] dd, 
-:root[style*="readium-iPadOSPatch-on"] pre, 
-:root[style*="readium-iPadOSPatch-on"] address, 
-:root[style*="readium-iPadOSPatch-on"] details, 
-:root[style*="readium-iPadOSPatch-on"] summary,
-:root[style*="readium-iPadOSPatch-on"] figcaption,
-:root[style*="readium-iPadOSPatch-on"] div:not(:has(p, h1, h2, h3, h4, h5, h6, li, th, td, dt, dd, pre, address, aside, details, figcaption, summary)),
-:root[style*="readium-iPadOSPatch-on"] aside:not(:has(p, h1, h2, h3, h4, h5, h6, li, th, td, dt, dd, pre, address, aside, details, figcaption, summary)){
+:root:is([style*="readium-iPadOSPatch-on"]) p, 
+:root:is([style*="readium-iPadOSPatch-on"]) h1, 
+:root:is([style*="readium-iPadOSPatch-on"]) h2, 
+:root:is([style*="readium-iPadOSPatch-on"]) h3, 
+:root:is([style*="readium-iPadOSPatch-on"]) h4, 
+:root:is([style*="readium-iPadOSPatch-on"]) h5, 
+:root:is([style*="readium-iPadOSPatch-on"]) h6, 
+:root:is([style*="readium-iPadOSPatch-on"]) li, 
+:root:is([style*="readium-iPadOSPatch-on"]) th, 
+:root:is([style*="readium-iPadOSPatch-on"]) td, 
+:root:is([style*="readium-iPadOSPatch-on"]) dt, 
+:root:is([style*="readium-iPadOSPatch-on"]) dd, 
+:root:is([style*="readium-iPadOSPatch-on"]) pre, 
+:root:is([style*="readium-iPadOSPatch-on"]) address, 
+:root:is([style*="readium-iPadOSPatch-on"]) details, 
+:root:is([style*="readium-iPadOSPatch-on"]) summary,
+:root:is([style*="readium-iPadOSPatch-on"]) figcaption,
+:root:is([style*="readium-iPadOSPatch-on"]) div:not(:has(p, h1, h2, h3, h4, h5, h6, li, th, td, dt, dd, pre, address, aside, details, figcaption, summary)),
+:root:is([style*="readium-iPadOSPatch-on"]) aside:not(:has(p, h1, h2, h3, h4, h5, h6, li, th, td, dt, dd, pre, address, aside, details, figcaption, summary)){
   -webkit-text-zoom:reset;
 }
 
-:root[style*="readium-iPadOSPatch-on"] abbr, 
-:root[style*="readium-iPadOSPatch-on"] b, 
-:root[style*="readium-iPadOSPatch-on"] bdi, 
-:root[style*="readium-iPadOSPatch-on"] bdo, 
-:root[style*="readium-iPadOSPatch-on"] cite, 
-:root[style*="readium-iPadOSPatch-on"] code, 
-:root[style*="readium-iPadOSPatch-on"] dfn, 
-:root[style*="readium-iPadOSPatch-on"] em, 
-:root[style*="readium-iPadOSPatch-on"] i, 
-:root[style*="readium-iPadOSPatch-on"] kbd, 
-:root[style*="readium-iPadOSPatch-on"] mark, 
-:root[style*="readium-iPadOSPatch-on"] q, 
-:root[style*="readium-iPadOSPatch-on"] rp, 
-:root[style*="readium-iPadOSPatch-on"] rt, 
-:root[style*="readium-iPadOSPatch-on"] ruby, 
-:root[style*="readium-iPadOSPatch-on"] s, 
-:root[style*="readium-iPadOSPatch-on"] samp, 
-:root[style*="readium-iPadOSPatch-on"] small, 
-:root[style*="readium-iPadOSPatch-on"] span, 
-:root[style*="readium-iPadOSPatch-on"] strong, 
-:root[style*="readium-iPadOSPatch-on"] sub, 
-:root[style*="readium-iPadOSPatch-on"] sup, 
-:root[style*="readium-iPadOSPatch-on"] time, 
-:root[style*="readium-iPadOSPatch-on"] u, 
-:root[style*="readium-iPadOSPatch-on"] var{
+:root:is([style*="readium-iPadOSPatch-on"]) abbr, 
+:root:is([style*="readium-iPadOSPatch-on"]) b, 
+:root:is([style*="readium-iPadOSPatch-on"]) bdi, 
+:root:is([style*="readium-iPadOSPatch-on"]) bdo, 
+:root:is([style*="readium-iPadOSPatch-on"]) cite, 
+:root:is([style*="readium-iPadOSPatch-on"]) code, 
+:root:is([style*="readium-iPadOSPatch-on"]) dfn, 
+:root:is([style*="readium-iPadOSPatch-on"]) em, 
+:root:is([style*="readium-iPadOSPatch-on"]) i, 
+:root:is([style*="readium-iPadOSPatch-on"]) kbd, 
+:root:is([style*="readium-iPadOSPatch-on"]) mark, 
+:root:is([style*="readium-iPadOSPatch-on"]) q, 
+:root:is([style*="readium-iPadOSPatch-on"]) rp, 
+:root:is([style*="readium-iPadOSPatch-on"]) rt, 
+:root:is([style*="readium-iPadOSPatch-on"]) ruby, 
+:root:is([style*="readium-iPadOSPatch-on"]) s, 
+:root:is([style*="readium-iPadOSPatch-on"]) samp, 
+:root:is([style*="readium-iPadOSPatch-on"]) small, 
+:root:is([style*="readium-iPadOSPatch-on"]) span, 
+:root:is([style*="readium-iPadOSPatch-on"]) strong, 
+:root:is([style*="readium-iPadOSPatch-on"]) sub, 
+:root:is([style*="readium-iPadOSPatch-on"]) sup, 
+:root:is([style*="readium-iPadOSPatch-on"]) time, 
+:root:is([style*="readium-iPadOSPatch-on"]) u, 
+:root:is([style*="readium-iPadOSPatch-on"]) var{
   -webkit-text-zoom:normal;
 }
 
