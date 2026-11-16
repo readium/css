@@ -9,7 +9,7 @@ This is a temporary solution to a complex issue (i18n), which is aligned with ou
 If the publication has:
 
 - a `page-progression-direction` with the value set to `rtl`;
-- and language is either Arabic (`ar`), Farsi (`fa`) or Hebrew (`he`).
+- and the primary language is written right to left, i.e. its primary subtag is one of: Arabic (`ar`), Persian/Farsi (`fa`, `per`, `fas`), Hebrew (`he`, `iw`), Yiddish (`yi`), Urdu (`ur`), Pashto (`ps`), Sindhi (`sd`), Central Kurdish (`ckb`), Uyghur (`ug`), Dhivehi (`dv`) or Syriac (`syr`).
 
 Then stylesheets in the `rtl` folder should be used.
 

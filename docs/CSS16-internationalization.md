@@ -86,7 +86,7 @@ The following guidance is informal:
 
 1. if the `page-progression-direction` is missing;
 2. if there is only one `<dc:language>` item which clearly signals the `page-progression-direction`:
-    - `ar`, `fa`, and `he`;
+    - an RTL language, by primary subtag: `ar`, `fa` (or `per`, `fas`), `he` (or `iw`), `yi`, `ur`, `ps`, `sd`, `ckb`, `ug`, `dv`, `syr`;
     - `zh-Hant`, or `zh-TW`.
 3. then you can assume the `page-progression-direction` is `rtl`.
 
@@ -121,7 +121,7 @@ The following process must be implemented:
 
 The `dir` attribute is critical too, as it will reverse the column direction for RTL scripts.
 
-**The following must only apply if the primary language is `ar`, `fa`, and `he`. It MUST NOT apply to CJK.**
+**The following must only apply if the primary language is an RTL language (see the list in “Missing page-progression-direction”). It MUST NOT apply to CJK.**
 
 The following process must be implemented:
 
